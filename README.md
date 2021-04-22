@@ -2,7 +2,7 @@
 
 ## Code Institute's Milestone Project 3 - Backend Development
 
-*hero image here*
+![Hub wireframe](static/images/hub_wireframe.png)
 
 FestiViews is an information and reviews hub created for enthusiasts of the world's greatest pastime - music festivals. Users of the site can browse, search for, and 'favourite' the music festivals of their choice in order to learn key information, such as event dates and ticket cost, as well as discovering subjective opinions displayed by other users through the uploading of a festival review (or a 'festivew' if you will). As a frequent attendee of music festivals myself, I have always felt like festival goers have been missing a convenient and modern looking place to find all the relevant information and links for several events at once, and the closest versions of this vision that currently exist are in my opinion outdated and sometimes unpleasant to use. With that in mind, my aim with this project is to lay the basic groundwork for a site that will eventually end up being a vast improvement for user experience compared to what already exists.
 
@@ -60,7 +60,7 @@ As the owner and developer of the site:
 
 ### Strategy Plane
 
-As with my previous projects, the **user stories** as detailed above were the very first thing I attempted during strategy sessions in order to properly focus what my priorities should be during the creation of this project. Features that were not in service of the fulfilment of the user stories were not considered during development.
+As with my previous projects, the **user stories** as detailed above were the very first thing I attempted to solidify during strategy sessions in order to properly focus what my priorities should be during the creation of this project. Features that were not in service of the fulfilment of the user stories were not considered during development.
 
 The **focus** of the project is:
 * Provide a centralised hub of festival-specific information for festival attendees that site users can both consume and edit/contribute to themselves, thus creating a community-powered resource that increases in quality over time.
@@ -70,15 +70,15 @@ The **business goals** of the stakeholder are:
 * Encourage users to return as and when they need festival information.
 * Have a site that is more user friendly than the other available options.
 
-*Therefore, a bespoke website using both frontend and backend technologies is required to meet the focus and business goals as it is the only way to produce a hub that is both aesthetically pleasing and contains the data manipulation features necessary to allow users to contribute and edit content.*
+*Therefore, a bespoke website using both frontend and backend technologies is required to meet the focus and business goals as it is the only way to produce a hub that is both aesthetically pleasing and contains the data manipulation features necessary to allow users to contribute and edit content themselves.*
 
 At this stage of planning during my previous projects I would usually scour the internet for inspiration from sites that fit a similar niche to what I was trying to achive in order to get a better understanding of what features and design choices would be familiar to my userbase. However, as I've stated already, I am of the belief that the current options are not all that user friendly and as such were used more as a guide to only what I interpreted as the most important and necessary featuers for my own site.
 
-* [eFestivals](https://www.efestivals.co.uk/) - *this site is the current leader for collated festival information, and the objectively outdated visuals on their site as well as the cognitive overload found from several unnecessary features was actually the main reason I wend down this route for my project in the first place.*
+* [eFestivals](https://www.efestivals.co.uk/) - *this site is the current leader for collated festival information, and the objectively outdated visuals on their site as well as the cognitive overload found from several unnecessary features was actually the main reason I went down this route for my project in the first place.*
 * [UK Festival Guides](https://www.ukfestivalguides.com/reviews/)
 * [Travel Magazine Festival Reviews](https://www.thetravelmagazine.net/festivals/festival-reviews)
 
-using the below importance vs viability metric, I listed out all of the opportunities on offer when building this site to help me decide what was achievable, relevant and appropriate with regard to my user stories.
+Using the below importance vs viability metric, I listed out all of the opportunities on offer when building this site to help me decide what was achievable, relevant and appropriate with regard to my user stories.
 
 | Opportunity                | Importance | Viability
 | -------------------------- | ---------- |-----------
@@ -137,7 +137,7 @@ I felt that the scope of this project was relatively ambitious, and as a result 
 * Advanced search function which can filter out certain results based on more detailed parameters.
 * Featured festivals appearing on the homepage.
 * List of most recent reviews appearing on the homepage.
-* Extensive bio section of each music festival appearing on each festival specific page.
+* Extensive bio section of each music festival appearing on each festival hub.
 
 ### Structure Plane
 
@@ -200,11 +200,25 @@ Based on the functional specifications and content requirements outlined during 
 
 * Tree structure can be implemented with use of the burger icon on mobile devices.
 * Priority of links on the navigation bar should go from left to right.
-* Priority reads as follows: logo on the far left, search bar directly in the centre, then for navigation links Festivals, sign in/register(or log out if logged in), favourites, FAQ
-Most important CTA present on the homepage - browse
-No more than three clicks to reach end destination
+* Priority reads as follows: logo on the far left, search bar directly in the centre, then far right navigation links are to browse all festivals, sign in/register/log out, favourites, and finally FAQ
+* The most important CTAs are present on the home landing page - browse all for any user who reaches the site, and create account for anyone who is not logged in.
+* Where applicable the user should not be clicking more than three times to reach the end of their user journey.
 
 ### Skeleton Plane
+
+Low fidelity wireframes were my next step during planning of this project, and as with my previous projects I used [inVision](https://www.invisionapp.com/) to produce these. I took a conscious decision this time around to go into serious detail with these wireframes as the scope of the website is so large. This would help iron out most of the design and layout issues before coding began, and also in general would make my life a lot easier by providing a clear vision in my head of how the site should be presented.
+
+![All wireframes](static/images/festiviews_all_wireframes.png)
+![Landing wireframe](static/images/homepage_wireframe.png)
+![Login/Register wireframe](static/images/login_register_wireframe.png)
+![Favourites wireframe](static/images/favourites_wireframe.png)
+![All festivals wireframe](static/images/all_festivals_wireframe.png)
+![Add new hub wireframe](static/images/add_new_hub_wireframe.png)
+![Hub wireframe](static/images/hub_wireframe.png)
+![Add review wireframe](static/images/add_review_wireframe.png)
+![FAQ wireframe](static/images/faq_wireframe.png)
+
+### Surface Plane
 
 #### Colour Scheme
 
