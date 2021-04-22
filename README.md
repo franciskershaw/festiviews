@@ -220,10 +220,46 @@ Low fidelity wireframes were my next step during planning of this project, and a
 
 ### Surface Plane
 
+Once the long process of wireframing was complete, I was able to concentrate fully on deciding how the look and feel of the website should appear on the front end. The following general keywords were selected to inform all decisions relating to font and typography:
+
+* Outdoors
+* Green
+* Exciting
+* Professional
+
 #### Colour Scheme
+
+I combined the key associative words with the colour pallette generator found on [Coolors](https://coolors.co/) to find the following hex codes for consideration during the development of the project:
+
+* Greens: #7FB069 (Bud Green), #3A7E42 (Fern Green)
+* General background: #F2EDCF (Cornsilk)
+* Darker writing to colour: #503F4A (Eggplant)
 
 #### Typography
 
+Possible fonts through Google Fonts:
+
+* Nunito (or Nunito Sans)
+* Noto Sans KR
+* Rubik
+* Mukta
+* Work Sans
+* Nanum Gothic
+* Hind Siliguri
+* Quick Sand
+
+
 ### Data Model
 
+#### Conceptual Design Phase
+
+![Conceptual design model](static/images/conceptual_design.png)
+
+#### Logical Design Phase
+
+![Logical design model](static/images/logical_design.png)
+
+#### Physical Design Phase
+
+I used Mongo DB as my database management system as per the above schema.
 
