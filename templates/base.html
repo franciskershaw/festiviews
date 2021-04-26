@@ -17,32 +17,51 @@
 <body>
   <header>
     <!-- Navbar across all pages -->
-    <nav class="fixed-top navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">FV</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu"
-          aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        
-        <div class="collapse navbar-collapse" id="navbar-menu">
-          <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
-            <li class="nav-item">
-              <a class="nav-link" href="#">Browse All</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Sign In</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link">Favourites</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link">FAQ</a>
-            </li>
-          </ul>
-          <form class="form-inline" action="GET">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search FestiViews" aria-label="Search">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Go</button>
-          </form>
+    <nav class="fixed-top navbar navbar-expand-md navbar-light bg-light">
+
+      <div class="container-fluid p-0">
+        <div class="row">
+          <!-- Brand and toggler -->
+          <div class="col-6 col-md-3 col-lg-2 p-1">
+            <a class="navbar-brand mx-auto" href="#">FV</a>
+            <a class="navbar-brand mx-auto d-none d-md-inline" href="#">FestiViews</a>
+          </div>
+          
+          <!-- Search bar -->
+          <div class="col-5 col-md-4 col-lg-5 d-flex justify-content-end p-0">
+            <form class="form-inline" action="GET">
+              <input class="form-control mr-sm-2" type="search" placeholder="Search FestiViews" aria-label="Search">
+              <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Go</button>
+            </form>
+          </div>
+          <div class="col-1 d-md-none">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu"
+              aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+          </button>
+          </div>
+          <!-- Nav links -->
+          <div class="col-md-5 col-lg-5 p-0">
+            <div class="collapse navbar-collapse" id="navbar-menu">
+              <ul class="navbar-nav mt-2 mt-lg-0 ml-auto">
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Browse All</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Sign In</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link">Favourites</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link">FAQ</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          
+        </div>
+
       </div>
     </nav>
   </header>
@@ -51,12 +70,12 @@
   <!-- Footer across all pages -->
   <footer class="fixed-bottom">
     <div>
-       <span id="footer-heading"><a href="#">FestiViews</a></span>
+      <span id="footer-heading"><a href="#">FestiViews</a></span>
     </div>
     <div>
       <span id="copyright">C Francis Kershaw 2021</span>
     </div>
- </footer>
+  </footer>
   <!-- Script for bootstrap JS features -->
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
     integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">

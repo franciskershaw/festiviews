@@ -25,3 +25,11 @@ footer {
 	border: 1px solid;
 	text-align: center;
 }
+
+.row {
+    flex-grow: 1;
+}
+
+form.form-inline {
+    justify-content: center;
+}
