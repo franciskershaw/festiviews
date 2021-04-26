@@ -1,21 +1,18 @@
-* {
-    box-sizing: border-box;
-    padding: 0;
-    margin: 0;
+.navbar {
+    width: 100%;
 }
-
-/*  */
-
-nav {
-    border: 1px solid;
+.border-black {
+    border: 2px solid black;
 }
-
-ul li {
-    display: inline;
+.container-search {
+    position: absolute;
+    left: 50%;
+    top: 10px;
 }
-
-a.logo {
-    font-size: 150%;
+.navbar-search {
+    height: 40px;
+    position: relative;
+    left: -50%;
 }
 
 /* Footer */
