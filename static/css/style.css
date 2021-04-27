@@ -30,7 +30,7 @@ nav a {
 }
 
 .navbar-toggler {
-    font-weight: lighter;
+    color: #fbf9ef
 }
 
 .fas.fa-heart {
@@ -79,6 +79,10 @@ footer {
     }
     a.nav-link {
         padding-top: 25px;
+        font-size: 120%;
+    }
+    ul.navbar-nav {
+        margin-bottom: 15px;
     }
 }
 
@@ -99,5 +103,17 @@ footer {
         font-size: 90%;
         width: 200px;
         border-radius: 15px;
+    }
+}
+
+@media screen and (min-width: 1035px) {
+    a.nav-link {
+        margin-right: 1em;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 832px) {
+    a.nav-link {
+        font-size: 90%;
     }
 }
