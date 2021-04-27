@@ -14,37 +14,54 @@
 
 <body>
   <header>
-    <nav class="navbar navbar-expand-md border-black fixed-top">
-      <div class="navbar-brand border-black">logo</div>
-      <div class="container-search">
-        <div class="navbar-search border-black">search</div>
+    <!-- Fixed navbar -->
+    <nav class="navbar navbar-expand-md fixed-top">
+      <!-- Logo/brand -->
+      <div class="navbar-brand">
+        <a href="#">FVs </a><a href="#" id="brand">FestiViews</a>
       </div>
-      <button class="navbar-toggler border-black" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
-            aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-         <span><i class="fas fa-bars" id="navbar-custom-icon"></i></span>
-         </button>
-         <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
-            <ul class="navbar-nav">
-               <li class="nav-item">
-                  <a href="#" class="nav-link">link 1</a>
-                </li>
-               <li class="nav-item">
-                  <a href="#" class="nav-link">link 2</a>
-                </li>
-            </ul>
-         </div>
+      <!-- Search bar -->
+      <div class="container-search">
+        <form class="navbar-search">
+          <input type="text" placeholder="Search FestiViews" id="search-bar">
+        </form>
+      </div>
+      <!-- Toggler button for mobile -->
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+        aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span><i class="fas fa-bars" id="navbar-open-icon"></i><i class="fas fa-times hide" id="navbar-close-icon"></i></span>
+      </button>
+      <!-- Main navigation links -->
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a href="#" class="nav-link">Browse all</a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">Sign In</a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">Favourites <i class="fas fa-heart"></i></a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">FAQ</a>
+          </li>
+        </ul>
+      </div>
     </nav>
   </header>
   {% block content %}
   {% endblock %}
   <!-- Footer across all pages -->
   <footer class="fixed-bottom">
-    <div>
-      <span id="footer-heading"><a href="#">FestiViews</a></span>
+    <div class="footer-content-container">
+    <div id="footer-heading">
+      <a href="#">Fv </a><a href="#">FestiViews</a>
     </div>
     <div>
-      <span id="copyright">C Francis Kershaw 2021</span>
+      <p class="copyright text-muted">&copy; Francis Kershaw <span id="copyright"></span></p>
     </div>
+  </div>
   </footer>
   <!-- Script for bootstrap JS features -->
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
@@ -53,6 +70,10 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous">
   </script>
+  <script src="static/js/script.js"></script>
+  <script>
+    $('#copyright').text(new Date().getFullYear());
+</script>
 </body>
 
 </html>
