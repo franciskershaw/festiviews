@@ -232,21 +232,16 @@ Once the long process of wireframing was complete, I was able to concentrate ful
 I combined the key associative words with the colour pallette generator found on [Coolors](https://coolors.co/) to find the following hex codes for consideration during the development of the project:
 
 * Greens: #7FB069 (Bud Green), #3A7E42 (Fern Green)
-* General background: #F2EDCF (Cornsilk)
-* Darker writing to colour: #503F4A (Eggplant)
+* General background: #fbf9ef (Cornsilk)
+* Darker writing to colour: #392d34 (Eggplant)
 
 #### Typography
 
 Possible fonts through Google Fonts:
 
 * Nunito (or Nunito Sans)
-* Noto Sans KR
-* Rubik
-* Mukta
 * Work Sans
-* Nanum Gothic
-* Hind Siliguri
-* Quick Sand
+* Quicksand
 
 
 ### Data Model
