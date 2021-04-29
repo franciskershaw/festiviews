@@ -1,26 +1,5 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-
-<p>
-    {% for festival in festivals %}
-      {{ festival.name }}<br>
-      {{ festival.location }}<br>
-      {{ festival.start_date }}<br>
-      {{ festival.end_date }}<br>
-    {% endfor %}
-  </p>
+<button><a href="{{ url_for('sign_up') }}">Create Account</a></button>
 {% endblock %}

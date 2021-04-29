@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<!-- create new account form -->
+<section class="container">
+  <div class="row">
+    <div class="col">
+      <form method="POST" action="{{ url_for('sign_up') }}">
+        <h3>Sign Up to FestiViews!</h3>
+        <!-- username -->
+        <label for="username" class="form-label">Username</label>
+        <input type="text" class="form-control" id="name" name="name" required>
+        <!-- email -->
+        <label for="email" class="form-label">Email address</label>
+        <input type="email" class="form-control" id="email" name="email" required>
+        <!-- password -->
+        <label for="password_1" class="form-label">Password</label>
+        <input type="password" class="form-control" id="password_1" name="password_1" required>
+        <!-- confirm password -->
+        <label for="password_2" class="form-label">Confirm password</label>
+        <input type="password" class="form-control" id="password_2" name="password_2" required>
+        <!-- submit form -->
+        <button type="submit" class="btn btn-primary btn-lg" id="create_account">Register!</button>
+      </form>
+    </div>
+  </div>
+</section>
+{% endblock %}
