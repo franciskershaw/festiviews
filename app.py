@@ -90,6 +90,11 @@ def favourites(username):
     return redirect(url_for('login'))
 
 
+@app.route('/browse')
+def browse():
+    return render_template('browse.html')
+
+
 @app.route('/logout')
 def logout():
     # remove user from session cookies

@@ -35,7 +35,7 @@
       <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a href="#" class="nav-link">Browse all</a>
+            <a href="{{ url_for('browse') }}" class="nav-link">Browse all</a>
           </li>
           {% if session.user %}
             <li class="nav-item">
@@ -57,20 +57,21 @@
     </nav>
   </header>
   
-  <section>
-    <!-- flash messages -->
-    {% with messages = get_flashed_messages() %}
-      {% if messages %}
-        {% for message in messages %}
-          <div class="container flashes">
-              <h4>{{ message }}</h4>
-          </div>
-        {% endfor %}
-      {% endif %}
-    {% endwith %}
-  </section>
+  
 
   <main>
+    <section>
+      <!-- flash messages -->
+      {% with messages = get_flashed_messages() %}
+        {% if messages %}
+          {% for message in messages %}
+            <div class="container flashes">
+                <h4>{{ message }}</h4>
+            </div>
+          {% endfor %}
+        {% endif %}
+      {% endwith %}
+    </section>
     {% block content %}
     {% endblock %}
   </main>
