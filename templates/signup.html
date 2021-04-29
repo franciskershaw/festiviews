@@ -9,16 +9,20 @@
         <h3>Sign Up to FestiViews!</h3>
         <!-- username -->
         <label for="username" class="form-label">Username</label>
-        <input type="text" class="form-control" id="name" name="name" required>
-        <!-- email -->
-        <label for="email" class="form-label">Email address</label>
-        <input type="email" class="form-control" id="email" name="email" required>
+        <input type="text" class="form-control" id="username" name="username" required pattern="^[a-zA-Z0-9]$">
+
+        <!-- email - COMMENTED OUT FOR NOW -->
+        <!-- <label for="email" class="form-label">Email address</label>
+        <input type="email" class="form-control" id="email" name="email" required> -->
+
         <!-- password -->
         <label for="password_1" class="form-label">Password</label>
-        <input type="password" class="form-control" id="password_1" name="password_1" required>
-        <!-- confirm password -->
-        <label for="password_2" class="form-label">Confirm password</label>
-        <input type="password" class="form-control" id="password_2" name="password_2" required>
+        <input type="password" class="form-control" id="password_1" name="password_1" required pattern="^[a-zA-Z0-9]{6,30}$">
+
+        <!-- confirm password - COMMENTED OUT FOR NOW -->
+        <!-- <label for="password_2" class="form-label">Confirm password</label>
+
+        <input type="password" class="form-control" id="password_2" name="password_2" required> -->
         <!-- submit form -->
         <button type="submit" class="btn btn-primary btn-lg" id="create_account">Register!</button>
       </form>
