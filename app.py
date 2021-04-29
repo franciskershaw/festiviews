@@ -42,9 +42,11 @@ def sign_up():
         mongo.db.users.insert_one(sign_up)
 
         # put the new user into 'session' cookie
-        session['user'] = request.form.get('username').lower()
-        flash("Welcome to FestiViews!")
-    return render_template('signup.html')
+        session["user"] = request.form.get("username").lower()
+        flash("Registration Successful!")
+        return redirect(url_for("favourites", username=session["user"]))
+
+    return render_template("signup.html")
 
 
 @app.route("/login", methods=["GET", "POST"])
@@ -57,9 +59,12 @@ def login():
         if existing_user:
             # ensure hashed password matches user input
             if check_password_hash(
-                existing_user["password"], request.form.get("password")):
-                    session["user"] = request.form.get("username").lower()
-                    flash("Welcome, {}".format(request.form.get("username")))
+                    existing_user["password"], request.form.get("password")):
+                        session["user"] = request.form.get("username").lower()
+                        flash("Welcome, {}".format(
+                            request.form.get("username")))
+                        return redirect(url_for(
+                            "favourites", username=session["user"]))
             else:
                 # invalid password match
                 flash("Incorrect Username and/or Password")
@@ -71,6 +76,15 @@ def login():
             return redirect(url_for("login"))
 
     return render_template("login.html")
+
+
+@app.route("/favourites/<username>", methods=["GET", "POST"])
+def favourites(username):
+    # grab the session user's username from db
+    username = mongo.db.users.find_one(
+        {"username": session["user"]})["username"]
+    return render_template("favourites.html", username=username)
+
 
 if __name__ == '__main__':
     app.run(
