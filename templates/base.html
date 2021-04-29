@@ -15,7 +15,7 @@
 <body>
   <header>
     <!-- Fixed navbar -->
-    <nav class="navbar navbar-expand-md">
+    <nav class="navbar navbar-expand-md fixed-top">
       <!-- Logo/brand -->
       <div class="navbar-brand">
         <a href="{{ url_for('index') }}">FVs </a><a href="{{ url_for('index') }}" id="brand">FestiViews</a>
@@ -70,7 +70,7 @@
     {% endwith %}
   </section>
 
-  <main class="container">
+  <main>
     {% block content %}
     {% endblock %}
   </main>
@@ -79,10 +79,10 @@
   <footer class="fixed-bottom">
     <div class="footer-content-container">
     <div id="footer-heading">
-      <a href="{{ url_for('index') }}">Fv </a><a href="{{ url_for('index') }}">FestiViews</a>
+      <a href="{{ url_for('index') }}">FVS </a><a href="{{ url_for('index') }}">FestiViews</a>
     </div>
     <div>
-      <p class="copyright text-muted">&copy; Francis Kershaw <span id="copyright"></span></p>
+      <p>&copy; Francis Kershaw <span id="copyright"></span></p>
     </div>
   </div>
   </footer>
