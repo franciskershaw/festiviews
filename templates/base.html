@@ -37,12 +37,18 @@
           <li class="nav-item">
             <a href="#" class="nav-link">Browse all</a>
           </li>
-          <li class="nav-item">
-            <a href="{{ url_for('login') }}" class="nav-link">Sign In</a>
-          </li>
-          <li class="nav-item">
-            <a href="{{ url_for('favourites', username=session['user']) }}" class="nav-link">Favourites <i class="fas fa-heart"></i></a>
-          </li>
+          {% if session.user %}
+            <li class="nav-item">
+              <a href="{{ url_for('logout') }}" class="nav-link">Sign Out</a>
+            </li>
+            <li class="nav-item">
+              <a href="{{ url_for('favourites', username=session['user']) }}" class="nav-link">Favourites <i class="fas fa-heart"></i></a>
+            </li>
+          {% else %}
+            <li class="nav-item">
+              <a href="{{ url_for('login') }}" class="nav-link">Sign In</a>
+            </li>
+          {% endif %}
           <li class="nav-item">
             <a href="#" class="nav-link">FAQ</a>
           </li>
@@ -56,7 +62,7 @@
     {% with messages = get_flashed_messages() %}
       {% if messages %}
         {% for message in messages %}
-          <div class="row flashes">
+          <div class="container flashes">
               <h4>{{ message }}</h4>
           </div>
         {% endfor %}
