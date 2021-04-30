@@ -10,18 +10,23 @@ body {
     color: #392d34;
     font-family: 'Nunito', sans-serif;
     font-weight: 600;
-
+    min-height: 100vh;
 }
 
-main {
-    border: 1px solid orange;
-    margin-top: 56px;
+.flash-messages {
+    padding-top: 56px;
+}
+
+.page-container {
+    padding-top: 56px;
+    border: 1px solid red;
+    min-height: 85vh;
 }
 
 /* Navigation bar and footer */
 
 nav, footer {
-    background-color: rgba(127, 176, 105, 1)
+    background-color: rgba(127, 176, 105, .7)
 }
 
 nav a {
@@ -68,13 +73,13 @@ input[type="text"]::placeholder {
 }
 
 footer {
-	height: 80px;
+	height: 15vh;
 	text-align: center;
 }
 
-.footer-content-container {
+/* .footer-content-container {
     margin-top: 10px;
-}
+} */
 
 #footer-heading a {
     color: #fbf9ef;
@@ -92,21 +97,26 @@ h2 {
 }
 
 .landing-container {
-    height: 100vh;
-    padding-top: 2rem;
+    text-align: center;
     padding-right: 35px;
     padding-left: 35px;
-    text-align: center;
 }
 
 .index-headings-container {
-    padding-top: 6.5rem;
-    padding-bottom: 1.5rem;
+    padding-top: 5rem;
+    padding-bottom: 20px;
+    border: 1px solid green;
+    max-width: 400px;
+    margin: 0 auto;
 }
-/* 
+
 .cta-button-container {
-    padding-bottom: 10px;
-} */
+    text-align: center;
+    max-width: 400px;
+    margin: 0 auto;
+    border: 1px solid blue;
+    padding-top: 20px;
+}
 
 .cta-btn {
     margin-bottom: 20px;
@@ -133,18 +143,6 @@ h2 {
 }
 
 @media screen and (min-width: 992px) {
-    footer {
-        height: 120px;
-    }
-    .footer-content-container {
-        margin-top: 25px;
-    }
-    #footer-heading a {
-        font-size: 140%;
-    }
-    #footer-heading {
-        padding-bottom: 5px;
-    }
     #search-bar {
         font-size: 90%;
         width: 200px;
@@ -158,7 +156,7 @@ h2 {
     }
 }
 
-@media (min-width: 768px) and (max-width: 832px) {
+@media (min-width: 768px) and (max-width: 868px) {
     a.nav-link {
         font-size: 90%;
     }
