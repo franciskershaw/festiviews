@@ -3,7 +3,13 @@
 
 <section class="page-container">
     <h3>All Festivals</h3>
-</section>
+    <br>
+    {% for festival in festivals %}
+        {{ festival.name }}, {{ festival.location }}, {{ festival.start_date }} - {{ festival.end_date }}<br>
+    {% endfor %}
+    <br>
+    <a href="{{ url_for('add_festival') }}" class="btn btn-md cta-btn">Add</a>
 
+</section>
 
 {% endblock %}

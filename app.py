@@ -20,8 +20,7 @@ mongo = PyMongo(app)
 
 @app.route('/')
 def index():
-    festivals = mongo.db.festivals.find()
-    return render_template('index.html', festivals=festivals)
+    return render_template('index.html')
 
 
 @app.route('/sign_up', methods=['GET', 'POST'])
@@ -92,7 +91,24 @@ def favourites(username):
 
 @app.route('/browse')
 def browse():
-    return render_template('browse.html')
+    festivals = mongo.db.festivals.find()
+    return render_template('browse.html', festivals=festivals)
+
+
+@app.route('/add_festival', methods=['GET', 'POST'])
+def add_festival():
+    if request.method == 'POST':
+        add_festival = {
+            "name": request.form.get("festival_name"),
+            "location": request.form.get("festival_location"),
+            "start_date": request.form.get('festival_start_date'),
+            "end_date": request.form.get('festival_end_date')
+        }
+        mongo.db.festivals.insert_one(add_festival)
+        print(add_festival)
+        return redirect(url_for("sign_up"))
+
+    return render_template("add_festival.html")
 
 
 @app.route('/logout')
