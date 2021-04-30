@@ -5,7 +5,7 @@
     <h3>All Festivals</h3>
     <br>
     {% for festival in festivals %}
-        {{ festival.name }}, {{ festival.location }}, {{ festival.start_date }} - {{ festival.end_date }}<br>
+        {{ festival.name }}, {{ festival.location }}, {{ festival.start_date }} - {{ festival.end_date }} <button class="btn btn-sm cta-btn">Edit</button><button class="btn btn-sm cta-btn">Delete</button> <br>
     {% endfor %}
     <br>
     <a href="{{ url_for('add_festival') }}" class="btn btn-md cta-btn">Add</a>

@@ -105,10 +105,14 @@ def add_festival():
             "end_date": request.form.get('festival_end_date')
         }
         mongo.db.festivals.insert_one(add_festival)
-        print(add_festival)
-        return redirect(url_for("sign_up"))
+
+        return redirect(url_for("browse"))
 
     return render_template("add_festival.html")
+
+
+def delete_festival():
+    print('DELETE, DELETE')
 
 
 @app.route('/logout')
