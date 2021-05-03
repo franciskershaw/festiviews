@@ -258,3 +258,7 @@ Possible fonts through Google Fonts:
 
 I used Mongo DB as my database management system as per the above schema.
 
+## Bug notes
+
+03/05/2021 - commented out code on browse.html was breaking the site and I had forgotten that jinja templating reads absolutely everything
+
