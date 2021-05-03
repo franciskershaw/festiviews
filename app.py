@@ -110,7 +110,8 @@ def add_festival():
             "name": request.form.get("festival_name"),
             "location": request.form.get("festival_location"),
             "start_date": request.form.get('festival_start_date'),
-            "end_date": request.form.get('festival_end_date')
+            "end_date": request.form.get('festival_end_date'),
+            "reviews": []
         }
         mongo.db.festivals.insert_one(add_festival)
 
@@ -119,18 +120,26 @@ def add_festival():
     return render_template("add_festival.html")
 
 
-@app.route('/add_review', methods=['GET', 'POST'])
-def add_review():
+@app.route('/add_review/<festival_id>', methods=['GET', 'POST'])
+def add_review(festival_id):
+    festival = mongo.db.festivals.find_one({'_id': ObjectId(festival_id)})
     if request.method == 'POST':
-        add_review = {
+        review = {
             "text": request.form.get('review'),
-            "created_by": session['user']
+            "created_by": session['user'],
+            "festival_id": festival['_id']
         }
-        mongo.db.reviews.insert_one(add_review)
+
+        review_id = mongo.db.reviews.insert_one(review)
+        mongo.db.festivals.update_one(
+            {"_id": ObjectId(festival_id)},
+            {'$push': {"reviews": review_id.inserted_id}})
+
+        print(review_id.inserted_id)
 
         return redirect(url_for('browse'))
 
-    return render_template('add_review.html')
+    return render_template('add_review.html', festival=festival)
 
 
 @app.route('/logout')

@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% block content %}
-<form method="POST" action="{{ url_for('add_review') }}">
-    <h3>Add a review</h3>
+<form method="POST" action="{{ url_for('add_review', festival_id=festival._id) }}">
+    <h3>Add a review for {{ festival.name }}</h3>
     <!-- review -->
     <label for="review" class="form-label">Write your review:</label>
     <input type="text" class="form-control" id="review" name="review" required>

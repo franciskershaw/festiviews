@@ -11,8 +11,11 @@
     <br>
          <button class="btn btn-sm cta-btn">Edit</button> <br>
          <button class="btn btn-sm cta-btn">Delete</button> <br>
-         <a href="{{ url_for('add_review') }}" class="btn btn-sm cta-btn" role="button">Add Review</a>
+         <a href="{{ url_for('add_review', festival_id=festival._id) }}" class="btn btn-sm cta-btn" role="button">Add Review</a>
     <br>
+
+    <h4>Reviews for {{ festival.name }}</h4>
+    <!-- need a for loop to iterate over reviews housed in festival -->
 
 </section>
 
