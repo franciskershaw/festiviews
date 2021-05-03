@@ -5,7 +5,7 @@
     <h3>All Festivals</h3>
     <br>
     {% for festival in festivals %}
-        {{ festival.name }}, {{ festival.location }} <a href="{{ url_for('view_festival', festival_id=festival._id) }}" class="btn btn-md cta-btn" role="button">View</a> <br>
+        {{ festival.name }} <a href="{{ url_for('view_festival', festival_id=festival._id) }}" class="btn btn-md cta-btn" role="button">View</a> <br>
     {% endfor %}
     <br>
     <a href="{{ url_for('add_festival') }}" class="btn btn-md cta-btn" role="btn">Add</a>

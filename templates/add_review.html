@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block content %}
+<form method="POST" action="{{ url_for('add_review') }}">
+    <h3>Add a review</h3>
+    <!-- review -->
+    <label for="review" class="form-label">Write your review:</label>
+    <input type="text" class="form-control" id="review" name="review" required>
+    
+    <!-- submit form -->
+    <button type="submit" class="btn btn-primary btn-lg cta-btn" id="add_review">Add</button>
+  </form>
+{% endblock %}

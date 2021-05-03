@@ -2,9 +2,16 @@
 {% block content %}
 
 <section class="page-container">
-    <h3></h3>
+    <h3>
+        {{ festival.name }}
+    </h3>
+    <p>Location: {{ festival.location }}</p>
+    <p>Start date: {{ festival.start_date }}</p>
+    <p>End date: {{ festival.end_date }}</p>
     <br>
-         <button class="btn btn-sm cta-btn">Edit</button><button class="btn btn-sm cta-btn">Delete</button> <br>
+         <button class="btn btn-sm cta-btn">Edit</button> <br>
+         <button class="btn btn-sm cta-btn">Delete</button> <br>
+         <a href="{{ url_for('add_review') }}" class="btn btn-sm cta-btn" role="button">Add Review</a>
     <br>
 
 </section>

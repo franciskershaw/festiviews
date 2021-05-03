@@ -119,6 +119,20 @@ def add_festival():
     return render_template("add_festival.html")
 
 
+@app.route('/add_review', methods=['GET', 'POST'])
+def add_review():
+    if request.method == 'POST':
+        add_review = {
+            "text": request.form.get('review'),
+            "created_by": session['user']
+        }
+        mongo.db.reviews.insert_one(add_review)
+
+        return redirect(url_for('browse'))
+
+    return render_template('add_review.html')
+
+
 @app.route('/logout')
 def logout():
     # remove user from session cookies
