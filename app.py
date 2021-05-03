@@ -111,8 +111,12 @@ def add_festival():
     return render_template("add_festival.html")
 
 
-def delete_festival():
-    print('DELETE, DELETE')
+@app.route("/view_festival/<festival_id>")
+def view_festival(festival_id):
+    festival = mongo.db.festivals.find_one({"_id": ObjectId(festival_id)})
+
+    return render_template("view_festival.html",
+                           festival=festival)
 
 
 @app.route('/logout')
