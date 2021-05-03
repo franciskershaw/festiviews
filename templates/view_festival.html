@@ -15,8 +15,15 @@
     <br>
 
     <h4>Reviews for {{ festival.name }}</h4>
-    <!-- need a for loop to iterate over reviews housed in festival -->
-
+    <ul>
+    {% for review in reviews %}
+        <li>
+            <p>Written by: {{ review.created_by }}</p>
+            <p>{{ review.text }}</p>
+            <hr>
+        </li>
+    {% endfor %}
+    </ul> 
 </section>
 
 {% endblock %}

@@ -98,9 +98,10 @@ def browse():
 @app.route("/view_festival/<festival_id>")
 def view_festival(festival_id):
     festival = mongo.db.festivals.find_one({"_id": ObjectId(festival_id)})
-
+    reviews = festival['reviews']
     return render_template("view_festival.html",
-                           festival=festival)
+                           festival=festival,
+                           reviews=reviews)
 
 
 @app.route('/add_festival', methods=['GET', 'POST'])
@@ -129,13 +130,18 @@ def add_review(festival_id):
             "created_by": session['user'],
             "festival_id": festival['_id']
         }
+        mongo.db.reviews.insert_one(review)
 
-        review_id = mongo.db.reviews.insert_one(review)
         mongo.db.festivals.update_one(
             {"_id": ObjectId(festival_id)},
-            {'$push': {"reviews": review_id.inserted_id}})
+            {'$push': {'reviews': review}})
 
-        print(review_id.inserted_id)
+        # review_id = mongo.db.reviews.insert_one(review)
+        # mongo.db.festivals.update_one(
+        #     {"_id": ObjectId(festival_id)},
+        #     {'$push': {"reviews": review_id.inserted_id}})
+
+        # print(review_id.inserted_id)
 
         return redirect(url_for('browse'))
 
