@@ -91,8 +91,16 @@ def favourites(username):
 
 @app.route('/browse')
 def browse():
-    festivals = mongo.db.festivals.find()
+    festivals = list(mongo.db.festivals.find().sort('name', 1))
     return render_template('browse.html', festivals=festivals)
+
+
+@app.route("/view_festival/<festival_id>")
+def view_festival(festival_id):
+    festival = mongo.db.festivals.find_one({"_id": ObjectId(festival_id)})
+
+    return render_template("view_festival.html",
+                           festival=festival)
 
 
 @app.route('/add_festival', methods=['GET', 'POST'])
@@ -109,14 +117,6 @@ def add_festival():
         return redirect(url_for("browse"))
 
     return render_template("add_festival.html")
-
-
-@app.route("/view_festival/<festival_id>")
-def view_festival(festival_id):
-    festival = mongo.db.festivals.find_one({"_id": ObjectId(festival_id)})
-
-    return render_template("view_festival.html",
-                           festival=festival)
 
 
 @app.route('/logout')
