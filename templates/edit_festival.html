@@ -4,18 +4,19 @@
     <h3>Edit {{ festival.name }}</h3>
     <!-- festival name -->
     <label for="festival_name" class="form-label">Name:</label>
-    <input type="text" class="form-control" id="festival_name" name="festival_name" required>
+    <input type="text" class="form-control" id="festival_name" name="festival_name" value="{{ festival.name }}" required>
     <!-- Location -->
     <label for="festival_location" class="form-label">Location:</label>
-    <input type="text" class="form-control" id="festival_location" name="festival_location" required>
+    <input type="text" class="form-control" id="festival_location" name="festival_location" value="{{ festival.location }}" required>
     <!-- Start date -->
     <label for="festival_start_date" class="form-label">Start date:</label>
-    <input type="text" class="form-control" id="festival_start_date" name="festival_start_date" required>
+    <input type="text" class="form-control" id="festival_start_date" name="festival_start_date" value="{{ festival.start_date }}" required>
     <!-- End date -->
     <label for="festival_end_date" class="form-label">End date:</label>
-    <input type="text" class="form-control" id="festival_end_date" name="festival_end_date" required>
+    <input type="text" class="form-control" id="festival_end_date" name="festival_end_date" value="{{ festival.end_date }}" required>
 
     <!-- submit form -->
-    <button type="submit" class="btn btn-primary btn-lg" id="add_festival">Edit</button>
+    <a href="{{ url_for('view_festival', festival_id=festival._id) }}" class="btn btn-primary btn-md cta-btn">Cancel changes</a>
+    <button type="submit" class="btn btn-primary btn-md cta-btn" id="add_festival">Update</button>
   </form>
 {% endblock %}

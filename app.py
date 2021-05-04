@@ -123,6 +123,19 @@ def add_festival():
 
 @app.route('/edit_festival/<festival_id>', methods=["GET", "POST"])
 def edit_festival(festival_id):
+    if request.method == 'POST':
+        edit_festival = {
+            "name": request.form.get("festival_name"),
+            "location": request.form.get("festival_location"),
+            "start_date": request.form.get('festival_start_date'),
+            "end_date": request.form.get('festival_end_date'),
+            "reviews": []
+        }
+        mongo.db.festivals.update({"_id": ObjectId(festival_id)}, edit_festival)
+        flash('Festival updated!')
+
+        return redirect(url_for("browse"))
+
     festival = mongo.db.festivals.find_one({'_id': ObjectId(festival_id)})
     return render_template("edit_festival.html", festival=festival)
 
