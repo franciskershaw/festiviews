@@ -13,13 +13,24 @@ body {
 }
 
 main {
-    padding-top: 56px;
-    height: 85vh;
+    min-height: 88vh;
 }
 
 .page-container {
     text-align: center;
     padding-top: 20px;
+}
+
+.flash-messages {
+    padding-top: 56px;
+}
+
+.center-content {
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
 }
 
 /* Navigation bar and footer */
@@ -72,13 +83,17 @@ input[type="text"]::placeholder {
 }
 
 footer {
-	height: 15vh;
+	height: 12vh;
 	text-align: center;
+    font-size: 18px;
+}
+
+.footer-content-container {
+    font-size: 1em;
 }
 
 #footer-heading a {
     color: #fbf9ef;
-    font-size: 120%;
 }
 
 /* index.html - hero image and cta buttons */
@@ -105,18 +120,14 @@ h1, h2 {
     text-align: center;
     padding-right: 25px;
     padding-left: 25px;
-    height: 80vh;
+    height: 88vh;
     background: url('/static/images/hero-image-take-one.jpg') no-repeat fixed center;
     background-size: cover;
     text-shadow: 1px 1px #434242;
 }
 
 .index-content-container {
-    position: relative;
-    top: 45%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 100%;
+    padding-top: 40px;
 }
 
 .index-headings-container {
@@ -155,6 +166,12 @@ h1, h2 {
     }
     ul.navbar-nav {
         margin-bottom: 15px;
+    }
+}
+
+@media screen and (min-height: 736px) {
+    .footer-content-container {
+        font-size: 1.25em;
     }
 }
 
