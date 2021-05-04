@@ -110,9 +110,15 @@ h1, h2 {
     text-shadow: 1px 1px #434242;
 }
 
+.index-content-container {
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+}
+
 .index-headings-container {
-    padding-top: 20px;
-    padding-bottom: 20px;
     padding-left: 5px;
     padding-right: 5px;
     max-width: 400px;
@@ -131,7 +137,7 @@ h1, h2 {
     width: 156px;
     padding: 6px;
     background-color: rgba(127, 176, 105, 1);
-    border: none;
+    border: 1px solid #fbf9ef8f;
     border-radius: 21px;
 }
 
