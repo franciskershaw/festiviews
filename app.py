@@ -163,14 +163,7 @@ def add_review(festival_id):
             {"_id": ObjectId(festival_id)},
             {'$push': {'reviews': review}})
 
-        # review_id = mongo.db.reviews.insert_one(review)
-        # mongo.db.festivals.update_one(
-        #     {"_id": ObjectId(festival_id)},
-        #     {'$push': {"reviews": review_id.inserted_id}})
-
-        # print(review_id.inserted_id)
-
-        return redirect(url_for('browse'))
+        return redirect(url_for('view_festival'))
 
     return render_template('add_review.html', festival=festival)
 
