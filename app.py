@@ -121,6 +121,12 @@ def add_festival():
     return render_template("add_festival.html")
 
 
+@app.route('/edit_festival/<festival_id>', methods=["GET", "POST"])
+def edit_festival(festival_id):
+    festival = mongo.db.festivals.find_one({'_id': ObjectId(festival_id)})
+    return render_template("edit_festival.html", festival=festival)
+
+
 @app.route('/add_review/<festival_id>', methods=['GET', 'POST'])
 def add_review(festival_id):
     festival = mongo.db.festivals.find_one({'_id': ObjectId(festival_id)})

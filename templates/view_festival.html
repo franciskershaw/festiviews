@@ -9,20 +9,23 @@
     <p>Start date: {{ festival.start_date }}</p>
     <p>End date: {{ festival.end_date }}</p>
     <br>
-         <button class="btn btn-sm cta-btn">Edit</button> <br>
+         <a href="{{ url_for('edit_festival', festival_id=festival._id) }}" class="btn btn-sm cta-btn" role="button">Edit</a> <br>
          <button class="btn btn-sm cta-btn">Delete</button> <br>
          <a href="{{ url_for('add_review', festival_id=festival._id) }}" class="btn btn-sm cta-btn" role="button">Add Review</a>
     <br>
 
     <h4>Reviews for {{ festival.name }}</h4>
     <ul>
-    {% for review in reviews %}
-        <li>
-            <p>Written by: {{ review.created_by }}</p>
-            <p>{{ review.text }}</p>
-            <hr>
-        </li>
-    {% endfor %}
+        {% for review in reviews %}
+            <li>
+                <ul>
+                    <li>Written by: {{ review.created_by }}</li>
+                    <li>{{ review.text }}</li>
+                    <li><a href="#" class="btn btn-sm cta-btn" role="button">Edit</a><button class="btn btn-sm cta-btn">Delete</button> <br></li>
+                </ul>
+                <hr>
+            </li>
+        {% endfor %}
     </ul> 
 </section>
 

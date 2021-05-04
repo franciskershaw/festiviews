@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block content %}
+<form method="POST" action="{{ url_for('edit_festival', festival_id=festival._id) }}">
+    <h3>Edit {{ festival.name }}</h3>
+    <!-- festival name -->
+    <label for="festival_name" class="form-label">Name:</label>
+    <input type="text" class="form-control" id="festival_name" name="festival_name" required>
+    <!-- Location -->
+    <label for="festival_location" class="form-label">Location:</label>
+    <input type="text" class="form-control" id="festival_location" name="festival_location" required>
+    <!-- Start date -->
+    <label for="festival_start_date" class="form-label">Start date:</label>
+    <input type="text" class="form-control" id="festival_start_date" name="festival_start_date" required>
+    <!-- End date -->
+    <label for="festival_end_date" class="form-label">End date:</label>
+    <input type="text" class="form-control" id="festival_end_date" name="festival_end_date" required>
+
+    <!-- submit form -->
+    <button type="submit" class="btn btn-primary btn-lg" id="add_festival">Edit</button>
+  </form>
+{% endblock %}
