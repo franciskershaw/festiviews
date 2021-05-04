@@ -131,13 +131,21 @@ def edit_festival(festival_id):
             "end_date": request.form.get('festival_end_date'),
             "reviews": []
         }
-        mongo.db.festivals.update({"_id": ObjectId(festival_id)}, edit_festival)
+        mongo.db.festivals.update({"_id": ObjectId(festival_id)},
+                                  edit_festival)
         flash('Festival updated!')
 
         return redirect(url_for("browse"))
 
     festival = mongo.db.festivals.find_one({'_id': ObjectId(festival_id)})
     return render_template("edit_festival.html", festival=festival)
+
+
+@app.route('/delete_festival/<festival_id>')
+def delete_festival(festival_id):
+    mongo.db.festivals.remove({"_id": ObjectId(festival_id)})
+    flash("Festival deleted")
+    return redirect(url_for('browse'))
 
 
 @app.route('/add_review/<festival_id>', methods=['GET', 'POST'])
