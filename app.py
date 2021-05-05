@@ -98,10 +98,15 @@ def browse():
 @app.route("/view_festival/<festival_id>")
 def view_festival(festival_id):
     festival = mongo.db.festivals.find_one({"_id": ObjectId(festival_id)})
-    reviews = festival['reviews']
+    reviews = mongo.db.reviews.find({"festival_id": ObjectId(festival_id)})
+    reviews_arr = []
+
+    for review in reviews:
+        reviews_arr.append(review)
+
     return render_template("view_festival.html",
                            festival=festival,
-                           reviews=reviews)
+                           reviews_arr=reviews_arr)
 
 
 @app.route('/add_festival', methods=['GET', 'POST'])
@@ -152,16 +157,17 @@ def delete_festival(festival_id):
 def add_review(festival_id):
     festival = mongo.db.festivals.find_one({'_id': ObjectId(festival_id)})
     if request.method == 'POST':
+        # Grab form data from form
         review = {
             "text": request.form.get('review'),
             "created_by": session['user'],
             "festival_id": festival['_id']
         }
-        mongo.db.reviews.insert_one(review)
 
+        review_id = mongo.db.reviews.insert_one(review)
         mongo.db.festivals.update_one(
             {"_id": ObjectId(festival_id)},
-            {'$push': {'reviews': review}})
+            {'$push': {'reviews': review_id.inserted_id}})
 
         flash('Review added!')
         return redirect(url_for('browse'))
@@ -172,22 +178,25 @@ def add_review(festival_id):
 @app.route('/edit_review/<review_id>', methods=['GET', 'POST'])
 def edit_review(review_id):
     review = mongo.db.reviews.find_one({'_id': ObjectId(review_id)})
-    festival_id = review['festival_id']
     if request.method == 'POST':
-        # Update the review itself
         mongo.db.reviews.update_one(
             {"_id": ObjectId(review_id)},
             {"$set": {"text": request.form.get('review')}})
-        # Update the corresponding festival
-        # mongo.db.festivals.update_one(
-        #     {"_id": ObjectId(festival_id)},
-        #     {"$set": {"reviews.ObjectId(review_id)":}})
 
         flash('Review has been updated')
         return redirect(url_for('browse'))
 
     return render_template('edit_review.html',
                            review=review)
+
+
+@app.route('/delete_review/<review_id>')
+def delete_review(review_id):
+    # delete review from database
+    mongo.db.reviews.remove({"_id": ObjectId(review_id)})
+    # delete review id from festivals database
+    flash("Review deleted")
+    return redirect(url_for('browse'))
 
 
 @app.route('/logout')
