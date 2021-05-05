@@ -143,8 +143,11 @@ def edit_festival(festival_id):
 
 @app.route('/delete_festival/<festival_id>')
 def delete_festival(festival_id):
+    # delete festival from database
     mongo.db.festivals.remove({"_id": ObjectId(festival_id)})
-    flash("Festival deleted")
+    # delete corresponding reviews from reviews database
+    mongo.db.reviews.delete_many({'festival_id': ObjectId(festival_id)})
+    flash("Festival and corresponding reviews deleted")
     return redirect(url_for('browse'))
 
 
@@ -163,7 +166,7 @@ def add_review(festival_id):
             {"_id": ObjectId(festival_id)},
             {'$push': {'reviews': review}})
 
-        return redirect(url_for('view_festival'))
+        return redirect(url_for('browse'))
 
     return render_template('add_review.html', festival=festival)
 
