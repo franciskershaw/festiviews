@@ -124,17 +124,14 @@ def add_festival():
 @app.route('/edit_festival/<festival_id>', methods=["GET", "POST"])
 def edit_festival(festival_id):
     if request.method == 'POST':
-        edit_festival = {
-            "name": request.form.get("festival_name"),
-            "location": request.form.get("festival_location"),
-            "start_date": request.form.get('festival_start_date'),
-            "end_date": request.form.get('festival_end_date'),
-            "reviews": []
-        }
-        mongo.db.festivals.update({"_id": ObjectId(festival_id)},
-                                  edit_festival)
-        flash('Festival updated!')
+        mongo.db.festivals.update_one(
+            {"_id": ObjectId(festival_id)},
+            {"$set": {"name": request.form.get("festival_name"),
+                      "location": request.form.get("festival_location"),
+                      "start_date": request.form.get('festival_start_date'),
+                      "end_date": request.form.get('festival_end_date')}})
 
+        flash('Festival updated, but reviews maybe deleted')
         return redirect(url_for("browse"))
 
     festival = mongo.db.festivals.find_one({'_id': ObjectId(festival_id)})
@@ -169,6 +166,21 @@ def add_review(festival_id):
         return redirect(url_for('browse'))
 
     return render_template('add_review.html', festival=festival)
+
+
+# @app.route('/edit_review/<review_id>', methods=['GET', 'POST'])
+# def edit_review(review_id):
+#     review = mongo.db.reviews.find_one({'_id': ObjectId(review_id)})
+#     if request.method == 'POST':
+#         edit_review = {
+#             "text": request.form.get('review')
+#         }
+#         mongo.db.reviews.update({"_id": ObjectId(review_id)},
+#                                 edit_review)
+#         flash('Review updated!')
+
+#     return render_template('edit_review.html',
+#                            review=review)
 
 
 @app.route('/logout')
