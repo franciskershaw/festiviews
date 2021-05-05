@@ -146,7 +146,7 @@ def edit_festival(festival_id):
 @app.route('/delete_festival/<festival_id>')
 def delete_festival(festival_id):
     # delete festival from database
-    mongo.db.festivals.remove({"_id": ObjectId(festival_id)})
+    mongo.db.festivals.delete_one({"_id": ObjectId(festival_id)})
     # delete corresponding reviews from reviews database
     mongo.db.reviews.delete_many({'festival_id': ObjectId(festival_id)})
     flash("Festival and corresponding reviews deleted")
@@ -192,9 +192,14 @@ def edit_review(review_id):
 
 @app.route('/delete_review/<review_id>')
 def delete_review(review_id):
+    review = mongo.db.reviews.find_one({'_id': ObjectId(review_id)})
+    festival_id = review['festival_id']
+    print(review)
     # delete review from database
-    mongo.db.reviews.remove({"_id": ObjectId(review_id)})
+    mongo.db.reviews.delete_one({"_id": ObjectId(review_id)})
     # delete review id from festivals database
+    mongo.db.festivals.update_one({"_id": ObjectId(festival_id)},
+                                  {'$pull': {'reviews': ObjectId(review_id)}})
     flash("Review deleted")
     return redirect(url_for('browse'))
 
