@@ -262,3 +262,10 @@ I used Mongo DB as my database management system as per the above schema.
 
 03/05/2021 - commented out code on browse.html was breaking the site and I had forgotten that jinja templating reads absolutely everything
 
+05/05/2021 - Updating festivals was deleting all associated reviews because my edit function was adding an empty array (as per when you create a festival in the first place) to the database.
+
+## Testing document notes
+
+* Started with the most basic version of the frontend, with forms that only had a few fields in it for convenience
+* Took painstaking time first to make sure that the reviews, festivals, and users were all interacting with each other properly (like deleting a review meant it was also being deleted from the festival's document on mongoDB) before proceed with more complicated fields
+
