@@ -131,7 +131,7 @@ def edit_festival(festival_id):
                       "start_date": request.form.get('festival_start_date'),
                       "end_date": request.form.get('festival_end_date')}})
 
-        flash('Festival updated, but reviews maybe deleted')
+        flash('Festival updated')
         return redirect(url_for("browse"))
 
     festival = mongo.db.festivals.find_one({'_id': ObjectId(festival_id)})
@@ -163,24 +163,31 @@ def add_review(festival_id):
             {"_id": ObjectId(festival_id)},
             {'$push': {'reviews': review}})
 
+        flash('Review added!')
         return redirect(url_for('browse'))
 
     return render_template('add_review.html', festival=festival)
 
 
-# @app.route('/edit_review/<review_id>', methods=['GET', 'POST'])
-# def edit_review(review_id):
-#     review = mongo.db.reviews.find_one({'_id': ObjectId(review_id)})
-#     if request.method == 'POST':
-#         edit_review = {
-#             "text": request.form.get('review')
-#         }
-#         mongo.db.reviews.update({"_id": ObjectId(review_id)},
-#                                 edit_review)
-#         flash('Review updated!')
+@app.route('/edit_review/<review_id>', methods=['GET', 'POST'])
+def edit_review(review_id):
+    review = mongo.db.reviews.find_one({'_id': ObjectId(review_id)})
+    festival_id = review['festival_id']
+    if request.method == 'POST':
+        # Update the review itself
+        mongo.db.reviews.update_one(
+            {"_id": ObjectId(review_id)},
+            {"$set": {"text": request.form.get('review')}})
+        # Update the corresponding festival
+        # mongo.db.festivals.update_one(
+        #     {"_id": ObjectId(festival_id)},
+        #     {"$set": {"reviews.ObjectId(review_id)":}})
 
-#     return render_template('edit_review.html',
-#                            review=review)
+        flash('Review has been updated')
+        return redirect(url_for('browse'))
+
+    return render_template('edit_review.html',
+                           review=review)
 
 
 @app.route('/logout')

@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block content %}
+<form method="POST" action="{{ url_for('edit_review', review_id=review._id) }}">
+    <h3>Edit a review</h3>
+    <!-- review -->
+    <label for="review" class="form-label">Edit your review:</label>
+    <input type="text" class="form-control" id="review" name="review" required value="{{ review.text }}">
+    
+    <!-- submit form -->
+    <button type="submit" class="btn btn-primary btn-lg cta-btn" id="edit_review">Update</button>
+    <a href="{{ url_for('browse') }}" class="btn btn-primary btn-md cta-btn">Cancel changes</a>
+  </form>
+{% endblock %}

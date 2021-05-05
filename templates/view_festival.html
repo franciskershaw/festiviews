@@ -21,7 +21,7 @@
                 <ul>
                     <li>Written by: {{ review.created_by }}</li>
                     <li>{{ review.text }}</li>
-                    <li><a href="#" class="btn btn-sm cta-btn" role="button">Edit</a><button class="btn btn-sm cta-btn">Delete</button> <br></li>
+                    <li><a href="{{ url_for('edit_review', review_id=review._id) }}" class="btn btn-sm cta-btn" role="button">Edit</a><button class="btn btn-sm cta-btn">Delete</button> <br></li>
                 </ul>
                 <hr>
             </li>
