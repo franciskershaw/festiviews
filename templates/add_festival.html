@@ -1,21 +1,89 @@
 {% extends 'base.html' %}
-{% block content %}
-<form method="POST" action="{{ url_for('add_festival') }}">
-    <h3>Add a festival</h3>
-    <!-- festival name -->
-    <label for="festival_name" class="form-label">Name:</label>
-    <input type="text" class="form-control" id="festival_name" name="festival_name" required>
-    <!-- Location -->
-    <label for="festival_location" class="form-label">Location:</label>
-    <input type="text" class="form-control" id="festival_location" name="festival_location" required>
-    <!-- Start date -->
-    <label for="festival_start_date" class="form-label">Start date:</label>
-    <input type="text" class="form-control" id="festival_start_date" name="festival_start_date" required>
-    <!-- End date -->
-    <label for="festival_end_date" class="form-label">End date:</label>
-    <input type="text" class="form-control" id="festival_end_date" name="festival_end_date" required>
 
-    <!-- submit form -->
-    <button type="submit" class="btn btn-primary btn-lg" id="add_festival">Add</button>
+{% block content %}
+<section class="container add-fest-container page-container">
+  <h3>Add a festival</h3>
+  <form class="add-fest-form" method="POST" action="{{ url_for('add_festival') }}">
+    <div class="row">
+      <!-- festival name -->
+      <div class="col-12 col-md-6">
+        <label for="festival_name" class="form-label">Name&#42</label>
+        <input type="text" class="form-control" id="festival_name" name="festival_name" required>
+      </div>
+      <!-- Location -->
+      <div class="col-12 col-md-6">
+        <label for="festival_location" class="form-label">Location&#42</label>
+        <input type="text" class="form-control" id="festival_location" name="festival_location" required>
+      </div>
+      <!-- Start date -->
+      <div class="col-6 col-md-3">
+        <label for="festival_start_date" class="form-label">Start date&#42</label>
+        <input type="text" class="form-control" id="festival_start_date" name="festival_start_date" required>
+      </div>
+      <!-- End date -->
+      <div class="col-6 col-md-3">
+        <label for="festival_end_date" class="form-label">End date&#42</label>
+        <input type="text" class="form-control" id="festival_end_date" name="festival_end_date" required>
+      </div>
+      <!-- Genre selection -->
+      <div class="col-6 col-md-3">
+        <label for="festival_genre" class="form-label">Choose Genre&#42</label>
+        <input type="text" class="form-control" id="festival_genre" name="festival_genre" required>
+      </div>
+      <!-- Capacity -->
+      <div class="col-6 col-md-3">
+        <label for="festival_capacity" class="form-label">Input capacity&#42</label>
+        <input type="text" class="form-control" id="festival_capacity" name="festival_capacity" required>
+      </div>
+      <!-- Headliner 1 -->
+      <div class="col-12 col-md-4">
+        <label for="festival_headliner_1" class="form-label">Notable act 1&#42</label>
+        <input type="text" class="form-control" id="festival_headliner_1" name="festival_headliner_1" required>
+      </div>
+      <!-- Headliner 2 -->
+      <div class="col-12 col-md-4">
+        <label for="festival_headliner_2" class="form-label">Notable act 2&#42</label>
+        <input type="text" class="form-control" id="festival_headliner_2" name="festival_headliner_2" required>
+      </div>
+      <!-- Headliner 3 -->
+      <div class="col-12 col-md-4">
+        <label for="festival_headliner_3" class="form-label">Notable act 3&#42</label>
+        <input type="text" class="form-control" id="festival_headliner_3" name="festival_headliner_3" required>
+      </div>
+      <!-- Website link -->
+      <div class="col-12 col-md-6">
+        <label for="festival_website" class="form-label">Link to website&#42</label>
+        <input type="text" class="form-control" id="festival_website" name="festival_website" required>
+      </div>
+      <!-- Ticket price -->
+      <div class="col-12 col-md-6">
+        <label for="festival_price" class="form-label">Ticket Price&#42</label>
+        <input type="text" class="form-control" id="festival_price" name="festival_price" required>
+      </div>
+      <!-- Link to tickets -->
+      <div class="col-12 col-md-6">
+        <label for="festival_ticket_link" class="form-label">Link to tickets&#42</label>
+        <input type="text" class="form-control" id="festival_ticket_link" name="festival_ticket_link" required>
+      </div>
+      <!-- Hero image link -->
+      <div class="col-12 col-md-6">
+        <label for="festival_image" class="form-label">Link to hero image</label>
+        <input type="text" class="form-control" id="festival_image" name="festival_image">
+      </div>
+      <!-- Short description -->
+      <label for="festival_description" class="form-label">Short descirption&#42</label>
+      <input type="text" class="form-control" id="festival_description" name="festival_description" required>
+      <!-- submit form -->
+      <div class="row text-center">
+        <div class="col-6">
+          <button type="submit" class="btn btn-primary btn-md cta-btn" id="add_festival">Add</button>
+        </div>
+        <div class="col-6">
+          <a href="{{ url_for('browse') }}" class="btn btn-secondary btn-md cta-btn">Cancel</a>
+        </div>
+      </div>
+    </div>
+
   </form>
+</section>
 {% endblock %}

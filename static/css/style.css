@@ -14,11 +14,11 @@ body {
 
 main {
     min-height: 88vh;
+    max-width: 100%;
 }
 
 .page-container {
     text-align: center;
-    padding-top: 20px;
 }
 
 .flash-messages {
@@ -141,6 +141,7 @@ h1, h2 {
 
 .landing-container {
     text-align: center;
+    padding-top: 20px;
     padding-right: 25px;
     padding-left: 25px;
     height: 88vh;
@@ -183,6 +184,22 @@ a.btn.btn-primary.btn-md.cta-btn:hover {
     text-shadow: none;
     border: solid 2px rgba(127, 176, 105, 1);
     transition: .3s;
+}
+
+/* Add festival form */
+
+label {
+    margin-bottom: 0;
+}
+
+.add-fest-container {
+    border: solid 1px blue;
+    padding-top: 91px;
+    /* max-width: 100%; */
+}
+
+.add-fest-form {
+    text-align: start;
 }
 
 /* Media queries */
