@@ -125,8 +125,8 @@ def add_festival():
             "website": request.form.get('festival_website'),
             "ticket_price": request.form.get('festival_price'),
             "ticket_link": request.form.get('festival_ticket_link'),
-            "festival_image": request.form.get('festival_image'),
-            "festival_description": request.form.get('festival_description'),
+            "image_link": request.form.get('festival_image'),
+            "description": request.form.get('festival_description'),
             "reviews": []
         }
         mongo.db.festivals.insert_one(add_festival)
@@ -144,7 +144,21 @@ def edit_festival(festival_id):
             {"$set": {"name": request.form.get("festival_name"),
                       "location": request.form.get("festival_location"),
                       "start_date": request.form.get('festival_start_date'),
-                      "end_date": request.form.get('festival_end_date')}})
+                      "end_date": request.form.get('festival_end_date'),
+                      "genre": request.form.get('festival_genre'),
+                      "capacity": request.form.get('festival_capacity'),
+                      "notable_act_one": request.form.get(
+                          'festival_headliner_1'),
+                      "notable_act_two": request.form.get(
+                          'festival_headliner_2'),
+                      "notable_act_three": request.form.get(
+                          'festival_headliner_3'),
+                      "website": request.form.get('festival_website'),
+                      "ticket_price": request.form.get('festival_price'),
+                      "ticket_link": request.form.get('festival_ticket_link'),
+                      "image_link": request.form.get('festival_image'),
+                      "description": request.form.get(
+                          'festival_description')}})
 
         flash('Festival updated')
         return redirect(url_for("browse"))
