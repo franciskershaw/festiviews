@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
     });
 
     assignPageTrue();
-    console.log(pages);
+    
     if(pages.edit_festival) {
         populateEditForm();
     }
@@ -37,7 +37,7 @@ function assignPageTrue() {
     const pageSectionClasses = document.querySelector('section').classList;
     keys.forEach((key) => {
         for (sectionClass of pageSectionClasses) {
-            if (sectionClass == key) {
+            if (sectionClass === key) {
                 pages[key] = true;
             }
         }

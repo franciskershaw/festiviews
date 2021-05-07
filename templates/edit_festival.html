@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {% block content %}
-<section class="container add-fest-container page-container edit_festival">
+<section class="container form-container page-container edit_festival">
   <h3>Edit {{ festival.name }}</h3>
   <form method="POST" action="{{ url_for('edit_festival', festival_id=festival._id) }}">
     <div class="row">
