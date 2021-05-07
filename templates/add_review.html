@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% block content %}
+<section class="add_review"></section>
 <form method="POST" action="{{ url_for('add_review', festival_id=festival._id) }}">
     <h3>Add a review for {{ festival.name }}</h3>
     <!-- review -->

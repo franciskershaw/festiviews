@@ -198,6 +198,10 @@ label {
     /* max-width: 100%; */
 }
 
+#selected-genre {
+    display: none;
+}
+
 .add-fest-form {
     text-align: start;
 }
