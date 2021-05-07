@@ -183,9 +183,19 @@ def add_review(festival_id):
     if request.method == 'POST':
         # Grab form data from form
         review = {
-            "text": request.form.get('review'),
             "created_by": session['user'],
-            "festival_id": festival['_id']
+            "festival_id": festival['_id'],
+            "year": request.form.get('year'),
+            "rating": request.form.get('rating'),
+            "location": request.form.get('location'),
+            "nightlife": request.form.get('nightlife'),
+            "lineup": request.form.get('lineup'),
+            "campsites": request.form.get('campsites'),
+            "value": request.form.get('value'),
+            "food": request.form.get('food'),
+            "toilets": request.form.get('toilets'),
+            "kid_friendly": request.form.get('kid_friendly'),
+            "text": request.form.get('review')
         }
 
         review_id = mongo.db.reviews.insert_one(review)
