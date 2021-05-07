@@ -198,7 +198,7 @@ label {
     /* max-width: 100%; */
 }
 
-#selected-genre {
+.selected-option {
     display: none;
 }
 

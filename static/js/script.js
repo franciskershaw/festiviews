@@ -22,14 +22,14 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
     assignPageTrue();
     
-    if(pages.edit_festival) {
+    if(pages.edit_festival === true || pages.edit_review === true) {
         populateEditForm();
     }
 })
 
 /*
 This function checks which page the user is on and assigns the relevant variable
-above as 'true', for when certain functions are only needed on certain pages.
+above as 'true', for when functions are only needed on certain pages.
 */
 
 function assignPageTrue() {
@@ -49,11 +49,15 @@ This function loops over options in select dropdowns and adds the 'selected'
 attribute to the correct option when editting a form.
 */
 function populateEditForm() {
-    let options = document.querySelectorAll('option')
-    const selectedGenre = document.querySelector('#selected-genre').innerHTML;
-    for (option of options) {
-        if (option.innerHTML === selectedGenre) {
-            option.setAttribute('selected', 'true')
+    console.log('function called');
+    let options = document.querySelectorAll('option');
+    let selections = document.querySelectorAll('.selected-option');
+    selections.forEach((selected) => {
+        for (option of options) {
+            if (option.value === selected.innerHTML) {
+                option.setAttribute('selected', 'true');
+                console.log(option.value);
+            }
         }
-    }
+    })
 }

@@ -21,6 +21,7 @@
           <option value="pre-2010">pre-2010</option>
         </select>
       </div>
+      <span class="selected-option">{{ review.year }}</span>
       <div class="col-12 col-md-6">
         <label for="rating" class="form-label">Overall rating&#42</label>
         <select class="form-control" name="rating" id="rating" required>
@@ -31,16 +32,7 @@
           <option value="1">1 star</option>
         </select>
       </div>
-      <div class="col-12 col-md-6">
-        <label for="nightlife" class="form-label">Nightlife&#42</label>
-        <select class="form-control" name="nightlife" id="nightlife" required>
-          <option value="5">5 stars</option>
-          <option value="4">4 stars</option>
-          <option value="3">3 stars</option>
-          <option value="2">2 stars</option>
-          <option value="1">1 star</option>
-        </select>
-      </div>
+      <span class="selected-option">{{ review.rating }}</span>
       <div class="col-12 col-md-6">
         <label for="location" class="form-label">Location&#42</label>
         <select class="form-control" name="location" id="location" required>
@@ -51,6 +43,18 @@
           <option value="1">1 star</option>
         </select>
       </div>
+      <span class="selected-option">{{ review.lineup }}</span>
+      <div class="col-12 col-md-6">
+        <label for="nightlife" class="form-label">Nightlife&#42</label>
+        <select class="form-control" name="nightlife" id="nightlife" required>
+          <option value="5">5 stars</option>
+          <option value="4">4 stars</option>
+          <option value="3">3 stars</option>
+          <option value="2">2 stars</option>
+          <option value="1">1 star</option>
+        </select>
+      </div>
+      <span class="selected-option">{{ review.nightlife }}</span>
       <div class="col-12 col-md-6">
         <label for="lineup" class="form-label">Lineup&#42</label>
         <select class="form-control" name="lineup" id="lineup" required>
@@ -61,6 +65,7 @@
           <option value="1">1 star</option>
         </select>
       </div>
+      <span class="selected-option">{{ review.campsites }}</span>
       <div class="col-12 col-md-6">
         <label for="campsites" class="form-label">Campsites&#42</label>
         <select class="form-control" name="campsites" id="campsites" required>
@@ -71,6 +76,7 @@
           <option value="1">1 star</option>
         </select>
       </div>
+      <span class="selected-option">{{ review.value }}</span>
       <div class="col-12 col-md-6">
         <label for="value" class="form-label">Value for money&#42</label>
         <select class="form-control" name="value" id="value" required>
@@ -81,6 +87,7 @@
           <option value="1">1 star</option>
         </select>
       </div>
+      <span class="selected-option">{{ review.food }}</span>
       <div class="col-12 col-md-6">
         <label for="food" class="form-label">Food choice&#42</label>
         <select class="form-control" name="food" id="food" required>
@@ -91,6 +98,7 @@
           <option value="1">1 star</option>
         </select>
       </div>
+      <span class="selected-option">{{ review.toilets }}</span>
       <div class="col-12 col-md-6">
         <label for="toilets" class="form-label">Toilets&#42</label>
         <select class="form-control" name="toilets" id="toilets" required>
@@ -99,6 +107,7 @@
           <option value="Nearly ruined my weekend">Nearly ruined my weekend</option>
         </select>
       </div>
+      <span class="selected-option">{{ review.kid_friendly }}</span>
       <div class="col-12 col-md-6">
         <label for="kid_friendly" class="form-label">Kid friendly?&#42</label>
         <select class="form-control" name="kid_friendly" id="kid_friendly" required>
