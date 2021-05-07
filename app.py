@@ -215,7 +215,17 @@ def edit_review(review_id):
     if request.method == 'POST':
         mongo.db.reviews.update_one(
             {"_id": ObjectId(review_id)},
-            {"$set": {"text": request.form.get('review')}})
+            {"$set": {"year": request.form.get('year'),
+                      "rating": request.form.get('rating'),
+                      "location": request.form.get('location'),
+                      "nightlife": request.form.get('nightlife'),
+                      "lineup": request.form.get('lineup'),
+                      "campsites": request.form.get('campsites'),
+                      "value": request.form.get('value'),
+                      "food": request.form.get('food'),
+                      "toilets": request.form.get('toilets'),
+                      "kid_friendly": request.form.get('kid_friendly'),
+                      "text": request.form.get('review')}})
 
         flash('Review has been updated')
         return redirect(url_for('browse'))
