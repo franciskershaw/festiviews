@@ -7,21 +7,21 @@
       <div class="col-12 col-md-6">
         <label for="year" class="form-label">Year attended&#42</label>
         <select class="form-control" name="year" id="year" required>
-          <option value="2020">2020</option>
-          <option value="2019">2019</option>
-          <option value="2018">2018</option>
-          <option value="2017">2017</option>
-          <option value="2016">2016</option>
-          <option value="2015">2015</option>
-          <option value="2014">2014</option>
-          <option value="2013">2013</option>
-          <option value="2012">2012</option>
-          <option value="2011">2011</option>
-          <option value="2010">2010</option>
-          <option value="pre-2010">pre-2010</option>
+          <option class="year" value="2020">2020</option>
+          <option class="year" value="2019">2019</option>
+          <option class="year" value="2018">2018</option>
+          <option class="year" value="2017">2017</option>
+          <option class="year" value="2016">2016</option>
+          <option class="year" value="2015">2015</option>
+          <option class="year" value="2014">2014</option>
+          <option class="year" value="2013">2013</option>
+          <option class="year" value="2012">2012</option>
+          <option class="year" value="2011">2011</option>
+          <option class="year" value="2010">2010</option>
+          <option class="year" value="pre-2010">pre-2010</option>
         </select>
       </div>
-      <span class="selected-option">{{ review.year }}</span>
+      <span class="year selected-option">{{ review.year }}</span>
       <div class="col-12 col-md-6">
         <label for="rating" class="form-label">Overall rating&#42</label>
         <select class="form-control" name="rating" id="rating" required>
@@ -32,7 +32,7 @@
           <option value="1">1 star</option>
         </select>
       </div>
-      <span class="selected-option">{{ review.rating }}</span>
+      <span class="selected-option rating">{{ review.rating }}</span>
       <div class="col-12 col-md-6">
         <label for="location" class="form-label">Location&#42</label>
         <select class="form-control" name="location" id="location" required>

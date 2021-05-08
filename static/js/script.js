@@ -49,15 +49,17 @@ This function loops over options in select dropdowns and adds the 'selected'
 attribute to the correct option when editting a form.
 */
 function populateEditForm() {
-    console.log('function called');
-    let options = document.querySelectorAll('option');
-    let selections = document.querySelectorAll('.selected-option');
-    selections.forEach((selected) => {
-        for (option of options) {
-            if (option.value === selected.innerHTML) {
-                option.setAttribute('selected', 'true');
-                console.log(option.value);
-            }
-        }
-    })
+    // const options = document.querySelectorAll('option');
+    // const selections = document.querySelectorAll('.selected-option');
+    // selections.forEach((selected) => {
+    //     for (option of options) {
+    //         if (option.value === selected.innerHTML) {
+    //             option.setAttribute('selected', 'true');
+    //             console.log(option.value);
+    //         }
+    //     }
+    // })
+
+    
+    
 }
