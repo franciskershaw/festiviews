@@ -180,6 +180,7 @@ def delete_festival(festival_id):
 @app.route('/add_review/<festival_id>', methods=['GET', 'POST'])
 def add_review(festival_id):
     festival = mongo.db.festivals.find_one({'_id': ObjectId(festival_id)})
+    festival_id = festival['_id']
     if request.method == 'POST':
         # Grab form data from form
         review = {
@@ -204,7 +205,7 @@ def add_review(festival_id):
             {'$push': {'reviews': review_id.inserted_id}})
 
         flash('Review added!')
-        return redirect(url_for('browse'))
+        return redirect(url_for('view_festival', festival_id=festival_id))
 
     return render_template('add_review.html', festival=festival)
 
