@@ -1,32 +1,39 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<!-- create new account form -->
-<section class="container page-container login">
-  <div class="row">
+<section class="container-fluid text-center login">
+  <div class="row sign-in-container">
     <div class="col">
-      <form method="POST" action="{{ url_for('login') }}">
-        <h3>Sign in to FestiViews!</h3>
+      <form class="login-form center-content" method="POST" action="{{ url_for('login') }}">
+        <div class="col">
+          <h3 class="login-heading">Sign in to FestiViews!</h3>
+        </div>
         <!-- username -->
-        <label for="username" class="form-label">Username</label>
-        <input type="text" class="form-control" id="username" name="username" required pattern="^[a-zA-Z0-9]{4,15}$">
-
+        <div class="col login-inputs text-start">
+          <label for="username" class="form-label">Username</label>
+          <input type="text" class="form-control" id="username" name="username" required pattern="^[a-zA-Z0-9]{4,15}$">
+        </div>
         <!-- email - COMMENTED OUT FOR NOW -->
         <!-- <label for="email" class="form-label">Email address</label>
         <input type="email" class="form-control" id="email" name="email" required> -->
-
         <!-- password -->
-        <label for="password" class="form-label">Password</label>
-        <input type="password" class="form-control" id="password" name="password" required pattern="^[a-zA-Z0-9]{6,30}$">
-
+        <div class="col login-inputs text-start">
+          <label for="password" class="form-label">Password</label>
+          <input type="password" class="form-control" id="password" name="password" required
+            pattern="^[a-zA-Z0-9]{6,30}$">
+        </div>
         <!-- confirm password - COMMENTED OUT FOR NOW -->
         <!-- <label for="password_2" class="form-label">Confirm password</label>
-
         <input type="password" class="form-control" id="password_2" name="password_2" required> -->
         <!-- submit form -->
-        <button type="submit" class="btn btn-primary btn-lg" id="login">Log in</button>
-        <p>Not signed up yet?</p>
-        <p>Register <a href="{{ url_for('sign_up') }}">here</a></p>
+        <div class="col login-btn-container">
+          <button type="submit" class="btn submit-btn" id="login">Log in</button>
+        </div>
+        <div class="col signup-in-cta">
+          <p class="no-margins">Not signed up yet?</p>
+          <p>Register <em><a href="{{ url_for('sign_up') }}">here</a></em></p>
+        </div>
+
       </form>
     </div>
   </div>

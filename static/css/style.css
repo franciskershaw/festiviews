@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,600;1,200;1,300;1,400;1,600&family=Quicksand:wght@300;400;500;600&family=Work+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;1,100;1,200;1,300;1,400;1,500&display=swap');
 
+/* General styles */
+
 * {
     margin: 0;
     padding: 0;
@@ -17,10 +19,6 @@ main {
     max-width: 100%;
 }
 
-.page-container {
-    text-align: center;
-}
-
 .flash-messages {
     padding-top: 56px;
 }
@@ -31,6 +29,18 @@ main {
     left: 50%;
     transform: translate(-50%, -50%);
     width: 100%;
+}
+
+.text-start {
+    text-align: start;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.no-margins {
+    margin: 0;
 }
 
 /* Navigation bar and footer */
@@ -186,6 +196,57 @@ a.btn.btn-primary.btn-md.cta-btn:hover {
     transition: .3s;
 }
 
+/* Sign in form */
+
+.sign-in-container {
+    height: 80vh;
+    padding-top: 75px;
+}
+
+.login, .signup {
+    background: url('/static/images/hero-image-take-one.jpg') no-repeat fixed center;
+    background-size: cover;
+    height: 88vh;
+    color: #fbf9ef;
+}
+
+.login-form {
+    border: 1px solid rgba(127, 176, 105, 1);
+    background-color: rgba(127, 176, 105, .9);
+    border-radius: 4px;
+    padding: 20px 15px 0 15px;
+    max-width: 700px;
+}
+
+.login-heading {
+    font-size: 145%;
+    text-shadow: 1px 1px #636262;
+}
+
+.login-inputs {
+    margin-bottom: 10px;
+}
+
+.login-btn-container {
+    padding-top: 10px;
+    padding-bottom: 15px;
+}
+
+.submit-btn {
+    background-color: #c11e47c9;
+    color: #fbf9ef;
+    width: 130px;
+    font-size: 150%;
+    border-radius: 5px;
+    border: solid 1px #faf9f2e5;
+    padding-top: 3px;
+    padding-bottom: 3px;
+}
+
+.signup-in-cta {
+    font-size: 120%;
+}
+
 /* Add festival form */
 
 label {
@@ -193,17 +254,11 @@ label {
 }
 
 .form-container {
-    border: solid 1px blue;
     padding-top: 91px;
-    /* max-width: 100%; */
 }
 
 .selected-option {
     display: none;
-}
-
-.add-fest-form {
-    text-align: start;
 }
 
 /* Media queries */
