@@ -161,7 +161,7 @@ def edit_festival(festival_id):
                           'festival_description')}})
 
         flash('Festival updated')
-        return redirect(url_for("browse"))
+        return redirect(url_for('view_festival', festival_id=festival_id))
 
     festival = mongo.db.festivals.find_one({'_id': ObjectId(festival_id)})
     return render_template("edit_festival.html", festival=festival)
