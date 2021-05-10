@@ -19,6 +19,10 @@ main {
     max-width: 100%;
 }
 
+label {
+    margin-bottom: 0;
+}
+
 .flash-messages {
     padding-top: 56px;
 }
@@ -249,19 +253,11 @@ a.btn.btn-primary.btn-md.cta-btn:hover {
 
 /* Add festival form */
 
-label {
-    margin-bottom: 0;
-}
-
 .form-container {
     padding-top: 91px;
 }
 
 span.year, span.rating, span.location, span.nightlife, span.lineup, span.campsites, span.value, span.food, span.toilets, span.kid_friendly, span.genre {
-    display: none;
-}
-
-.selected-option {
     display: none;
 }
 

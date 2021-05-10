@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
     assignPageTrue();
     
-    if(pages.edit_festival === true || pages.edit_review === true) {
+    if(pages.edit_festival || pages.edit_review) {
         populateEditForm();
     }
 })

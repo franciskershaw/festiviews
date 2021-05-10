@@ -8,8 +8,9 @@
         {{ festival.name }} <a href="{{ url_for('view_festival', festival_id=festival._id) }}" class="btn btn-md cta-btn" role="button">View</a> <br>
     {% endfor %}
     <br>
+    {% if session.user|lower == 'administrator' %}
     <a href="{{ url_for('add_festival') }}" class="btn btn-md cta-btn" role="btn">Add</a>
-
+    {% endif %}
 </section>
 
 {% endblock %}
