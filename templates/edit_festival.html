@@ -28,15 +28,15 @@
       <div class="col-6 col-md-3">
         <label for="festival_genre" class="form-label">Choose Genre&#42</label>
         <select class="form-control" id="festival_genre" name="festival_genre" required>
-          <option value="A bit of everything">A bit of everything</option>
-          <option value="Alternative">Alternative</option>
-          <option value="Folk">Folk</option>
-          <option value="Electronic">Electronic</option>
-          <option value="Pop">Pop</option>
-          <option value="Rock">Rock</option>
+          <option class="genre" value="A bit of everything">A bit of everything</option>
+          <option class="genre" value="Alternative">Alternative</option>
+          <option class="genre" value="Folk">Folk</option>
+          <option class="genre" value="Electronic">Electronic</option>
+          <option class="genre" value="Pop">Pop</option>
+          <option class="genre" value="Rock">Rock</option>
         </select>
       </div>
-      <span class="selected-option">{{ festival.genre }}</span>
+      <span class="genre">{{ festival.genre }}</span>
       <!-- Capacity -->
       <div class="col-6 col-md-3">
         <label for="festival_capacity" class="form-label">Capacity&#42</label>

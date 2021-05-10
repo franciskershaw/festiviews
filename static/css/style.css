@@ -257,6 +257,10 @@ label {
     padding-top: 91px;
 }
 
+span.year, span.rating, span.location, span.nightlife, span.lineup, span.campsites, span.value, span.food, span.toilets, span.kid_friendly, span.genre {
+    display: none;
+}
+
 .selected-option {
     display: none;
 }
