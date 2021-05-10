@@ -213,6 +213,7 @@ def add_review(festival_id):
 @app.route('/edit_review/<review_id>', methods=['GET', 'POST'])
 def edit_review(review_id):
     review = mongo.db.reviews.find_one({'_id': ObjectId(review_id)})
+    festival_id = review['festival_id']
     if request.method == 'POST':
         mongo.db.reviews.update_one(
             {"_id": ObjectId(review_id)},
@@ -229,7 +230,7 @@ def edit_review(review_id):
                       "text": request.form.get('review')}})
 
         flash('Review has been updated')
-        return redirect(url_for('browse'))
+        return redirect(url_for('view_festival', festival_id=festival_id))
 
     return render_template('edit_review.html',
                            review=review)
