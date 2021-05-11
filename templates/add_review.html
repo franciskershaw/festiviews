@@ -3,7 +3,7 @@
 <section class="container page-container add_review">
   <h3>Add a review!</h3>
   <h4><em>{{ festival.name }}</em></h4>
-  <form method="POST" action="{{ url_for('add_review', festival_id=festival._id) }}">
+  <form method="POST" action="{{ url_for('add_review', url=festival.url) }}">
     <div class="row">
       <div class="col-12 col-md-6">
         <label for="year" class="form-label">Year attended&#42</label>

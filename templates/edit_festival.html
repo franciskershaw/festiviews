@@ -2,7 +2,7 @@
 {% block content %}
 <section class="container page-container text-center edit_festival">
   <h3>Edit {{ festival.name }}</h3>
-  <form class="text-start" method="POST" action="{{ url_for('edit_festival', festival_id=festival._id) }}">
+  <form class="text-start" method="POST" action="{{ url_for('edit_festival', url=festival.url) }}">
     <div class="row">
       <!-- festival name -->
       <div class="col-12 col-md-6">
@@ -86,7 +86,7 @@
           <button type="submit" class="btn btn-primary btn-md cta-btn" id="add_festival">Update</button>
         </div>
         <div class="col-6">
-          <a href="{{ url_for('view_festival', festival_id=festival._id) }}" class="btn btn-secondary btn-md cta-btn">Cancel</a>
+          <a href="{{ url_for('view_festival', url=festival.url) }}" class="btn btn-secondary btn-md cta-btn">Cancel</a>
         </div>
       </div>
     </div>
