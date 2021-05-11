@@ -28,7 +28,7 @@
     {% for festival in festivals %}
     <div class="row browse-row">
         <div class="col-4 pl-0 browse-fest-name">
-            <a class="add-fest-btn" href="{{ url_for('view_festival', festival_id=festival._id) }}">{{ festival.name }}</a>
+            <a class="add-fest-btn" href="{{ url_for('view_festival', url=festival.url) }}">{{ festival.name }}</a>
         </div>
         <div class="col-3">
             <div class="row text-center browse-dates">

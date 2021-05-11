@@ -95,9 +95,10 @@ def browse():
     return render_template('browse.html', festivals=festivals)
 
 
-@app.route("/view_festival/<festival_id>")
-def view_festival(festival_id):
-    festival = mongo.db.festivals.find_one({"_id": ObjectId(festival_id)})
+@app.route("/view_festival/<url>")
+def view_festival(url):
+    festival = mongo.db.festivals.find_one({"url": url})
+    festival_id = festival['_id']
     reviews = mongo.db.reviews.find({"festival_id": ObjectId(festival_id)})
     reviews_arr = []
 
