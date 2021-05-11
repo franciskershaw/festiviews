@@ -114,6 +114,7 @@ def add_festival():
     if request.method == 'POST':
         add_festival = {
             "name": request.form.get("festival_name"),
+            "url": request.form.get("festival_name").lower().replace(' ', '_'),
             "location": request.form.get("festival_location"),
             "start_date": request.form.get('festival_start_date'),
             "end_date": request.form.get('festival_end_date'),

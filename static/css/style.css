@@ -303,7 +303,11 @@ button.browse-icon {
 
 i.fas.fa-star {
     font-size: 90%;
-    color: rgba(255, 217, 0, 0.753);
+    color: rgba(224, 194, 20, 0.753);
+}
+
+i.far.fa-heart {
+    color: rgb(236, 45, 93);
 }
 
 /* Media queries */
