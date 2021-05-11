@@ -174,12 +174,13 @@ def edit_festival(url):
 
 @app.route('/delete_festival/<url>')
 def delete_festival(url):
-    festival = mongo.db.find_one({'url': url})
+    festival = mongo.db.festivals.find_one({'url': url})
     festival_id = festival['_id']
     # delete festival from database
     mongo.db.festivals.delete_one({"url": url})
     # delete corresponding reviews from reviews database
     mongo.db.reviews.delete_many({'festival_id': ObjectId(festival_id)})
+
     flash("Festival and corresponding reviews deleted")
     return redirect(url_for('browse'))
 
@@ -220,7 +221,10 @@ def add_review(url):
 @app.route('/edit_review/<review_id>', methods=['GET', 'POST'])
 def edit_review(review_id):
     review = mongo.db.reviews.find_one({'_id': ObjectId(review_id)})
-    festival_id = review['festival_id']
+    festival = mongo.db.festivals.find_one(
+        {'_id': ObjectId(review['festival_id'])})
+    url = festival['url']
+
     if request.method == 'POST':
         mongo.db.reviews.update_one(
             {"_id": ObjectId(review_id)},
@@ -237,24 +241,27 @@ def edit_review(review_id):
                       "text": request.form.get('review')}})
 
         flash('Review has been updated')
-        return redirect(url_for('view_festival', festival_id=festival_id))
+        return redirect(url_for('view_festival', url=url))
 
     return render_template('edit_review.html',
-                           review=review)
+                           review=review,
+                           festival=festival)
 
 
 @app.route('/delete_review/<review_id>')
 def delete_review(review_id):
     review = mongo.db.reviews.find_one({'_id': ObjectId(review_id)})
     festival_id = review['festival_id']
-    print(review)
+    festival = mongo.db.festivals.find_one({'_id': ObjectId(festival_id)})
+    url = festival['url']
+
     # delete review from database
     mongo.db.reviews.delete_one({"_id": ObjectId(review_id)})
     # delete review id from festivals database
     mongo.db.festivals.update_one({"_id": ObjectId(festival_id)},
                                   {'$pull': {'reviews': ObjectId(review_id)}})
     flash("Review deleted")
-    return redirect(url_for('browse'))
+    return redirect(url_for('view_festival', url=url))
 
 
 @app.route('/logout')
