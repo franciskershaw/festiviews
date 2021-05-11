@@ -1,16 +1,62 @@
 {% extends "base.html" %}
 {% block content %}
 
-<section class="text-center favourites">
-    <h3>All Festivals</h3>
-    <br>
+<section class="container-fluid favourites page-container text-start">
+    <div class="row pb-2">
+        <div class="col-2"></div>
+        <div class="col-8">
+            <h3 class="text-center">All Festivals</h3>
+        </div>
+        <div class="col-2 p-0">
+            {% if session.user|lower == 'administrator' %}
+            <a class="add-fest-btn" href="{{ url_for('add_festival') }}" role="button">Add</a>
+            {% endif %}
+        </div>
+    </div>
+    <div class="row pb-1">
+        <div class="col-4 text-start">
+            <h4 class="browse-heading">Name <button class="browse-icon"><i class="fas fa-sort"></i></button></h4>
+        </div>
+        <div class="col-4 text-center">
+            <h4 class="browse-heading">Dates <button class="browse-icon"><i class="fas fa-sort"></i></button></h4>
+        </div>
+        <div class="col-4 text-start">
+            <h4 class="browse-heading">Rating <button class="browse-icon"><i class="fas fa-sort"></i></button></h4>
+        </div>
+    </div>
+    <section class="festivals-list mb-3">
     {% for festival in festivals %}
-        {{ festival.name }} <a href="{{ url_for('view_festival', festival_id=festival._id) }}" class="btn btn-md cta-btn" role="button">View</a> <br>
+    <div class="row browse-row">
+        <div class="col-4 browse-fest-name">
+            <a href="{{ url_for('view_festival', festival_id=festival._id) }}">{{ festival.name }}</a>
+        </div>
+        <div class="col-4">
+            <div class="row text-center browse-dates">
+                <div class="col-12 col-sm-6">
+                    {{ festival.start_date }}
+                </div>
+                <div class="col-12 col-sm-6">
+                    {{ festival.end_date }}
+                </div>
+            </div>
+        </div>
+        <div class="col-2">
+            *****
+        </div>
+        <div class="col-2 text-end">
+            <button class="browse-icon"><i class="far fa-heart"></i></button>
+        </div>
+    </div>
     {% endfor %}
-    <br>
-    {% if session.user|lower == 'administrator' %}
-    <a href="{{ url_for('add_festival') }}" class="btn btn-md cta-btn" role="btn">Add</a>
-    {% endif %}
+    </section>  
+    <div class="row text-center">
+        <div class="col-12">
+            <h5>
+                Can't find your festival?
+            </h5>
+            <p><a href="#">Contact us</a> to request a new festival.</p>
+        </div>
+    </div>
 </section>
 
 {% endblock %}

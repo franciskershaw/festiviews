@@ -23,6 +23,10 @@ label {
     margin-bottom: 0;
 }
 
+.page-container {
+    padding-top: 91px;
+}
+
 .flash-messages {
     padding-top: 56px;
 }
@@ -41,6 +45,10 @@ label {
 
 .text-center {
     text-align: center;
+}
+
+.text-end {
+    text-align: end;
 }
 
 .no-margins {
@@ -251,14 +259,39 @@ a.btn.btn-primary.btn-md.cta-btn:hover {
     font-size: 120%;
 }
 
-/* Add festival form */
-
-.form-container {
-    padding-top: 91px;
-}
-
 span.year, span.rating, span.location, span.nightlife, span.lineup, span.campsites, span.value, span.food, span.toilets, span.kid_friendly, span.genre {
     display: none;
+}
+
+/* Browse all */
+
+.browse-heading {
+    font-size: 100%;
+}
+
+.add-fest-btn {
+    background-color: #c11e47c9;
+    color: #fbf9ef;
+    font-size: 100%;
+    border-radius: 5px;
+    border: solid 1px #faf9f2e5;
+    padding: 3px 5px 3px 5px;
+}
+
+.browse-row {
+    border: 1px solid;
+}
+
+.browse-fest-name {
+    font-size: 90%;
+}
+
+.browse-dates {
+    font-size: 80%;
+}
+
+button.browse-icon {
+    border: none;
 }
 
 /* Media queries */
