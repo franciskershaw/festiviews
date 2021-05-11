@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
 
-<section class="container-fluid favourites page-container text-start">
+<section class="container favourites page-container text-start">
     <div class="row pb-2">
         <div class="col-2"></div>
         <div class="col-8">
@@ -27,10 +27,10 @@
     <section class="festivals-list mb-3">
     {% for festival in festivals %}
     <div class="row browse-row">
-        <div class="col-4 browse-fest-name">
-            <a href="{{ url_for('view_festival', festival_id=festival._id) }}">{{ festival.name }}</a>
+        <div class="col-4 pl-0 browse-fest-name">
+            <a class="add-fest-btn" href="{{ url_for('view_festival', festival_id=festival._id) }}">{{ festival.name }}</a>
         </div>
-        <div class="col-4">
+        <div class="col-3">
             <div class="row text-center browse-dates">
                 <div class="col-12 col-sm-6">
                     {{ festival.start_date }}
@@ -40,10 +40,10 @@
                 </div>
             </div>
         </div>
-        <div class="col-2">
-            *****
+        <div class="col-4 pl-8 pr-0 pt-2">
+            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
         </div>
-        <div class="col-2 text-end">
+        <div class="col-1 p-0 pt-2">
             <button class="browse-icon"><i class="far fa-heart"></i></button>
         </div>
     </div>
