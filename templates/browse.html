@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
 
-<section class="container favourites page-container text-start">
+<section class="container-fluid favourites page-container text-start">
     <div class="row pb-2">
         <div class="col-2"></div>
         <div class="col-8">
@@ -20,34 +20,28 @@
         <div class="col-4 text-center">
             <h4 class="browse-heading">Dates <button class="browse-icon"><i class="fas fa-sort"></i></button></h4>
         </div>
-        <div class="col-4 text-start">
+        <div class="col-4 text-center">
             <h4 class="browse-heading">Rating <button class="browse-icon"><i class="fas fa-sort"></i></button></h4>
         </div>
     </div>
     <section class="festivals-list mb-3">
     {% for festival in festivals %}
     <div class="row browse-row">
-        <div class="col-4 pr-0 pl-0 browse-fest-name">
+        <div class="col-4 browse-fest-name">
             <a class="add-fest-btn" href="{{ url_for('view_festival', url=festival.url) }}">{{ festival.name }}</a>
+            <p class="d-none d-md-block fest-location">{{ festival.location }}</p>
         </div>
-        <div class="col-3">
+        <div class="col-4">
             <div class="row text-center browse-dates">
-                <div class="col-12 col-sm-6">
-                    {{ festival.start_date }}
-                </div>
-                <div class="col-12 col-sm-6">
-                    {{ festival.end_date }}
+                <div class="col-12">
+                    <span>{{ festival.start_date }}<span class="dash">-</span>{{ festival.end_date }}</span>
                 </div>
             </div>
         </div>
-        <div class="col-4 pl-8 pr-0 pt-2">
+        <div class="col-4 text-center stars">
             <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
         </div>
-        <div class="col-1 p-0 pt-2">
-            {% if session.user %}
-            <button class="browse-icon"><i class="far fa-heart"></i></button>
-            {% endif %}
-        </div>
+       
     </div>
     {% endfor %}
     </section>  

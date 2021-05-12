@@ -264,36 +264,50 @@ span.year, span.rating, span.location, span.nightlife, span.lineup, span.campsit
 }
 
 /* Browse all */
-
+.favourites {
+    max-width: 1158px;
+}
 .browse-heading {
     font-size: 100%;
 }
 
 .add-fest-btn {
-    background-color: #c11e47;
+    background-color: #c11e47c9;
     color: #fbf9ef;
     font-size: 100%;
     border-radius: 5px;
     border: solid 1px #faf9f2e5;
     padding: 3px 5px 3px 5px;
+    max-width: 30px;
 }
 
 .browse-row {
-    border-top: 2px solid #c11e4796;
-    border-left: 2px solid #c11e4796;
-    border-right: 2px solid #c11e47c9;
     border-radius: 3px;
-    background-color: #eeeada;
+    background-color: rgba(114, 156, 95, 0.7);
     height: 50px;
+    border: 2px solid #c11e4796;
+    color: #fbf9ef;
+    margin-bottom: 5px;
 }
 
 .browse-fest-name {
     font-size: 90%;
     margin-top: 4px;
+    padding-right: 0;
+    padding-left: 0;
 }
 
 .browse-dates {
     font-size: 80%;
+    padding-top: 5px;
+}
+
+.stars {
+    padding-top: 10px;
+}
+
+.fest-location {
+    padding-top: 10px;
 }
 
 button.browse-icon {
@@ -302,15 +316,47 @@ button.browse-icon {
 }
 
 i.fas.fa-star {
-    font-size: 90%;
+    font-size: 70%;
     color: rgba(224, 194, 20, 0.753);
 }
 
 i.far.fa-heart {
-    color: rgb(236, 45, 93);
+    color: #fbf9ef;
 }
 
 /* Media queries */
+
+@media screen and (min-width: 375px) {
+    .add-fest-btn {
+        font-size: 120%;
+    }
+    .browse-dates {
+        font-size: 90%;
+        padding-top: 8px;
+    }
+    .stars {
+        padding-top: 15px;
+    }
+    .browse-heading {
+        font-size: 121%;
+    }
+    .browse-row {
+        height: 60px;
+    }
+    i.fas.fa-star {
+        font-size: 85%;
+    }
+}
+
+@media screen and (min-width: 475px) {
+    .browse-dates {
+        padding-top: 18px;
+    }
+    .browse-fest-name {
+        padding-left: 10px;
+        padding-top: 5px;
+    }
+}
 
 @media screen and (max-width: 767px) {
     #brand {
@@ -344,9 +390,47 @@ i.far.fa-heart {
     .cta-button-container {
         max-width: 500px;
     }
+    .browse-heading {
+        font-size: 140%;
+    }
+    .browse-row {
+        height: 75px;
+    }
+    .browse-dates {
+        font-size: 100%;
+        padding-top: 25px;
+    }
+    .stars {
+        padding-top: 23px;
+    }
+    i.far.fa-heart {
+        font-size: 100%;
+    }
+    i.fas.fa-star {
+        font-size: 90%;
+    }
 }
 
 @media screen and (min-width: 992px) {
+    .browse-row {
+        height: 90px;
+    }
+    .add-fest-btn {
+        font-size: 150%;
+    }
+    .fest-location {
+        font-size: 125%;
+    }
+    .browse-dates {
+        font-size: 109%;
+        padding-top: 32px;
+    }
+    .stars {
+        padding-top: 31px;
+    }
+    i.fas.fa-star {
+        font-size: 110%;
+    }
     #search-bar {
         font-size: 90%;
         width: 200px;
