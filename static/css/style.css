@@ -264,7 +264,7 @@ span.year, span.rating, span.location, span.nightlife, span.lineup, span.campsit
 }
 
 /* Browse all */
-.favourites {
+.browse {
     max-width: 1158px;
 }
 .browse-heading {
@@ -279,6 +279,10 @@ span.year, span.rating, span.location, span.nightlife, span.lineup, span.campsit
     border: solid 1px #faf9f2e5;
     padding: 3px 5px 3px 5px;
     max-width: 30px;
+}
+
+.add-fest-btn:hover {
+    color: #fbf9ef;
 }
 
 .browse-row {
@@ -302,9 +306,9 @@ span.year, span.rating, span.location, span.nightlife, span.lineup, span.campsit
     padding-top: 5px;
 }
 
-.stars {
+/* .stars {
     padding-top: 10px;
-}
+} */
 
 .fest-location {
     padding-top: 10px;
@@ -334,9 +338,9 @@ i.far.fa-heart {
         font-size: 90%;
         padding-top: 8px;
     }
-    .stars {
+    /* .stars {
         padding-top: 15px;
-    }
+    } */
     .browse-heading {
         font-size: 121%;
     }
@@ -404,7 +408,7 @@ i.far.fa-heart {
         padding-top: 23px;
     }
     i.far.fa-heart {
-        font-size: 100%;
+        font-size: 150%;
     }
     i.fas.fa-star {
         font-size: 90%;
