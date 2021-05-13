@@ -100,6 +100,14 @@ def favourites(username):
     return redirect(url_for('login'))
 
 
+@app.route('/search', methods=['GET', 'POST'])
+def search():
+    query = request.form.get('search_bar')
+    festivals = list(mongo.db.festivals.find(
+        {"$text": {"$search": query}}).sort('name', 1))
+    return render_template('browse.html', festivals=festivals)
+
+
 @app.route('/browse')
 def browse():
     festivals = list(mongo.db.festivals.find().sort('name', 1))

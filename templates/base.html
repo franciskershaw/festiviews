@@ -22,8 +22,8 @@
       </div>
       <!-- Search bar -->
       <div class="container-search">
-        <form class="navbar-search">
-          <input type="text" placeholder="Search FestiViews" id="search-bar">
+        <form method="POST" action="{{ url_for('search') }}" class="navbar-search">
+          <input type="text" placeholder="Search FestiViews" id="search_bar" name="search_bar">
         </form>
       </div>
       <!-- Toggler button for mobile -->

@@ -107,7 +107,7 @@ input[type="text"]::placeholder {
     text-align: center;
 }
 
-#search-bar {
+#search_bar {
     font-size: 85%;
     width: 150px;
     margin-top: 5px;
