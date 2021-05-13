@@ -13,6 +13,7 @@
             {% endif %}
         </div>
     </div>
+    {% if festivals|length > 0%}
     <div class="row pb-1">
         <div class="col-4 text-start">
             <h4 class="browse-heading">Name <button class="browse-icon"><i class="fas fa-sort"></i></button></h4>
@@ -55,7 +56,10 @@
        
     </div>
     {% endfor %}
-    </section>  
+    </section> 
+    {% else %}
+    <p>No results I'm afraid</p> 
+    {% endif %}
     <div class="row text-center">
         <div class="col-12">
             <h5>
