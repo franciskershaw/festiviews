@@ -44,8 +44,6 @@
                 {% if session.user %}
                 <form method='POST' class="d-inline" action="{{ url_for('add_favourites', festival_id=festival._id) }}">
                 <button class="browse-icon"><i class="far fa-heart"></i></button>
-                {{ festival._id }}
-                {{ session.user }}
                 </form>
                 {% endif %}
             </div>

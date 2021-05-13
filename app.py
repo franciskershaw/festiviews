@@ -270,16 +270,28 @@ def delete_review(review_id):
 def add_favourites(festival_id):
     username = session['user']
     festival = mongo.db.festivals.find_one({'_id': ObjectId(festival_id)})
-    if request.method == 'POST':
-        # Add festival to the user's 'favourites' array on mongoDB
-        mongo.db.users.update_one(
-            {"username": username},
-            {'$push': {'favourites': festival['_id']}})
+    festival_users = festival['favourited_by']
 
-        # Add user to the festivals 'favourited_by' array on mongoDB
-        mongo.db.festivals.update_one(
-            {"_id": festival['_id']},
-            {'$push': {'favourited_by': username}})
+    if request.method == 'POST':
+        print(festival_users)
+        if username in festival_users:
+            mongo.db.festivals.update_one(
+                {'_id': festival['_id']},
+                {'$pull': {'favourited_by': username}})
+            mongo.db.users.update_one(
+                {'username': username},
+                {'$pull': {'favourites': festival['_id']}})
+            flash('removed')
+        else:
+            # Add festival to the user's 'favourites' array on mongoDB
+            mongo.db.users.update_one(
+                {"username": username},
+                {'$push': {'favourites': festival['_id']}})
+            # Add user to the festivals 'favourited_by' array on mongoDB
+            mongo.db.festivals.update_one(
+                {"_id": festival['_id']},
+                {'$push': {'favourited_by': username}})
+            flash('added')
     return redirect(url_for('browse'))
 
 
