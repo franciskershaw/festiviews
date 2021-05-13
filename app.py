@@ -131,7 +131,8 @@ def add_festival():
             "ticket_link": request.form.get('festival_ticket_link'),
             "image_link": request.form.get('festival_image'),
             "description": request.form.get('festival_description'),
-            "reviews": []
+            "reviews": [],
+            "favourited_by": []
         }
         mongo.db.festivals.insert_one(add_festival)
 
@@ -263,6 +264,19 @@ def delete_review(review_id):
                                   {'$pull': {'reviews': ObjectId(review_id)}})
     flash("Review deleted")
     return redirect(url_for('view_festival', url=url))
+
+
+@app.route('/add_favourites/<festival_id>', methods=['GET', 'POST'])
+def add_favourites(festival_id):
+    username = session['user']
+    # festival = mongo.db.festivals.find_one({'_id': ObjectId(festival_id)})
+    if request.method == 'POST':
+        mongo.db.users.update_one(
+            {"username": username},
+            {'$push': {'favourites': ObjectId(festival_id)}})
+        # Add festival to the user's 'favourites' array on mongoDB
+        # Add user to the festivals 'favourited_by' array on mongoDB
+    return redirect(url_for('browse'))
 
 
 @app.route('/logout')
