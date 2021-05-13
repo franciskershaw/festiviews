@@ -269,13 +269,17 @@ def delete_review(review_id):
 @app.route('/add_favourites/<festival_id>', methods=['GET', 'POST'])
 def add_favourites(festival_id):
     username = session['user']
-    # festival = mongo.db.festivals.find_one({'_id': ObjectId(festival_id)})
+    festival = mongo.db.festivals.find_one({'_id': ObjectId(festival_id)})
     if request.method == 'POST':
+        # Add festival to the user's 'favourites' array on mongoDB
         mongo.db.users.update_one(
             {"username": username},
-            {'$push': {'favourites': ObjectId(festival_id)}})
-        # Add festival to the user's 'favourites' array on mongoDB
+            {'$push': {'favourites': festival['_id']}})
+
         # Add user to the festivals 'favourited_by' array on mongoDB
+        mongo.db.festivals.update_one(
+            {"_id": festival['_id']},
+            {'$push': {'favourited_by': username}})
     return redirect(url_for('browse'))
 
 
