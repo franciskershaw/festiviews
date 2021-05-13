@@ -3,10 +3,13 @@
 
 <section class="favourites"></section>
 <div class="container page-container">
-
     <h3>
         Hello, {{ username }}
     </h3>
+    {% for festival in favourites_arr %}
+    <p>{{ festival.name }}</p>
+    {% endfor %}
+
 </div>
 
 {% endblock %}

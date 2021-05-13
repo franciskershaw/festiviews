@@ -81,11 +81,21 @@ def login():
 @app.route("/favourites/<username>", methods=["GET", "POST"])
 def favourites(username):
     # grab the session user's username from db
-    username = mongo.db.users.find_one(
-        {"username": session["user"]})["username"]
+    user = mongo.db.users.find_one(
+        {"username": session["user"]})
+    username = user['username']
+    favourites = mongo.db.festivals.find({"favourited_by": username})
+
+    favourites_arr = []
+
+    for favourite in favourites:
+        favourites_arr.append(favourite)
 
     if session['user']:
-        return render_template("favourites.html", username=username)
+        return render_template("favourites.html",
+                               username=username,
+                               favourites=favourites,
+                               favourites_arr=favourites_arr)
 
     return redirect(url_for('login'))
 
