@@ -118,8 +118,8 @@ def browse():
 def view_festival(url):
     festival = mongo.db.festivals.find_one({"url": url})
     festival_id = festival['_id']
-    print(festival_id)
-    reviews = mongo.db.reviews.find({"festival_id": ObjectId(festival_id)})
+    reviews = mongo.db.reviews.find(
+        {"festival_id": ObjectId(festival_id)}).sort([('_id', 1), ('_id', -1)])
 
     reviews_arr = []
 

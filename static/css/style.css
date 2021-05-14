@@ -364,7 +364,6 @@ i.far.fa-heart {
     padding-top: 10px;
     padding-left: 0;
     padding-right: 0;
-    background-color: rgba(114, 156, 95, 0.7);
 }
 
 .reviews-heading-container {
@@ -389,8 +388,6 @@ i.far.fa-heart {
     border: 1px solid #fbf9ef;
     border-radius: 5px;
     padding-top: 10px;
-    background-color: #c11e47c9;
-    color: #fbf9ef;
 }
 
 .review-text {

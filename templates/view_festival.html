@@ -90,42 +90,43 @@
                     {% endif %}
                 </div>
             </div>
+            {% if reviews_arr %}
             {% for review in reviews_arr %}
             <div class="row review-row text-start">
                 <div class="col-8">
                     <h3 class="review-author">{{ review.created_by }} - <em>{{ review.year }}</em></h3>
                 </div>
-                <div class="col-4">
+                <div class="col-4 text-end">
                     <h3 class="review-rating">{{ review.rating }} stars</h3>
                 </div>
                 <div class="col-8 review-text">
                     <p><em>{{ review.text }}</em></p>
                 </div>
-                <div class="col-4">
+                <div class="col-4 text-end">
                     <button>Read Less</button>
                 </div>
-                <div class="col-6">
+                <div class="col-6 col-md-3">
                     <h4 class="review-category">Location: {{ review.location }}/5</h4>
                 </div>
-                <div class="col-6">
+                <div class="col-6 col-md-3">
                     <h4 class="review-category">Nightlife: {{ review.nightlife }}/5</h4>
                 </div>
-                <div class="col-6">
+                <div class="col-6 col-md-3">
                     <h4 class="review-category">Lineup: {{ review.lineup }}/5</h4>
                 </div>
-                <div class="col-6">
+                <div class="col-6 col-md-3">
                     <h4 class="review-category">Campsites: {{ review.campsites }}/5</h4>
                 </div>
-                <div class="col-6">
+                <div class="col-6 col-md-3">
                     <h4 class="review-category">Value for Money: {{ review.value }}/5</h4>
                 </div>
-                <div class="col-6">
+                <div class="col-6 col-md-3">
                     <h4 class="review-category">Food: {{ review.food }}/5</h4>
                 </div>
-                <div class="col-6">
+                <div class="col-6 col-md-3">
                     <h4 class="review-category">Toilets: '{{ review.toilets }}'</h4>
                 </div>
-                <div class="col-6">
+                <div class="col-6 col-md-3">
                     <h4 class="review-category">Kid friendly? '{{ review.kid_friendly }}</h4>
                 </div>
                 {% if session.user|lower == review.created_by|lower %}
@@ -136,6 +137,9 @@
                 {% endif %}
             </div>
             {% endfor %}
+            {% else %}
+                No reviews added yet, be the first to add one!
+            {% endif %}
         </div>
     </section>
 </div>
