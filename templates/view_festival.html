@@ -7,8 +7,8 @@
         {% if session.user|lower == 'administrator' %}
         <!-- Admin only edit/delete button -->
         <section class="admin-only text-end">
-            <a id="edit-fest" href="{{ url_for('edit_festival', url=festival.url) }}"><i class="far fa-edit"></i></a>
-            <a id="delete-fest" href="{{ url_for('delete_festival', url=festival.url) }}"><i class="far fa-trash-alt"></i></a>
+            <a href="{{ url_for('edit_festival', url=festival.url) }}"><i class="far fa-edit edit"></i></a>
+            <a href="{{ url_for('delete_festival', url=festival.url) }}"><i class="far fa-trash-alt delete"></i></a>
             <br>
         </section>
         {% endif %}
@@ -80,38 +80,64 @@
         </div> 
     </section>
     <!-- Reviews section -->
-    <section class="container-fluid text-start">
-        <h2>Latest reviews</h2>
-    </section>
-    <p>Location: {{ festival.location }}</p>
-    <p>Start date: {{ festival.start_date }}</p>
-    <p>End date: {{ festival.end_date }}</p>
-    <br>
-    {% if session.user %}
-    <a href="{{ url_for('add_review', url=festival.url) }}" class="btn btn-sm cta-btn" role="button">Add Review</a>
-    {% endif %}
-    <br>
-
-    <h4>Reviews for {{ festival.name }}</h4>
-    <ul>
-        {% for review in reviews_arr %}
-        <li>
-            <ul>
-                <li>Written by: {{ review.created_by }}</li>
-                <li>{{ review.text }}</li>
+    <section class="container-fluid reviews-section">
+        <div class="container">
+            <div class="row reviews-heading-container">
+                <div class="col-12 text-start">
+                    <h2 class="reviews-heading d-inline-block">Latest reviews</h2>
+                    {% if session.user %}
+                        <a class="add-review-btn" href="{{ url_for('add_review', url=festival.url) }}" role="button">Add Review</a>
+                    {% endif %}
+                </div>
+            </div>
+            {% for review in reviews_arr %}
+            <div class="row review-row text-start">
+                <div class="col-8">
+                    <h3 class="review-author">{{ review.created_by }} - <em>{{ review.year }}</em></h3>
+                </div>
+                <div class="col-4">
+                    <h3 class="review-rating">{{ review.rating }} stars</h3>
+                </div>
+                <div class="col-8 review-text">
+                    <p><em>{{ review.text }}</em></p>
+                </div>
+                <div class="col-4">
+                    <button>Read Less</button>
+                </div>
+                <div class="col-6">
+                    <h4 class="review-category">Location: {{ review.location }}/5</h4>
+                </div>
+                <div class="col-6">
+                    <h4 class="review-category">Nightlife: {{ review.nightlife }}/5</h4>
+                </div>
+                <div class="col-6">
+                    <h4 class="review-category">Lineup: {{ review.lineup }}/5</h4>
+                </div>
+                <div class="col-6">
+                    <h4 class="review-category">Campsites: {{ review.campsites }}/5</h4>
+                </div>
+                <div class="col-6">
+                    <h4 class="review-category">Value for Money: {{ review.value }}/5</h4>
+                </div>
+                <div class="col-6">
+                    <h4 class="review-category">Food: {{ review.food }}/5</h4>
+                </div>
+                <div class="col-6">
+                    <h4 class="review-category">Toilets: '{{ review.toilets }}'</h4>
+                </div>
+                <div class="col-6">
+                    <h4 class="review-category">Kid friendly? '{{ review.kid_friendly }}</h4>
+                </div>
                 {% if session.user|lower == review.created_by|lower %}
-                <li>
-                    <a href="{{ url_for('edit_review', review_id=review._id) }}" class="btn btn-sm cta-btn"
-                        role="button">Edit</a>
-                    <a href="{{ url_for('delete_review', review_id=review._id) }}" class="btn btn-sm cta-btn">Delete</a>
-                    <br>
-                </li>
+                <div class="col-12 text-center">
+                    <a href="{{ url_for('edit_review', review_id=review._id) }}"><i class="far fa-edit edit"></i></a>
+                <a href="{{ url_for('delete_review', review_id=review._id) }}"><i class="far fa-trash-alt delete"></i></a>
+                </div>
                 {% endif %}
-            </ul>
-            <hr>
-        </li>
-        {% endfor %}
-    </ul>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
 </div>
 
 {% endblock %}

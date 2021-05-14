@@ -288,7 +288,7 @@ span.year, span.rating, span.location, span.nightlife, span.lineup, span.campsit
     border-radius: 3px;
     background-color: rgba(114, 156, 95, 0.7);
     height: 50px;
-    border: 2px solid #c11e4796;
+    border: 2px solid fbf9ef;
     color: #fbf9ef;
     margin-bottom: 5px;
 }
@@ -360,12 +360,62 @@ i.far.fa-heart {
     font-weight: 400;
 }
 
+.reviews-section {
+    padding-top: 10px;
+    padding-left: 0;
+    padding-right: 0;
+    background-color: rgba(114, 156, 95, 0.7);
+}
+
+.reviews-heading-container {
+    margin-bottom: 10px;
+}
+
+.reviews-heading {
+    font-size: 150%;
+}
+
+.add-review-btn {
+    font-size: 80%;
+    color: #fbf9ef;
+    border: 1px solid #fbf9ef;
+    border-radius: 4px;
+    background-color: #c11e47c9;
+    padding-left: 4px;
+    padding-right: 4px;
+}
+
+.review-row {
+    border: 1px solid #fbf9ef;
+    border-radius: 5px;
+    padding-top: 10px;
+    background-color: #c11e47c9;
+    color: #fbf9ef;
+}
+
+.review-text {
+    margin-bottom: 10px;
+}
+
+.review-category {
+    font-size: 100%;
+}
+
+h3.review-author, h3.review-rating {
+    font-size: 100%;
+}
+
 h1.hub-h1 {
     padding-left: 0;
     padding-right: 0;
     margin-top: 15px;
     margin-bottom: 5px;
     font-size: 2rem;
+}
+
+h2.reviews-heading {
+    margin-bottom: 0;
+    padding-right: 10px;
 }
 
 section.admin-only.text-end {
@@ -381,11 +431,11 @@ i.fas.fa-star.hub-star {
     margin-bottom: 10px;
 }
 
-#edit-fest {
+.edit {
     color: grey;
 }
 
-#delete-fest {
+.delete {
     color: red;
 }
 
@@ -400,9 +450,6 @@ i.fas.fa-star.hub-star {
         font-size: 90%;
         padding-top: 8px;
     }
-    /* .stars {
-        padding-top: 15px;
-    } */
     .browse-heading {
         font-size: 121%;
     }
