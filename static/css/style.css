@@ -388,6 +388,14 @@ i.far.fa-heart {
     border: 1px solid #fbf9ef;
     border-radius: 5px;
     padding-top: 10px;
+    height: 75px;
+    overflow: hidden;
+}
+
+.read-more-less-btn {
+    padding-left: 4px;
+    padding-right: 4px;
+    border-radius: 4px;
 }
 
 .review-text {

@@ -99,11 +99,11 @@
                 <div class="col-4 text-end">
                     <h3 class="review-rating">{{ review.rating }} stars</h3>
                 </div>
-                <div class="col-8 review-text">
+                <div class="col-7 review-text">
                     <p><em>{{ review.text }}</em></p>
                 </div>
-                <div class="col-4 text-end">
-                    <button>Read Less</button>
+                <div class="col-5 text-end">
+                    <button class="read-more-less-btn">Read More</button>
                 </div>
                 <div class="col-6 col-md-3">
                     <h4 class="review-category">Location: {{ review.location }}/5</h4>
@@ -124,10 +124,10 @@
                     <h4 class="review-category">Food: {{ review.food }}/5</h4>
                 </div>
                 <div class="col-6 col-md-3">
-                    <h4 class="review-category">Toilets: '{{ review.toilets }}'</h4>
+                    <h4 class="review-category">Toilets: <em>'{{ review.toilets }}'</em></h4>
                 </div>
                 <div class="col-6 col-md-3">
-                    <h4 class="review-category">Kid friendly? '{{ review.kid_friendly }}</h4>
+                    <h4 class="review-category">Kid friendly? <em>'{{ review.kid_friendly }}'</em></h4>
                 </div>
                 {% if session.user|lower == review.created_by|lower %}
                 <div class="col-12 text-center">
