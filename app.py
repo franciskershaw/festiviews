@@ -118,6 +118,7 @@ def browse():
 def view_festival(url):
     festival = mongo.db.festivals.find_one({"url": url})
     festival_id = festival['_id']
+    print(festival_id)
     reviews = mongo.db.reviews.find({"festival_id": ObjectId(festival_id)})
 
     reviews_arr = []
@@ -165,8 +166,6 @@ def edit_festival(url):
         mongo.db.festivals.update_one(
             {"url": url},
             {"$set": {"name": request.form.get("festival_name"),
-                      "url": request.form.get(
-                          "festival_name").lower().replace(' ', '_'),
                       "location": request.form.get("festival_location"),
                       "start_date": request.form.get('festival_start_date'),
                       "end_date": request.form.get('festival_end_date'),
