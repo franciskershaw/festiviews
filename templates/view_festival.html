@@ -1,41 +1,71 @@
 {% extends "base.html" %}
 {% block content %}
 
-<section class="text-center view_festival">
-    <h3>
-        {{ festival.name }}
-    </h3>
+<div class="text-center view_festival">
+    <!-- Hero image/festival name/tagline -->
+    <section class="hub-hero-section">
+        {% if session.user|lower == 'administrator' %}
+        <!-- Admin only edit/delete button -->
+        <section class="admin-only text-end">
+            <a id="edit-fest" href="{{ url_for('edit_festival', url=festival.url) }}"><i class="far fa-edit"></i></a>
+            <a id="delete-fest" href="{{ url_for('delete_festival', url=festival.url) }}"><i class="far fa-trash-alt"></i></a>
+            <br>
+        </section>
+        {% endif %}
+        <div class="hub-headings-container center-content">
+            <div class="hub-headings-content">
+                <h1 class="hub-h1">{{ festival.name }}</h1>
+                <i class="fas fa-star hub-star"></i><i class="fas fa-star hub-star"></i><i
+                    class="fas fa-star hub-star"></i><i class="fas fa-star hub-star"></i><i
+                    class="fas fa-star hub-star"></i>
+                <h2 class="hub-description"><em>{{ festival.description }}</em></h2>
+            </div>
+        </div>
+    </section>
+    <!-- Festival information section -->
+    <section class="text-start container-fluid">
+        <h4>Location:</h4>
+        <h4>Dates:</h4>
+        <h4>Notable acts:</h4>
+        <h4>Website:</h4>
+        <h4>Cost:</h4>
+        <h4>Tickets:</h4>
+        <h4>Capacity:</h4>
+        <h4>Genre:</h4>
+    </section>
+    <!-- Reviews section -->
+    <section class="container-fluid text-start">
+        <h2>Latest reviews</h2>
+    </section>
     <p>Location: {{ festival.location }}</p>
     <p>Start date: {{ festival.start_date }}</p>
     <p>End date: {{ festival.end_date }}</p>
     <br>
-         {% if session.user %}
-            {% if session.user|lower == 'administrator' %}
-                <a href="{{ url_for('edit_festival', url=festival.url) }}" class="btn btn-sm cta-btn" role="button">Edit</a> <br>
-                <a href="{{ url_for('delete_festival', url=festival.url) }}" class="btn btn-sm cta-btn" role="button">Delete</a> <br>
-            {% endif %}
-            <a href="{{ url_for('add_review', url=festival.url) }}" class="btn btn-sm cta-btn" role="button">Add Review</a>
-         {% endif %}
+    {% if session.user %}
+    <a href="{{ url_for('add_review', url=festival.url) }}" class="btn btn-sm cta-btn" role="button">Add Review</a>
+    {% endif %}
     <br>
 
     <h4>Reviews for {{ festival.name }}</h4>
     <ul>
         {% for review in reviews_arr %}
-            <li>
-                <ul>
-                    <li>Written by: {{ review.created_by }}</li>
-                    <li>{{ review.text }}</li>
-                    {% if session.user|lower == review.created_by|lower %}
-                    <li>
-                        <a href="{{ url_for('edit_review', review_id=review._id) }}" class="btn btn-sm cta-btn" role="button">Edit</a>
-                        <a href="{{ url_for('delete_review', review_id=review._id) }}" class="btn btn-sm cta-btn">Delete</a> <br>
-                    </li>
-                    {% endif %}
-                </ul>
-                <hr>
-            </li>
+        <li>
+            <ul>
+                <li>Written by: {{ review.created_by }}</li>
+                <li>{{ review.text }}</li>
+                {% if session.user|lower == review.created_by|lower %}
+                <li>
+                    <a href="{{ url_for('edit_review', review_id=review._id) }}" class="btn btn-sm cta-btn"
+                        role="button">Edit</a>
+                    <a href="{{ url_for('delete_review', review_id=review._id) }}" class="btn btn-sm cta-btn">Delete</a>
+                    <br>
+                </li>
+                {% endif %}
+            </ul>
+            <hr>
+        </li>
         {% endfor %}
-    </ul> 
-</section>
+    </ul>
+</div>
 
 {% endblock %}

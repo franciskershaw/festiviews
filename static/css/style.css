@@ -193,7 +193,6 @@ h1, h2 {
     margin-bottom: 20px;
     width: 175px;
     padding: 7px;
-    /* background-color: rgba(127, 176, 105, 1); */
     background-color: rgba(114, 156, 95, 1);
     border: 2px solid #faf9f2e5;
     border-radius: 21px;
@@ -306,10 +305,6 @@ span.year, span.rating, span.location, span.nightlife, span.lineup, span.campsit
     padding-top: 5px;
 }
 
-/* .stars {
-    padding-top: 10px;
-} */
-
 .fest-location {
     padding-top: 10px;
 }
@@ -327,6 +322,64 @@ i.fas.fa-star {
 i.far.fa-heart {
     color: #fbf9ef;
 }
+
+/* Festival hubs */
+
+.hub-hero-section {
+    width: 100%;
+    padding-top: 56px;
+    height: 70vh;
+    background: url('/static/images/hub-placeholder.jpg') no-repeat fixed center;
+    background-size: cover;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+/* .hub-headings-container {
+    background-color: rgba(127, 176, 105, .7);
+    font-size: 1rem;
+    
+} */
+
+.hub-headings-content {
+    padding-left: 25px;
+    padding-right: 25px;
+    margin: 0 auto;
+    max-width: 500px;
+    background-color: rgba(127, 176, 105, .7);
+    border: solid 2px #fbf9ef;
+    border-radius: 7px;
+}
+
+h1.hub-h1 {
+    padding-left: 0;
+    padding-right: 0;
+    margin-top: 15px;
+    margin-bottom: 5px;
+    font-size: 2rem;
+}
+
+section.admin-only.text-end {
+    position: absolute;
+    top: 75px;
+    right: 25px;
+    font-size: 125%;
+}
+
+i.fas.fa-star.hub-star {
+    font-size: 150%;
+    color: rgba(224, 193, 20, 0.959);
+    margin-bottom: 10px;
+}
+
+#edit-fest {
+    color: grey;
+}
+
+#delete-fest {
+    color: red;
+}
+
 
 /* Media queries */
 
