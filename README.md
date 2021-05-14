@@ -264,6 +264,8 @@ I used Mongo DB as my database management system as per the above schema.
 
 05/05/2021 - Updating festivals was deleting all associated reviews because my edit function was adding an empty array (as per when you create a festival in the first place) to the database.
 
+14/05/2021 - Updating festival name was throwing an error as it was trying to change the url of the festival too, initial fix was to ensure that editing a festival would not edit the URL
+
 ## Testing document notes
 
 * Started with the most basic version of the frontend, with forms that only had a few fields in it for convenience
