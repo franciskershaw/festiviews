@@ -490,7 +490,7 @@ i.fas.fa-star.hub-star {
         font-size: 170%;
     }
     .add-review-btn {
-        font-size: 100%;
+        font-size: 115%;
     }
     i.fas.fa-star {
         font-size: 85%;
@@ -559,7 +559,7 @@ i.fas.fa-star.hub-star {
         padding-top: 30px;
     }
     .review-row {
-        height: 81px;
+        height: 85px;
     }
     .review-text {
         font-size: 120%;
@@ -629,6 +629,12 @@ i.fas.fa-star.hub-star {
     }
     a.nav-link {
         margin-right: 1em;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .review-category {
+        font-size: 130%;
     }
 }
 
