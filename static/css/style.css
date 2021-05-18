@@ -258,7 +258,7 @@ a.btn.btn-primary.btn-md.cta-btn:hover {
     font-size: 120%;
 }
 
-span.year, span.rating, span.location, span.nightlife, span.lineup, span.campsites, span.value, span.food, span.toilets, span.kid_friendly, span.genre {
+span.year, span.rating, span.location, span.nightlife, span.lineup, span.campsites, span.value, span.food, span.toilets, span.kid_friendly, span.genre, span.covid_status {
     display: none;
 }
 

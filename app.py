@@ -150,6 +150,7 @@ def add_festival():
             "ticket_link": request.form.get('festival_ticket_link'),
             "image_link": request.form.get('festival_image'),
             "description": request.form.get('festival_description'),
+            "covid_status": request.form.get('covid_status'),
             "reviews": [],
             "favourited_by": []
         }
@@ -184,7 +185,8 @@ def edit_festival(url):
                       "ticket_link": request.form.get('festival_ticket_link'),
                       "image_link": request.form.get('festival_image'),
                       "description": request.form.get(
-                          'festival_description')}})
+                          'festival_description'),
+                      "covid_status": request.form.get('covid_status')}})
 
         flash('Festival updated')
         return redirect(url_for('browse'))
