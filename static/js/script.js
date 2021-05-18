@@ -25,6 +25,10 @@ document.addEventListener("DOMContentLoaded", function (event) {
     if(pages.edit_festival || pages.edit_review) {
         populateEditForm();
     }
+
+    if(pages.view_festival) {
+        readMore();
+    }
 })
 
 /*
@@ -60,4 +64,21 @@ function populateEditForm() {
             }
         }
     }
+}
+
+/*
+This function is listening for a click event on the 'read more' button to reveal
+the rest of the user submitted review on a festival's page.
+*/
+
+function readMore() {
+    $('.read-more-less-btn').click(function() {
+        if (this.innerHTML === 'Read More') {
+            this.innerHTML = 'Read Less';
+        }
+        else {
+            this.innerHTML = 'Read More';
+        }
+        $(this).closest('.review-row').toggleClass('height-100');
+    })
 }

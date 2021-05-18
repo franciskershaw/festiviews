@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
 
-<div class="text-center view_festival">
+<section class="text-center view_festival">
     <!-- Hero image/festival name/tagline -->
     <section class="hub-hero-section">
         {% if session.user|lower == 'administrator' %}
@@ -142,6 +142,6 @@
             {% endif %}
         </div>
     </section>
-</div>
+</section>
 
 {% endblock %}

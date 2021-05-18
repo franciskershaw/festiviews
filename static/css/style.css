@@ -392,6 +392,10 @@ i.far.fa-heart {
     overflow: hidden;
 }
 
+.height-100 {
+    height: 100%;
+}
+
 .read-more-less-btn {
     padding-left: 4px;
     padding-right: 4px;
