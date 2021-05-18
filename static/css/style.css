@@ -432,6 +432,11 @@ section.admin-only.text-end {
     top: 75px;
     right: 25px;
     font-size: 125%;
+    background-color:rgb(187 170 170 / 65%);
+    padding-left: 4px;
+    padding-right: 4px;
+    border: 2px solid #fbf9ef;
+    border-radius: 4px;
 }
 
 i.fas.fa-star.hub-star {
@@ -441,11 +446,11 @@ i.fas.fa-star.hub-star {
 }
 
 .edit {
-    color: grey;
+    color: #fbf9ef;
 }
 
 .delete {
-    color: red;
+    color: #da2d59;
 }
 
 
@@ -465,8 +470,17 @@ i.fas.fa-star.hub-star {
     .browse-row {
         height: 60px;
     }
+    .hub-info-heading {
+        font-size: 125%;
+    }
+    .hub-info {
+        font-size: 100%;
+    }
     i.fas.fa-star {
         font-size: 85%;
+    }
+    section.admin-only.text-end {
+        font-size: 150%;
     }
 }
 
@@ -525,11 +539,20 @@ i.fas.fa-star.hub-star {
     .stars {
         padding-top: 23px;
     }
+    h1.hub-h1 {
+        font-size: 2.5rem;
+    }
+    h2.hub-description {
+        font-size: 115%;
+    }
     i.far.fa-heart {
         font-size: 150%;
     }
     i.fas.fa-star {
         font-size: 90%;
+    }
+    section.admin-only.text-end {
+        font-size: 185%;
     }
 }
 
@@ -553,6 +576,9 @@ i.fas.fa-star.hub-star {
     i.fas.fa-star {
         font-size: 110%;
     }
+    section.admin-only.text-end {
+        right: 100px;
+    }
     #search-bar {
         font-size: 90%;
         width: 200px;
@@ -561,6 +587,12 @@ i.fas.fa-star.hub-star {
 }
 
 @media screen and (min-width: 1035px) {
+    .hub-info-heading {
+        font-size: 140%;
+    }
+    .hub-info {
+        font-size: 105%;
+    }
     a.nav-link {
         margin-right: 1em;
     }
