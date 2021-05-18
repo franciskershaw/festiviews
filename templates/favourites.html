@@ -12,19 +12,15 @@
     {% if favourites_arr|length >0 %}
         {% for festival in favourites_arr %}
             <div class="row border browse-row">
-                <div class="col-4">
+                <div class="col-4 text-start">
                     <p>{{ festival.name }}</p>
                 </div>
-                <div class="col-4">
+                <div class="col-4 text-center">
                     <p>{{ festival.start_date }}-{{ festival.end_date }}</p>
                 </div>
                 <div class="col-4 text-end">
                     <form method='POST' class="d-inline" action="{{ url_for('add_favourites', festival_id=festival._id) }}">
-                        {% if session.user in festival.favourited_by %}
-                    <button type="submit" class="browse-icon"><i class="fas fa-heart"></i></button>
-                        {% else %}
-                    <button type="submit" class="browse-icon"><i class="far fa-heart"></i></button>
-                        {% endif %}
+                        <button type="submit" class="browse-icon"><i class="fas fa-heart"></i></button>
                     </form>
                 </div>
             </div>
