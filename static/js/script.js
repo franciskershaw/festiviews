@@ -70,7 +70,6 @@ function populateEditForm() {
 This function is listening for a click event on the 'read more' button to reveal
 the rest of the user submitted review on a festival's page.
 */
-
 function readMore() {
     $('.read-more-less-btn').click(function() {
         if (this.innerHTML === 'Read More') {
@@ -80,5 +79,6 @@ function readMore() {
             this.innerHTML = 'Read More';
         }
         $(this).closest('.review-row').toggleClass('height-100');
+        $(this).parent().prev().toggleClass('ellipsis');
     })
 }

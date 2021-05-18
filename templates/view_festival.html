@@ -99,7 +99,7 @@
                 <div class="col-4 text-end">
                     <h3 class="review-rating">{{ review.rating }} stars</h3>
                 </div>
-                <div class="col-8 review-text">
+                <div class="col-8 review-text ellipsis">
                     <p><em>"{{ review.text }}"</em></p>
                 </div>
                 <div class="col-4 text-end">
@@ -138,7 +138,10 @@
             </div>
             {% endfor %}
             {% else %}
-                No reviews added yet, be the first to add one!
+            <!-- Section appears if no reviews are present -->
+            <section class="no-reviews">
+                <p><em>No reviews added yet, be the first to add one!</em></p>
+            </section>
             {% endif %}
         </div>
     </section>

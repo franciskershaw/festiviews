@@ -399,6 +399,15 @@ i.far.fa-heart {
     background: linear-gradient(90deg, rgb(123 149 112) 0%, rgb(120 166 100 / 82%) 100%);
 }
 
+/* source: https://stackoverflow.com/questions/5269713/css-ellipsis-on-second-line */
+.ellipsis {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;   
+}
+
 .read-more-less-btn {
     padding: 2px 4px;
     border-radius: 4px;
@@ -420,6 +429,12 @@ i.far.fa-heart {
 
 .edit-review-links {
     font-size: 175%;
+    margin-bottom: 10px;
+}
+
+.no-reviews {
+    margin-top: 20px;
+    font-size: 120%;
 }
 
 h3.review-author, h3.review-rating {
@@ -463,6 +478,9 @@ i.fas.fa-star.hub-star {
     color: #da2d59;
 }
 
+#edit-review-icon {
+    color: #e7e0e0e0;
+}
 
 /* Media queries */
 
@@ -565,10 +583,11 @@ i.fas.fa-star.hub-star {
         font-size: 120%;
     }
     .read-more-less-btn {
-        font-size: 100%;
+        font-size: 120%;
     }
     .review-category {
         margin-bottom: 25px;
+        font-size: 110%;
     }
     h1.hub-h1 {
         font-size: 2.5rem;
@@ -607,6 +626,12 @@ i.fas.fa-star.hub-star {
     .stars {
         padding-top: 31px;
     }
+    .hub-info-heading {
+        font-size: 115%;
+    }
+    .hub-info {
+        font-size: 96%;
+    }
     i.fas.fa-star {
         font-size: 110%;
     }
@@ -621,12 +646,6 @@ i.fas.fa-star.hub-star {
 }
 
 @media screen and (min-width: 1035px) {
-    .hub-info-heading {
-        font-size: 140%;
-    }
-    .hub-info {
-        font-size: 105%;
-    }
     a.nav-link {
         margin-right: 1em;
     }
@@ -635,6 +654,12 @@ i.fas.fa-star.hub-star {
 @media screen and (min-width: 1200px) {
     .review-category {
         font-size: 130%;
+    }
+    .hub-info-heading {
+        font-size: 140%;
+    }
+    .hub-info {
+        font-size: 105%;
     }
 }
 
