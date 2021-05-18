@@ -79,8 +79,20 @@
         <input type="text" class="form-control" id="festival_image" name="festival_image">
       </div>
       <!-- Short description -->
-      <label for="festival_description" class="form-label">Short descirption&#42</label>
-      <input type="text" class="form-control" id="festival_description" name="festival_description" required>
+      <div class="col-12 col-md-6">
+        <label for="festival_description" class="form-label">Short description&#42</label>
+        <input type="text" class="form-control" id="festival_description" name="festival_description" required>
+      </div>
+      <!-- Covid status -->
+      <div class="col-12 col-md-6">
+        <label for="covid_status" class="form-label">Going ahead?&#42</label>
+        <select class="form-control" id="covid_status" name="covid_status" required>
+          <option value="" selected disabled hidden>Choose option</option>
+          <option value="Cancelled">Cancelled</option>
+          <option value="Touch and go">Touch and go</option>
+          <option value="Going ahead">Going ahead</option>
+        </select>
+      </div>
       <!-- submit form -->
       <div class="row text-center">
         <div class="col-6">
