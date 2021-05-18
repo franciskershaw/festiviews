@@ -266,6 +266,8 @@ I used Mongo DB as my database management system as per the above schema.
 
 14/05/2021 - Updating festival name was throwing an error as it was trying to change the url of the festival too, initial fix was to ensure that editing a festival would not edit the URL
 
+18/05/2021 - assignPageTrue was not working because flash messages appearing meant that they were the 'section' being targeted on the querySelector. Fixed by changing flash messsage container into a div
+
 ## Testing document notes
 
 * Started with the most basic version of the frontend, with forms that only had a few fields in it for convenience
