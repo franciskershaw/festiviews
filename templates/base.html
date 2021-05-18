@@ -62,11 +62,11 @@
         {% if messages %}
         <!-- flash messages -->
           {% for message in messages %}
-          <section class="flash-messages">
+          <div class="flash-messages">
             <div class="container flashes">
                 <h4>{{ message }}</h4>
             </div>
-          </section>
+          </div>
           {% endfor %}
         {% endif %}
       {% endwith %}
