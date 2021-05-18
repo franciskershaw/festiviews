@@ -453,8 +453,11 @@ button.btn.read-more-less-btn:hover {
     font-size: 120%;
 }
 
-h3.review-author, h3.review-rating {
+h3.review-author {
     font-size: 115%;
+}
+h3.review-rating {
+    font-size: 54%;
 }
 h3.review-authour {
     font-weight: 600;
@@ -620,8 +623,11 @@ i.fas.fa-star.hub-star {
     section.admin-only.text-end {
         font-size: 185%;
     }
-    h3.review-author, h3.review-rating {
+    h3.review-author {
         font-size: 135%;
+    }
+    h3.review-rating {
+        font-size: 65%;
     }
 }
 
