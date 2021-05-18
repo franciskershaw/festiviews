@@ -389,6 +389,14 @@ i.far.fa-heart {
     padding-right: 4px;
 }
 
+a.add-review-btn:hover {
+    color: #c11e47c9;
+    background-color: #fbf9ef;
+    border: 1px solid #c11e47c9;
+    transition: 0.1s;
+    text-decoration: none;
+}
+
 .review-row {
     border: 1px solid #fbf9ef;
     border-radius: 5px;
@@ -415,6 +423,14 @@ i.far.fa-heart {
     background-color: #c11e47c9;
     color: #fbf9ef;
     border-color: #fbf9ef;
+}
+
+button.btn.read-more-less-btn:hover {
+    color: #c11e47c9;
+    background-color: #fbf9ef;
+    border: 1px solid #c11e47c9;
+    transition: 0.1s;
+    text-decoration: none;
 }
 
 .review-text {
