@@ -166,6 +166,8 @@ def edit_festival(url):
         mongo.db.festivals.update_one(
             {"url": url},
             {"$set": {"name": request.form.get("festival_name"),
+                      "url": request.form.get(
+                          "festival_name").lower().replace(' ', '_'),
                       "location": request.form.get("festival_location"),
                       "start_date": request.form.get('festival_start_date'),
                       "end_date": request.form.get('festival_end_date'),
@@ -185,7 +187,7 @@ def edit_festival(url):
                           'festival_description')}})
 
         flash('Festival updated')
-        return redirect(url_for('view_festival', url=url))
+        return redirect(url_for('browse'))
 
     festival = mongo.db.festivals.find_one({'url': url})
     return render_template("edit_festival.html", festival=festival)
