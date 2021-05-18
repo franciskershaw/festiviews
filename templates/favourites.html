@@ -1,15 +1,47 @@
 {% extends "base.html" %}
 {% block content %}
 
-<section class="favourites"></section>
+<section class="favourites">
 <div class="container page-container">
     <h3>
         Hello, {{ username }}
     </h3>
-    {% for festival in favourites_arr %}
-    <p>{{ festival.name }}</p>
-    {% endfor %}
-
+    <h4>
+        Your favourites:
+    </h4>
+    {% if favourites_arr|length >0 %}
+        {% for festival in favourites_arr %}
+            <div class="row border browse-row">
+                <div class="col-4">
+                    <p>{{ festival.name }}</p>
+                </div>
+                <div class="col-4">
+                    <p>{{ festival.start_date }}-{{ festival.end_date }}</p>
+                </div>
+                <div class="col-4 text-end">
+                    <form method='POST' class="d-inline" action="{{ url_for('add_favourites', festival_id=festival._id) }}">
+                        {% if session.user in festival.favourited_by %}
+                    <button type="submit" class="browse-icon"><i class="fas fa-heart"></i></button>
+                        {% else %}
+                    <button type="submit" class="browse-icon"><i class="far fa-heart"></i></button>
+                        {% endif %}
+                    </form>
+                </div>
+            </div>
+        {% endfor %}
+    {% else %}
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-12">
+                    <p>You haven't added any favourites yet</p>
+                </div>
+                <div class="col-12">
+                    <a href="{{ url_for('browse') }}" class="btn btn-primary btn-md cta-btn" role="button">Browse
+                        Festivals</a>
+                </div>
+            </div>
+        </div>
+    {% endif %}
 </div>
-
+</section>
 {% endblock %}

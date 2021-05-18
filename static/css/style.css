@@ -288,7 +288,7 @@ span.year, span.rating, span.location, span.nightlife, span.lineup, span.campsit
     border-radius: 3px;
     background-color: rgba(114, 156, 95, 0.7);
     height: 50px;
-    border: 2px solid fbf9ef;
+    border: 2px solid #fbf9ef;
     color: #fbf9ef;
     margin-bottom: 5px;
 }

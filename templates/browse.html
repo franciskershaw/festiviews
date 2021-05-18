@@ -13,7 +13,7 @@
             {% endif %}
         </div>
     </div>
-    {% if festivals|length > 0%}
+    {% if festivals|length > 0 %}
     <div class="row pb-1">
         <div class="col-4 text-start">
             <h4 class="browse-heading">Name <button class="browse-icon"><i class="fas fa-sort"></i></button></h4>
@@ -29,7 +29,7 @@
     {% for festival in festivals %}
     <div class="row browse-row">
         <div class="col-4 browse-fest-name">
-            <a class="add-fest-btn fest-btn" href="{{ url_for('view_festival', url=festival.url) }}">{{ festival.name }}</a>
+            <a class="add-fest-btn" href="{{ url_for('view_festival', url=festival.url) }}">{{ festival.name }}</a>
             <p class="d-none d-md-block fest-location">{{ festival.location }}</p>
         </div>
         <div class="col-4">
