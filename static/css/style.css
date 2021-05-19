@@ -29,6 +29,16 @@ label {
 
 .flash-messages {
     padding-top: 56px;
+    position: absolute;
+    background-color: #c11e47eb;
+    border: 1px solid #fbf9ef;
+    width: 100%;
+}
+
+.flashes {
+    padding-top: 5px;
+    color: #eeeada;
+    text-shadow: 1px 1px black;
 }
 
 .center-content {
@@ -540,6 +550,29 @@ h4#fave-sub-heading {
     border: 2px solid white;
     color: white;
     max-width: 180px;
+}
+
+/* Animations */
+
+/* source: https://stackoverflow.com/questions/39513705/make-html-element-disappear-with-css-animation */
+@keyframes appearDisappear {
+   0%{
+    opacity: 0;
+    transform: rotateX(90deg);
+   }
+  15%{
+    opacity: 1;
+    transform: rotateX(0deg);
+    }
+  100%{
+    opacity: 0;
+    }
+}
+
+.appearDisappear {
+    animation-name: appearDisappear;
+    animation-duration: 7500ms;
+    animation-fill-mode: forwards;
 }
 
 /* Media queries */
