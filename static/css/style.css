@@ -392,6 +392,31 @@ i.far.fa-heart {
     color: #fbf9ef;
 }
 
+#find-fest {
+    padding-top: 10px;
+    padding-bottom: 5px;
+    background-color: #c11e47c9;
+    color: #fbf9ef;
+    border: 2px solid #fbf9ef;
+    border-radius: 4px;
+    margin-bottom: 15px;
+}
+
+#find-fest p {
+    margin-bottom: 0;
+}
+
+#find-fest p a {
+    color: #fbf9ef;
+    padding-left: 5px;
+    padding-right: 5px;
+    background-color: #009fd3;
+    padding-top: 1px;
+    padding-bottom: 1px;
+    border-radius: 4px;
+    border: 1px solid #fbf9ef;
+}
+
 /* Festival hubs */
 
 .hub-hero-section {
@@ -809,6 +834,9 @@ h4#fave-sub-heading {
     }
     h3#fave-heading {
         font-size: 235%;
+    }
+    #find-fest h5, #find-fest p {
+        font-size: 125%;
     }
 }
 
