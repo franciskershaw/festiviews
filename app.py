@@ -31,7 +31,7 @@ def sign_up():
             {'username': request.form.get('username').lower()})
 
         if existing_user:
-            flash("Username already exists")
+            flash("Username already exists, please a different one")
             return redirect(url_for("sign_up"))
 
         sign_up = {
@@ -156,6 +156,7 @@ def add_festival():
         }
         mongo.db.festivals.insert_one(add_festival)
 
+        flash('New festival added')
         return redirect(url_for("browse"))
 
     return render_template("add_festival.html")
@@ -235,7 +236,7 @@ def add_review(url):
             {"url": url},
             {'$push': {'reviews': review_id.inserted_id}})
 
-        flash('Review added!')
+        flash('Thanks for your review!')
         return redirect(url_for('view_festival', url=url))
 
     return render_template('add_review.html', festival=festival)
@@ -263,7 +264,7 @@ def edit_review(review_id):
                       "kid_friendly": request.form.get('kid_friendly'),
                       "text": request.form.get('review')}})
 
-        flash('Review has been updated')
+        flash('Review has updated successfuly')
         return redirect(url_for('view_festival', url=url))
 
     return render_template('edit_review.html',
@@ -302,7 +303,7 @@ def add_favourites(festival_id):
             mongo.db.users.update_one(
                 {'username': username},
                 {'$pull': {'favourites': festival['_id']}})
-            flash('removed')
+            flash(festival.get('name') + ' removed from favourites')
         else:
             # Add festival to the user's 'favourites' array on mongoDB
             mongo.db.users.update_one(
@@ -312,14 +313,14 @@ def add_favourites(festival_id):
             mongo.db.festivals.update_one(
                 {"_id": festival['_id']},
                 {'$push': {'favourited_by': username}})
-            flash('added')
+            flash(festival.get('name') + ' added to favourites')
     return redirect(url_for('browse'))
 
 
 @app.route('/logout')
 def logout():
     # remove user from session cookies
-    flash("You have been logged out")
+    flash("Goodbye!")
     session.pop("user")
     return redirect(url_for("login"))
 
