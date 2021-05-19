@@ -67,6 +67,12 @@ label {
 
 /* Navigation bar and footer */
 
+footer {
+	height: 12vh;
+	text-align: center;
+    font-size: 18px;
+}
+
 nav, footer {
     /* background-color: rgba(127, 176, 105, 1) */
     background-color: rgba(114, 156, 95, 0.9);
@@ -117,26 +123,8 @@ input[type="text"]::placeholder {
     text-align: center;
 }
 
-#search_bar {
-    font-size: 85%;
-    width: 150px;
-    margin-top: 5px;
-    border-radius: 13px;
-    background-color: #fbf9ef;
-}
-
-footer {
-	height: 12vh;
-	text-align: center;
-    font-size: 18px;
-}
-
 .footer-content-container {
     font-size: 1em;
-}
-
-#footer-heading a {
-    color: #fbf9ef;
 }
 
 a.nav-logo {
@@ -149,6 +137,33 @@ a.nav-logo {
     padding-right: 2px;
     padding-left: 2px;
 }
+
+#search_bar {
+    font-size: 85%;
+    width: 150px;
+    margin-top: 5px;
+    border-radius: 13px;
+    background-color: #fbf9ef;
+}
+
+#copyright {
+    font-size: 80%;
+    padding-top: 5px;
+    color: #3d1717;
+}
+
+#footer-heading a {
+    color: #fbf9ef;
+}
+
+a#brand:hover {
+    text-decoration: underline;
+}
+
+a#footer-logo:hover {
+    text-decoration: none;
+}
+
 
 /* index.html - hero image and cta buttons */
 
@@ -773,6 +788,12 @@ h4#fave-sub-heading {
 @media (min-width: 768px) and (max-width: 868px) {
     a.nav-link {
         font-size: 85%;
+    }
+}
+
+@media (max-width: 340px) {
+    h1.index-h1 {
+        font-size: 2.25rem;
     }
 }
 

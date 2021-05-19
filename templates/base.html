@@ -75,13 +75,13 @@
   </main>
   
   <!-- Footer across all pages -->
-  <footer class="">
+  <footer>
     <div class="footer-content-container center-content">
     <div id="footer-heading">
-      <a class="nav-logo" href="{{ url_for('index') }}">FVs </a><a href="{{ url_for('index') }}">FestiViews</a>
+      <a id="footer-logo" class="nav-logo" href="{{ url_for('index') }}">FVs </a><a href="{{ url_for('index') }}">FestiViews</a>
     </div>
     <div>
-      <p>&copy; Francis Kershaw <span id="copyright"></span></p>
+      <p id="copyright">&copy; Francis Kershaw <span id="copyright-date"></span></p>
     </div>
   </div>
   </footer>
@@ -94,7 +94,7 @@
   </script>
   <script src="{{ url_for('static', filename='js/script.js') }}"></script>
   <script>
-    $('#copyright').text(new Date().getFullYear());
+    $('#copyright-date').text(new Date().getFullYear());
 </script>
 </body>
 
