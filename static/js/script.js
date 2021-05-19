@@ -28,6 +28,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
     if(pages.view_festival) {
         readMore();
+        covidStatus();
     }
 })
 
@@ -81,4 +82,17 @@ function readMore() {
         $(this).closest('.review-row').toggleClass('height-100');
         $(this).parent().prev().toggleClass('ellipsis');
     })
+}
+
+/*
+This function checks the covid status on a festival page and changes the colour depending on what it is
+*/
+function covidStatus() {
+    let paragraph = document.querySelector('.covid-status');
+    if (paragraph.innerHTML === 'Cancelled') {
+        paragraph.classList.add('cancelled');
+        console.log(paragraph.classList)
+    } else if (paragraph.innerHTML === 'Going ahead') {
+        paragraph.classList.add('going-ahead');
+    }
 }

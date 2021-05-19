@@ -515,6 +515,14 @@ button.btn.read-more-less-btn:hover {
     font-size: 120%;
 }
 
+.cancelled {
+    color: red;
+}
+
+.going-ahead {
+    color: green;
+}
+
 h3.review-author {
     font-size: 115%;
 }
