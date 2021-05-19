@@ -286,7 +286,7 @@ span.year, span.rating, span.location, span.nightlife, span.lineup, span.campsit
 
 .browse-row {
     border-radius: 3px;
-    background-color: rgba(114, 156, 95, 0.7);
+    background: linear-gradient(90deg, rgb(123 149 112) 0%, rgb(120 166 100 / 82%) 100%);
     height: 50px;
     border: 2px solid #fbf9ef;
     color: #fbf9ef;
@@ -499,6 +499,28 @@ i.fas.fa-star.hub-star {
 
 #edit-review-icon {
     color: #e7e0e0e0;
+}
+
+/* Favourites page */
+
+.no-faves-row {
+    background-color: #c11e47c9;
+    border: 2px solid #fbf9ef;
+    border-radius: 4px;
+    padding-top: 10px;
+    margin-top: 30px;
+}
+
+section.favourites {
+    background: url('/static/images/hub-placeholder.jpg') no-repeat fixed center;
+    background-size: cover;
+    min-height: 88vh;
+}
+
+#fave-cta {
+    font-size: 110%;
+    color: #fbf9ef;
+    text-shadow: 1px 1px #43424230;
 }
 
 /* Media queries */
