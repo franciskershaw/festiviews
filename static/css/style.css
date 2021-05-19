@@ -332,6 +332,7 @@ span.year, span.rating, span.location, span.nightlife, span.lineup, span.campsit
 .browse {
     background: url('/static/images/browse-hero.jpg') no-repeat fixed center;
     background-size: cover; 
+    min-height: 88vh;
 }
 
 .browse-heading {
@@ -345,7 +346,7 @@ span.year, span.rating, span.location, span.nightlife, span.lineup, span.campsit
     border-radius: 5px;
     border: solid 1px #faf9f2e5;
     padding: 3px 5px 3px 5px;
-    max-width: 30px;
+
 }
 
 .add-fest-btn:hover {
@@ -650,9 +651,6 @@ h4#fave-sub-heading {
 /* Media queries */
 
 @media screen and (min-width: 375px) {
-    .add-fest-btn {
-        font-size: 120%;
-    }
     .browse-dates {
         font-size: 90%;
         padding-top: 8px;
@@ -696,13 +694,16 @@ h4#fave-sub-heading {
     }
 }
 
-@media screen and (min-width: 579px) {
-    .browse-dates {
-        padding-top: 18px;
-    }
+@media screen and (min-width: 414px) {
     .browse-fest-name {
         padding-left: 10px;
         padding-top: 5px;
+    }
+}
+
+@media screen and (min-width: 579px) {
+    .browse-dates {
+        padding-top: 18px;
     }
 }
 
@@ -716,6 +717,14 @@ h4#fave-sub-heading {
     }
     ul.navbar-nav {
         margin-bottom: 15px;
+    }
+    a.text-start.add-fest-btn {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 1;
+        -webkit-box-orient: vertical; 
+        max-width: 104px;
     }
 }
 
