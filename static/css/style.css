@@ -146,6 +146,16 @@ a.nav-logo {
     background-color: #fbf9ef;
 }
 
+#create-account {
+    background-color: #c11e47;
+}
+
+#create-account:hover {
+    background-color: #fbf9ef;
+    color: #c11e47;
+    border: 2px solid #c11e47;
+}
+
 #copyright {
     font-size: 80%;
     padding-top: 5px;
