@@ -3,14 +3,14 @@
 
 <section class="favourites">
 <div class="container-fluid browse page-container">
-    <h3>
+    <h3 id="fave-heading">
         Hello, {{ username }}
     </h3>
-    <h4>
+    <h4 id="fave-sub-heading">
         Your favourites:
     </h4>
     {% if favourites_arr|length >0 %}
-    <section class="festivals-list mb-3">
+    <section class="favourites-list mb-3">
         {% for festival in favourites_arr %}
             <div class="row browse-row">
                 <div class="col-4 browse-fest-name text-start">
