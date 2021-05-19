@@ -2,7 +2,7 @@
 {% block content %}
 
 <section class="favourites">
-<div class="container-fluid browse page-container">
+<div class="container-fluid small-container page-container">
     <h3 id="fave-heading">
         Hello, {{ username }}
     </h3>
@@ -30,9 +30,7 @@
                         {% if session.user %}
                         <form method='POST' class="d-inline" action="{{ url_for('add_favourites', festival_id=festival._id) }}">
                             {% if session.user in festival.favourited_by %}
-                        <button type="submit" class="browse-icon"><i class="fas fa-heart"></i></button>
-                            {% else %}
-                        <button type="submit" class="browse-icon"><i class="far fa-heart"></i></button>
+                        <button type="submit" class="browse-icon"><i class="fas fa-heart browse-heart"></i></button>
                             {% endif %}
                         </form>
                         {% endif %}

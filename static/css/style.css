@@ -325,9 +325,15 @@ span.year, span.rating, span.location, span.nightlife, span.lineup, span.campsit
 }
 
 /* Browse all */
-.browse {
+.small-container {
     max-width: 1158px;
 }
+
+.browse {
+    background: url('/static/images/browse-hero.jpg') no-repeat fixed center;
+    background-size: cover; 
+}
+
 .browse-heading {
     font-size: 100%;
 }
@@ -402,7 +408,7 @@ i.far.fa-heart {
     padding-right: 25px;
     margin: 0 auto;
     max-width: 500px;
-    background-color: rgba(127, 176, 105, .7);
+    background-color: rgba(127, 176, 105, .9);
     border: solid 2px #fbf9ef;
     border-radius: 7px;
 }
@@ -439,6 +445,10 @@ i.far.fa-heart {
     padding-right: 10px;
     color: #c11e47;
     text-shadow: 1px 1px 1px #b3b2ad;
+}
+
+button.browse-icon.festival-heart i {
+    color: #fbf9ef;
 }
 
 .add-review-btn {
@@ -604,12 +614,14 @@ h3#fave-heading {
 h4#fave-sub-heading {
     text-shadow: 1px 1px black;
     background-color: #c11e47;
-    padding-left: 4px;
-    padding-right: 4px;
+    padding-left: 8px;
+    padding-right: 8px;
     border-radius: 4px;
     border: 2px solid #fbf9ef;
     color: #fbf9ef;
-    max-width: 180px;
+    max-width: 187px;
+    padding-top: 2px;
+    padding-bottom: 2px;
 }
 
 /* Animations */
@@ -684,7 +696,7 @@ h4#fave-sub-heading {
     }
 }
 
-@media screen and (min-width: 475px) {
+@media screen and (min-width: 579px) {
     .browse-dates {
         padding-top: 18px;
     }
@@ -761,8 +773,11 @@ h4#fave-sub-heading {
     h2.hub-description {
         font-size: 115%;
     }
-    i.far.fa-heart {
+    button i.far.fa-heart.browse-heart, button i.fas.fa-heart.browse-heart {
         font-size: 150%;
+        position: absolute;
+        top: 23px;
+        right: 40px;
     }
     i.fas.fa-star {
         font-size: 90%;
@@ -819,6 +834,11 @@ h4#fave-sub-heading {
     }
     i.fas.fa-search {
         font-size: 110%;
+    }
+    button i.far.fa-heart.browse-heart, button i.fas.fa-heart.browse-heart {
+        top: 28px;
+        right: 50px;
+        font-size: 175%;
     }
     #search_bar {
         font-size: 105%;

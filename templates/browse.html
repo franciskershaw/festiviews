@@ -1,7 +1,8 @@
 {% extends "base.html" %}
 {% block content %}
 
-<section class="container-fluid browse page-container text-start">
+<section class="browse text-start">
+    <div class="container-fluid small-container page-container">
     <div class="row pb-2">
         <div class="col-2"></div>
         <div class="col-8">
@@ -45,9 +46,9 @@
                 {% if session.user %}
                 <form method='POST' class="d-inline" action="{{ url_for('add_favourites', festival_id=festival._id) }}">
                     {% if session.user in festival.favourited_by %}
-                <button type="submit" class="browse-icon"><i class="fas fa-heart"></i></button>
+                <button type="submit" class="browse-icon"><i class="fas fa-heart browse-heart"></i></button>
                     {% else %}
-                <button type="submit" class="browse-icon"><i class="far fa-heart"></i></button>
+                <button type="submit" class="browse-icon"><i class="far fa-heart browse-heart"></i></button>
                     {% endif %}
                 </form>
                 {% endif %}
@@ -68,6 +69,7 @@
             <p><a href="#">Contact us</a> to request a new festival.</p>
         </div>
     </div>
+</div>
 </section>
 
 {% endblock %}
