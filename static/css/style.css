@@ -138,12 +138,19 @@ a.nav-logo {
     padding-left: 2px;
 }
 
+i.fas.fa-search {
+    font-size: 80%;
+}
+
 #search_bar {
     font-size: 85%;
     width: 150px;
     margin-top: 5px;
     border-radius: 13px;
     background-color: #fbf9ef;
+    padding-left: 10px;
+    padding-right: 20px;
+    border: 1px solid #392d34a8;
 }
 
 #create-account {
@@ -166,6 +173,20 @@ a.nav-logo {
     color: #fbf9ef;
 }
 
+button#search-btn {
+    border: none;
+    background: none;
+    position: absolute;
+    right: 7px;
+    top: 4px;
+}
+
+#search_bar:focus-visible {
+    outline: none;
+    box-shadow: 0 0 1pt 1pt #c11e47;
+    border: none;
+}
+
 a#brand:hover {
     text-decoration: underline;
 }
@@ -173,6 +194,7 @@ a#brand:hover {
 a#footer-logo:hover {
     text-decoration: none;
 }
+
 
 
 /* index.html - hero image and cta buttons */
@@ -639,6 +661,19 @@ h4#fave-sub-heading {
     section.admin-only.text-end {
         font-size: 150%;
     }
+    i.fas.fa-search {
+        font-size: 95%;
+    }
+    #search_bar {
+        font-size: 90%;
+        width: 165px;
+        border-radius: 20px;
+        height: 30px;
+    }
+    button#search-btn {
+        right: 8px;
+        top: 8px;
+    }
 }
 
 @media screen and (min-width: 475px) {
@@ -733,6 +768,10 @@ h4#fave-sub-heading {
     h3.review-rating {
         font-size: 65%;
     }
+    .navbar-expand-md .navbar-nav .nav-link {
+        padding-right: .8rem;
+        padding-left: .25rem;
+    }
     #fave-cta {
         font-size: 150%;
     }
@@ -770,16 +809,18 @@ h4#fave-sub-heading {
     section.admin-only.text-end {
         right: 100px;
     }
-    #search-bar {
-        font-size: 90%;
-        width: 200px;
-        border-radius: 15px;
+    i.fas.fa-search {
+        font-size: 110%;
     }
-}
-
-@media screen and (min-width: 1035px) {
-    a.nav-link {
-        margin-right: 1em;
+    #search_bar {
+        font-size: 105%;
+        width: 220px;
+        padding-left: 20px;
+        padding-right: 30px;
+    }
+    button#search-btn {
+        right: 10px;
+        top: 9px;
     }
 }
 
@@ -793,11 +834,14 @@ h4#fave-sub-heading {
     .hub-info {
         font-size: 105%;
     }
+    a.nav-link {
+        margin-right: 1em;
+    }
 }
 
 @media (min-width: 768px) and (max-width: 868px) {
     a.nav-link {
-        font-size: 85%;
+        font-size: 80%;
     }
 }
 
