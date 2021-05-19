@@ -16,10 +16,14 @@
     <!-- CTA buttons -->
     <div class="cta-button-container">
       <div class="row">
+        {% if session.user %}
+        <div class="col-12"><a href="{{ url_for('browse') }}" class="btn btn-primary btn-md cta-btn">Browse Festivals</a></div>
+        {% else %}
         <div class="col-12 col-md-6"><a href="{{ url_for('browse') }}" class="btn btn-primary btn-md cta-btn"
             role="button">Browse Festivals</a></div>
         <div class="col-12 col-md-6"><a href="{{ url_for('sign_up') }}" class="btn btn-primary btn-md cta-btn"
             role="button">Create Account</a></div>
+        {% endif %}
       </div>
     </div>
   </div>
