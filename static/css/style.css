@@ -329,7 +329,7 @@ span.year, span.rating, span.location, span.nightlife, span.lineup, span.campsit
     max-width: 1158px;
 }
 
-.browse {
+.browse, .add_festival, .edit_festival {
     background: url('/static/images/browse-hero.jpg') no-repeat fixed center;
     background-size: cover; 
     min-height: 88vh;
@@ -383,7 +383,7 @@ button.browse-icon {
     background: none;
 }
 
-section.browse h3 {
+section.browse h3, section.add_festival h3, section.edit_festival h3 {
     text-shadow: 1px 1px #dfdfdf;
 }
 
@@ -626,10 +626,14 @@ i.fas.fa-star.hub-star {
 
 /* Add/edit festival form */
 
+.input-container {
+    margin-bottom: 10px;
+}
+
 .submit-fest-btn {
     width: 100px;
     border-radius: 4px;
-    margin-top: 15px;
+    margin-top: 5px;
     margin-bottom: 15px;
     border: 2px solid #fbf9ef;
 }
