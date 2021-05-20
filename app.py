@@ -29,14 +29,20 @@ def sign_up():
         # check if username has already been taken by another user
         existing_user = mongo.db.users.find_one(
             {'username': request.form.get('username').lower()})
+        password_1 = request.form.get("password_1")
+        password_2 = request.form.get("password_2")
 
         if existing_user:
             flash("Username already exists, please a different one")
             return redirect(url_for("sign_up"))
 
+        if password_1 != password_2:
+            flash("Passwords do not match")
+            return redirect(url_for("sign_up"))
+
         sign_up = {
             "username": request.form.get("username").lower(),
-            "password": generate_password_hash(request.form.get("password_1")),
+            "password": generate_password_hash(password_1),
             "favourites": []
         }
         mongo.db.users.insert_one(sign_up)
