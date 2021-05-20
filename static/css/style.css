@@ -624,6 +624,35 @@ i.fas.fa-star.hub-star {
     color: #e7e0e0e0;
 }
 
+/* Add/edit festival form */
+
+.submit-fest-btn {
+    width: 100px;
+    border-radius: 4px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    border: 2px solid #fbf9ef;
+}
+.submit-fest-btn#add_festival {
+    background-color: #54af54;
+}
+
+.submit-fest-btn#cancel_fest {
+    background-color: #da2d59;
+}
+
+.submit-fest-btn#add_festival:hover {
+    background-color: #fbf9ef;
+    border: 2px solid #54af54;
+    color: #54af54;
+}
+
+.submit-fest-btn#cancel_fest:hover {
+    background-color: #fbf9ef;
+    border: 2px solid #da2d59;
+    color: #da2d59;
+}
+
 /* Favourites page */
 
 .no-faves-row {

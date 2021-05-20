@@ -94,14 +94,12 @@
         </select>
       </div>
       <!-- submit form -->
-      <div class="row text-center">
-        <div class="col-6">
-          <button type="submit" class="btn btn-primary btn-md cta-btn" id="add_festival">Add</button>
+        <div class="col-6 text-end">
+          <button type="submit" class="btn btn-primary submit-fest-btn" id="add_festival">Add</button>
         </div>
-        <div class="col-6">
-          <a href="{{ url_for('browse') }}" class="btn btn-secondary btn-md cta-btn">Cancel</a>
+        <div class="col-6 text-start">
+          <a href="{{ url_for('browse') }}" class="btn btn-secondary submit-fest-btn" id="cancel_fest">Cancel</a>
         </div>
-      </div>
     </div>
 
   </form>
