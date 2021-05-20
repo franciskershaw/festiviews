@@ -329,7 +329,7 @@ span.year, span.rating, span.location, span.nightlife, span.lineup, span.campsit
     max-width: 1158px;
 }
 
-.browse, .add_festival, .edit_festival {
+.browse, .add_festival, .edit_festival, .add_review, .edit_review {
     background: url('/static/images/browse-hero.jpg') no-repeat fixed center;
     background-size: cover; 
     min-height: 88vh;
@@ -383,7 +383,7 @@ button.browse-icon {
     background: none;
 }
 
-section.browse h3, section.add_festival h3, section.edit_festival h3 {
+section.browse h3, section.add_festival h3, section.edit_festival h3, section.add_review h3, section.edit_review h3 {
     text-shadow: 1px 1px #dfdfdf;
 }
 
@@ -624,19 +624,19 @@ i.fas.fa-star.hub-star {
     color: #e7e0e0e0;
 }
 
-/* Add/edit festival form */
+/* Add/edit festival and review forms */
 
 .input-container {
     margin-bottom: 10px;
 }
 
 .fest-form {
-        padding-left: 10px;
-        padding-right: 10px;
-        padding-top: 10px;
-        border-radius: 5px;
-        padding-bottom: 15px;
-        background-color: #c1c6cacc;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 10px;
+    border-radius: 5px;
+    padding-bottom: 15px;
+    background-color: #c1c6cacc;
 }
 
 .submit-fest-btn {
@@ -647,11 +647,11 @@ i.fas.fa-star.hub-star {
     border: 2px solid #fbf9ef;
 }
 
-section.add_festival div.page-container, section.edit_festival div.page-container {
+section.add_festival div.page-container, section.edit_festival div.page-container, section.add_review div.page-container, section.edit_review div.page-container {
     padding-bottom: 20px;
 }
 
-.submit-fest-btn#add_festival {
+.submit-fest-btn#add_festival, .submit-fest-btn#add_review {
     background-color: #54af54;
 }
 
@@ -660,6 +660,12 @@ section.add_festival div.page-container, section.edit_festival div.page-containe
 }
 
 .submit-fest-btn#add_festival:hover {
+    background-color: #fbf9ef;
+    border: 2px solid #54af54;
+    color: #54af54;
+}
+
+.submit-fest-btn#add_review:hover {
     background-color: #fbf9ef;
     border: 2px solid #54af54;
     color: #54af54;
