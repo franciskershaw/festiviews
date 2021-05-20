@@ -140,9 +140,10 @@ def view_festival(url):
 @app.route('/add_festival', methods=['GET', 'POST'])
 def add_festival():
     if request.method == 'POST':
+        url = request.form.get("festival_name").lower().replace(' ', '_')
         add_festival = {
             "name": request.form.get("festival_name"),
-            "url": request.form.get("festival_name").lower().replace(' ', '_'),
+            "url": url,
             "location": request.form.get("festival_location"),
             "start_date": request.form.get('festival_start_date'),
             "end_date": request.form.get('festival_end_date'),
@@ -163,7 +164,7 @@ def add_festival():
         mongo.db.festivals.insert_one(add_festival)
 
         flash('New festival added')
-        return redirect(url_for("browse"))
+        return redirect(url_for("view_festival", url=url))
 
     return render_template("add_festival.html")
 
