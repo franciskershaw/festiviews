@@ -630,6 +630,15 @@ i.fas.fa-star.hub-star {
     margin-bottom: 10px;
 }
 
+.fest-form {
+        padding-left: 10px;
+        padding-right: 10px;
+        padding-top: 10px;
+        border-radius: 5px;
+        padding-bottom: 15px;
+        background-color: #c1c6cacc;
+}
+
 .submit-fest-btn {
     width: 100px;
     border-radius: 4px;
@@ -637,6 +646,11 @@ i.fas.fa-star.hub-star {
     margin-bottom: 15px;
     border: 2px solid #fbf9ef;
 }
+
+section.add_festival div.page-container, section.edit_festival div.page-container {
+    padding-bottom: 20px;
+}
+
 .submit-fest-btn#add_festival {
     background-color: #54af54;
 }
