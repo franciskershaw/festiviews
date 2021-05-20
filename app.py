@@ -172,11 +172,12 @@ def add_festival():
 @app.route('/edit_festival/<url>', methods=["GET", "POST"])
 def edit_festival(url):
     if request.method == 'POST':
+        new_url = request.form.get(
+                          "festival_name").lower().replace(' ', '_')
         mongo.db.festivals.update_one(
             {"url": url},
             {"$set": {"name": request.form.get("festival_name"),
-                      "url": request.form.get(
-                          "festival_name").lower().replace(' ', '_'),
+                      "url": new_url,
                       "location": request.form.get("festival_location"),
                       "start_date": request.form.get('festival_start_date'),
                       "end_date": request.form.get('festival_end_date'),
@@ -195,9 +196,8 @@ def edit_festival(url):
                       "description": request.form.get(
                           'festival_description'),
                       "covid_status": request.form.get('covid_status')}})
-
         flash('Festival updated')
-        return redirect(url_for('browse'))
+        return redirect(url_for('view_festival', url=new_url))
 
     festival = mongo.db.festivals.find_one({'url': url})
     return render_template("edit_festival.html", festival=festival)
