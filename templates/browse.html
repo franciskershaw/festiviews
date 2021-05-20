@@ -51,6 +51,8 @@
                 <button type="submit" class="browse-icon"><i class="far fa-heart browse-heart"></i></button>
                     {% endif %}
                 </form>
+                {% else %}
+                <a href="{{ url_for('sign_up') }}" class="browse-icon"><i class="far fa-heart browse-heart"></i></a>
                 {% endif %}
             </div>
         </div>
@@ -59,7 +61,7 @@
     {% endfor %}
     </section> 
     {% else %}
-    <p>No results I'm afraid</p> 
+    <p class="text-center no-results">No results found <i class="far fa-sad-cry"></i><br> Please try again</p> 
     {% endif %}
     <div class="row text-center">
         <div id="find-fest" class="col-12">
