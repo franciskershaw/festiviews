@@ -288,7 +288,7 @@ a.btn.btn-primary.btn-md.cta-btn:hover {
     background-color: rgba(127, 176, 105, .9);
     border-radius: 4px;
     padding: 20px 15px 0 15px;
-    max-width: 700px;
+    max-width: 500px;
 }
 
 .login-heading {
@@ -318,6 +318,12 @@ a.btn.btn-primary.btn-md.cta-btn:hover {
 
 .signup-in-cta {
     font-size: 120%;
+}
+
+.submit-btn:hover {
+    background-color: #fbf9ef;
+    border: 1px solid #c11e47;
+    color: #c11e47;
 }
 
 span.year, span.rating, span.location, span.nightlife, span.lineup, span.campsites, span.value, span.food, span.toilets, span.kid_friendly, span.genre, span.covid_status {
@@ -842,6 +848,9 @@ h4#fave-sub-heading {
     .cta-button-container {
         max-width: 500px;
     }
+    .login-heading {
+        font-size: 185%;
+    }
     .browse-heading {
         font-size: 140%;
     }
@@ -919,6 +928,9 @@ h4#fave-sub-heading {
 }
 
 @media screen and (min-width: 992px) {
+    /* .login-form {
+        max-width: 700px;
+    } */
     .browse-row {
         height: 90px;
     }
@@ -991,6 +1003,12 @@ h4#fave-sub-heading {
 @media (max-width: 340px) {
     h1.index-h1 {
         font-size: 2.25rem;
+    }
+}
+
+@media (max-height: 600px) and (max-width: 326px) {
+    .login-heading {
+        font-size: 135%;
     }
 }
 
