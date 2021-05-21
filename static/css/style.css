@@ -697,7 +697,7 @@ section.add_festival div.page-container, section.edit_festival div.page-containe
     margin-top: 20px;
 }
 
-section.favourites {
+section.favourites, section.faq {
     background: url('/static/images/hub-placeholder.jpg') no-repeat fixed center;
     background-size: cover;
     min-height: 88vh;
@@ -724,6 +724,19 @@ h4#fave-sub-heading {
     max-width: 187px;
     padding-top: 2px;
     padding-bottom: 2px;
+}
+
+/* FAQ */
+
+h2.faq-header {
+    color: #434242;
+    font-weight: 600;
+    text-shadow: 1px 1px #fbf9ef;
+    font-size: 140%;
+}
+
+button.btn.btn-link.btn-block {
+    font-size: 80%;
 }
 
 /* Animations */
