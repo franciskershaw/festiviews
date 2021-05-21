@@ -324,6 +324,11 @@ def add_favourites(festival_id):
     return redirect(url_for('browse'))
 
 
+@app.route('/faq')
+def faq():
+    return render_template('faq.html')
+
+
 @app.route('/logout')
 def logout():
     # remove user from session cookies
