@@ -110,6 +110,16 @@ function showRecentReviews() {
     let reviews = document.querySelectorAll('.review-row');
     for (let i = 0; i <= reviews.length && i < 10; i++) {
         reviews[i].classList.remove('hide');
-    }
-}
+    };
+};
 
+/*
+This function listens for a click on 'show older' button on view_festival.html
+to reveal 10 further 
+*/
+// function showTenMore() {
+//     let olderButton = document.querySelector('#see-older');
+//     olderButton.addEventListener('click', () => {
+//         console.log('hi!');
+//     })
+// };

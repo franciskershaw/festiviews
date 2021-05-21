@@ -164,6 +164,9 @@
                 {% endif %}
             </div>
             {% endfor %}
+            {% if reviews_arr|length > 10 %}
+            <button id="see-older" class="add-review-btn" >See older <i class="fas fa-history"></i></button>
+            {% endif %}
             {% else %}
             <!-- Section appears if no reviews are present -->
             <section class="no-reviews">
