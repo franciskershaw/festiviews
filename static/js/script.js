@@ -13,6 +13,12 @@ const pages = {
     view_festival: false
 }
 
+/*
+Wait for the document to load before enabling the use of the 'x' when the mobile
+navbar is open, assigning 'true' to whichever page is loaded, and then finally
+executing the relevant functions to that page.
+*/
+
 document.addEventListener("DOMContentLoaded", function (event) {
     // Alternates between three bars and 'x' on mobile navbar
     $('.navbar-toggler').click(function () {
@@ -29,6 +35,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
     if(pages.view_festival) {
         readMore();
         covidStatus();
+        showRecentReviews();
     }
 })
 
@@ -91,8 +98,18 @@ function covidStatus() {
     let paragraph = document.querySelector('.covid-status');
     if (paragraph.innerHTML === 'Cancelled') {
         paragraph.classList.add('cancelled');
-        console.log(paragraph.classList)
     } else if (paragraph.innerHTML === 'Going ahead') {
         paragraph.classList.add('going-ahead');
     }
 }
+
+/*
+This function displays the 10 most recent reviews on view_festival.html
+*/
+function showRecentReviews() {
+    let reviews = document.querySelectorAll('.review-row');
+    for (let i = 0; i <= reviews.length && i < 10; i++) {
+        reviews[i].classList.remove('hide');
+    }
+}
+
