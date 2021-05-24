@@ -496,6 +496,14 @@ a.add-fest-btn:hover {
     text-shadow: 1px 1px 1px #b3b2ad;
 }
 
+.modal-content {
+    background-color: rgb(139 176 123);
+}
+
+.modal-title {
+    color: #fbf9ef;
+}
+
 button.browse-icon.festival-heart i {
     color: #fbf9ef;
 }
