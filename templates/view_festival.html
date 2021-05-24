@@ -8,18 +8,20 @@
         <!-- Admin only edit/delete button -->
         <section class="admin-only text-end">
             <a href="{{ url_for('edit_festival', url=festival.url) }}"><i class="far fa-edit edit"></i></a>
-            <a href="{{ url_for('delete_festival', url=festival.url) }}"><i class="far fa-trash-alt delete"></i></a>
+            <button id="delete-fest" data-target="#deleteFestivalModal" data-toggle="modal"><i
+                    class="far fa-trash-alt delete"></i></button>
             <br>
         </section>
         {% endif %}
         <div class="hub-headings-container center-content">
             <div class="hub-headings-content">
                 <h1 class="hub-h1">{{ festival.name }} {% if session.user %}
-                    <form method='POST' class="d-inline" action="{{ url_for('add_favourites', festival_id=festival._id) }}">
+                    <form method='POST' class="d-inline"
+                        action="{{ url_for('add_favourites', festival_id=festival._id) }}">
                         {% if session.user in festival.favourited_by %}
-                    <button type="submit" class="browse-icon festival-heart"><i class="fas fa-heart"></i></button>
+                        <button type="submit" class="browse-icon festival-heart"><i class="fas fa-heart"></i></button>
                         {% else %}
-                    <button type="submit" class="browse-icon festival-heart"><i class="far fa-heart"></i></button>
+                        <button type="submit" class="browse-icon festival-heart"><i class="far fa-heart"></i></button>
                         {% endif %}
                     </form>
                     {% endif %}</h1>
@@ -35,7 +37,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-6 col-md-3 col-lg-2">
-                    <h3 class="hub-info-heading">Location <i class="fas fa-globe-europe"></i></h3> 
+                    <h3 class="hub-info-heading">Location <i class="fas fa-globe-europe"></i></h3>
                 </div>
                 <div class="col-6 col-md-3 col-lg-2">
                     <p class="hub-info">{{ festival.location }}</p>
@@ -50,7 +52,8 @@
                     <h3 class="hub-info-heading">Website <i class="fas fa-link"></i></h3>
                 </div>
                 <div class="col-6 col-md-3 col-lg-2">
-                    <a href="{{ festival.website }}" target="_blank" class="hub-info">Official Website <i class="fas fa-external-link-alt"></i></a>
+                    <a href="{{ festival.website }}" target="_blank" class="hub-info">Official Website <i
+                            class="fas fa-external-link-alt"></i></a>
                 </div>
                 <div class="col-6 col-md-3 col-lg-2">
                     <h3 class="hub-info-heading">Genre <i class="fas fa-question-circle"></i></h3>
@@ -62,9 +65,10 @@
                     <h3 class="hub-info-heading">Notable acts <i class="fas fa-guitar"></i></h3>
                 </div>
                 <div class="col-6 col-md-3 col-lg-2">
-                    <p class="hub-info">{{ festival.notable_act_one }}, {{ festival.notable_act_two }}, {{ festival.notable_act_three }}.</p>
+                    <p class="hub-info">{{ festival.notable_act_one }}, {{ festival.notable_act_two }},
+                        {{ festival.notable_act_three }}.</p>
                 </div>
-                
+
                 <div class="col-6 col-md-3 col-lg-2">
                     <h3 class="hub-info-heading">Cost <i class="fas fa-money-bill"></i></h3>
                 </div>
@@ -75,7 +79,8 @@
                     <h3 class="hub-info-heading">Tickets <i class="fas fa-ticket-alt"></i></h3>
                 </div>
                 <div class="col-6 col-md-3 col-lg-2">
-                    <a href="{{ festival.ticket_link }}" target="_blank" class="hub-info">Link to tickets <i class="fas fa-external-link-alt"></i></a>
+                    <a href="{{ festival.ticket_link }}" target="_blank" class="hub-info">Link to tickets <i
+                            class="fas fa-external-link-alt"></i></a>
                 </div>
                 <div class="col-6 col-md-3 col-lg-2">
                     <h3 class="hub-info-heading">Capacity <i class="fas fa-users"></i></h3>
@@ -90,7 +95,7 @@
                     <p class="hub-info covid-status">{{ festival.covid_status }}</p>
                 </div>
             </div>
-        </div> 
+        </div>
     </section>
     <!-- Reviews section -->
     <section class="container-fluid reviews-section">
@@ -99,7 +104,8 @@
                 <div class="col-12 text-start">
                     <h2 class="reviews-heading d-inline-block">Latest reviews</h2>
                     {% if session.user %}
-                        <a class="add-review-btn" href="{{ url_for('add_review', url=festival.url) }}" role="button">Add Review <i class="fas fa-plus"></i></a>
+                    <a class="add-review-btn" href="{{ url_for('add_review', url=festival.url) }}" role="button">Add
+                        Review <i class="fas fa-plus"></i></a>
                     {% endif %}
                 </div>
             </div>
@@ -113,12 +119,14 @@
                     <h3 class="review-rating">
                         {% if review.rating == '5' %}
                         <i class="fas fa-star hub-star"></i><i class="fas fa-star hub-star"></i><i
-                        class="fas fa-star hub-star"></i><i class="fas fa-star hub-star"></i><i
-                        class="fas fa-star hub-star"></i>
+                            class="fas fa-star hub-star"></i><i class="fas fa-star hub-star"></i><i
+                            class="fas fa-star hub-star"></i>
                         {% elif review.rating == '4' %}
-                        <i class="fas fa-star hub-star"></i><i class="fas fa-star hub-star"></i><i class="fas fa-star hub-star"></i><i class="fas fa-star hub-star"></i>
+                        <i class="fas fa-star hub-star"></i><i class="fas fa-star hub-star"></i><i
+                            class="fas fa-star hub-star"></i><i class="fas fa-star hub-star"></i>
                         {% elif review.rating == '3' %}
-                        <i class="fas fa-star hub-star"></i><i class="fas fa-star hub-star"></i><i class="fas fa-star hub-star"></i>
+                        <i class="fas fa-star hub-star"></i><i class="fas fa-star hub-star"></i><i
+                            class="fas fa-star hub-star"></i>
                         {% elif review.rating == '2' %}
                         <i class="fas fa-star hub-star"></i><i class="fas fa-star hub-star"></i>
                         {% elif review.rating == '1' %}
@@ -133,16 +141,19 @@
                     <button class="btn read-more-less-btn">Read More</button>
                 </div>
                 <div class="col-6 col-md-3">
-                    <h4 class="review-category"><i class="fas fa-globe-europe"></i> Location: {{ review.location }}/5</h4>
+                    <h4 class="review-category"><i class="fas fa-globe-europe"></i> Location: {{ review.location }}/5
+                    </h4>
                 </div>
                 <div class="col-6 col-md-3">
-                    <h4 class="review-category"><i class="fas fa-glass-cheers"></i> Nightlife: {{ review.nightlife }}/5</h4>
+                    <h4 class="review-category"><i class="fas fa-glass-cheers"></i> Nightlife: {{ review.nightlife }}/5
+                    </h4>
                 </div>
                 <div class="col-6 col-md-3">
                     <h4 class="review-category"><i class="fas fa-guitar"></i> Lineup: {{ review.lineup }}/5</h4>
                 </div>
                 <div class="col-6 col-md-3">
-                    <h4 class="review-category"><i class="fas fa-campground"></i> Campsites: {{ review.campsites }}/5</h4>
+                    <h4 class="review-category"><i class="fas fa-campground"></i> Campsites: {{ review.campsites }}/5
+                    </h4>
                 </div>
                 <div class="col-6 col-md-3">
                     <h4 class="review-category"><i class="fas fa-money-bill"></i> Value: {{ review.value }}/5</h4>
@@ -151,21 +162,47 @@
                     <h4 class="review-category"><i class="fas fa-utensils"></i> Food: {{ review.food }}/5</h4>
                 </div>
                 <div class="col-6 col-md-3">
-                    <h4 class="review-category"><i class="fas fa-toilet"></i> Toilets: <em>'{{ review.toilets }}'</em></h4>
+                    <h4 class="review-category"><i class="fas fa-toilet"></i> Toilets: <em>'{{ review.toilets }}'</em>
+                    </h4>
                 </div>
                 <div class="col-6 col-md-3">
-                    <h4 class="review-category"><i class="fas fa-baby"></i> Kid friendly? <em>'{{ review.kid_friendly }}'</em></h4>
+                    <h4 class="review-category"><i class="fas fa-baby"></i> Kid friendly?
+                        <em>'{{ review.kid_friendly }}'</em></h4>
                 </div>
                 {% if session.user|lower == review.created_by|lower %}
                 <div class="col-12 text-center edit-review-links">
                     <a href="{{ url_for('edit_review', review_id=review._id) }}"><i class="far fa-edit edit"></i></a>
-                <a href="{{ url_for('delete_review', review_id=review._id) }}"><i class="far fa-trash-alt delete"></i></a>
+                    <button id="delete-review" data-target="#reviewModal{{ loop.index }}" data-toggle="modal"><i
+                            class="far fa-trash-alt delete"></i></button>
                 </div>
+
+                <!-- Delete review modal -->
+                <div class="modal fade" id="reviewModal{{ loop.index }}" data-backdrop="static" data-keyboard="false" tabindex="-1"
+                    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                ...
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                <a href="{{ url_for('delete_review', review_id=review._id) }}">Delete Review</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
                 {% endif %}
             </div>
             {% endfor %}
             {% if reviews_arr|length > 10 %}
-            <button id="see-older" class="add-review-btn" >See older <i class="fas fa-history"></i></button>
+            <button id="see-older" class="add-review-btn">See older <i class="fas fa-history"></i></button>
             {% endif %}
             {% else %}
             <!-- Section appears if no reviews are present -->
@@ -176,5 +213,28 @@
         </div>
     </section>
 </section>
+
+{% if session.user|lower == 'administrator' %}
+<div class="modal fade" id="deleteFestivalModal" data-backdrop="static" data-keyboard="false" tabindex="-1"
+    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                ...
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <a href="{{ url_for('delete_festival', url=festival.url) }}">Delete Festival</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endif %}
 
 {% endblock %}

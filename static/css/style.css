@@ -501,7 +501,7 @@ button.browse-icon.festival-heart i {
 }
 
 .add-review-btn {
-    font-size: 80%;
+    font-size: 100%;
     color: #fbf9ef;
     border: 1px solid #fbf9ef;
     border-radius: 4px;
@@ -522,6 +522,7 @@ a.add-review-btn:hover {
     border: 1px solid #fbf9ef;
     border-radius: 5px;
     padding-top: 10px;
+    margin-bottom: 5px;
     height: 72px;
     overflow: hidden;
     color: #fbf9ef;
@@ -571,7 +572,8 @@ button.btn.read-more-less-btn:hover {
 
 .no-reviews {
     margin-top: 20px;
-    font-size: 120%;
+    font-size: 140%;
+    text-shadow: 1px 1px white;
 }
 
 .cancelled {
@@ -628,6 +630,11 @@ i.fas.fa-star.hub-star {
 
 #edit-review-icon {
     color: #e7e0e0e0;
+}
+
+button#delete-fest, button#delete-review {
+    background: none;
+    border: none;
 }
 
 /* Add/edit festival and review forms */
