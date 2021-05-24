@@ -35,7 +35,8 @@ document.addEventListener("DOMContentLoaded", function (event) {
     if(pages.view_festival) {
         readMore();
         covidStatus();
-        showRecentReviews();
+        noAnnouncement();
+        showMoreReviews();
     }
 })
 
@@ -104,26 +105,31 @@ function covidStatus() {
 }
 
 /*
-This function displays the 10 most recent reviews on view_festival.html
+This function populates the 'notable acts' section on view_festival.html if no
+acts have been added to the new festival form.
 */
-function showRecentReviews() {
-    let reviews = document.querySelectorAll('.review-row');
-    for (let i = 0; i <= reviews.length && i < 10; i++) {
-        reviews[i].classList.remove('hide');
-    };
-    if (reviews.length > 10) {
-        showTenMore();
+function noAnnouncement() {
+    let notableActs = document.querySelector('#headliners');
+    if (notableActs.innerHTML === ',<br>,<br>.') {
+        notableActs.innerHTML = 'No announcement yet.';
     }
-};
+} 
 
 /*
 This function listens for a click on 'show older' button on view_festival.html
-to reveal 10 further 
+to reveal 10 further reviews (if they exist).
 */
-function showTenMore() {
-    console.log('function called')
-    let olderButton = document.querySelector('#see-older');
-    olderButton.addEventListener('click', () => {
-        console.log('hi')
-    })
+function showMoreReviews() {
+    let seeOlder = document.getElementById('see-older');
+    if(typeof(seeOlder) != 'undefined' && seeOlder != null) {
+        seeOlder.addEventListener('click', () => {
+            let hiddenReviews = document.querySelectorAll('.review-row.hide');
+            for (let i = 0; i < hiddenReviews.length && i < 10; i++) {
+                hiddenReviews[i].classList.remove('hide');
+            };
+            if (hiddenReviews.length === 0) {
+                seeOlder.classList.add('hide');
+            }
+        })
+    }
 };

@@ -65,8 +65,7 @@
                     <h3 class="hub-info-heading">Notable acts <i class="fas fa-guitar"></i></h3>
                 </div>
                 <div class="col-6 col-md-3 col-lg-2">
-                    <p class="hub-info">{{ festival.notable_act_one }}, {{ festival.notable_act_two }},
-                        {{ festival.notable_act_three }}.</p>
+                    <p id="headliners" class="hub-info">{{ festival.notable_act_one }},<br>{{ festival.notable_act_two }},<br>{{ festival.notable_act_three }}.</p>
                 </div>
 
                 <div class="col-6 col-md-3 col-lg-2">
@@ -111,7 +110,11 @@
             </div>
             {% if reviews_arr %}
             {% for review in reviews_arr %}
+            {% if loop.index <= 10 %}
+            <div class="row review-row text-start">
+            {% else %}
             <div class="row review-row text-start hide">
+            {% endif %}
                 <div class="col-8">
                     <h3 class="review-author">{{ review.created_by }} - <em>{{ review.year }}</em></h3>
                 </div>
@@ -191,7 +194,6 @@
                         </div>
                     </div>
                 </div>
-
                 {% endif %}
             </div>
             {% endfor %}
