@@ -105,6 +105,9 @@
                     {% if session.user %}
                     <a class="add-review-btn" href="{{ url_for('add_review', url=festival.url) }}" role="button">Add
                         Review <i class="fas fa-plus"></i></a>
+                    {% else %}
+                    <a class="add-review-btn" href="{{ url_for('sign_up') }}" role="button">Add
+                        Review <i class="fas fa-plus"></i></a>
                     {% endif %}
                 </div>
             </div>

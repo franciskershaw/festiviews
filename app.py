@@ -90,7 +90,8 @@ def favourites(username):
     user = mongo.db.users.find_one(
         {"username": session["user"]})
     username = user['username']
-    favourites = mongo.db.festivals.find({"favourited_by": username})
+    favourites = mongo.db.festivals.find(
+        {"favourited_by": username}).sort([('name', 1)])
 
     favourites_arr = []
 
