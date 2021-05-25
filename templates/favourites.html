@@ -30,7 +30,7 @@
                         {% if session.user %}
                         <form method='POST' class="d-inline" action="{{ url_for('add_favourites', festival_id=festival._id) }}">
                             {% if session.user in festival.favourited_by %}
-                        <button type="submit" class="browse-icon"><i class="fas fa-heart browse-heart"></i></button>
+                        <button type="submit" class="browse-icon"><i class="fas fa-heart browse-heart" aria-hidden="true"></i><span class="sr-only">Remove from favourites</span></button>
                             {% endif %}
                         </form>
                         {% endif %}

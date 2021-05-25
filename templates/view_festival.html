@@ -7,9 +7,9 @@
         {% if session.user|lower == 'administrator' %}
         <!-- Admin only edit/delete button -->
         <section class="admin-only text-end">
-            <a href="{{ url_for('edit_festival', url=festival.url) }}"><i class="far fa-edit edit"></i></a>
+            <a href="{{ url_for('edit_festival', url=festival.url) }}"><i class="far fa-edit edit" aria-hidden="true"></i><span class="sr-only">Edit festival page</span></a>
             <button id="delete-fest" data-target="#deleteFestivalModal" data-toggle="modal"><i
-                    class="far fa-trash-alt delete"></i></button>
+                    class="far fa-trash-alt delete" aria-hidden="true"></i><span class="sr-only">Delete festival</span></button>
             <br>
         </section>
         {% endif %}
@@ -19,9 +19,9 @@
                     <form method='POST' class="d-inline"
                         action="{{ url_for('add_favourites', festival_id=festival._id) }}">
                         {% if session.user in festival.favourited_by %}
-                        <button type="submit" class="browse-icon festival-heart"><i class="fas fa-heart"></i></button>
+                        <button type="submit" class="browse-icon festival-heart"><i class="fas fa-heart" aria-hidden="true"></i><span class="sr-only">Remove from favourites</span></button>
                         {% else %}
-                        <button type="submit" class="browse-icon festival-heart"><i class="far fa-heart"></i></button>
+                        <button type="submit" class="browse-icon festival-heart"><i class="far fa-heart" aria-hidden="true"></i><span class="sr-only">Add to favourites</span></button>
                         {% endif %}
                     </form>
                     {% endif %}</h1>
@@ -37,58 +37,58 @@
         <div class="container">
             <div class="row">
                 <div class="col-6 col-md-3 col-lg-2">
-                    <h3 class="hub-info-heading">Location <i class="fas fa-globe-europe"></i></h3>
+                    <h3 class="hub-info-heading">Location <i class="fas fa-globe-europe" aria-hidden="true"></i></h3>
                 </div>
                 <div class="col-6 col-md-3 col-lg-2">
                     <p class="hub-info">{{ festival.location }}</p>
                 </div>
                 <div class="col-6 col-md-3 col-lg-2">
-                    <h3 class="hub-info-heading">Dates <i class="fas fa-calendar-day"></i></h3>
+                    <h3 class="hub-info-heading">Dates <i class="fas fa-calendar-day" aria-hidden="true"></i></h3>
                 </div>
                 <div class="col-6 col-md-3 col-lg-2">
                     <p class="hub-info">{{ festival.start_date }} to {{ festival.end_date }}</p>
                 </div>
                 <div class="col-6 col-md-3 col-lg-2">
-                    <h3 class="hub-info-heading">Website <i class="fas fa-link"></i></h3>
+                    <h3 class="hub-info-heading">Website <i class="fas fa-link" aria-hidden="true"></i></h3>
                 </div>
                 <div class="col-6 col-md-3 col-lg-2">
                     <a href="{{ festival.website }}" target="_blank" class="hub-info">Official Website <i
-                            class="fas fa-external-link-alt"></i></a>
+                            class="fas fa-external-link-alt" aria-hidden="true"></i></a>
                 </div>
                 <div class="col-6 col-md-3 col-lg-2">
-                    <h3 class="hub-info-heading">Genre <i class="fas fa-question-circle"></i></h3>
+                    <h3 class="hub-info-heading">Genre <i class="fas fa-question-circle" aria-hidden="true"></i></h3>
                 </div>
                 <div class="col-6 col-md-3 col-lg-2">
                     <p class="hub-info">{{ festival.genre }}</p>
                 </div>
                 <div class="col-6 col-md-3 col-lg-2">
-                    <h3 class="hub-info-heading">Notable acts <i class="fas fa-guitar"></i></h3>
+                    <h3 class="hub-info-heading">Notable acts <i class="fas fa-guitar" aria-hidden="true"></i></h3>
                 </div>
                 <div class="col-6 col-md-3 col-lg-2">
                     <p id="headliners" class="hub-info">{{ festival.notable_act_one }},<br>{{ festival.notable_act_two }},<br>{{ festival.notable_act_three }}.</p>
                 </div>
 
                 <div class="col-6 col-md-3 col-lg-2">
-                    <h3 class="hub-info-heading">Cost <i class="fas fa-money-bill"></i></h3>
+                    <h3 class="hub-info-heading">Cost <i class="fas fa-money-bill" aria-hidden="true"></i></h3>
                 </div>
                 <div class="col-6 col-md-3 col-lg-2">
                     <p class="hub-info">{{ festival.ticket_price }}</p>
                 </div>
                 <div class="col-6 col-md-3 col-lg-2">
-                    <h3 class="hub-info-heading">Tickets <i class="fas fa-ticket-alt"></i></h3>
+                    <h3 class="hub-info-heading">Tickets <i class="fas fa-ticket-alt" aria-hidden="true"></i></h3>
                 </div>
                 <div class="col-6 col-md-3 col-lg-2">
                     <a href="{{ festival.ticket_link }}" target="_blank" class="hub-info">Link to tickets <i
                             class="fas fa-external-link-alt"></i></a>
                 </div>
                 <div class="col-6 col-md-3 col-lg-2">
-                    <h3 class="hub-info-heading">Capacity <i class="fas fa-users"></i></h3>
+                    <h3 class="hub-info-heading">Capacity <i class="fas fa-users" aria-hidden="true"></i></h3>
                 </div>
                 <div class="col-6 col-md-3 col-lg-2">
                     <p class="hub-info"> {{ festival.capacity }}</p>
                 </div>
                 <div class="col-6 col-md-3 col-lg-2">
-                    <h3 class="hub-info-heading">Covid 2021 <i class="fas fa-ban"></i></h3>
+                    <h3 class="hub-info-heading">Covid 2021 <i class="fas fa-ban" aria-hidden="true"></i></h3>
                 </div>
                 <div class="col-6 col-md-3 col-lg-2">
                     <p class="hub-info covid-status">{{ festival.covid_status }}</p>
@@ -104,10 +104,10 @@
                     <h2 class="reviews-heading d-inline-block">Latest reviews</h2>
                     {% if session.user %}
                     <a class="add-review-btn" href="{{ url_for('add_review', url=festival.url) }}" role="button">Add
-                        Review <i class="fas fa-plus"></i></a>
+                        Review <i class="fas fa-plus" aria-hidden="true"></i></a>
                     {% else %}
                     <a class="add-review-btn" href="{{ url_for('sign_up') }}" role="button">Add
-                        Review <i class="fas fa-plus"></i></a>
+                        Review <i class="fas fa-plus" aria-hidden="true"></i></a>
                     {% endif %}
                 </div>
             </div>
@@ -147,39 +147,39 @@
                     <button class="btn read-more-less-btn">Read More</button>
                 </div>
                 <div class="col-6 col-md-3">
-                    <h4 class="review-category"><i class="fas fa-globe-europe"></i> Location: {{ review.location }}/5
+                    <h4 class="review-category"><i class="fas fa-globe-europe" aria-hidden="true"></i> Location: {{ review.location }}/5
                     </h4>
                 </div>
                 <div class="col-6 col-md-3">
-                    <h4 class="review-category"><i class="fas fa-glass-cheers"></i> Nightlife: {{ review.nightlife }}/5
+                    <h4 class="review-category"><i class="fas fa-glass-cheers" aria-hidden="true"></i> Nightlife: {{ review.nightlife }}/5
                     </h4>
                 </div>
                 <div class="col-6 col-md-3">
-                    <h4 class="review-category"><i class="fas fa-guitar"></i> Lineup: {{ review.lineup }}/5</h4>
+                    <h4 class="review-category"><i class="fas fa-guitar" aria-hidden="true"></i> Lineup: {{ review.lineup }}/5</h4>
                 </div>
                 <div class="col-6 col-md-3">
-                    <h4 class="review-category"><i class="fas fa-campground"></i> Campsites: {{ review.campsites }}/5
+                    <h4 class="review-category"><i class="fas fa-campground" aria-hidden="true"></i> Campsites: {{ review.campsites }}/5
                     </h4>
                 </div>
                 <div class="col-6 col-md-3">
-                    <h4 class="review-category"><i class="fas fa-money-bill"></i> Value: {{ review.value }}/5</h4>
+                    <h4 class="review-category"><i class="fas fa-money-bill" aria-hidden="true"></i> Value: {{ review.value }}/5</h4>
                 </div>
                 <div class="col-6 col-md-3">
-                    <h4 class="review-category"><i class="fas fa-utensils"></i> Food: {{ review.food }}/5</h4>
+                    <h4 class="review-category"><i class="fas fa-utensils" aria-hidden="true"></i> Food: {{ review.food }}/5</h4>
                 </div>
                 <div class="col-6 col-md-3">
-                    <h4 class="review-category"><i class="fas fa-toilet"></i> Toilets: <em>'{{ review.toilets }}'</em>
+                    <h4 class="review-category"><i class="fas fa-toilet" aria-hidden="true"></i> Toilets: <em>'{{ review.toilets }}'</em>
                     </h4>
                 </div>
                 <div class="col-6 col-md-3">
-                    <h4 class="review-category"><i class="fas fa-baby"></i> Kid friendly?
+                    <h4 class="review-category"><i class="fas fa-baby" aria-hidden="true"></i> Kid friendly?
                         <em>'{{ review.kid_friendly }}'</em></h4>
                 </div>
                 {% if session.user|lower == review.created_by|lower %}
                 <div class="col-12 text-center edit-review-links">
-                    <a href="{{ url_for('edit_review', review_id=review._id) }}"><i class="far fa-edit edit"></i></a>
+                    <a href="{{ url_for('edit_review', review_id=review._id) }}"><i class="far fa-edit edit" aria-hidden="true"></i><span class="sr-only">Edit review</span></a>
                     <button id="delete-review" data-target="#reviewModal{{ loop.index }}" data-toggle="modal"><i
-                            class="far fa-trash-alt delete"></i></button>
+                            class="far fa-trash-alt delete" aria-hidden="true"></i><span class="sr-only">Delete review</span></button>
                 </div>
 
                 <!-- Delete review modal -->
@@ -201,7 +201,7 @@
             </div>
             {% endfor %}
             {% if reviews_arr|length > 10 %}
-            <button id="see-older" class="add-review-btn">See older <i class="fas fa-history"></i></button>
+            <button id="see-older" class="add-review-btn">See older <i class="fas fa-history" aria-hidden="true"></i></button>
             {% endif %}
             {% else %}
             <!-- Section appears if no reviews are present -->
