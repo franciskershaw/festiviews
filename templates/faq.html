@@ -1,11 +1,14 @@
 {% extends 'base.html' %}
 
 {% block content %}
-
+<!-- Page container -->
 <section class="faq text-center">
     <div class="container page-container">
+      <!-- Headings -->
         <h2 class="faq-header">Frequently Asked Questions</h2>
+        <!-- Bootstrap accordion -->
         <div class="accordion" id="faq-accordion">
+          <!-- FAQ no.1 -->
             <div class="card">
               <div class="card-header" id="headingOne">
                 <h3 class="mb-0">
@@ -14,6 +17,7 @@
                   </button>
                 </h3>
               </div>
+              <!-- FAQ no.1 answer -->
               <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#faq-accordion">
                 <div class="card-body text-start">
                  <p>FestiViews is dedicated to providing a range of important information and reviews for a host of music festivals. Users can search for festivals to find all important lineup information, links to tickets, or even just to find out if the festival is going ahead this year.</p>
@@ -21,6 +25,7 @@
                 </div>
               </div>
             </div>
+            <!-- FAQ no.2 -->
             <div class="card">
               <div class="card-header" id="headingTwo">
                 <h3 class="mb-0">
@@ -29,12 +34,14 @@
                   </button>
                 </h3>
               </div>
+              <!-- FAQ no.2 answer -->
               <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#faq-accordion">
                 <div class="card-body text-start">
                   <p>To add a review to any of the festival hubs, you'll need to first create an account and ensure you are signed in. You can do so <a href="{{ url_for('sign_up') }}">here</a></p>
                 </div>
               </div>
             </div>
+            <!-- FAQ no.3 -->
             <div class="card">
               <div class="card-header" id="headingThree">
                 <h3 class="mb-0">
@@ -43,12 +50,14 @@
                   </button>
                 </h3>
               </div>
+              <!-- FAQ no.3 answer -->
               <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#faq-accordion">
                 <div class="card-body text-start">
                   <p>As long as you are signed into the same account as when you posted the review, you can edit or even delete your review if you want to.</p>
                 </div>
               </div>
             </div>
+            <!-- FAQ no.4 -->
             <div class="card">
                 <div class="card-header" id="headingFour">
                   <h3 class="mb-0">
@@ -57,6 +66,7 @@
                     </button>
                   </h3>
                 </div>
+                <!-- FAQ no.4 answer -->
                 <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#faq-accordion">
                   <div class="card-body text-start">
                     <p>While we are doing our best to ensure that as many music festivals are on the site as possible, we won't necessarily have uploaded every single village fair or farm festival in the UK.</p>

@@ -1,9 +1,11 @@
 {% extends 'base.html' %}
 
 {% block content %}
+<!-- Page container -->
 <section class="container-fluid text-center login">
   <div class="row sign-in-container">
     <div class="col">
+      <!-- Sign in form -->
       <form class="login-form center-content" method="POST" action="{{ url_for('login') }}">
         <div class="col">
           <h3 class="login-heading">Sign in to FestiViews!</h3>
@@ -13,18 +15,12 @@
           <label for="username" class="form-label">Username</label>
           <input type="text" class="form-control" id="username" name="username" required pattern="^[a-zA-Z0-9]{4,15}$">
         </div>
-        <!-- email - COMMENTED OUT FOR NOW -->
-        <!-- <label for="email" class="form-label">Email address</label>
-        <input type="email" class="form-control" id="email" name="email" required> -->
         <!-- password -->
         <div class="col login-inputs text-start">
           <label for="password" class="form-label">Password</label>
           <input type="password" class="form-control" id="password" name="password" required
             pattern="^[a-zA-Z0-9]{6,30}$">
         </div>
-        <!-- confirm password - COMMENTED OUT FOR NOW -->
-        <!-- <label for="password_2" class="form-label">Confirm password</label>
-        <input type="password" class="form-control" id="password_2" name="password_2" required> -->
         <!-- submit form -->
         <div class="col login-btn-container">
           <button type="submit" class="btn submit-btn" id="login">Log in</button>

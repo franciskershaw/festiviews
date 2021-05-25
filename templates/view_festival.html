@@ -1,27 +1,33 @@
 {% extends "base.html" %}
 {% block content %}
-
+<!-- Page container -->
 <section class="text-center view_festival">
     <!-- Hero image/festival name/tagline -->
     <section class="hub-hero-section" style="background-image: url('{{ festival.image_link }}');">
         {% if session.user|lower == 'administrator' %}
         <!-- Admin only edit/delete button -->
         <section class="admin-only text-end">
-            <a href="{{ url_for('edit_festival', url=festival.url) }}"><i class="far fa-edit edit" aria-hidden="true"></i><span class="sr-only">Edit festival page</span></a>
+            <a href="{{ url_for('edit_festival', url=festival.url) }}"><i class="far fa-edit edit"
+                    aria-hidden="true"></i><span class="sr-only">Edit festival page</span></a>
             <button id="delete-fest" data-target="#deleteFestivalModal" data-toggle="modal"><i
-                    class="far fa-trash-alt delete" aria-hidden="true"></i><span class="sr-only">Delete festival</span></button>
+                    class="far fa-trash-alt delete" aria-hidden="true"></i><span class="sr-only">Delete
+                    festival</span></button>
             <br>
         </section>
         {% endif %}
+        <!-- Festival headings/subheadings -->
         <div class="hub-headings-container center-content">
             <div class="hub-headings-content">
                 <h1 class="hub-h1">{{ festival.name }} {% if session.user %}
+                    <!-- Add/remove from favourites buttons -->
                     <form method='POST' class="d-inline"
                         action="{{ url_for('add_favourites', festival_id=festival._id) }}">
                         {% if session.user in festival.favourited_by %}
-                        <button type="submit" class="browse-icon festival-heart"><i class="fas fa-heart" aria-hidden="true"></i><span class="sr-only">Remove from favourites</span></button>
+                        <button type="submit" class="browse-icon festival-heart"><i class="fas fa-heart"
+                                aria-hidden="true"></i><span class="sr-only">Remove from favourites</span></button>
                         {% else %}
-                        <button type="submit" class="browse-icon festival-heart"><i class="far fa-heart" aria-hidden="true"></i><span class="sr-only">Add to favourites</span></button>
+                        <button type="submit" class="browse-icon festival-heart"><i class="far fa-heart"
+                                aria-hidden="true"></i><span class="sr-only">Add to favourites</span></button>
                         {% endif %}
                     </form>
                     {% endif %}</h1>
@@ -65,7 +71,9 @@
                     <h3 class="hub-info-heading">Notable acts <i class="fas fa-guitar" aria-hidden="true"></i></h3>
                 </div>
                 <div class="col-6 col-md-3 col-lg-2">
-                    <p id="headliners" class="hub-info">{{ festival.notable_act_one }},<br>{{ festival.notable_act_two }},<br>{{ festival.notable_act_three }}.</p>
+                    <p id="headliners" class="hub-info">
+                        {{ festival.notable_act_one }},<br>{{ festival.notable_act_two }},<br>{{ festival.notable_act_three }}.
+                    </p>
                 </div>
 
                 <div class="col-6 col-md-3 col-lg-2">
@@ -115,101 +123,112 @@
             {% for review in reviews_arr %}
             {% if loop.index <= 10 %}
             <div class="row review-row text-start">
-            {% else %}
-            <div class="row review-row text-start hide">
-            {% endif %}
-                <div class="col-8">
-                    <h3 class="review-author">{{ review.created_by }} - <em>{{ review.year }}</em></h3>
-                </div>
-                <div class="col-4 text-end">
-                    <h3 class="review-rating">
-                        {% if review.rating == '5' %}
-                        <i class="fas fa-star hub-star"></i><i class="fas fa-star hub-star"></i><i
-                            class="fas fa-star hub-star"></i><i class="fas fa-star hub-star"></i><i
-                            class="fas fa-star hub-star"></i>
-                        {% elif review.rating == '4' %}
-                        <i class="fas fa-star hub-star"></i><i class="fas fa-star hub-star"></i><i
-                            class="fas fa-star hub-star"></i><i class="fas fa-star hub-star"></i>
-                        {% elif review.rating == '3' %}
-                        <i class="fas fa-star hub-star"></i><i class="fas fa-star hub-star"></i><i
-                            class="fas fa-star hub-star"></i>
-                        {% elif review.rating == '2' %}
-                        <i class="fas fa-star hub-star"></i><i class="fas fa-star hub-star"></i>
-                        {% elif review.rating == '1' %}
-                        <i class="fas fa-star hub-star"></i>
-                        {% endif %}
-                    </h3>
-                </div>
-                <div class="col-8 review-text ellipsis">
-                    <p><em>"{{ review.text }}"</em></p>
-                </div>
-                <div class="col-4 text-end">
-                    <button class="btn read-more-less-btn">Read More</button>
-                </div>
-                <div class="col-6 col-md-3">
-                    <h4 class="review-category"><i class="fas fa-globe-europe" aria-hidden="true"></i> Location: {{ review.location }}/5
-                    </h4>
-                </div>
-                <div class="col-6 col-md-3">
-                    <h4 class="review-category"><i class="fas fa-glass-cheers" aria-hidden="true"></i> Nightlife: {{ review.nightlife }}/5
-                    </h4>
-                </div>
-                <div class="col-6 col-md-3">
-                    <h4 class="review-category"><i class="fas fa-guitar" aria-hidden="true"></i> Lineup: {{ review.lineup }}/5</h4>
-                </div>
-                <div class="col-6 col-md-3">
-                    <h4 class="review-category"><i class="fas fa-campground" aria-hidden="true"></i> Campsites: {{ review.campsites }}/5
-                    </h4>
-                </div>
-                <div class="col-6 col-md-3">
-                    <h4 class="review-category"><i class="fas fa-money-bill" aria-hidden="true"></i> Value: {{ review.value }}/5</h4>
-                </div>
-                <div class="col-6 col-md-3">
-                    <h4 class="review-category"><i class="fas fa-utensils" aria-hidden="true"></i> Food: {{ review.food }}/5</h4>
-                </div>
-                <div class="col-6 col-md-3">
-                    <h4 class="review-category"><i class="fas fa-toilet" aria-hidden="true"></i> Toilets: <em>'{{ review.toilets }}'</em>
-                    </h4>
-                </div>
-                <div class="col-6 col-md-3">
-                    <h4 class="review-category"><i class="fas fa-baby" aria-hidden="true"></i> Kid friendly?
-                        <em>'{{ review.kid_friendly }}'</em></h4>
-                </div>
-                {% if session.user|lower == review.created_by|lower %}
-                <div class="col-12 text-center edit-review-links">
-                    <a href="{{ url_for('edit_review', review_id=review._id) }}"><i class="far fa-edit edit" aria-hidden="true"></i><span class="sr-only">Edit review</span></a>
-                    <button id="delete-review" data-target="#reviewModal{{ loop.index }}" data-toggle="modal"><i
-                            class="far fa-trash-alt delete" aria-hidden="true"></i><span class="sr-only">Delete review</span></button>
-                </div>
+                {% else %}
+                <div class="row review-row text-start hide">
+                    {% endif %}
+                    <div class="col-8">
+                        <h3 class="review-author">{{ review.created_by }} - <em>{{ review.year }}</em></h3>
+                    </div>
+                    <div class="col-4 text-end">
+                        <h3 class="review-rating">
+                            {% if review.rating == '5' %}
+                            <i class="fas fa-star hub-star"></i><i class="fas fa-star hub-star"></i><i
+                                class="fas fa-star hub-star"></i><i class="fas fa-star hub-star"></i><i
+                                class="fas fa-star hub-star"></i>
+                            {% elif review.rating == '4' %}
+                            <i class="fas fa-star hub-star"></i><i class="fas fa-star hub-star"></i><i
+                                class="fas fa-star hub-star"></i><i class="fas fa-star hub-star"></i>
+                            {% elif review.rating == '3' %}
+                            <i class="fas fa-star hub-star"></i><i class="fas fa-star hub-star"></i><i
+                                class="fas fa-star hub-star"></i>
+                            {% elif review.rating == '2' %}
+                            <i class="fas fa-star hub-star"></i><i class="fas fa-star hub-star"></i>
+                            {% elif review.rating == '1' %}
+                            <i class="fas fa-star hub-star"></i>
+                            {% endif %}
+                        </h3>
+                    </div>
+                    <div class="col-8 review-text ellipsis">
+                        <p><em>"{{ review.text }}"</em></p>
+                    </div>
+                    <div class="col-4 text-end">
+                        <button class="btn read-more-less-btn">Read More</button>
+                    </div>
+                    <div class="col-6 col-md-3">
+                        <h4 class="review-category"><i class="fas fa-globe-europe" aria-hidden="true"></i> Location:
+                            {{ review.location }}/5
+                        </h4>
+                    </div>
+                    <div class="col-6 col-md-3">
+                        <h4 class="review-category"><i class="fas fa-glass-cheers" aria-hidden="true"></i> Nightlife:
+                            {{ review.nightlife }}/5
+                        </h4>
+                    </div>
+                    <div class="col-6 col-md-3">
+                        <h4 class="review-category"><i class="fas fa-guitar" aria-hidden="true"></i> Lineup:
+                            {{ review.lineup }}/5</h4>
+                    </div>
+                    <div class="col-6 col-md-3">
+                        <h4 class="review-category"><i class="fas fa-campground" aria-hidden="true"></i> Campsites:
+                            {{ review.campsites }}/5
+                        </h4>
+                    </div>
+                    <div class="col-6 col-md-3">
+                        <h4 class="review-category"><i class="fas fa-money-bill" aria-hidden="true"></i> Value:
+                            {{ review.value }}/5</h4>
+                    </div>
+                    <div class="col-6 col-md-3">
+                        <h4 class="review-category"><i class="fas fa-utensils" aria-hidden="true"></i> Food:
+                            {{ review.food }}/5</h4>
+                    </div>
+                    <div class="col-6 col-md-3">
+                        <h4 class="review-category"><i class="fas fa-toilet" aria-hidden="true"></i> Toilets:
+                            <em>'{{ review.toilets }}'</em>
+                        </h4>
+                    </div>
+                    <div class="col-6 col-md-3">
+                        <h4 class="review-category"><i class="fas fa-baby" aria-hidden="true"></i> Kid friendly?
+                            <em>'{{ review.kid_friendly }}'</em></h4>
+                    </div>
+                    {% if session.user|lower == review.created_by|lower %}
+                    <div class="col-12 text-center edit-review-links">
+                        <a href="{{ url_for('edit_review', review_id=review._id) }}"><i class="far fa-edit edit"
+                                aria-hidden="true"></i><span class="sr-only">Edit review</span></a>
+                        <button id="delete-review" data-target="#reviewModal{{ loop.index }}" data-toggle="modal"><i
+                                class="far fa-trash-alt delete" aria-hidden="true"></i><span class="sr-only">Delete
+                                review</span></button>
+                    </div>
 
-                <!-- Delete review modal -->
-                <div class="modal fade text-center" id="reviewModal{{ loop.index }}" data-backdrop="static" data-keyboard="false" tabindex="-1"
-                    aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-centered">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title">Are you sure you want to delete your review?</h5>
-                            </div>
-                            <div class="modal-body">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                                <a class="text-danger" href="{{ url_for('delete_review', review_id=review._id) }}">Delete Review</a>
+                    <!-- Delete review modal -->
+                    <div class="modal fade text-center" id="reviewModal{{ loop.index }}" data-backdrop="static"
+                        data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title">Are you sure you want to delete your review?</h5>
+                                </div>
+                                <div class="modal-body">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                                    <a class="text-danger"
+                                        href="{{ url_for('delete_review', review_id=review._id) }}">Delete Review</a>
+                                </div>
                             </div>
                         </div>
                     </div>
+                    {% endif %}
                 </div>
+                {% endfor %}
+                {% if reviews_arr|length > 10 %}
+                <button id="see-older" class="add-review-btn">See older <i class="fas fa-history"
+                        aria-hidden="true"></i></button>
+                {% endif %}
+                {% else %}
+                <!-- Section appears if no reviews are present -->
+                <section class="no-reviews">
+                    <p><em>No reviews added yet, be the first to add one!</em></p>
+                </section>
                 {% endif %}
             </div>
-            {% endfor %}
-            {% if reviews_arr|length > 10 %}
-            <button id="see-older" class="add-review-btn">See older <i class="fas fa-history" aria-hidden="true"></i></button>
-            {% endif %}
-            {% else %}
-            <!-- Section appears if no reviews are present -->
-            <section class="no-reviews">
-                <p><em>No reviews added yet, be the first to add one!</em></p>
-            </section>
-            {% endif %}
-        </div>
     </section>
 </section>
 

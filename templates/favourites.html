@@ -1,20 +1,23 @@
 {% extends "base.html" %}
 {% block content %}
-
+<!-- Page container -->
 <section class="favourites">
-<div class="container-fluid small-container page-container">
-    <h3 id="fave-heading">
-        Hello, {{ username }}
-    </h3>
-    <h4 id="fave-sub-heading">
-        Your favourites:
-    </h4>
-    {% if favourites_arr|length >0 %}
-    <section class="favourites-list mb-3">
-        {% for festival in favourites_arr %}
+    <div class="container-fluid small-container page-container">
+        <!-- Headings -->
+        <h3 id="fave-heading">
+            Hello, {{ username }}
+        </h3>
+        <h4 id="fave-sub-heading">
+            Your favourites:
+        </h4>
+        {% if favourites_arr|length >0 %}
+        <!-- List of favourites (if they exist) -->
+        <section class="favourites-list mb-3">
+            {% for festival in favourites_arr %}
             <div class="row browse-row">
                 <div class="col-4 browse-fest-name text-start">
-                    <a class="text-start add-fest-btn" href="{{ url_for('view_festival', url=festival.url) }}">{{ festival.name }}</a>
+                    <a class="text-start add-fest-btn"
+                        href="{{ url_for('view_festival', url=festival.url) }}">{{ festival.name }}</a>
                     <p class="d-none d-md-block fest-location">{{ festival.location }}</p>
                 </div>
                 <div class="col-4">
@@ -25,21 +28,26 @@
                     </div>
                 </div>
                 <div class="col-4 text-center stars">
-                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                        class="fas fa-star"></i><i class="fas fa-star"></i>
                     <div class="d-md-inline">
                         {% if session.user %}
-                        <form method='POST' class="d-inline" action="{{ url_for('add_favourites', festival_id=festival._id) }}">
+                        <!-- Favourite/unfavourite button -->
+                        <form method='POST' class="d-inline"
+                            action="{{ url_for('add_favourites', festival_id=festival._id) }}">
                             {% if session.user in festival.favourited_by %}
-                        <button type="submit" class="browse-icon"><i class="fas fa-heart browse-heart" aria-hidden="true"></i><span class="sr-only">Remove from favourites</span></button>
+                            <button type="submit" class="browse-icon"><i class="fas fa-heart browse-heart"
+                                    aria-hidden="true"></i><span class="sr-only">Remove from favourites</span></button>
                             {% endif %}
                         </form>
                         {% endif %}
                     </div>
                 </div>
             </div>
-        {% endfor %}
-    </section>
-    {% else %}
+            {% endfor %}
+        </section>
+        {% else %}
+        <!-- Section if there are no favourites to render -->
         <section class="container">
             <div class="row text-center no-faves-row">
                 <div class="col-12">
@@ -49,7 +57,7 @@
                 </div>
             </div>
         </section>
-    {% endif %}
-</div>
+        {% endif %}
+    </div>
 </section>
 {% endblock %}

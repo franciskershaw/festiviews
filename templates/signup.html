@@ -1,10 +1,11 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<!-- create new account form -->
+<!-- Page container -->
 <section class="container-fluid text-center signup">
   <div class="row sign-in-container">
     <div class="col">
+      <!-- Create account form -->
       <form class="login-form center-content" method="POST" action="{{ url_for('sign_up') }}">
         <div class="col">
           <h3 class="login-heading">Sign Up to FestiViews!</h3>
@@ -23,12 +24,14 @@
         <!-- confirm password -->
         <div class="col login-inputs text-start">
           <label for="password_2" class="form-label">Confirm password</label>
-          <input type="password" class="form-control" id="password_2" name="password_2" required pattern="^[a-zA-Z0-9]{6,30}$">
+          <input type="password" class="form-control" id="password_2" name="password_2" required
+            pattern="^[a-zA-Z0-9]{6,30}$">
         </div>
         <!-- submit form -->
         <div class="col login-btn-container">
           <button type="submit" class="btn submit-btn" id="create_account">Register!</button>
         </div>
+        <!-- CTA for existing users -->
         <div class="col signup-in-cta">
           <p class="no-margins">Already have an account?</p>
           <p>Log in <em><a href="{{ url_for('login') }}">here</a></em></p>
