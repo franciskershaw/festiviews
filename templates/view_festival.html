@@ -201,7 +201,7 @@
 
                     <!-- Delete review modal -->
                     <div class="modal fade text-center" id="reviewModal{{ loop.index }}" data-backdrop="static"
-                        data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                        data-keyboard="false" tabindex="-1" aria-labelledby="delete-review" aria-hidden="true">
                         <div class="modal-dialog modal-dialog-centered">
                             <div class="modal-content">
                                 <div class="modal-header">
@@ -235,7 +235,7 @@
 <!-- Delete festival modal (if administrator is in session) -->
 {% if session.user|lower == 'administrator' %}
 <div class="modal fade text-center" id="deleteFestivalModal" data-backdrop="static" data-keyboard="false" tabindex="-1"
-    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    aria-labelledby="delete-fest" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content text-center">
             <div class="modal-header">

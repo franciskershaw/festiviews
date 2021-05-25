@@ -273,3 +273,4 @@ I used Mongo DB as my database management system as per the above schema.
 * Started with the most basic version of the frontend, with forms that only had a few fields in it for convenience
 * Took painstaking time first to make sure that the reviews, festivals, and users were all interacting with each other properly (like deleting a review meant it was also being deleted from the festival's document on mongoDB) before proceed with more complicated fields
 
+* HTML validator: error thrown for not using semicolons to finish of special characters on my forms (required *), space on the mailto: attribute for 'contact us'
