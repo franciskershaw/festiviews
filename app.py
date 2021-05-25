@@ -25,6 +25,13 @@ def index():
 
 @app.route('/sign_up', methods=['GET', 'POST'])
 def sign_up():
+    """
+    This function is for the creation of an account, it checks
+    if the username has been taken, checks that the password and
+    confirmation passwords match, and either flashes error
+    messages or adds a new user to the database, redirecting to
+    the user's new 'favourites' page.
+    """
     if request.method == "POST":
         # check if username has already been taken by another user
         existing_user = mongo.db.users.find_one(
@@ -303,7 +310,6 @@ def add_favourites(festival_id):
     festival_users = festival['favourited_by']
 
     if request.method == 'POST':
-        print(festival_users)
         if username in festival_users:
             mongo.db.festivals.update_one(
                 {'_id': festival['_id']},
