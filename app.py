@@ -442,10 +442,15 @@ def logout():
     return redirect(url_for("login"))
 
 
+@app.errorhandler(404)
+def page_not_found(error):
+    return render_template('errors/404.html'), 404
+
+
 if __name__ == '__main__':
     app.run(
         host=os.environ.get('IP'),
         port=int(os.environ.get('PORT')),
         # DON'T FORGET TO CHANGE THIS TO FALSE BEFORE SUBMISSION
-        debug=True
+        debug=False
     )
