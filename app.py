@@ -193,6 +193,7 @@ def add_festival():
     'hub' that users can add reviews for. It pulls all the information
     from the form on add_festival.html.
     """
+    user = session['user']
     if request.method == 'POST':
         # create a valid url from based off of the festival name
         url = request.form.get("festival_name").lower().replace(' ', '_')
@@ -223,7 +224,11 @@ def add_festival():
         flash('New festival added')
         return redirect(url_for("view_festival", url=url))
 
-    return render_template("add_festival.html")
+    if user == 'administrator':
+        return render_template("add_festival.html")
+    else:
+        flash("Sorry, you can't access this area")
+        return redirect(url_for('browse'))
 
 
 @app.route('/edit_festival/<url>', methods=["GET", "POST"])
@@ -448,12 +453,12 @@ def page_not_found(error):
 
 
 @app.errorhandler(403)
-def error_403():
+def error_403(error):
     return render_template('errors/403.html'), 403
 
 
 @app.errorhandler(500)
-def error_500():
+def error_500(error):
     return render_template('errors/500.html'), 500
 
 
