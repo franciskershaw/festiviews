@@ -757,6 +757,13 @@ button.btn.btn-link.btn-block {
     font-size: 80%;
 }
 
+/* Errors */
+
+section.landing-container.error {
+    background: url(/static/images/hub-placeholder.jpg) no-repeat fixed center;
+    background-size: cover;
+}
+
 /* Animations */
 
 /* source: https://stackoverflow.com/questions/39513705/make-html-element-disappear-with-css-animation */
