@@ -321,10 +321,29 @@ def add_review(url):
 
         # add review to the reviews collection on the db
         review_id = mongo.db.reviews.insert_one(review)
+        review_new = mongo.db.reviews.find_one({'_id': review_id.inserted_id})
+        review_new_rating = review_new['rating']
         # update the corresponding festival document by adding review id
         mongo.db.festivals.update_one(
             {"url": url},
-            {'$push': {'reviews': review_id.inserted_id}})
+            {'$push': {'reviews': {'review_id': review_id.inserted_id,
+                                   'review_rating': review_new_rating}}})
+
+        festival_reviews = festival['reviews']
+        rating_arr = []
+
+        for review in festival_reviews:
+            rating_arr += review['review_rating']
+
+        rating_arr_convert = map(int, rating_arr)
+        rating_arr_int = list(rating_arr_convert)
+        rating_arr_sum = sum(rating_arr_int)
+        rating_arr_num = len(rating_arr_int)
+        rating_arr_av = rating_arr_sum/rating_arr_num
+
+        mongo.db.festivals.update_one(
+            {"url": url},
+            {'$push': {'reviews_av': rating_arr_av}})
 
         flash('Thanks for your review!')
         return redirect(url_for('view_festival', url=url))
@@ -467,5 +486,5 @@ if __name__ == '__main__':
         host=os.environ.get('IP'),
         port=int(os.environ.get('PORT')),
         # DON'T FORGET TO CHANGE THIS TO FALSE BEFORE SUBMISSION
-        debug=False
+        debug=True
     )
