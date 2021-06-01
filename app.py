@@ -18,6 +18,46 @@ app.secret_key = os.environ.get('SECRET_KEY')
 mongo = PyMongo(app)
 
 
+def update_average_rating(festival_id):
+    rating_arr = []
+    print('----------------------------------')
+    print('----------------------------------')
+    print('Time to update the average rating!')
+    print('----------------------------------')
+    print(f'festival id is: {festival_id}')
+    festival_to_update = mongo.db.festivals.find_one(
+        {'_id': ObjectId(festival_id)})
+    review_ids = festival_to_update['reviews']
+    print(f'Festival name is: {festival_to_update["name"]}')
+    print('----------------------------------')
+    print(f'Review IDs in an array: {review_ids}')
+    print('----------------------------------')
+    for review_id in review_ids:
+        review = mongo.db.reviews.find_one({'_id': review_id})
+        rating_arr.append(int(review['rating']))
+    print(f'Ratings array as integers: {rating_arr}')
+    sum_of_arr = sum(rating_arr)
+    print(f'Sum of the array: {sum_of_arr}')
+    len_of_arr = len(rating_arr)
+    print(f'Length of the array: {len_of_arr}')
+    av_rating_float = sum_of_arr / len_of_arr
+    print(f'Average rating as float is {av_rating_float}')
+    print('----------------------------------')
+
+    # https://stackoverflow.com/questions/24838629/round-off-float-to-nearest-0-5-in-python
+    def round_of_rating(number):
+        return round(number * 2) / 2
+
+    rating_rounded = round_of_rating(av_rating_float)
+    print(f'Rating rounded: {rating_rounded}')
+    print('----------------------------------')
+    print('----------------------------------')
+
+    mongo.db.festivals.update_one(
+        {'_id': ObjectId(festival_id)},
+        {"$set": {"average_rating": rating_rounded}})
+
+
 @app.route('/')
 def index():
     return render_template('index.html')
@@ -321,29 +361,12 @@ def add_review(url):
 
         # add review to the reviews collection on the db
         review_id = mongo.db.reviews.insert_one(review)
-        review_new = mongo.db.reviews.find_one({'_id': review_id.inserted_id})
-        review_new_rating = review_new['rating']
         # update the corresponding festival document by adding review id
         mongo.db.festivals.update_one(
             {"url": url},
-            {'$push': {'reviews': {'review_id': review_id.inserted_id,
-                                   'review_rating': review_new_rating}}})
+            {'$push': {'reviews': review_id.inserted_id}})
 
-        festival_reviews = festival['reviews']
-        rating_arr = []
-
-        for review in festival_reviews:
-            rating_arr += review['review_rating']
-
-        rating_arr_convert = map(int, rating_arr)
-        rating_arr_int = list(rating_arr_convert)
-        rating_arr_sum = sum(rating_arr_int)
-        rating_arr_num = len(rating_arr_int)
-        rating_arr_av = rating_arr_sum/rating_arr_num
-
-        mongo.db.festivals.update_one(
-            {"url": url},
-            {'$push': {'reviews_av': rating_arr_av}})
+        update_average_rating(festival_id)
 
         flash('Thanks for your review!')
         return redirect(url_for('view_festival', url=url))
@@ -361,6 +384,7 @@ def edit_review(review_id):
     festival = mongo.db.festivals.find_one(
         {'_id': ObjectId(review['festival_id'])})
     url = festival['url']
+    festival_id = festival['_id']
 
     if request.method == 'POST':
         # grab data from form
@@ -378,6 +402,7 @@ def edit_review(review_id):
                       "kid_friendly": request.form.get('kid_friendly'),
                       "text": request.form.get('review')}})
 
+        update_average_rating(festival_id)
         flash('Review has updated successfuly')
         return redirect(url_for('view_festival', url=url))
 
@@ -395,6 +420,7 @@ def delete_review(review_id):
     """
     review = mongo.db.reviews.find_one({'_id': ObjectId(review_id)})
     festival_id = review['festival_id']
+    print(festival_id)
     festival = mongo.db.festivals.find_one({'_id': ObjectId(festival_id)})
     url = festival['url']
 
@@ -403,6 +429,7 @@ def delete_review(review_id):
     # delete review id from festivals database
     mongo.db.festivals.update_one({"_id": ObjectId(festival_id)},
                                   {'$pull': {'reviews': ObjectId(review_id)}})
+    update_average_rating(festival_id)
     flash("Review deleted")
     return redirect(url_for('view_festival', url=url))
 
