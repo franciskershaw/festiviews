@@ -38,6 +38,9 @@ document.addEventListener("DOMContentLoaded", function (event) {
         noAnnouncement();
         showMoreReviews();
     }
+    if(pages.view_festival || pages.browse || pages.favourites) {
+        starIcons();
+    }
 })
 
 /*
@@ -132,4 +135,23 @@ function showMoreReviews() {
             }
         })
     }
+};
+
+/*
+This function checks if there is an average star rating and converts it into
+star icons.
+*/
+function starIcons() {
+    if (pages.view_festival) {
+        console.log('Star rendering required on festival hub');
+        let starsParagraph = document.querySelector('#average-rating');
+        if (starsParagraph != "") {
+            console.log('true!')
+        } else {
+            console.log('false!');
+        }
+    }
+    else {
+        console.log('Star rendering required on either browse or favourites');
+    };
 };

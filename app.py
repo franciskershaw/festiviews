@@ -27,11 +27,7 @@ def update_average_rating(festival_id):
     finally an average is taken from the list and sent to the DB.
     """
     rating_arr = []
-    print('----------------------------------')
-    print('----------------------------------')
-    print('Time to update the average rating!')
-    print('----------------------------------')
-    print(f'festival id is: {festival_id}')
+
     # Find festival
     festival_to_update = mongo.db.festivals.find_one(
         {'_id': ObjectId(festival_id)})
@@ -426,7 +422,6 @@ def delete_review(review_id):
     """
     review = mongo.db.reviews.find_one({'_id': ObjectId(review_id)})
     festival_id = review['festival_id']
-    print(festival_id)
     festival = mongo.db.festivals.find_one({'_id': ObjectId(festival_id)})
     url = festival['url']
 
