@@ -19,40 +19,52 @@ mongo = PyMongo(app)
 
 
 def update_average_rating(festival_id):
+    """
+    This function is called at all every CRUD stage for reviews,
+    in order to add or update the average rating of a festival.
+    First it finds the correct festival and corresponding reviews,
+    then it loops through the reviews to find a list of the ratings,
+    finally an average is taken from the list and sent to the DB.
+    """
     rating_arr = []
     print('----------------------------------')
     print('----------------------------------')
     print('Time to update the average rating!')
     print('----------------------------------')
     print(f'festival id is: {festival_id}')
+    # Find festival
     festival_to_update = mongo.db.festivals.find_one(
         {'_id': ObjectId(festival_id)})
+    # Find corresponding reviews
     review_ids = festival_to_update['reviews']
     print(f'Festival name is: {festival_to_update["name"]}')
     print('----------------------------------')
     print(f'Review IDs in an array: {review_ids}')
     print('----------------------------------')
+    # Loop over reviews and append the ratings to rating_arr
     for review_id in review_ids:
         review = mongo.db.reviews.find_one({'_id': review_id})
         rating_arr.append(int(review['rating']))
     print(f'Ratings array as integers: {rating_arr}')
+    # Sum the values of the array
     sum_of_arr = sum(rating_arr)
     print(f'Sum of the array: {sum_of_arr}')
+    # Get the length of the array
     len_of_arr = len(rating_arr)
     print(f'Length of the array: {len_of_arr}')
+    # Work out the average of the array
     av_rating_float = sum_of_arr / len_of_arr
     print(f'Average rating as float is {av_rating_float}')
     print('----------------------------------')
 
+    # Round the average rating to the nearest .5
     # https://stackoverflow.com/questions/24838629/round-off-float-to-nearest-0-5-in-python
-    def round_of_rating(number):
-        return round(number * 2) / 2
-
-    rating_rounded = round_of_rating(av_rating_float)
+    rating_rounded = round(av_rating_float * 2)/2
     print(f'Rating rounded: {rating_rounded}')
     print('----------------------------------')
     print('----------------------------------')
 
+    # Add completed average rating to the DB
     mongo.db.festivals.update_one(
         {'_id': ObjectId(festival_id)},
         {"$set": {"average_rating": rating_rounded}})
