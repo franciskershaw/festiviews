@@ -145,13 +145,30 @@ function starIcons() {
     if (pages.view_festival) {
         console.log('Star rendering required on festival hub');
         let starsParagraph = document.querySelector('#average-rating');
-        if (starsParagraph != "") {
-            console.log('true!')
+        if (starsParagraph.innerHTML != "No ratings yet") {
+            if (starsParagraph.innerHTML === "5.0") {
+                starsParagraph.innerHTML = '<i class="fas fa-star hub-star"></i><i class="fas fa-star hub-star"></i><i class="fas fa-star hub-star"></i><i class="fas fa-star hub-star"></i><i class="fas fa-star hub-star"></i>'
+            } else if (starsParagraph.innerHTML === "4.5") {
+                starsParagraph.innerHTML = '<i class="fas fa-star hub-star"></i><i class="fas fa-star hub-star"></i><i class="fas fa-star hub-star"></i><i class="fas fa-star hub-star"></i><i class="fas fa-star-half hub-star"></i>'
+            } else if (starsParagraph.innerHTML === "4.0") {
+                starsParagraph.innerHTML = '<i class="fas fa-star hub-star"></i><i class="fas fa-star hub-star"></i><i class="fas fa-star hub-star"></i><i class="fas fa-star hub-star"></i>'
+            } else if (starsParagraph.innerHTML === "3.5") {
+                starsParagraph.innerHTML = '<i class="fas fa-star hub-star"></i><i class="fas fa-star hub-star"></i><i class="fas fa-star hub-star"></i><i class="fas fa-star-half hub-star"></i>'
+            } else if (starsParagraph.innerHTML === "3.0") {
+                starsParagraph.innerHTML = '<i class="fas fa-star hub-star"></i><i class="fas fa-star hub-star"></i><i class="fas fa-star hub-star"></i>'
+            } else if (starsParagraph.innerHTML === "2.5") {
+                starsParagraph.innerHTML = '<i class="fas fa-star hub-star"></i><i class="fas fa-star hub-star"></i><i class="fas fa-star-half hub-star"></i>'
+            } else if (starsParagraph.innerHTML === "2.0") {
+                starsParagraph.innerHTML = '<i class="fas fa-star hub-star"></i><i class="fas fa-star hub-star"></i>'
+            } else if (starsParagraph.innerHTML === "1.5") {
+                starsParagraph.innerHTML = '<i class="fas fa-star hub-star"></i><i class="fas fa-star-half hub-star"></i>'
+            } else {
+                starsParagraph.innerHTML = '<i class="fas fa-star hub-star"></i>'
+            }
         } else {
-            console.log('false!');
+            starsParagraph.remove();
         }
-    }
-    else {
+    } else {
         console.log('Star rendering required on either browse or favourites');
     };
 };

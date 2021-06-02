@@ -625,7 +625,7 @@ section.admin-only.text-end {
     border-radius: 4px;
 }
 
-i.fas.fa-star.hub-star {
+i.fas.fa-star.hub-star, i.fas.fa-star-half.hub-star {
     font-size: 150%;
     color: rgba(224, 193, 20, 0.959);
     margin-bottom: 10px;
@@ -641,6 +641,10 @@ i.fas.fa-star.hub-star {
 
 #edit-review-icon {
     color: #e7e0e0e0;
+}
+
+#average-rating {
+    margin-bottom: 0;
 }
 
 button#delete-fest, button#delete-review {
