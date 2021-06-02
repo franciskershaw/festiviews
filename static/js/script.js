@@ -143,32 +143,41 @@ star icons.
 */
 function starIcons() {
     if (pages.view_festival) {
-        console.log('Star rendering required on festival hub');
         let starsParagraph = document.querySelector('#average-rating');
-        if (starsParagraph.innerHTML != "No ratings yet") {
-            if (starsParagraph.innerHTML === "5.0") {
-                starsParagraph.innerHTML = '<i class="fas fa-star hub-star"></i><i class="fas fa-star hub-star"></i><i class="fas fa-star hub-star"></i><i class="fas fa-star hub-star"></i><i class="fas fa-star hub-star"></i>'
-            } else if (starsParagraph.innerHTML === "4.5") {
-                starsParagraph.innerHTML = '<i class="fas fa-star hub-star"></i><i class="fas fa-star hub-star"></i><i class="fas fa-star hub-star"></i><i class="fas fa-star hub-star"></i><i class="fas fa-star-half hub-star"></i>'
-            } else if (starsParagraph.innerHTML === "4.0") {
-                starsParagraph.innerHTML = '<i class="fas fa-star hub-star"></i><i class="fas fa-star hub-star"></i><i class="fas fa-star hub-star"></i><i class="fas fa-star hub-star"></i>'
-            } else if (starsParagraph.innerHTML === "3.5") {
-                starsParagraph.innerHTML = '<i class="fas fa-star hub-star"></i><i class="fas fa-star hub-star"></i><i class="fas fa-star hub-star"></i><i class="fas fa-star-half hub-star"></i>'
-            } else if (starsParagraph.innerHTML === "3.0") {
-                starsParagraph.innerHTML = '<i class="fas fa-star hub-star"></i><i class="fas fa-star hub-star"></i><i class="fas fa-star hub-star"></i>'
-            } else if (starsParagraph.innerHTML === "2.5") {
-                starsParagraph.innerHTML = '<i class="fas fa-star hub-star"></i><i class="fas fa-star hub-star"></i><i class="fas fa-star-half hub-star"></i>'
-            } else if (starsParagraph.innerHTML === "2.0") {
-                starsParagraph.innerHTML = '<i class="fas fa-star hub-star"></i><i class="fas fa-star hub-star"></i>'
-            } else if (starsParagraph.innerHTML === "1.5") {
-                starsParagraph.innerHTML = '<i class="fas fa-star hub-star"></i><i class="fas fa-star-half hub-star"></i>'
-            } else {
-                starsParagraph.innerHTML = '<i class="fas fa-star hub-star"></i>'
-            }
-        } else {
-            starsParagraph.remove();
+        let rating = parseFloat(starsParagraph.innerHTML);
+        let fullStarHtml = '<i class="fas fa-star hub-star"></i>'
+        let halfStarHtml = '<i class="fas fa-star-half hub-star"></i>'
+        let HtmlToAdd = ""
+        let count = 0;
+        while (count < rating - 1) {
+            HtmlToAdd += fullStarHtml
+            count ++
         }
-    } else {
-        console.log('Star rendering required on either browse or favourites');
+        if (count > rating - 1) {
+            HtmlToAdd += halfStarHtml;
+        } else {
+            HtmlToAdd += fullStarHtml;
+        }
+        starsParagraph.innerHTML = HtmlToAdd;
+    } else if (pages.browse || pages.favourites) {
+        let starParagraphs = document.querySelectorAll('.average-rating');
+        let fullStarHtml = '<i class="fas fa-star"></i>'
+        let halfStarHtml = '<i class="fas fa-star-half"></i>'
+        starParagraphs.forEach((paragraph) => {
+                let rating = (parseFloat(paragraph.innerHTML));
+                let HtmlToAdd = ""
+                let count = 0;
+                while (count < rating - 1) {
+                    HtmlToAdd += fullStarHtml;
+                    count++
+                }
+                if (count > rating - 1) {
+                    HtmlToAdd += halfStarHtml
+                } else {
+                    HtmlToAdd += fullStarHtml
+                }
+                console.log(HtmlToAdd);
+                paragraph.innerHTML = HtmlToAdd;
+        })
     };
 };

@@ -50,8 +50,12 @@
                     </div>
                 </div>
                 <div class="col-4 text-center stars">
-                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
-                        class="fas fa-star"></i><i class="fas fa-star"></i>
+                        {% if festival.average_rating %}
+                        <p class="average-rating">{{ festival.average_rating }}</p>
+                        {% else %}
+                        <i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i
+                        class="far fa-star"></i><i class="far fa-star"></i>
+                        {% endif %}
                     <div class="d-md-inline">
                         {% if session.user %}
                         <form method='POST' class="d-inline"

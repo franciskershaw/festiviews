@@ -393,7 +393,7 @@ section.browse h3, section.add_festival h3, section.edit_festival h3, section.ad
     text-shadow: 1px 1px #dfdfdf;
 }
 
-i.fas.fa-star {
+i.fas.fa-star, i.far.fa-star, i.fas.fa-star-half {
     font-size: 70%;
     color: rgb(224 194 20);
 }
@@ -643,7 +643,7 @@ i.fas.fa-star.hub-star, i.fas.fa-star-half.hub-star {
     color: #e7e0e0e0;
 }
 
-#average-rating {
+#average-rating, .average-rating {
     margin-bottom: 0;
 }
 
@@ -816,7 +816,7 @@ section.landing-container.error {
     .add-review-btn {
         font-size: 115%;
     }
-    i.fas.fa-star {
+    i.fas.fa-star, i.far.fa-star, i.fas.fa-star-half {
         font-size: 85%;
     }
     section.admin-only.text-end {
@@ -942,7 +942,7 @@ section.landing-container.error {
         top: 23px;
         right: 40px;
     }
-    i.fas.fa-star {
+    i.fas.fa-star, i.far.fa-star, i.fas.fa-star-half {
         font-size: 90%;
     }
     section.admin-only.text-end {
@@ -995,7 +995,7 @@ section.landing-container.error {
     .hub-info {
         font-size: 96%;
     }
-    i.fas.fa-star {
+    i.fas.fa-star, i.far.fa-star, i.fas.fa-star-half {
         font-size: 110%;
     }
     section.admin-only.text-end {
