@@ -384,6 +384,10 @@ span.year, span.rating, span.location, span.nightlife, span.lineup, span.campsit
     padding-top: 10px;
 }
 
+i.far.fa-star {
+    opacity: 0.5;
+}
+
 button.browse-icon {
     border: none;
     background: none;
