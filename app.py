@@ -16,6 +16,8 @@ app.config["MONGO_URI"] = os.environ.get("MONGO_URI")
 app.secret_key = os.environ.get('SECRET_KEY')
 
 mongo = PyMongo(app)
+db_festivals = mongo.db.festivals
+db_reviews = mongo.db.reviews
 
 
 def update_average_rating(festival_id):
@@ -29,7 +31,7 @@ def update_average_rating(festival_id):
     rating_arr = []
 
     # Find festival
-    festival_to_update = mongo.db.festivals.find_one(
+    festival_to_update = db_festivals.find_one(
         {'_id': ObjectId(festival_id)})
     # Find corresponding reviews
     review_ids = festival_to_update['reviews']
@@ -37,7 +39,7 @@ def update_average_rating(festival_id):
     if len(review_ids) != 0:
         # Loop over reviews and append the ratings to rating_arr
         for review_id in review_ids:
-            review = mongo.db.reviews.find_one({'_id': review_id})
+            review = db_reviews.find_one({'_id': review_id})
             rating_arr.append(int(review['rating']))
         # Sum the values of the array
         sum_of_arr = sum(rating_arr)
@@ -50,13 +52,13 @@ def update_average_rating(festival_id):
         rating_rounded = round(av_rating_float * 2)/2
 
         # Add completed average rating to the DB
-        mongo.db.festivals.update_one(
+        db_festivals.update_one(
             {'_id': ObjectId(festival_id)},
             {"$set": {"average_rating": rating_rounded}})
 
     else:
         # Remove average rating field if there are no reviews
-        mongo.db.festivals.update_one(
+        db_festivals.update_one(
             {'_id': ObjectId(festival_id)},
             {"$unset": {'average_rating': ""}})
 
@@ -153,16 +155,13 @@ def favourites(username):
     there are any), sorts them alphabetically, appends them
     into an array that can be accessed on the front end, and
     renders the template for the favourites page.
-
-    GET = render template for login.html
-    POST = render template for favourites.html
     """
     # grab the session user's username from db
     user = mongo.db.users.find_one(
         {"username": session["user"]})
     username = user['username']
     # sort favourites alphabetically
-    favourites = mongo.db.festivals.find(
+    favourites = db_festivals.find(
         {"favourited_by": username}).sort([('name', 1)])
 
     favourites_arr = []
@@ -190,7 +189,7 @@ def search():
     page.
     """
     query = request.form.get('search_bar')
-    festivals = list(mongo.db.festivals.find(
+    festivals = list(db_festivals.find(
         {"$text": {"$search": query}}).sort('name', 1))
 
     return render_template('browse.html', festivals=festivals)
@@ -202,7 +201,7 @@ def browse():
     This function finds all available festivals from the db and
     renders them alphabetically on the browse all page.
     """
-    festivals = list(mongo.db.festivals.find().sort('name', 1))
+    festivals = list(db_festivals.find().sort('name', 1))
     return render_template('browse.html', festivals=festivals)
 
 
@@ -212,7 +211,7 @@ def sort_rating():
     This function is triggered when a user clicks on the sort icon
     on browse.html to reorder the festivals by highest rated.
     """
-    festivals = list(mongo.db.festivals.find().sort(
+    festivals = list(db_festivals.find().sort(
         [('average_rating', -1), ('name', 1)]))
     return render_template('browse.html', festivals=festivals)
 
@@ -226,10 +225,10 @@ def view_festival(url):
     can be accessed on the front end, and renders the view_festival
     template.
     """
-    festival = mongo.db.festivals.find_one({"url": url})
+    festival = db_festivals.find_one({"url": url})
     festival_id = festival['_id']
     # sort reviews by _id (most recent first)
-    reviews = mongo.db.reviews.find(
+    reviews = db_reviews.find(
         {"festival_id": ObjectId(festival_id)}).sort([('_id', 1), ('_id', -1)])
 
     reviews_arr = []
@@ -275,14 +274,15 @@ def add_festival():
             "favourited_by": []
         }
         # add all the details above to the database
-        mongo.db.festivals.insert_one(add_festival)
+        db_festivals.insert_one(add_festival)
 
         flash('New festival added')
         return redirect(url_for("view_festival", url=url))
-
+    # check user is administrator before rendering the page
     if 'user' in session and session['user'] == 'administrator':
         return render_template("add_festival.html")
 
+    # message and redirect if non admin user attempts to access
     flash("Sorry, you can't add festival hubs")
     return redirect(url_for('index'))
 
@@ -298,7 +298,7 @@ def edit_festival(url):
         new_url = request.form.get(
                           "festival_name").lower().replace(' ', '_')
         # grab data and update the festival on the db
-        mongo.db.festivals.update_one(
+        db_festivals.update_one(
             {"url": url},
             {"$set": {"name": request.form.get("festival_name"),
                       "url": new_url,
@@ -323,10 +323,12 @@ def edit_festival(url):
         flash('Festival updated')
         return redirect(url_for('view_festival', url=new_url))
 
+    # check user is administrator before rendering the page
     if 'user' in session and session['user'] == 'administrator':
-        festival = mongo.db.festivals.find_one({'url': url})
+        festival = db_festivals.find_one({'url': url})
         return render_template("edit_festival.html", festival=festival)
 
+    # message and redirect if non admin user attempts to access
     flash("Sorry, you can't edit festival hubs")
     return redirect(url_for('index'))
 
@@ -338,18 +340,20 @@ def delete_festival(url):
     created festivals from the site and database. It also deletes
     any associated reviews from the reviews collection.
     """
+    # check user is administrator before deleting record
     if 'user' in session and session['user'] == 'administrator':
         # find festival
-        festival = mongo.db.festivals.find_one({'url': url})
+        festival = db_festivals.find_one({'url': url})
         festival_id = festival['_id']
         # delete festival from database
-        mongo.db.festivals.delete_one({"url": url})
+        db_festivals.delete_one({"url": url})
         # delete corresponding reviews from reviews database
-        mongo.db.reviews.delete_many({'festival_id': ObjectId(festival_id)})
+        db_reviews.delete_many({'festival_id': ObjectId(festival_id)})
 
         flash("Festival and corresponding reviews deleted")
         return redirect(url_for('browse'))
 
+    # message and redirect if non admin user attempts to delete
     flash("Sorry, you can't delete festivals")
     return redirect(url_for('index'))
 
@@ -363,7 +367,7 @@ def add_review(url):
     the new review's id, before then redirecting back to the previous
     festival page.
     """
-    festival = mongo.db.festivals.find_one({'url': url})
+    festival = db_festivals.find_one({'url': url})
     festival_id = festival['_id']
     if request.method == 'POST':
         # grab data from form
@@ -384,20 +388,23 @@ def add_review(url):
         }
 
         # add review to the reviews collection on the db
-        review_id = mongo.db.reviews.insert_one(review)
+        review_id = db_reviews.insert_one(review)
         # update the corresponding festival document by adding review id
-        mongo.db.festivals.update_one(
+        db_festivals.update_one(
             {"url": url},
             {'$push': {'reviews': review_id.inserted_id}})
 
+        # update the overall average rating
         update_average_rating(festival_id)
 
         flash('Thanks for your review!')
         return redirect(url_for('view_festival', url=url))
 
+    # checks user is logged in
     if 'user' in session:
         return render_template('add_review.html', festival=festival)
 
+    # message and redirect if non user attempts to add a review
     flash('Please login to post reviews')
     return redirect(url_for('login'))
 
@@ -408,15 +415,14 @@ def edit_review(review_id):
     This allows logged in users to update their own reviews, before
     then being redirected back to the festival page they were reviewing.
     """
-    review = mongo.db.reviews.find_one({'_id': ObjectId(review_id)})
-    festival = mongo.db.festivals.find_one(
-        {'_id': ObjectId(review['festival_id'])})
+    review = db_reviews.find_one({'_id': ObjectId(review_id)})
+    festival = db_festivals.find_one({'_id': ObjectId(review['festival_id'])})
     url = festival['url']
     festival_id = festival['_id']
 
     if request.method == 'POST':
         # grab data from form
-        mongo.db.reviews.update_one(
+        db_reviews.update_one(
             {"_id": ObjectId(review_id)},
             {"$set": {"year": request.form.get('year'),
                       "rating": request.form.get('rating'),
@@ -430,15 +436,18 @@ def edit_review(review_id):
                       "kid_friendly": request.form.get('kid_friendly'),
                       "text": request.form.get('review')}})
 
+        # update the overall average rating
         update_average_rating(festival_id)
 
         flash('Review has updated successfuly')
         return redirect(url_for('view_festival', url=url))
 
+    # checks user is logged in and can edit this review
     if 'user' in session and session['user'] == review['created_by']:
         return render_template(
             'edit_review.html', review=review, festival=festival)
 
+    # message and redirect if user is not allowed to edit
     flash('Sorry, you can only edit your own reviews')
     return redirect(url_for('index'))
 
@@ -450,21 +459,26 @@ def delete_review(review_id):
     from the festival page and from the database before redirecting
     back to the festival 'hub' the review was being deleted from.
     """
-    review = mongo.db.reviews.find_one({'_id': ObjectId(review_id)})
+    review = db_reviews.find_one({'_id': ObjectId(review_id)})
     festival_id = review['festival_id']
-    festival = mongo.db.festivals.find_one({'_id': ObjectId(festival_id)})
+    festival = db_festivals.find_one({'_id': ObjectId(festival_id)})
     url = festival['url']
 
+    # checks user is logged in and authorised to delete the review
     if 'user' in session and session['user'] == review['created_by']:
         # delete review from database
-        mongo.db.reviews.delete_one({"_id": ObjectId(review_id)})
+        db_reviews.delete_one({"_id": ObjectId(review_id)})
         # delete review id from festivals database
-        mongo.db.festivals.update_one(
-            {"_id": ObjectId(festival_id)}, {'$pull': {'reviews': ObjectId(review_id)}})
+        db_festivals.update_one(
+            {"_id": ObjectId(festival_id)},
+            {'$pull': {'reviews': ObjectId(review_id)}})
+
+        # update the overall average rating
         update_average_rating(festival_id)
         flash("Review deleted")
         return redirect(url_for('view_festival', url=url))
 
+    # message and redirect for unauthorised users
     flash('You can only delete your own reviews')
     return redirect(url_for('index'))
 
@@ -479,14 +493,14 @@ def add_favourites(festival_id):
     on which is true.
     """
     username = session['user']
-    festival = mongo.db.festivals.find_one({'_id': ObjectId(festival_id)})
+    festival = db_festivals.find_one({'_id': ObjectId(festival_id)})
     festival_users = festival['favourited_by']
 
     if request.method == 'POST':
         # check if the user appears on the festival's 'favourited_by' DB array
         if username in festival_users:
             # update the festival on DB to remove the username
-            mongo.db.festivals.update_one(
+            db_festivals.update_one(
                 {'_id': festival['_id']},
                 {'$pull': {'favourited_by': username}})
             # update the user on DB to remove festival from their favourites
@@ -500,7 +514,7 @@ def add_favourites(festival_id):
                 {"username": username},
                 {'$push': {'favourites': festival['_id']}})
             # Add user to the festivals 'favourited_by' array on DB
-            mongo.db.festivals.update_one(
+            db_festivals.update_one(
                 {"_id": festival['_id']},
                 {'$push': {'favourited_by': username}})
             flash(festival.get('name') + ' added to favourites')
@@ -548,5 +562,5 @@ if __name__ == '__main__':
         host=os.environ.get('IP'),
         port=int(os.environ.get('PORT')),
         # DON'T FORGET TO CHANGE THIS TO FALSE BEFORE SUBMISSION
-        debug=True
+        debug=False
     )
