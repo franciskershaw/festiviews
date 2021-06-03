@@ -139,7 +139,7 @@ function showMoreReviews() {
 
 /*
 This function checks if there is an average star rating and converts it into
-star icons.
+star icons, on both the browse/favourites pages AND the view_festival pages.
 */
 function starIcons() {
         let starParagraphs = document.querySelectorAll('.average-rating');
