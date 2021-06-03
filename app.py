@@ -55,6 +55,7 @@ def update_average_rating(festival_id):
             {"$set": {"average_rating": rating_rounded}})
 
     else:
+        # Remove average rating field if there are no reviews
         mongo.db.festivals.update_one(
             {'_id': ObjectId(festival_id)},
             {"$unset": {'average_rating': ""}})
@@ -62,6 +63,9 @@ def update_average_rating(festival_id):
 
 @app.route('/')
 def index():
+    """
+    This function renders the homepage template.
+    """
     return render_template('index.html')
 
 
@@ -199,6 +203,17 @@ def browse():
     renders them alphabetically on the browse all page.
     """
     festivals = list(mongo.db.festivals.find().sort('name', 1))
+    return render_template('browse.html', festivals=festivals)
+
+
+@app.route('/sort_rating')
+def sort_rating():
+    """
+    This function is triggered when a user clicks on the sort icon
+    on browse.html to reorder the festivals by highest rated.
+    """
+    festivals = list(mongo.db.festivals.find().sort(
+        [('average_rating', -1), ('name', 1)]))
     return render_template('browse.html', festivals=festivals)
 
 

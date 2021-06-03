@@ -33,6 +33,7 @@ label {
     background-color: #c11e47eb;
     border: 1px solid #fbf9ef;
     width: 100%;
+    z-index: 1;
 }
 
 .flashes {
@@ -388,9 +389,13 @@ i.far.fa-star {
     opacity: 0.5;
 }
 
-button.browse-icon {
+.browse-icon {
     border: none;
     background: none;
+}
+
+h4 a.browse-icon {
+    color: #392d34;
 }
 
 section.browse h3, section.add_festival h3, section.edit_festival h3, section.add_review h3, section.edit_review h3 {

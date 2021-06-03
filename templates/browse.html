@@ -21,16 +21,15 @@
         <!-- Festival list headings -->
         <div class="row pb-1">
             <div class="col-4 text-start">
-                <h4 class="browse-heading">Name <button class="browse-icon"><i class="fas fa-sort"
-                            aria-hidden="true"></i><span class="sr-only">Sort by name</span></button></h4>
+                <h4 class="browse-heading">Name <a href="{{ url_for('browse') }}" class="browse-icon"><i class="fas fa-sort"
+                            aria-hidden="true"></i><span class="sr-only">Sort by name</span></a></h4>
             </div>
             <div class="col-4 text-center">
-                <h4 class="browse-heading">Dates <button class="browse-icon"><i class="fas fa-sort"
-                            aria-hidden="true"></i><span class="sr-only">Sort by date</span></button></h4>
+                <h4 class="browse-heading">Dates</h4>
             </div>
             <div class="col-4 text-center">
-                <h4 class="browse-heading">Rating <button class="browse-icon"><i class="fas fa-sort"
-                            aria-hidden="true"></i><span class="sr-only">Sort by rating</span></button></h4>
+                <h4 class="browse-heading">Rating <a href="{{ url_for('sort_rating') }}" class="browse-icon"><i class="fas fa-sort"
+                            aria-hidden="true"></i><span class="sr-only">Sort by rating</span></a></h4>
             </div>
         </div>
         <!-- List of available festivals to browse -->
