@@ -5,7 +5,7 @@
 <section class="container-fluid landing-container index">
   <div class="index-content-container center-content">
     <!-- Headings -->
-    <div class="index-headings-container">
+    <div class="index-headings-container appear-first">
       <div class="row">
         <div class="col">
           <h1 class="index-h1">FestiViews</h1>
@@ -14,7 +14,7 @@
       </div>
     </div>
     <!-- CTA buttons -->
-    <div class="cta-button-container">
+    <div class="cta-button-container appear-second">
       <div class="row">
         {% if session.user %}
         <div class="col-12"><a href="{{ url_for('browse') }}" class="btn btn-primary btn-md cta-btn">Browse

@@ -4,7 +4,7 @@
 <!-- Page container -->
 <section class="text-center view_festival">
     <!-- Hero image/festival name/tagline -->
-    <section class="hub-hero-section" style="background-image: url('{{ festival.image_link }}');">
+    <section class="hub-hero-section appear-first" style="background-image: url('{{ festival.image_link }}');">
         {% if session.user|lower == 'administrator' %}
         <!-- Admin only edit/delete button -->
         <section class="admin-only text-end">
@@ -42,7 +42,7 @@
         </div>
     </section>
     <!-- Festival information section -->
-    <section class="hub-info-container text-start container-fluid">
+    <section class="hub-info-container text-start container-fluid appear-second">
         <div class="container">
             <div class="row">
                 <div class="col-6 col-md-3 col-lg-2">
@@ -106,7 +106,7 @@
         </div>
     </section>
     <!-- Reviews section -->
-    <section class="container-fluid reviews-section">
+    <section class="container-fluid reviews-section appear-third">
         <div class="container">
             <div class="row reviews-heading-container">
                 <div class="col-12 text-start">

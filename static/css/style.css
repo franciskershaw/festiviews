@@ -789,6 +789,39 @@ section.landing-container.error {
 
 /* Animations */
 
+.appear-first {
+    opacity: 0;
+	animation-name: appear;
+	animation-duration: 1.5s;
+	animation-delay: 0.5s;
+	animation-fill-mode: forwards;
+}
+
+.appear-second {
+    opacity: 0;
+    animation-name: appear;
+    animation-duration: 1.75s;
+    animation-delay: 1.6s;
+    animation-fill-mode: forwards;
+}
+
+.appear-third {
+    opacity: 0;
+    animation-name: appear;
+    animation-duration: 1.75s;
+    animation-delay: 1.85s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes appear {
+    0% {
+        opacity: 0
+    }
+    100% {
+        opacity: 1
+    }
+}
+
 /* source: https://stackoverflow.com/questions/39513705/make-html-element-disappear-with-css-animation */
 @keyframes appearDisappear {
    0%{
