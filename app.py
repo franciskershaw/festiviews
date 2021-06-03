@@ -250,7 +250,6 @@ def add_festival():
     'hub' that users can add reviews for. It pulls all the information
     from the form on add_festival.html.
     """
-    user = session['user']
     if request.method == 'POST':
         # create a valid url from based off of the festival name
         url = request.form.get("festival_name").lower().replace(' ', '_')
@@ -281,11 +280,11 @@ def add_festival():
         flash('New festival added')
         return redirect(url_for("view_festival", url=url))
 
-    if user == 'administrator':
+    if 'user' in session and session['user'] == 'administrator':
         return render_template("add_festival.html")
-    else:
-        flash("Sorry, you can't access this area")
-        return redirect(url_for('browse'))
+
+    flash("Sorry, you can't add festival hubs")
+    return redirect(url_for('index'))
 
 
 @app.route('/edit_festival/<url>', methods=["GET", "POST"])
@@ -324,8 +323,12 @@ def edit_festival(url):
         flash('Festival updated')
         return redirect(url_for('view_festival', url=new_url))
 
-    festival = mongo.db.festivals.find_one({'url': url})
-    return render_template("edit_festival.html", festival=festival)
+    if 'user' in session and session['user'] == 'administrator':
+        festival = mongo.db.festivals.find_one({'url': url})
+        return render_template("edit_festival.html", festival=festival)
+
+    flash("Sorry, you can't edit festival hubs")
+    return redirect(url_for('index'))
 
 
 @app.route('/delete_festival/<url>')
@@ -335,16 +338,20 @@ def delete_festival(url):
     created festivals from the site and database. It also deletes
     any associated reviews from the reviews collection.
     """
-    # find festival
-    festival = mongo.db.festivals.find_one({'url': url})
-    festival_id = festival['_id']
-    # delete festival from database
-    mongo.db.festivals.delete_one({"url": url})
-    # delete corresponding reviews from reviews database
-    mongo.db.reviews.delete_many({'festival_id': ObjectId(festival_id)})
+    if 'user' in session and session['user'] == 'administrator':
+        # find festival
+        festival = mongo.db.festivals.find_one({'url': url})
+        festival_id = festival['_id']
+        # delete festival from database
+        mongo.db.festivals.delete_one({"url": url})
+        # delete corresponding reviews from reviews database
+        mongo.db.reviews.delete_many({'festival_id': ObjectId(festival_id)})
 
-    flash("Festival and corresponding reviews deleted")
-    return redirect(url_for('browse'))
+        flash("Festival and corresponding reviews deleted")
+        return redirect(url_for('browse'))
+
+    flash("Sorry, you can't delete festivals")
+    return redirect(url_for('index'))
 
 
 @app.route('/add_review/<url>', methods=['GET', 'POST'])
@@ -388,7 +395,11 @@ def add_review(url):
         flash('Thanks for your review!')
         return redirect(url_for('view_festival', url=url))
 
-    return render_template('add_review.html', festival=festival)
+    if 'user' in session:
+        return render_template('add_review.html', festival=festival)
+
+    flash('Please login to post reviews')
+    return redirect(url_for('login'))
 
 
 @app.route('/edit_review/<review_id>', methods=['GET', 'POST'])
@@ -420,12 +431,16 @@ def edit_review(review_id):
                       "text": request.form.get('review')}})
 
         update_average_rating(festival_id)
+
         flash('Review has updated successfuly')
         return redirect(url_for('view_festival', url=url))
 
-    return render_template('edit_review.html',
-                           review=review,
-                           festival=festival)
+    if 'user' in session and session['user'] == review['created_by']:
+        return render_template(
+            'edit_review.html', review=review, festival=festival)
+
+    flash('Sorry, you can only edit your own reviews')
+    return redirect(url_for('index'))
 
 
 @app.route('/delete_review/<review_id>')
@@ -440,14 +455,18 @@ def delete_review(review_id):
     festival = mongo.db.festivals.find_one({'_id': ObjectId(festival_id)})
     url = festival['url']
 
-    # delete review from database
-    mongo.db.reviews.delete_one({"_id": ObjectId(review_id)})
-    # delete review id from festivals database
-    mongo.db.festivals.update_one({"_id": ObjectId(festival_id)},
-                                  {'$pull': {'reviews': ObjectId(review_id)}})
-    update_average_rating(festival_id)
-    flash("Review deleted")
-    return redirect(url_for('view_festival', url=url))
+    if 'user' in session and session['user'] == review['created_by']:
+        # delete review from database
+        mongo.db.reviews.delete_one({"_id": ObjectId(review_id)})
+        # delete review id from festivals database
+        mongo.db.festivals.update_one(
+            {"_id": ObjectId(festival_id)}, {'$pull': {'reviews': ObjectId(review_id)}})
+        update_average_rating(festival_id)
+        flash("Review deleted")
+        return redirect(url_for('view_festival', url=url))
+
+    flash('You can only delete your own reviews')
+    return redirect(url_for('index'))
 
 
 @app.route('/add_favourites/<festival_id>', methods=['GET', 'POST'])
