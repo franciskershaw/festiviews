@@ -36,10 +36,13 @@ document.addEventListener("DOMContentLoaded", function (event) {
         readMore();
         covidStatus();
         noAnnouncement();
-        showMoreReviews();
+        showMore();
     }
     if(pages.view_festival || pages.browse || pages.favourites) {
         starIcons();
+    }
+    if(pages.browse) {
+        showMore();
     }
 })
 
@@ -122,20 +125,34 @@ function noAnnouncement() {
 This function listens for a click on 'show older' button on view_festival.html
 to reveal 10 further reviews (if they exist).
 */
-function showMoreReviews() {
+function showMore() {
     let seeOlder = document.getElementById('see-older');
     if(typeof(seeOlder) != 'undefined' && seeOlder != null) {
         seeOlder.addEventListener('click', () => {
-            let hiddenReviews = document.querySelectorAll('.review-row.hide');
-            for (let i = 0; i < hiddenReviews.length && i < 10; i++) {
-                hiddenReviews[i].classList.remove('hide');
+            let hiddenContent
+            if(pages.view_festival) {
+                hiddenContent = document.querySelectorAll('.review-row.hide');
+            } else if (pages.browse) {
+                hiddenContent = document.querySelectorAll('.browse-row.hide');
+            }
+            for (let i = 0; i < hiddenContent.length && i < 10; i++) {
+                hiddenContent[i].classList.remove('hide');
             };
-            if (hiddenReviews.length === 0) {
+            if (hiddenContent.length === 0) {
                 seeOlder.classList.add('hide');
             }
         })
     }
 };
+
+/*
+This function is to enable the 'view more' button on browse.html and offer
+the user pagination.
+*/
+function showMoreFestivals() {
+    let viewMore = document.getElementById('view-more');
+    console.log(viewMore);
+}
 
 /*
 This function checks if there is an average star rating and converts it into
