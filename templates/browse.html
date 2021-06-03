@@ -88,7 +88,14 @@
         </section>
         {% else %}
         <!-- Content if there are no results -->
-        <p class="text-center no-results">No results found <i class="far fa-sad-cry" aria-hidden="true"></i><br> Please try again</p>
+        <div class="row text-center">
+            <div class="col-12">
+                <p class="text-center no-results">No results found <i class="far fa-sad-cry" aria-hidden="true"></i><br>Please try again</p>
+                <a href="{{ url_for('browse') }}" class="btn btn-primary btn-md cta-btn" role="button">Browse
+                    Festivals</a>
+            </div>
+        </div>
+        
         {% endif %}
         <div class="row text-center">
             <div id="find-fest" class="col-12">
