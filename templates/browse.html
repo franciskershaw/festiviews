@@ -35,7 +35,11 @@
         <!-- List of available festivals to browse -->
         <section class="festivals-list mb-3">
             {% for festival in festivals %}
+            {% if loop.index <= 10 %}
             <div class="row browse-row">
+            {% else %}
+            <div class="row browse-row hide">
+            {% endif %}
                 <div class="col-4 browse-fest-name">
                     <a class="text-start add-fest-btn"
                         href="{{ url_for('view_festival', url=festival.url) }}">{{ festival.name }}</a>
@@ -75,6 +79,12 @@
                 </div>
             </div>
             {% endfor %}
+            {% if festivals|length > 15 %}
+            <div class="col-12 text-center">
+                <button id="view-more" class="add-review-btn">View more <i class="fas fa-caret-square-down"
+                    aria-hidden="true"></i></button>
+            </div>
+            {% endif %}
         </section>
         {% else %}
         <!-- Content if there are no results -->

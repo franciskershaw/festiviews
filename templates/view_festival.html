@@ -124,39 +124,39 @@
             {% for review in reviews_arr %}
             {% if loop.index <= 10 %}
             <div class="row review-row text-start">
-                {% else %}
-                <div class="row review-row text-start hide">
+            {% else %}
+            <div class="row review-row text-start hide">
+            {% endif %}
+                <div class="col-8">
+                    <h3 class="review-author">{{ review.created_by }} - <em>{{ review.year }}</em></h3>
+                </div>
+                <div class="col-4 text-end">
+                    <h3 class="review-rating">
+                    {% if review.rating == '5' %}
+                        <i class="fas fa-star hub-star"></i><i class="fas fa-star hub-star"></i><i
+                            class="fas fa-star hub-star"></i><i class="fas fa-star hub-star"></i><i
+                            class="fas fa-star hub-star"></i>
+                    {% elif review.rating == '4' %}
+                        <i class="fas fa-star hub-star"></i><i class="fas fa-star hub-star"></i><i
+                            class="fas fa-star hub-star"></i><i class="fas fa-star hub-star"></i>
+                    {% elif review.rating == '3' %}
+                        <i class="fas fa-star hub-star"></i><i class="fas fa-star hub-star"></i><i
+                            class="fas fa-star hub-star"></i>
+                    {% elif review.rating == '2' %}
+                        <i class="fas fa-star hub-star"></i><i class="fas fa-star hub-star"></i>
+                    {% elif review.rating == '1' %}
+                        <i class="fas fa-star hub-star"></i>
                     {% endif %}
-                    <div class="col-8">
-                        <h3 class="review-author">{{ review.created_by }} - <em>{{ review.year }}</em></h3>
-                    </div>
-                    <div class="col-4 text-end">
-                        <h3 class="review-rating">
-                            {% if review.rating == '5' %}
-                            <i class="fas fa-star hub-star"></i><i class="fas fa-star hub-star"></i><i
-                                class="fas fa-star hub-star"></i><i class="fas fa-star hub-star"></i><i
-                                class="fas fa-star hub-star"></i>
-                            {% elif review.rating == '4' %}
-                            <i class="fas fa-star hub-star"></i><i class="fas fa-star hub-star"></i><i
-                                class="fas fa-star hub-star"></i><i class="fas fa-star hub-star"></i>
-                            {% elif review.rating == '3' %}
-                            <i class="fas fa-star hub-star"></i><i class="fas fa-star hub-star"></i><i
-                                class="fas fa-star hub-star"></i>
-                            {% elif review.rating == '2' %}
-                            <i class="fas fa-star hub-star"></i><i class="fas fa-star hub-star"></i>
-                            {% elif review.rating == '1' %}
-                            <i class="fas fa-star hub-star"></i>
-                            {% endif %}
-                        </h3>
-                    </div>
-                    <div class="col-8 review-text ellipsis">
-                        <p><em>"{{ review.text }}"</em></p>
-                    </div>
-                    <div class="col-4 text-end">
-                        <button class="btn read-more-less-btn">Read More</button>
-                    </div>
+                    </h3>
+                </div>
+                <div class="col-8 review-text ellipsis">
+                    <p><em>"{{ review.text }}"</em></p>
+                </div>
+                <div class="col-4 text-end">
+                    <button class="btn read-more-less-btn">Read More</button>
+                </div>
                     <div class="col-6 col-md-3">
-                        <h4 class="review-category"><i class="fas fa-globe-europe" aria-hidden="true"></i> Location:
+                <h4 class="review-category"><i class="fas fa-globe-europe" aria-hidden="true"></i> Location:
                             {{ review.location }}/5
                         </h4>
                     </div>

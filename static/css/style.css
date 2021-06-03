@@ -434,6 +434,11 @@ a.add-fest-btn:hover {
     margin-bottom: 15px;
 }
 
+button#view-more {
+    font-size: 140%;
+    padding: 5px;
+}
+
 #find-fest p {
     margin-bottom: 0;
 }
@@ -448,6 +453,7 @@ a.add-fest-btn:hover {
     border-radius: 4px;
     border: 1px solid #fbf9ef;
 }
+
 
 /* Festival hubs */
 
