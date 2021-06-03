@@ -504,7 +504,7 @@ def add_favourites(festival_id):
                 {"_id": festival['_id']},
                 {'$push': {'favourited_by': username}})
             flash(festival.get('name') + ' added to favourites')
-    return redirect(url_for('browse'))
+    return redirect(request.referrer)
 
 
 @app.route('/faq')
