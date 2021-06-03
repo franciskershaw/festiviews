@@ -765,6 +765,10 @@ h4#fave-sub-heading {
 
 /* FAQ */
 
+.card {
+    background-color: #ffe2e5;
+}
+
 h2.faq-header {
     color: #434242;
     font-weight: 600;
@@ -1009,6 +1013,9 @@ section.landing-container.error {
     }
     .hub-info {
         font-size: 96%;
+    }
+    h2.faq-header {
+        font-size: 200%;
     }
     i.fas.fa-star, i.far.fa-star, i.fas.fa-star-half {
         font-size: 110%;
