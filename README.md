@@ -274,3 +274,10 @@ I used Mongo DB as my database management system as per the above schema.
 * Took painstaking time first to make sure that the reviews, festivals, and users were all interacting with each other properly (like deleting a review meant it was also being deleted from the festival's document on mongoDB) before proceed with more complicated fields
 
 * HTML validator: error thrown for not using semicolons to finish of special characters on my forms (required *), space on the mailto: attribute for 'contact us'
+
+## Photo credit notes
+
+* Index home page hero - Annie Spratt on Unsplash
+* Browse page - Nqobile Vundla on Unsplash
+* Favourites/FAQ page - Tony Pham on Unsplash
+* Festival hubs - google image links
