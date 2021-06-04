@@ -4,6 +4,7 @@
 <!-- Page container -->
 <section class="text-center view_festival">
     <!-- Hero image/festival name/tagline -->
+    <!-- inline style being used to pull from the database depending on which 'hub is being viewed' -->
     <section class="hub-hero-section appear-first" style="background-image: url('{{ festival.image_link }}');">
         {% if session.user|lower == 'administrator' %}
         <!-- Admin only edit/delete button -->
