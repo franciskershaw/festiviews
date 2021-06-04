@@ -11,7 +11,7 @@ const pages = {
 	login: false,
 	signup: false,
 	view_festival: false
-}
+};
 
 /*
 Wait for the document to load before enabling the use of the 'x' when the mobile
@@ -22,8 +22,8 @@ executing the relevant functions to that page.
 document.addEventListener("DOMContentLoaded", function (event) {
 	// Alternates between three bars and 'x' on mobile navbar
 	$('.navbar-toggler').click(function () {
-		$('#navbar-open-icon').toggleClass('hide')
-		$('#navbar-close-icon').toggleClass('hide')
+		$('#navbar-open-icon').toggleClass('hide');
+		$('#navbar-close-icon').toggleClass('hide');
 	});
 
 	assignPageTrue();
@@ -44,7 +44,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
 	if (pages.browse) {
 		showMore();
 	}
-})
+});
 
 /*
 This function checks which page the user is on and assigns the relevant variable
@@ -55,12 +55,12 @@ function assignPageTrue() {
 	const keys = Object.keys(pages);
 	const pageSectionClasses = document.querySelector('section').classList;
 	keys.forEach((key) => {
-		for (sectionClass of pageSectionClasses) {
+		for (let sectionClass of pageSectionClasses) {
 			if (sectionClass === key) {
 				pages[key] = true;
 			}
 		}
-	})
+	});
 }
 
 /*
@@ -70,10 +70,10 @@ attribute to the correct option when editting a form.
 function populateEditForm() {
 	const spans = document.querySelectorAll('span');
 	const options = document.querySelectorAll('option');
-	for (option of options) {
-		optionClass = option.classList.value;
-		for (span of spans) {
-			spanClass = span.classList.value;
+	for (let option of options) {
+		let optionClass = option.classList.value;
+		for (let span of spans) {
+			let spanClass = span.classList.value;
 			if (optionClass == spanClass && option.value === span.innerHTML) {
 				option.setAttribute('selected', 'true');
 			}
@@ -94,7 +94,7 @@ function readMore() {
 		}
 		$(this).closest('.review-row').toggleClass('height-100');
 		$(this).parent().prev().toggleClass('ellipsis');
-	})
+	});
 }
 
 /*
@@ -128,7 +128,7 @@ function showMore() {
 	let seeOlder = document.getElementById('see-older');
 	if (typeof (seeOlder) != 'undefined' && seeOlder != null) {
 		seeOlder.addEventListener('click', () => {
-			let hiddenContent
+			let hiddenContent;
 			if (pages.view_festival) {
 				hiddenContent = document.querySelectorAll('.review-row.hide');
 			} else if (pages.browse) {
@@ -136,21 +136,12 @@ function showMore() {
 			}
 			for (let i = 0; i < hiddenContent.length && i < 10; i++) {
 				hiddenContent[i].classList.remove('hide');
-			};
+			}
 			if (hiddenContent.length === 0) {
 				seeOlder.classList.add('hide');
 			}
-		})
+		});
 	}
-};
-
-/*
-This function is to enable the 'view more' button on browse.html and offer
-the user pagination.
-*/
-function showMoreFestivals() {
-	let viewMore = document.getElementById('view-more');
-	console.log(viewMore);
 }
 
 /*
@@ -159,21 +150,21 @@ star icons, on both the browse/favourites pages AND the view_festival pages.
 */
 function starIcons() {
 	let starParagraphs = document.querySelectorAll('.average-rating');
-	const fullStarBrowse = '<i class="fas fa-star" aria-hidden="true"></i><span class="sr-only">Star</span>'
-	const halfStarBrowse = '<i class="fas fa-star-half" aria-hidden="true"></i><span class="sr-only">Half Star</span>'
-	const fullStarHub = '<i class="fas fa-star hub-star" aria-hidden="true"></i><span class="sr-only">Star</span>'
-	const halfStarHub = '<i class="fas fa-star-half hub-star" aria-hidden="true"></i><span class="sr-only">Half Star</span>'
+	const fullStarBrowse = '<i class="fas fa-star" aria-hidden="true"></i><span class="sr-only">Star</span>';
+	const halfStarBrowse = '<i class="fas fa-star-half" aria-hidden="true"></i><span class="sr-only">Half Star</span>';
+	const fullStarHub = '<i class="fas fa-star hub-star" aria-hidden="true"></i><span class="sr-only">Star</span>';
+	const halfStarHub = '<i class="fas fa-star-half hub-star" aria-hidden="true"></i><span class="sr-only">Half Star</span>';
 	starParagraphs.forEach((paragraph) => {
 		let rating = (parseFloat(paragraph.innerHTML));
-		let HtmlToAdd = ""
+		let HtmlToAdd = "";
 		let count = 0;
 		while (count < rating - 1) {
 			if (pages.view_festival) {
 				HtmlToAdd += fullStarHub;
-				count++
+				count++;
 			} else if (pages.browse || pages.favourites) {
 				HtmlToAdd += fullStarBrowse;
-				count++
+				count++;
 			}
 		}
 		if (count > rating - 1) {
@@ -184,11 +175,11 @@ function starIcons() {
 			}
 		} else {
 			if (pages.view_festival) {
-				HtmlToAdd += fullStarHub
+				HtmlToAdd += fullStarHub;
 			} else if (pages.browse || pages.favourites) {
 				HtmlToAdd += fullStarBrowse;
 			}
 		}
 		paragraph.innerHTML = HtmlToAdd;
-	})
-};
+	});
+}
