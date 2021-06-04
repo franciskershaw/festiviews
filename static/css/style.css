@@ -504,6 +504,10 @@ button#see-older {
 	border-radius: 7px;
 }
 
+.hub-form {
+    font-size: 240%;
+}
+
 .hub-info-container {
 	padding-top: 20px;
 	background-color: #dbebf1;
