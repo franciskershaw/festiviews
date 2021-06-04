@@ -2,67 +2,67 @@
 {% block title %}Favourites{% endblock %}
 {% block content %}
 <!-- Page container -->
-<section class="favourites">
-    <div class="container-fluid small-container page-container">
+  <section class="favourites">
+     <div class="container-fluid small-container page-container">
         <!-- Headings -->
         <h3 id="fave-heading">
-            Hello, {{ username }}
+           Hello, {{ username }}
         </h3>
         <h4 id="fave-sub-heading">
-            Your favourites:
+           Your favourites:
         </h4>
-        {% if favourites_arr|length >0 %}
-        <!-- List of favourites (if they exist) -->
-        <section class="favourites-list mb-3">
-            {% for festival in favourites_arr %}
-            <div class="row browse-row">
+          {% if favourites_arr|length >0 %}
+          <!-- List of favourites (if they exist) -->
+          <section class="favourites-list mb-3">
+             {% for festival in favourites_arr %}
+             <div class="row browse-row">
                 <div class="col-4 browse-fest-name text-start">
-                    <a class="text-start add-fest-btn"
-                        href="{{ url_for('view_festival', url=festival.url) }}">{{ festival.name }}</a>
-                    <p class="d-none d-md-block fest-location">{{ festival.location }}</p>
+                   <a class="text-start add-fest-btn"
+                      href="{{ url_for('view_festival', url=festival.url) }}">{{ festival.name }}</a>
+                   <p class="d-none d-md-block fest-location">{{ festival.location }}</p>
                 </div>
                 <div class="col-4">
-                    <div class="row text-center browse-dates">
-                        <div class="col-12">
-                            <span>{{ festival.start_date }}<span class="dash">-</span>{{ festival.end_date }}</span>
-                        </div>
-                    </div>
+                   <div class="row text-center browse-dates">
+                      <div class="col-12">
+                         <span>{{ festival.start_date }}<span class="dash">-</span>{{ festival.end_date }}</span>
+                      </div>
+                   </div>
                 </div>
                 <div class="col-4 text-center stars">
-                    {% if festival.average_rating %}
-                        <p class="average-rating">{{ festival.average_rating }}</p>
-                        {% else %}
-                        <i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i
+                   {% if festival.average_rating %}
+                     <p class="average-rating">{{ festival.average_rating }}</p>
+                   {% else %}
+                     <i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i
                         class="far fa-star"></i><i class="far fa-star"></i>
-                        {% endif %}
-                    <div class="d-md-inline">
-                        {% if session.user %}
+                   {% endif %}
+                   <div class="d-md-inline">
+                      {% if session.user %}
                         <!-- Favourite/unfavourite button -->
                         <form method='POST' class="d-inline"
-                            action="{{ url_for('add_favourites', festival_id=festival._id) }}">
-                            {% if session.user in festival.favourited_by %}
+                           action="{{ url_for('add_favourites', festival_id=festival._id) }}">
+                          {% if session.user in festival.favourited_by %}
                             <button type="submit" class="browse-icon"><i class="fas fa-heart browse-heart"
-                                    aria-hidden="true"></i><span class="sr-only">Remove from favourites</span></button>
-                            {% endif %}
+                              aria-hidden="true"></i><span class="sr-only">Remove from favourites</span></button>
+                          {% endif %}
                         </form>
-                        {% endif %}
-                    </div>
+                      {% endif %}
+                   </div>
                 </div>
-            </div>
-            {% endfor %}
-        </section>
-        {% else %}
-        <!-- Section if there are no favourites to render -->
-        <section class="container">
-            <div class="row text-center no-faves-row">
+             </div>
+             {% endfor %}
+          </section>
+          {% else %}
+          <!-- Section if there are no favourites to render -->
+          <section class="container">
+             <div class="row text-center no-faves-row">
                 <div class="col-12">
-                    <p id="fave-cta">You haven't added any favourites yet</p>
-                    <a href="{{ url_for('browse') }}" class="btn btn-primary btn-md cta-btn" role="button">Browse
-                        Festivals</a>
+                   <p id="fave-cta">You haven't added any favourites yet</p>
+                   <a href="{{ url_for('browse') }}" class="btn btn-primary btn-md cta-btn" role="button">Browse
+                   Festivals</a>
                 </div>
-            </div>
-        </section>
-        {% endif %}
-    </div>
-</section>
-{% endblock %}
+             </div>
+          </section>
+          {% endif %}
+     </div>
+  </section>
+  {% endblock %}

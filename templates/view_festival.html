@@ -5,7 +5,7 @@
 <section class="text-center view_festival">
     <!-- Hero image/festival name/tagline -->
     <!-- inline style being used to pull from the database depending on which 'hub is being viewed' -->
-    <section class="hub-hero-section appear-first" style="background-image: url('{{ festival.image_link }}');">
+    <section class="hub-hero-section" style="background-image: url('{{ festival.image_link }}');">
         {% if session.user|lower == 'administrator' %}
         <!-- Admin only edit/delete button -->
         <section class="admin-only text-end">
@@ -20,10 +20,9 @@
         <!-- Festival headings/subheadings -->
         <div class="hub-headings-container center-content">
             <div class="hub-headings-content">
-                <h1 class="hub-h1">{{ festival.name }}</h1>
-                {% if session.user %}
+                <h1 class="hub-h1">{{ festival.name }} {% if session.user %}
                     <!-- Add/remove from favourites buttons -->
-                    <form method='POST' class="d-inline hub-form"
+                    <form method='POST' class="d-inline"
                         action="{{ url_for('add_favourites', festival_id=festival._id) }}">
                         {% if session.user in festival.favourited_by %}
                         <button type="submit" class="browse-icon festival-heart"><i class="fas fa-heart"
@@ -33,7 +32,7 @@
                                 aria-hidden="true"></i><span class="sr-only">Add to favourites</span></button>
                         {% endif %}
                     </form>
-                    {% endif %}
+                    {% endif %}</h1>
                         {% if festival.average_rating %}
                         <p class="average-rating">{{ festival.average_rating }}</p>
                         {% else %}
@@ -44,7 +43,7 @@
         </div>
     </section>
     <!-- Festival information section -->
-    <section class="hub-info-container text-start container-fluid appear-second">
+    <section class="hub-info-container text-start container-fluid">
         <div class="container">
             <div class="row">
                 <div class="col-6 col-md-3 col-lg-2">
@@ -108,7 +107,7 @@
         </div>
     </section>
     <!-- Reviews section -->
-    <section class="container-fluid reviews-section appear-third">
+    <section class="container-fluid reviews-section">
         <div class="container">
             <div class="row reviews-heading-container">
                 <div class="col-12 text-start">

@@ -1,158 +1,160 @@
 {% extends 'base.html' %}
 {% block title %}Add Review{% endblock %}
 {% block content %}
-<!-- Page container -->
-<section class="add_review">
-  <div class="container-fluid small-container page-container">
-    <!-- Heading -->
-    <h3 class="text-center">Add a review!</h3>
-    <h4 class="text-center"><em>{{ festival.name }}</em></h4>
-    <!-- Add review form -->
-    <form class="fest-form" method="POST" action="{{ url_for('add_review', url=festival.url) }}">
-      <div class="row">
-        <!-- Year attended input field and label -->
-        <div class="col-12 col-md-6 input-container">
-          <label for="year" class="form-label">Year attended&#42;</label>
-          <select class="form-control" name="year" id="year" required>
-            <option value="" selected disabled hidden>Choose year</option>
-            <option value="2021">2021</option>
-            <option value="2020">2020</option>
-            <option value="2019">2019</option>
-            <option value="2018">2018</option>
-            <option value="2017">2017</option>
-            <option value="2016">2016</option>
-            <option value="2015">2015</option>
-            <option value="2014">2014</option>
-            <option value="2013">2013</option>
-            <option value="2012">2012</option>
-            <option value="2011">2011</option>
-            <option value="2010">2010</option>
-            <option value="pre-2010">pre-2010</option>
-          </select>
-        </div>
-        <!-- Overall rating input field and label -->
-        <div class="col-12 col-md-6 input-container">
-          <label for="rating" class="form-label">Overall rating&#42;</label>
-          <select class="form-control" name="rating" id="rating" required>
-            <option value="" selected disabled hidden>Rating</option>
-            <option value="5">5 stars</option>
-            <option value="4">4 stars</option>
-            <option value="3">3 stars</option>
-            <option value="2">2 stars</option>
-            <option value="1">1 star</option>
-          </select>
-        </div>
-        <!-- Location rating input field and label -->
-        <div class="col-12 col-md-6 input-container">
-          <label for="location" class="form-label">Location&#42;</label>
-          <select class="form-control" name="location" id="location" required>
-            <option value="" selected disabled hidden>Location</option>
-            <option value="5">5 stars</option>
-            <option value="4">4 stars</option>
-            <option value="3">3 stars</option>
-            <option value="2">2 stars</option>
-            <option value="1">1 star</option>
-          </select>
-        </div>
-        <!-- Nightlife rating input field and label -->
-        <div class="col-12 col-md-6 input-container">
-          <label for="nightlife" class="form-label">Nightlife&#42;</label>
-          <select class="form-control" name="nightlife" id="nightlife" required>
-            <option value="" selected disabled hidden>Nightlife</option>
-            <option value="5">5 stars</option>
-            <option value="4">4 stars</option>
-            <option value="3">3 stars</option>
-            <option value="2">2 stars</option>
-            <option value="1">1 star</option>
-            <option value="N/A">N/A</option>
-          </select>
-        </div>
-        <!-- Lineup rating input field and label -->
-        <div class="col-12 col-md-6 input-container">
-          <label for="lineup" class="form-label">Lineup&#42;</label>
-          <select class="form-control" name="lineup" id="lineup" required>
-            <option value="" selected disabled hidden>Lineup</option>
-            <option value="5">5 stars</option>
-            <option value="4">4 stars</option>
-            <option value="3">3 stars</option>
-            <option value="2">2 stars</option>
-            <option value="1">1 star</option>
-          </select>
-        </div>
-        <!-- Campsites rating input field and label -->
-        <div class="col-12 col-md-6 input-container">
-          <label for="campsites" class="form-label">Campsites&#42;</label>
-          <select class="form-control" name="campsites" id="campsites" required>
-            <option value="" selected disabled hidden>Campsites</option>
-            <option value="5">5 stars</option>
-            <option value="4">4 stars</option>
-            <option value="3">3 stars</option>
-            <option value="2">2 stars</option>
-            <option value="1">1 star</option>
-            <option value="N/A">N/A</option>
-          </select>
-        </div>
-        <!-- Value for money rating input field and label -->
-        <div class="col-12 col-md-6 input-container">
-          <label for="value" class="form-label">Value for money&#42;</label>
-          <select class="form-control" name="value" id="value" required>
-            <option value="" selected disabled hidden>Value for money</option>
-            <option value="5">5 stars</option>
-            <option value="4">4 stars</option>
-            <option value="3">3 stars</option>
-            <option value="2">2 stars</option>
-            <option value="1">1 star</option>
-          </select>
-        </div>
-        <!-- Food choice rating input field and label -->
-        <div class="col-12 col-md-6 input-container">
-          <label for="food" class="form-label">Food choice&#42;</label>
-          <select class="form-control" name="food" id="food" required>
-            <option value="" selected disabled hidden>Food</option>
-            <option value="5">5 stars</option>
-            <option value="4">4 stars</option>
-            <option value="3">3 stars</option>
-            <option value="2">2 stars</option>
-            <option value="1">1 star</option>
-          </select>
-        </div>
-        <!-- Toilets rating input field and label -->
-        <div class="col-12 col-md-6 input-container">
-          <label for="toilets" class="form-label">Toilets&#42;</label>
-          <select class="form-control" name="toilets" id="toilets" required>
-            <option value="" selected disabled hidden>Toilets</option>
-            <option value="Surprisingly Good">Surprisingly Good</option>
-            <option value="About what you'd expect really">About what you'd expect really</option>
-            <option value="Nearly ruined my weekend">Nearly ruined my weekend</option>
-          </select>
-        </div>
-        <!-- Kid friendly rating input field and label -->
-        <div class="col-12 col-md-6 input-container">
-          <label for="kid_friendly" class="form-label">Kid friendly?&#42;</label>
-          <select class="form-control" name="kid_friendly" id="kid_friendly" required>
-            <option value="" selected disabled hidden>Kid friendly?</option>
-            <option value="No problem, bring them along!">No problem, bring them along!</option>
-            <option value="During the day, yes - but things get weird after hours">During the day, yes - but things get
-              weird after hours</option>
-            <option value="Hell no, keep them as far from this one as possible">Hell no, keep them as far from this one
-              as possible</option>
-          </select>
-        </div>
-        <!-- Written review input field and label -->
-        <div class="col-12 input-container">
-          <label for="review" class="form-label">Write your review&#42; (max 300 characters)</label>
-          <input type="text" class="form-control" id="review" name="review" maxlength="300" required>
-        </div>
-        <!-- Submit and cancel buttons -->
-        <div class="col-6 text-end">
-          <button type="submit" class="btn btn-primary submit-fest-btn" id="add_review">Add</button>
-        </div>
-        <div class="col-6 text-start">
-          <a href="{{ url_for('view_festival', url=festival.url) }}" class="btn btn-secondary submit-fest-btn"
-            id="cancel_fest">Cancel</a>
-        </div>
-      </div>
-    </form>
-  </div>
-</section>
+  <!-- Page container -->
+  <section class="add_review">
+    <div class="container-fluid small-container page-container">
+        <!-- Heading -->
+        <h3 class="text-center">Add a review!</h3>
+        <h4 class="text-center"><em>{{ festival.name }}</em></h4>
+        <!-- Add review form -->
+        <form class="fest-form" method="POST" action="{{ url_for('add_review', url=festival.url) }}">
+          <div class="row">
+              <!-- Year attended input field and label -->
+              <div class="col-12 col-md-6 input-container">
+                <label for="year" class="form-label">Year attended&#42;</label>
+                <select class="form-control" name="year" id="year" required>
+                    <option value="" selected disabled hidden>Choose year</option>
+                    <option value="2021">2021</option>
+                    <option value="2020">2020</option>
+                    <option value="2019">2019</option>
+                    <option value="2018">2018</option>
+                    <option value="2017">2017</option>
+                    <option value="2016">2016</option>
+                    <option value="2015">2015</option>
+                    <option value="2014">2014</option>
+                    <option value="2013">2013</option>
+                    <option value="2012">2012</option>
+                    <option value="2011">2011</option>
+                    <option value="2010">2010</option>
+                    <option value="pre-2010">pre-2010</option>
+                </select>
+              </div>
+              <!-- Overall rating input field and label -->
+              <div class="col-12 col-md-6 input-container">
+                <label for="rating" class="form-label">Overall rating&#42;</label>
+                <select class="form-control" name="rating" id="rating" required>
+                    <option value="" selected disabled hidden>Rating</option>
+                    <option value="5">5 stars</option>
+                    <option value="4">4 stars</option>
+                    <option value="3">3 stars</option>
+                    <option value="2">2 stars</option>
+                    <option value="1">1 star</option>
+                </select>
+              </div>
+              <!-- Location rating input field and label -->
+              <div class="col-12 col-md-6 input-container">
+                <label for="location" class="form-label">Location&#42;</label>
+                <select class="form-control" name="location" id="location" required>
+                    <option value="" selected disabled hidden>Location</option>
+                    <option value="5">5 stars</option>
+                    <option value="4">4 stars</option>
+                    <option value="3">3 stars</option>
+                    <option value="2">2 stars</option>
+                    <option value="1">1 star</option>
+                </select>
+              </div>
+              <!-- Nightlife rating input field and label -->
+              <div class="col-12 col-md-6 input-container">
+                <label for="nightlife" class="form-label">Nightlife&#42;</label>
+                <select class="form-control" name="nightlife" id="nightlife" required>
+                    <option value="" selected disabled hidden>Nightlife</option>
+                    <option value="5">5 stars</option>
+                    <option value="4">4 stars</option>
+                    <option value="3">3 stars</option>
+                    <option value="2">2 stars</option>
+                    <option value="1">1 star</option>
+                    <option value="N/A">N/A</option>
+                </select>
+              </div>
+              <!-- Lineup rating input field and label -->
+              <div class="col-12 col-md-6 input-container">
+                <label for="lineup" class="form-label">Lineup&#42;</label>
+                <select class="form-control" name="lineup" id="lineup" required>
+                    <option value="" selected disabled hidden>Lineup</option>
+                    <option value="5">5 stars</option>
+                    <option value="4">4 stars</option>
+                    <option value="3">3 stars</option>
+                    <option value="2">2 stars</option>
+                    <option value="1">1 star</option>
+                </select>
+              </div>
+              <!-- Campsites rating input field and label -->
+              <div class="col-12 col-md-6 input-container">
+                <label for="campsites" class="form-label">Campsites&#42;</label>
+                <select class="form-control" name="campsites" id="campsites" required>
+                    <option value="" selected disabled hidden>Campsites</option>
+                    <option value="5">5 stars</option>
+                    <option value="4">4 stars</option>
+                    <option value="3">3 stars</option>
+                    <option value="2">2 stars</option>
+                    <option value="1">1 star</option>
+                    <option value="N/A">N/A</option>
+                </select>
+              </div>
+              <!-- Value for money rating input field and label -->
+              <div class="col-12 col-md-6 input-container">
+                <label for="value" class="form-label">Value for money&#42;</label>
+                <select class="form-control" name="value" id="value" required>
+                    <option value="" selected disabled hidden>Value for money</option>
+                    <option value="5">5 stars</option>
+                    <option value="4">4 stars</option>
+                    <option value="3">3 stars</option>
+                    <option value="2">2 stars</option>
+                    <option value="1">1 star</option>
+                </select>
+              </div>
+              <!-- Food choice rating input field and label -->
+              <div class="col-12 col-md-6 input-container">
+                <label for="food" class="form-label">Food choice&#42;</label>
+                <select class="form-control" name="food" id="food" required>
+                    <option value="" selected disabled hidden>Food</option>
+                    <option value="5">5 stars</option>
+                    <option value="4">4 stars</option>
+                    <option value="3">3 stars</option>
+                    <option value="2">2 stars</option>
+                    <option value="1">1 star</option>
+                </select>
+              </div>
+              <!-- Toilets rating input field and label -->
+              <div class="col-12 col-md-6 input-container">
+                <label for="toilets" class="form-label">Toilets&#42;</label>
+                <select class="form-control" name="toilets" id="toilets" required>
+                    <option value="" selected disabled hidden>Toilets</option>
+                    <option value="Surprisingly Good">Surprisingly Good</option>
+                    <option value="About what you'd expect really">About what you'd expect really</option>
+                    <option value="Nearly ruined my weekend">Nearly ruined my weekend</option>
+                </select>
+              </div>
+              <!-- Kid friendly rating input field and label -->
+              <div class="col-12 col-md-6 input-container">
+                <label for="kid_friendly" class="form-label">Kid friendly?&#42;</label>
+                <select class="form-control" name="kid_friendly" id="kid_friendly" required>
+                    <option value="" selected disabled hidden>Kid friendly?</option>
+                    <option value="No problem, bring them along!">No problem, bring them along!</option>
+                    <option value="During the day, yes - but things get weird after hours">During the day, yes - but things get
+                      weird after hours
+                    </option>
+                    <option value="Hell no, keep them as far from this one as possible">Hell no, keep them as far from this one
+                      as possible
+                    </option>
+                </select>
+              </div>
+              <!-- Written review input field and label -->
+              <div class="col-12 input-container">
+                <label for="review" class="form-label">Write your review&#42; (max 300 characters)</label>
+                <input type="text" class="form-control" id="review" name="review" maxlength="300" required>
+              </div>
+              <!-- Submit and cancel buttons -->
+              <div class="col-6 text-end">
+                <button type="submit" class="btn btn-primary submit-fest-btn" id="add_review">Add</button>
+              </div>
+              <div class="col-6 text-start">
+                <a href="{{ url_for('view_festival', url=festival.url) }}" class="btn btn-secondary submit-fest-btn"
+                    id="cancel_fest">Cancel</a>
+              </div>
+          </div>
+        </form>
+    </div>
+  </section>
 {% endblock %}

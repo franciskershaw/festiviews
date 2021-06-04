@@ -1,111 +1,111 @@
 {% extends 'base.html' %}
 {% block title %}Add Festival Hub{% endblock %}
 {% block content %}
-<!-- Page container -->
-<section class="text-center add_festival">
-  <div class="container-fluid small-container page-container">
-    <!-- Heading -->
-    <h3>Add a festival</h3>
-    <!-- Add festival form -->
-    <form class="text-start fest-form" method="POST" action="{{ url_for('add_festival') }}">
-      <div class="row">
-        <!-- Festival name input and label -->
-        <div class="col-12 col-md-6 input-container">
-          <label for="festival_name" class="form-label">Name&#42;</label>
-          <input type="text" class="form-control" id="festival_name" name="festival_name" required>
-        </div>
-        <!-- Location input and label -->
-        <div class="col-12 col-md-6 input-container">
-          <label for="festival_location" class="form-label">Location&#42;</label>
-          <input type="text" class="form-control" id="festival_location" name="festival_location" required>
-        </div>
-        <!-- Start date input and label -->
-        <div class="col-6 col-md-3 input-container">
-          <label for="festival_start_date" class="form-label">Start date&#42;</label>
-          <input type="text" class="form-control" id="festival_start_date" name="festival_start_date" required>
-        </div>
-        <!-- End date input and label -->
-        <div class="col-6 col-md-3 input-container">
-          <label for="festival_end_date" class="form-label">End date&#42;</label>
-          <input type="text" class="form-control" id="festival_end_date" name="festival_end_date" required>
-        </div>
-        <!-- Genre selection input and label -->
-        <div class="col-6 col-md-3 input-container">
-          <label for="festival_genre" class="form-label">Choose Genre&#42;</label>
-          <select class="form-control" id="festival_genre" name="festival_genre" required>
-            <option value="" selected disabled hidden>Choose option</option>
-            <option value="A bit of everything">A bit of everything</option>
-            <option value="Alternative">Alternative</option>
-            <option value="Folk">Folk</option>
-            <option value="Electronic">Electronic</option>
-            <option value="Pop">Pop</option>
-            <option value="Rock">Rock</option>
-          </select>
-        </div>
-        <!-- Capacity input and label -->
-        <div class="col-6 col-md-3 input-container">
-          <label for="festival_capacity" class="form-label">Capacity&#42;</label>
-          <input type="text" class="form-control" id="festival_capacity" name="festival_capacity" required>
-        </div>
-        <!-- Headliner 1 input and label -->
-        <div class="col-12 col-md-4 input-container">
-          <label for="festival_headliner_1" class="form-label">Notable act 1</label>
-          <input type="text" class="form-control" id="festival_headliner_1" name="festival_headliner_1">
-        </div>
-        <!-- Headliner 2 input and label -->
-        <div class="col-12 col-md-4 input-container">
-          <label for="festival_headliner_2" class="form-label">Notable act 2</label>
-          <input type="text" class="form-control" id="festival_headliner_2" name="festival_headliner_2">
-        </div>
-        <!-- Headliner 3 input and label -->
-        <div class="col-12 col-md-4 input-container">
-          <label for="festival_headliner_3" class="form-label">Notable act 3</label>
-          <input type="text" class="form-control" id="festival_headliner_3" name="festival_headliner_3">
-        </div>
-        <!-- Website link input and label -->
-        <div class="col-12 col-md-6 input-container">
-          <label for="festival_website" class="form-label">Link to website&#42;</label>
-          <input type="text" class="form-control" id="festival_website" name="festival_website" required>
-        </div>
-        <!-- Ticket price input and label -->
-        <div class="col-12 col-md-6 input-container">
-          <label for="festival_price" class="form-label">Adult Ticket Price&#42;</label>
-          <input type="text" class="form-control" id="festival_price" name="festival_price" required>
-        </div>
-        <!-- Link to tickets input and label -->
-        <div class="col-12 col-md-6 input-container">
-          <label for="festival_ticket_link" class="form-label">Link to tickets&#42;</label>
-          <input type="text" class="form-control" id="festival_ticket_link" name="festival_ticket_link" required>
-        </div>
-        <!-- Hero image link input and label -->
-        <div class="col-12 col-md-6 input-container">
-          <label for="festival_image" class="form-label">Link to hero image</label>
-          <input type="text" class="form-control" id="festival_image" name="festival_image">
-        </div>
-        <!-- Short description input and label -->
-        <div class="col-12 col-md-6 input-container">
-          <label for="festival_description" class="form-label">Short description&#42;</label>
-          <input type="text" class="form-control" id="festival_description" name="festival_description" required>
-        </div>
-        <!-- Covid status input and label -->
-        <div class="col-12 col-md-6 input-container">
-          <label for="covid_status" class="form-label">Going ahead?&#42;</label>
-          <select class="form-control" id="covid_status" name="covid_status" required>
-            <option value="" selected disabled hidden>Choose option</option>
-            <option value="Cancelled">Cancelled</option>
-            <option value="Touch and go">Touch and go</option>
-            <option value="Going ahead">Going ahead</option>
-          </select>
-        </div>
-        <!-- Submit or cancel buttons -->
-        <div class="col-6 text-end">
-          <button type="submit" class="btn btn-primary submit-fest-btn" id="add_festival">Add</button>
-        </div>
-        <div class="col-6 text-start">
-          <a href="{{ url_for('browse') }}" class="btn btn-secondary submit-fest-btn" id="cancel_fest">Cancel</a>
-        </div>
-      </div>
-    </form>
-  </div>
-</section>
+  <!-- Page container -->
+  <section class="text-center add_festival">
+    <div class="container-fluid small-container page-container">
+        <!-- Heading -->
+        <h3>Add a festival</h3>
+        <!-- Add festival form -->
+        <form class="text-start fest-form" method="POST" action="{{ url_for('add_festival') }}">
+          <div class="row">
+              <!-- Festival name input and label -->
+              <div class="col-12 col-md-6 input-container">
+                <label for="festival_name" class="form-label">Name&#42;</label>
+                <input type="text" class="form-control" id="festival_name" name="festival_name" required>
+              </div>
+              <!-- Location input and label -->
+              <div class="col-12 col-md-6 input-container">
+                <label for="festival_location" class="form-label">Location&#42;</label>
+                <input type="text" class="form-control" id="festival_location" name="festival_location" required>
+              </div>
+              <!-- Start date input and label -->
+              <div class="col-6 col-md-3 input-container">
+                <label for="festival_start_date" class="form-label">Start date&#42;</label>
+                <input type="text" class="form-control" id="festival_start_date" name="festival_start_date" required>
+              </div>
+              <!-- End date input and label -->
+              <div class="col-6 col-md-3 input-container">
+                <label for="festival_end_date" class="form-label">End date&#42;</label>
+                <input type="text" class="form-control" id="festival_end_date" name="festival_end_date" required>
+              </div>
+              <!-- Genre selection input and label -->
+              <div class="col-6 col-md-3 input-container">
+                <label for="festival_genre" class="form-label">Choose Genre&#42;</label>
+                <select class="form-control" id="festival_genre" name="festival_genre" required>
+                    <option value="" selected disabled hidden>Choose option</option>
+                    <option value="A bit of everything">A bit of everything</option>
+                    <option value="Alternative">Alternative</option>
+                    <option value="Folk">Folk</option>
+                    <option value="Electronic">Electronic</option>
+                    <option value="Pop">Pop</option>
+                    <option value="Rock">Rock</option>
+                </select>
+              </div>
+              <!-- Capacity input and label -->
+              <div class="col-6 col-md-3 input-container">
+                <label for="festival_capacity" class="form-label">Capacity&#42;</label>
+                <input type="text" class="form-control" id="festival_capacity" name="festival_capacity" required>
+              </div>
+              <!-- Headliner 1 input and label -->
+              <div class="col-12 col-md-4 input-container">
+                <label for="festival_headliner_1" class="form-label">Notable act 1</label>
+                <input type="text" class="form-control" id="festival_headliner_1" name="festival_headliner_1">
+              </div>
+              <!-- Headliner 2 input and label -->
+              <div class="col-12 col-md-4 input-container">
+                <label for="festival_headliner_2" class="form-label">Notable act 2</label>
+                <input type="text" class="form-control" id="festival_headliner_2" name="festival_headliner_2">
+              </div>
+              <!-- Headliner 3 input and label -->
+              <div class="col-12 col-md-4 input-container">
+                <label for="festival_headliner_3" class="form-label">Notable act 3</label>
+                <input type="text" class="form-control" id="festival_headliner_3" name="festival_headliner_3">
+              </div>
+              <!-- Website link input and label -->
+              <div class="col-12 col-md-6 input-container">
+                <label for="festival_website" class="form-label">Link to website&#42;</label>
+                <input type="text" class="form-control" id="festival_website" name="festival_website" required>
+              </div>
+              <!-- Ticket price input and label -->
+              <div class="col-12 col-md-6 input-container">
+                <label for="festival_price" class="form-label">Adult Ticket Price&#42;</label>
+                <input type="text" class="form-control" id="festival_price" name="festival_price" required>
+              </div>
+              <!-- Link to tickets input and label -->
+              <div class="col-12 col-md-6 input-container">
+                <label for="festival_ticket_link" class="form-label">Link to tickets&#42;</label>
+                <input type="text" class="form-control" id="festival_ticket_link" name="festival_ticket_link" required>
+              </div>
+              <!-- Hero image link input and label -->
+              <div class="col-12 col-md-6 input-container">
+                <label for="festival_image" class="form-label">Link to hero image</label>
+                <input type="text" class="form-control" id="festival_image" name="festival_image">
+              </div>
+              <!-- Short description input and label -->
+              <div class="col-12 col-md-6 input-container">
+                <label for="festival_description" class="form-label">Short description&#42;</label>
+                <input type="text" class="form-control" id="festival_description" name="festival_description" required>
+              </div>
+              <!-- Covid status input and label -->
+              <div class="col-12 col-md-6 input-container">
+                <label for="covid_status" class="form-label">Going ahead?&#42;</label>
+                <select class="form-control" id="covid_status" name="covid_status" required>
+                    <option value="" selected disabled hidden>Choose option</option>
+                    <option value="Cancelled">Cancelled</option>
+                    <option value="Touch and go">Touch and go</option>
+                    <option value="Going ahead">Going ahead</option>
+                </select>
+              </div>
+              <!-- Submit or cancel buttons -->
+              <div class="col-6 text-end">
+                <button type="submit" class="btn btn-primary submit-fest-btn" id="add_festival">Add</button>
+              </div>
+              <div class="col-6 text-start">
+                <a href="{{ url_for('browse') }}" class="btn btn-secondary submit-fest-btn" id="cancel_fest">Cancel</a>
+              </div>
+          </div>
+        </form>
+    </div>
+  </section>
 {% endblock %}

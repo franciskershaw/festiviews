@@ -1,81 +1,80 @@
 {% extends 'base.html' %}
 {% block title %}FAQ{% endblock %}
 {% block content %}
-<!-- Page container -->
-<section class="faq text-center">
+  <!-- Page container -->
+  <section class="faq text-center">
     <div class="container page-container">
-      <!-- Headings -->
+        <!-- Headings -->
         <h2 class="faq-header">Frequently Asked Questions</h2>
         <!-- Bootstrap accordion -->
         <div class="accordion" id="faq-accordion">
           <!-- FAQ no.1 -->
-            <div class="card">
+          <div class="card">
               <div class="card-header" id="headingOne">
                 <h3 class="mb-0">
-                  <button class="btn btn-link btn-block" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                    <button class="btn btn-link btn-block" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                     What is FestiViews? <i class="fas fa-caret-down" aria-hidden="true"></i><span class="sr-only">Show answer</span>
-                  </button>
+                    </button>
                 </h3>
               </div>
               <!-- FAQ no.1 answer -->
               <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#faq-accordion">
                 <div class="card-body text-start">
-                 <p>FestiViews is dedicated to providing a range of important information and reviews for a host of music festivals. Users can search for festivals to find all important lineup information, links to tickets, or even just to find out if the festival is going ahead this year.</p>
-                 <p>Each festival on the site has its own 'hub', where all the most important information can be found, as well as user submitted reviews which can help others decide whether or not to attend a future iteration of a festival or not.</p>
+                    <p>FestiViews is dedicated to providing a range of important information and reviews for a host of music festivals. Users can search for festivals to find all important lineup information, links to tickets, or even just to find out if the festival is going ahead this year.</p>
+                    <p>Each festival on the site has its own 'hub', where all the most important information can be found, as well as user submitted reviews which can help others decide whether or not to attend a future iteration of a festival or not.</p>
                 </div>
               </div>
-            </div>
-            <!-- FAQ no.2 -->
-            <div class="card">
+          </div>
+          <!-- FAQ no.2 -->
+          <div class="card">
               <div class="card-header" id="headingTwo">
                 <h3 class="mb-0">
-                  <button class="btn btn-link btn-block collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                    <button class="btn btn-link btn-block collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
                     How do I post a review for a festival? <i class="fas fa-caret-down" aria-hidden="true"></i><span class="sr-only">Show answer</span>
-                  </button>
+                    </button>
                 </h3>
               </div>
               <!-- FAQ no.2 answer -->
               <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#faq-accordion">
                 <div class="card-body text-start">
-                  <p>To add a review to any of the festival hubs, you'll need to first create an account and ensure you are signed in. You can do so <a href="{{ url_for('sign_up') }}">here</a></p>
+                    <p>To add a review to any of the festival hubs, you'll need to first create an account and ensure you are signed in. You can do so <a href="{{ url_for('sign_up') }}">here</a></p>
                 </div>
               </div>
-            </div>
-            <!-- FAQ no.3 -->
-            <div class="card">
+          </div>
+          <!-- FAQ no.3 -->
+          <div class="card">
               <div class="card-header" id="headingThree">
                 <h3 class="mb-0">
-                  <button class="btn btn-link btn-block collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                    <button class="btn btn-link btn-block collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
                     Can I remove or edit a review I've posted? <i class="fas fa-caret-down" aria-hidden="true"></i><span class="sr-only">Show answer</span>
-                  </button>
+                    </button>
                 </h3>
               </div>
               <!-- FAQ no.3 answer -->
               <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#faq-accordion">
                 <div class="card-body text-start">
-                  <p>As long as you are signed into the same account as when you posted the review, you can edit or even delete your review if you want to. Find the review in question, click on 'Read More', and navigate to the edit and delete icons.</p>
-                </div>
-              </div>
-            </div>
-            <!-- FAQ no.4 -->
-            <div class="card">
-                <div class="card-header" id="headingFour">
-                  <h3 class="mb-0">
-                    <button class="btn btn-link btn-block collapsed" type="button" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-                      I can't find the festival I'm loooking for! <i class="fas fa-caret-down" aria-hidden="true"></i><span class="sr-only">Show answer</span>
-                    </button>
-                  </h3>
-                </div>
-                <!-- FAQ no.4 answer -->
-                <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#faq-accordion">
-                  <div class="card-body text-start">
-                    <p>While we are doing our best to ensure that as many music festivals are on the site as possible, we won't necessarily have uploaded every single village fair or farm festival in the UK.</p>
-                    <p>What you can do is <a href="mailto:festiviews@gmail.com">contact us</a> to request a new festival, and we'll aim to have it uploaded as soon as possible.</p>
-                  </div>
+                    <p>As long as you are signed into the same account as when you posted the review, you can edit or even delete your review if you want to. Find the review in question, click on 'Read More', and navigate to the edit and delete icons.</p>
                 </div>
               </div>
           </div>
+          <!-- FAQ no.4 -->
+          <div class="card">
+              <div class="card-header" id="headingFour">
+                <h3 class="mb-0">
+                    <button class="btn btn-link btn-block collapsed" type="button" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                    I can't find the festival I'm loooking for! <i class="fas fa-caret-down" aria-hidden="true"></i><span class="sr-only">Show answer</span>
+                    </button>
+                </h3>
+              </div>
+              <!-- FAQ no.4 answer -->
+              <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#faq-accordion">
+                <div class="card-body text-start">
+                    <p>While we are doing our best to ensure that as many music festivals are on the site as possible, we won't necessarily have uploaded every single village fair or farm festival in the UK.</p>
+                    <p>What you can do is <a href="mailto:festiviews@gmail.com">contact us</a> to request a new festival, and we'll aim to have it uploaded as soon as possible.</p>
+                </div>
+              </div>
+          </div>
+        </div>
     </div>
-</section>
-
+  </section>
 {% endblock %}
