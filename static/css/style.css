@@ -259,7 +259,7 @@ h2 {
 	margin-bottom: 20px;
 	width: 175px;
 	padding: 7px;
-	background-color: rgba(114, 156, 95, 1);
+	background-color: rgb(99, 129, 85);
 	border: 2px solid #faf9f2e5;
 	border-radius: 21px;
 	font-size: 120%;
@@ -474,7 +474,7 @@ button#see-older {
 	color: #fbf9ef;
 	padding-left: 5px;
 	padding-right: 5px;
-	background-color: #009fd3;
+	background-color: #3f8095;
 	padding-top: 1px;
 	padding-bottom: 1px;
 	border-radius: 4px;
@@ -510,7 +510,7 @@ button#see-older {
 
 .hub-info-container {
 	padding-top: 20px;
-	background-color: #dbebf1;
+	background-color: #e4edf1;
 	border: 4px solid #fbf9ef;
 	border-radius: 4px;
 }
@@ -551,6 +551,10 @@ button#see-older {
 
 .modal-title {
 	color: #fbf9ef;
+}
+
+a.hub-info {
+    color: #2a2ab2;
 }
 
 button.browse-icon.festival-heart i {
