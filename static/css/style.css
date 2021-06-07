@@ -816,7 +816,8 @@ h4#fave-sub-heading {
 /* FAQ */
 
 .card {
-	background-color: #ffe2e5;
+    background-color: rgba(114, 156, 95, 1);
+    color: white;
 }
 
 h2.faq-header {
@@ -828,6 +829,7 @@ h2.faq-header {
 
 button.btn.btn-link.btn-block {
 	font-size: 80%;
+	color: white;
 }
 
 
