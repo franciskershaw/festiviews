@@ -270,6 +270,8 @@ I used Mongo DB as my database management system as per the above schema.
 
 04/06/2021 - Appear animation on festival hubs was blocking the defensive modal for deletion of reviews, removed animation
 
+04/06/2021 - User testing highlighted that Safari was not pulling the information in when editing reviews.
+
 ## Testing document notes
 
 * Started with the most basic version of the frontend, with forms that only had a few fields in it for convenience
@@ -292,6 +294,13 @@ I used Mongo DB as my database management system as per the above schema.
 
 ### PEP8 online
 * All good, one remaining error on gitpod linter about indentation which I deem incorrect.
+
+### WAVE accessibility
+* missing form label for search bar
+* contrast error for green CTA button
+* warning of redundant link from footer and main nav logo
+* contrast error from 'contact us' cta on browse all
+* 3 contrast errors on the festival hubs info section (external ticket links and covid 'going ahead'), 2 errors for missing header content
 
 ## Photo credit notes
 
