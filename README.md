@@ -272,6 +272,8 @@ I used Mongo DB as my database management system as per the above schema.
 
 04/06/2021 - User testing highlighted that Safari was not pulling the information in when editing reviews.
 
+07/06/2021 - Defensive programming to stop people getting onto favourites without being logged in caused issues for sign up
+
 ## Testing document notes
 
 * Started with the most basic version of the frontend, with forms that only had a few fields in it for convenience
@@ -304,7 +306,7 @@ I used Mongo DB as my database management system as per the above schema.
 
 ## Photo credit notes
 
-* Index home page hero - Annie Spratt on Unsplash
+* Index home page hero - Thibault Trillet on Pexels
 * Browse page - Nqobile Vundla on Unsplash
 * Favourites/FAQ page - Tony Pham on Unsplash
 * Festival hubs - google image links
