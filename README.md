@@ -46,14 +46,14 @@ As the owner and developer of the site:
 1. As a user who wants to contribute to the site’s content, I want to be able to create a profile quickly and intuitively so that I can get started using the website.
 2. As a returning user with a profile, I want to be able to sign in quickly so that I can resume my previous activities and have the option to sign out at the end of a session once I am finished.
 3. As a user I want to be able to browse various festival pages so that I can find relevant information/links/reviews and help inform my decision on which festivals to attend.
-4. As a user who is browsing the site, I would like to be able to sort the festivals by various relevant attributes such as alphabetical, date or popularity.
+4. As a user who is browsing the site, I would like to be able to sort the festivals by various relevant attributes such as alphabetical, or popularity.
 5. As a user I want to search for a specific festival page (perhaps because I am already going to be attending) so that I can consume the same information as above.
 6. As a user with a profile, I would like to ‘favourite’ certain festival pages so that I can view all of my favourite festivals in a convenient location.
 7. As a user with a profile, I would like to be able to add reviews of the festivals I have been to before so that I can help potential future festival goers make their mind up about where to go.
 8. As a user who has uploaded a festival review already, I would like to be able to edit that review so that I can add any retrospective comments or change certain of my scores if needs be.
 9. As a user who has uploaded a review, I want to have the option to delete my review so that I can remove my presence on the site if I want to.
 10. As a user with a profile, I would like to upvote or downvote reviews that I agree or disagree with.
-11. As a user who can’t find a particular festival on the site, I would either like to add that festival’s profile page or at least be able to request that the festival be added and notified when it is ready to be viewed and reviewed.
+11. As a user who can’t find a particular festival on the site, I would like to have a means of requesting that the festival be added.
 12. As a user who might not understand intuitively how to use the site, I would like some FAQs that might explain the site’s purpose and intended use so that I can learn how to use the site.
 
 ## Planning and Design
@@ -113,14 +113,14 @@ Based on research and planning achieved during the strategy plane, and consideri
 * Festival specific pages, which I will be referring to as 'hubs'.
 * Favourite certain hubs which can then be viewed on a separate personal page.
 * Add, edit and delete reviews that are visible on a specific festival hub.
-* Search function, either for all festivals or on your personal favourites page.
+* Search function for all festivals available to browse on the site.
 * A means of requesting that a new hub be added if it doesn't already exist.
 * Admin (me) with the ability to add a new festival hub directly on the site.
 * FAQ section.
 
 #### Content requirements
 
-* Sign up needs to be easy, ‘stay logged in’ should be offered as a possibility, and feedback required if incorrect details entered.
+* Sign up needs to be easy and feedback required if incorrect details entered.
 * Festival hubs must contain all the information a user would be looking for regarding a festival.
 * Feedback must be given when a hub has been favourited or a review has been uploaded/edited/deleted.
 * Appropriate defensive measures in place when a user is editing or deleting content.
@@ -135,8 +135,6 @@ I felt that the scope of this project was relatively ambitious, and as a result 
 
 * Average rating of each festival based from all user reviews.
 * Advanced search function which can filter out certain results based on more detailed parameters.
-* Featured festivals appearing on the homepage.
-* List of most recent reviews appearing on the homepage.
 * Extensive bio section of each music festival appearing on each festival hub.
 
 ### Structure Plane
@@ -156,7 +154,7 @@ Based on the functional specifications and content requirements outlined during 
 3. **All festivals page, containing:**
 * List of all browsable festivals uploaded by the admin user.
 * Very basic visible information on each listed festival.
-* Ability to sort by alphabetical order, popularity, or date of next iteration.
+* Ability to sort by alphabetical order or popularity.
 
 4. **Add new festival form (admin only), containing:**
 
@@ -192,7 +190,7 @@ Based on the functional specifications and content requirements outlined during 
 * User feedback required on all interactable content, such as: 
     * Hovered links. 
     * Underlining of current page on the navigation bar. 
-    * Feedback message when a festival gets favourited, when a review gets posted, or when a new festival request has been made.
+    * Feedback message when a festival gets favourited and when a review gets posted, edited or deleted.
 * The same colour scheme and design choices are needed across all pages to maintain consistency.
 * Where applicable, content shoudl be viewable just beyond the fold so users know they can continue to scroll.
 
@@ -229,20 +227,17 @@ Once the long process of wireframing was complete, I was able to concentrate ful
 
 #### Colour Scheme
 
-I combined the key associative words with the colour pallette generator found on [Coolors](https://coolors.co/) to find the following hex codes for consideration during the development of the project:
+I combined the key associative words with the colour pallette generator found on [Coolors](https://coolors.co/) to find the following codes for consideration during the development of the project:
 
-* Greens: #7FB069 (Bud Green), #3A7E42 (Fern Green)
-* General background: #fbf9ef (Cornsilk)
-* Darker writing to colour: #392d34 (Eggplant)
+* Greens: rgba(114, 156, 95, 0.9)
+* General background: rgb(243, 242, 236) - this is mostly covered by background images, but is visible on the festival hubs by the reviews section.
+* Darker writing to colour: #392d34
+* Text colour: #fbf9ef;
+* Logo and several headings: #c11e47c9
 
 #### Typography
 
-Possible fonts through Google Fonts:
-
-* Nunito (or Nunito Sans)
-* Work Sans
-* Quicksand
-
+After deliberating between upwards of fifteen different fonts that fit the professional aesthetic planned for the site, I eventually settled on 'Nunito' from Google Fonts as this font style worked as equally well for headings and general text alike and ensured everything felt very consistent. To ensure headings stood out despite being the same font as the rest of the site's content, I tended to include a subtle text shadow.
 
 ### Data Model
 
