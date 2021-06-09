@@ -557,6 +557,15 @@ a.hub-info {
     color: #2a2ab2;
 }
 
+h1.hub-h1 + form {
+    font-size: 235%;
+}
+
+button.browse-icon.festival-heart i:hover {
+    color: rgb(236, 45, 93);
+	transition: .3s;
+}
+
 button.browse-icon.festival-heart i {
 	color: #fbf9ef;
 }
@@ -677,6 +686,7 @@ section.admin-only.text-end {
 	padding-right: 4px;
 	border: 2px solid #fbf9ef;
 	border-radius: 4px;
+	z-index: 1;
 }
 
 i.fas.fa-star.hub-star,

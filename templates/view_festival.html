@@ -20,7 +20,8 @@
         <!-- Festival headings/subheadings -->
         <div class="hub-headings-container center-content">
             <div class="hub-headings-content">
-                <h1 class="hub-h1">{{ festival.name }} {% if session.user %}
+                <h1 class="hub-h1">{{ festival.name }}</h1>
+                {% if session.user %}
                     <!-- Add/remove from favourites buttons -->
                     <form method='POST' class="d-inline"
                         action="{{ url_for('add_favourites', festival_id=festival._id) }}">
@@ -32,11 +33,11 @@
                                 aria-hidden="true"></i><span class="sr-only">Add to favourites</span></button>
                         {% endif %}
                     </form>
-                    {% endif %}</h1>
+                {% endif %}
                         {% if festival.average_rating %}
-                        <p class="average-rating">{{ festival.average_rating }}</p>
+                            <p class="average-rating">{{ festival.average_rating }}</p>
                         {% else %}
-                        <p id="average-rating" class="hide">No ratings yet</p>
+                            <p id="average-rating" class="hide">No ratings yet</p>
                         {% endif %}
                 <h2 class="hub-description"><em>{{ festival.description }}</em></h2>
             </div>
