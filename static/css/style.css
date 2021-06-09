@@ -326,6 +326,10 @@ a.btn.btn-primary.btn-md.cta-btn:hover {
 	font-size: 120%;
 }
 
+.form-info {
+	font-size: 79%;
+}
+
 .submit-btn:hover {
 	background-color: #fbf9ef;
 	border: 1px solid #c11e47;

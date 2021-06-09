@@ -12,14 +12,16 @@
             </div>
             <!-- username -->
             <div class="col login-inputs text-start">
-               <label for="username" class="form-label">Username <em>(Alphanumeric)</em></label>
+               <label for="username" class="form-label">Username</label>
                <input type="text" class="form-control" id="username" name="username" required pattern="^[a-zA-Z0-9]{4,15}$">
+               <span class="form-info">Min 5 characters and alphanumeric only</span>
             </div>
             <!-- password -->
             <div class="col login-inputs text-start">
                <label for="password_1" class="form-label">Password</label>
                <input type="password" class="form-control" id="password_1" name="password_1" required 
                minlength="6" maxlength="30">
+               <span class="form-info">Min 6 characters, max 30, and alphanumeric only</span>
             </div>
             <!-- confirm password -->
             <div class="col login-inputs text-start">
