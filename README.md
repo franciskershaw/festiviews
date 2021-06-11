@@ -267,7 +267,7 @@ I used the non-relational database MongoDB as my database management system as p
 
 #### Consistent across all pages
 
-* A fixed navigation bar appears on every page with the logo on the far left, a search bar in the middle (which directs to the 'browse' page) and links to the other pages on the right: Browse all, Sign in, FAQ. The link to sign in changes to 'Sign out' if the user is logged in, and an extra link to the 'favourites' page appears.
+* A fixed navigation bar appears on every page with the logo on the far left, a search bar in the middle (which directs to the 'browse' page, filtering results to only include what was searched for) and links to the other pages on the right: Browse all, Sign in, FAQ. The link to sign in changes to 'Sign out' if the user is logged in, and an extra link to the 'favourites' page appears.
 
 * On smaller screen sizes, the navigation bar collapses and is replaced by a standard burger icon, and the name of the site (FestiViews) is hidden, leaving the logo as the main means of returning to the home page.
 
@@ -371,18 +371,68 @@ To help combat and users seeking to force their way onto parts of the site, defe
 
 *Custom 404, 403 and 500 pages were created as well to make sure that any unforseen issues that users come across are appropriately handled, allowing a safe redirect back to the home page*
 
-
 ### Features left to implement
+
+This current version of the site is very much version one, and I would like to build on top of what has already been started in the future with some of the following features:
+
+* I would really like to develop the festival hubs further so that they are even more tailored to the specific festival in question, including unique fonts, colour scheme and embedded YouTube videos of the previous iteration of the event to set them apart from the others.
+
+* A future, more advanced version of the site would likely do away with the reviews aspect and have a user powered forum take its place. I envisage this as being a place to have discussions about the specific fesivals in question, buy or sell surplus tickets, and ask any questions of the users that are not answered anywhere else on the page.
+
+* At the moment the search functionality is quite basic, with users being able to search for a specific festival by name and find their result (if it exists). On version 2 of the site, I would like this to be more advanced, with users having the choice to search for a festival by a variety of advanced parameters such as price, location and ticket availability to name a few. I did not have enough time to seriously consider applying this to version 1, but it is something I will certainly be coming back to.
+
+* On the browse page, the sort functions currently only go from A-Z (not Z-A) and highest rated to lowest (not the other way around). This was fed back as a potential UX concern during testing, and I would like to implement the functionality at some point to include this method of filtering (as well as potentially more advanced filtering features). However, much like with the advanced search functionality, I was unfortunately not left with enough time on this occasion to develop this further.
 
 ## Technologies used
 
 ### Languages and frameworks
 
+* **HTML5:** Language used for structure and content across all pages.
+* **CSS3:** Language used to style elements from the HTML pages.
+* **Bootstrap:** CSS and JavaScript framework which allowed for the quick implementation of the homepage modals and the grid system which greatly improved the responsiveness of each page.
+* **JavaScript:** Programming language used to add interactivity to the homepage and implement the logic required to make the game work.
+* **jQuery:** JavaScript framework which helped me select and manipulate elements with greater ease than purely through JavaScript.
+* **Python:** Backend language used to control the logic on the site.
+* **Flask:** Python framework used to simmplify the routing and HTML templating on the site.
+* **MongoDB**: Non-relational database used to store and update the information provided by users of the site.
+
 ### Additional tools
+
+* [Amiresponsive:](http://ami.responsivedesign.is/) Used to produce the hero image in README.md and check general responsiveness of the pages.
+* [dbdiagram:](https://dbdiagram.io/home) Used to create my entity relationship diagram.
+* [Favicon Generator:](https://realfavicongenerator.net/) Used to create the favicon on the browser tab.
+* [FontAwesome:](https://fontawesome.com/) Large database of icons which I used all over the site to add to the visual language.
+* [Free Formatter:](https://www.freeformatter.com/html-formatter.html) Used to help ensure code was consistently formatted across all files.
+* [Github:](https://github.com/) Version control and storage of my code.
+* [Gitpod:](https://gitpod.io/) Development environment where all the code was written.
+* [Google Docs:](https://docs.google.com/) Used for note taking and was where much of my readme was initially written.
+* Google Developer Tools: Used for debugging and testing of responsiveness across several screen sizes. Also vital to the testing of JavaScript functions as and when they were created.
+* [Google Fonts:](https://fonts.google.com/) Provided my site with the 'Nunito' font.
+* [InVision:](https://www.invisionapp.com/) Used to create all of my wireframes at the beginning of the development process.
+* [JSHint:](https://jshint.com/) Checked my javascript code was valid and error free.
+* [PEP8Online:](http://pep8online.com/) Confirmed that my Python code complied to PEP8 standards.
+* [TinyJPG:](https://tinyjpg.com/) Service used to compress hero images and help with site performance
+* [Trello:](https://trello.com/) Used to split all tasks into several sprints, to help bring the development process in line with agile principles.
+* [W3C CSS Validation Service:](https://jigsaw.w3.org/css-validator/) Confirmed that my CSS is legal.
+* [W3C Markup Validation Service:](https://validator.w3.org/) Confirmed that my HTML code is legal.
+* [WAVE:](https://wave.webaim.org/) Allowed me to evaluate and test the accessibility of the site.
 
 ## Git commit messages
 
+For the commits on this project, I continued to follow the basic rules I had set during my two milestone projects. That is to say:
+
+* Always use the imperative tense so that readers would read as *the purpose of this commit is to* - etc.
+* Commit often, and keep messages as short as possible.
+* Start comments where possible with a prefix that summarises what the commit is for, such as fix (for bugs), add, remove, amend, style, or docs (for anything added to README.md).
+* Include the file name or function in question.
+
+At the time of writing, these are among my recent commit messages and illustrate the format I applied for this project:
+
+![commits](static/images/commits.png)
+
 ## Testing
+
+Please see a full report of the testing applied to this project [here.](testing.md)
 
 ## Deployment
 
