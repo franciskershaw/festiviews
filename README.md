@@ -8,7 +8,7 @@ FestiViews is an information and reviews hub created for enthusiasts of the worl
 
 This project is the third of four 'milestone' projects which are required to complete the Code Institute's diploma in full stack web development. Assessment criteria for this milestone project focuses on the ability to produce a full-stack site using HTML, CSS, JavaScript, Python, Flask and MongoDB that allows users to manage a common dataset about a particular domain. As such, part of this task involves implementing CRUD (create, read, update, and delete) capabilities to the users 
 
-You can view the live website (currently unfinished/in development) [here](https://festiviews.herokuapp.com/), and a link to the github repository can be found [here](https://github.com/franciskershaw/festiviews).
+You can view the live website [here](https://festiviews.herokuapp.com/), and a link to the github repository can be found [here](https://github.com/franciskershaw/festiviews).
 
 ## Table of Contents
 * [UX](#ux)
@@ -340,6 +340,37 @@ I used the non-relational database MongoDB as my database management system as p
 * The frequently asked questions page is a simple static page containing a Bootstrap accordion, on which each expandable and collapsable card contains a commonly asked question about the site, and the answer to that question.
 
 ### Defensive design features
+
+This being my first project to include a functioning backend, and the fact that I very much wanted users to be only able to perform certain restricted actions on my site meant that I had to implement a variety of defensive design features.
+
+#### On the frontend
+
+Using a mixture of jinja templating logic and application of Bootrap's modal component, I was able to ensure that add, edit and delete buttons only appeared when applicable - and that the user was given warning when deleting:
+
+* The 'favourites' link in the main navigation bar only appears as a clickable option when the user is logged in.
+
+* The heart icon which allows users to add a festival to their favourites appears on the browse page but directs to the registration page if the user is not logged in.
+
+* The 'Add Review' buttons appears for all users, but will again direct the user to the registration page if they are not logged in already.
+
+* Buttons used to edit or delete user submitted reviews will only appear if the user who submitted the review is logged in. If the delete button is clicked, instead of deleting the review a modal is launched which offers the user the choice to either proceed with deleting the review or cancel and return to the page.
+
+* The button to add a new festival (on browse.html) is only visible if the administrator is logged in, as are the edit and delete festival buttons in the top right of view_festival.html. The same defensive measure regarding the delete button is present, giving the administrator the chance to change their mind if needs be.
+
+* On the forms themselves, the required attribute is present on every input or select element that is needed for submission, meaning that the form cannot be submitted without including these fields. Maxlength is also used on the text field for reviews to ensure users do not go overboard on their reviews.
+
+#### On the backend
+
+To help combat and users seeking to force their way onto parts of the site, defensive programming is included on the main python file (app.py):
+
+* Favourites page: I only want users who are logged in to be able to access their specific favourites page, so the python function checks whether the user is logged in before rendering the favourites template - if they are not logged in then they are redirected to the login page
+
+* Adding, editing and deleting of festivals: the functions to render the template containing the form to add, edit or delete festivals all check that the user is both logged in *and* that the logged in user is the administrator. Any non-admin user attempting to access these pages or functionality by using the correct url will be redirected to the homepage with a flash message explaining that they are no authorised to access those pages.
+
+* Adding, editing and deleting of user reviews: to add a review, the function simply checks that the user is logged in first before rendering the template that contains the form and redirects to the login page if not. To edit or delete a review, the functions add the extra condition that the user must be the same as the user who added the review in order to render the template or delete - if not a redirect to the homepage takes place, alongside a flash message explaining that you can only edit or delete your own review.
+
+*Custom 404, 403 and 500 pages were created as well to make sure that any unforseen issues that users come across are appropriately handled, allowing a safe redirect back to the home page*
+
 
 ### Features left to implement
 
