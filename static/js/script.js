@@ -158,6 +158,7 @@ function starIcons() {
 		let rating = (parseFloat(paragraph.innerHTML));
 		let HtmlToAdd = "";
 		let count = 0;
+		// Inspiration to use a while loop from http://www.onlywebpro.com/2020/10/06/turn-a-number-into-star-rating-display-in-5-minutes-using-jquery/
 		while (count < rating - 1) {
 			if (pages.view_festival) {
 				HtmlToAdd += fullStarHub;

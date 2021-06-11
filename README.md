@@ -436,65 +436,68 @@ Please see a full report of the testing applied to this project [here.](testing.
 
 ## Deployment
 
+This project was deployed very early on during development to Heroku, and linked to GitHub so that changes made to the development environment would update on the live site as soon as they were pushed from Gitpod.
+
+Deployment was carried out as follows:
+
+1. Open project in Gitpod, and run the command *pip3 freeze --local > requirements.txt* - this creates a txt file that Heroku reads to check which dependencies are in use on the site.
+2. Create a Procfile, either manually or by running the command *echo web: python app.py > Procfile* ('app.py' should be whatever the main python file is called). **Remove any blank line from the bottom of the new Procfile and ensure these changes are pushed to Github before proceeding.**
+3. Log in (or create an account) on [Heroku](https://www.heroku.com/), select 'Create new app', fill out the name (dashes instead of spaces) of your app, your closest region, and finally click 'Create app'.
+4. Navigate to the 'Deploy' tab on the dashboard and select Github, then search for your repository and click 'connect'.
+5. Navigate to the 'Settings' tab, click 'Reveal Config Vars', and fill them out as follows:
+
+| Key         | Value
+| -----------  | ---------- 
+| IP           | 0.0.0.0
+| MONGO_DBNAME | *your_mongodb_name*
+| MONGO_URI	   | mongodb+srv://root:<*password*>@cluster0.sgi7e.mongodb.net/<*database_name*>?retryWrites=true&w=majority
+| PORT         | 5000
+| SECRET_KEY   | *your_secret_key*
+
+6. Return to the 'Deploy' tab and select 'Enable Autmoatic Deploys', ensuring that the master branch is selected.
+7. Click 'Deploy Branch' and wait for Heroku to build the app. You can monitor the progress in the 'Latest Activity' of the overview.
+8. Once the build has been completed, click 'Open app' to check that the live site is working.
+
 ## Cloning
+
+To clone this project, follow these steps:
+
+1. Navigate to the main page of the repository.
+2. Click on the 'Code' dropdown and copy the command present on 'GitHub CLI'.
+3. Paste the command into the terminal on your IDE.
+4. Install the dependencies present in *requirements.txt* by running *pip3 install -r requirements.txt* in the terminal.
+5. Create a MongoDB database that includes the collections displayed in the above schema (or whatever specification you require for this clone).
+6. Create an environment python file and include the following:
+   * os.environ.setdefault("IP", "0.0.0.0")
+   * os.environ.setdefault("PORT", "5000")
+   * os.environ.setdefault("SECRET_KEY", "[SECRET KEY]")
+   * os.environ.setdefault("MONGO_URI", "[MONGO URI"])
+   * os.environ.setdefault("MONGO_DBNAME", "[YOUR DB NAME]")
+
+*You will need to create your own secret key and get the uri code from MongoDb* 
+
+7. At this stage you should be able to launch the preview by running 'python3 app.py' in the terminal.
 
 ## Credits
 
 ### Media
 
+* The background image found on the homepage, registration and login pages was taken by [Thibault Trillet](https://www.pexels.com/@thibault-trillet-44912) and found on [Pexels](https://www.pexels.com/)
+
+* The background image found on the browse page was taken by [Nqobile Vundla](https://unsplash.com/@nqoe) and found on [Unsplash](https://unsplash.com/)
+
+* The background image found on the favourites and FAQ pages was taken by [Tony Pham](https://unsplash.com/s/photos/tonyphamvn) and found on [Unsplash](https://unsplash.com/)
+
+* All festival hub hero images are via direct link from google images.
+
 ### Acknowledgements
 
+Help online was found at various stages to solve challenging issues, the links to which are present in the code as well.
 
+* Help rounding figures up to the nearest .5 in python was found on [this stack overflow post](https://stackoverflow.com/questions/24838629/round-off-float-to-nearest-0-5-in-python) on the answer by [faester](https://stackoverflow.com/users/540968/faester).
 
-## Bug notes
+* The idea to use a while loop to render star icons on the page using JavaScript came from [this blog post](http://www.onlywebpro.com/2020/10/06/turn-a-number-into-star-rating-display-in-5-minutes-using-jquery/) on [only web pro](http://www.onlywebpro.com/).
 
-03/05/2021 - commented out code on browse.html was breaking the site and I had forgotten that jinja templating reads absolutely everything
+* Help shortening overflowing text on the reviews found on [this stack overflow post](https://stackoverflow.com/questions/5269713/css-ellipsis-on-second-line) on the answer by [Skeep](https://stackoverflow.com/users/158355/skeep).
 
-05/05/2021 - Updating festivals was deleting all associated reviews because my edit function was adding an empty array (as per when you create a festival in the first place) to the database.
-
-14/05/2021 - Updating festival name was throwing an error as it was trying to change the url of the festival too, initial fix was to ensure that editing a festival would not edit the URL
-
-18/05/2021 - assignPageTrue was not working because flash messages appearing meant that they were the 'section' being targeted on the querySelector. Fixed by changing flash messsage container into a div
-
-04/06/2021 - Appear animation on festival hubs was blocking the defensive modal for deletion of reviews, removed animation
-
-04/06/2021 - User testing highlighted that Safari was not pulling the information in when editing reviews.
-
-07/06/2021 - Defensive programming to stop people getting onto favourites without being logged in caused issues for sign up
-
-## Testing document notes
-
-* Started with the most basic version of the frontend, with forms that only had a few fields in it for convenience
-* Took painstaking time first to make sure that the reviews, festivals, and users were all interacting with each other properly (like deleting a review meant it was also being deleted from the festival's document on mongoDB) before proceed with more complicated fields
-
-### HTML validator: 
-* error thrown for not using semicolons to finish of special characters on my forms (required *), 
-* space on the mailto: attribute for 'contact us', 
-* warning for section lacking a header on favourites.html (ignored because 'your favourites' acts as the header), 
-* heading warnings on view_festival.html (ignored because they're not needed), 
-* form error on view_festival (can't have a form as child of h1) which was moved outside of the h1.
-* Error on edit review and festival forms as the 'select' options didn't have placeholders as the first child with no 'value' attribute. Added the placeholders in as per the 'add review' and 'add festival' forms.
-
-### CSS validator:
-* all good
-
-### JS linter:
-* missing semicolons and unnecessary semicolons
-* undefined variables (missing let)
-
-### PEP8 online
-* All good, one remaining error on gitpod linter about indentation which I deem incorrect.
-
-### WAVE accessibility
-* missing form label for search bar
-* contrast error for green CTA button
-* warning of redundant link from footer and main nav logo
-* contrast error from 'contact us' cta on browse all
-* 3 contrast errors on the festival hubs info section (external ticket links and covid 'going ahead'), 2 errors for missing header content
-
-## Photo credit notes
-
-* Index home page hero - Thibault Trillet on Pexels
-* Browse page - Nqobile Vundla on Unsplash
-* Favourites/FAQ page - Tony Pham on Unsplash
-* Festival hubs - google image links
+A huge thank you to all the people who took part in user testing, the Code Institute's Slack community, and my mentor Aaron Sinnott for advice at various stages during development of the site.
