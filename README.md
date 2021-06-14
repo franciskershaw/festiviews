@@ -51,7 +51,7 @@ My main goals for the creation of this website were as follows:
 
 As the owner and developer of the site:
 
-1. I want to produce a site where users can post, edit and browse festival reviews so that I can demonstrate my ability to implement C.R.U.D. functionality and pass this part of the course.
+1. I want to produce a site where users can post, edit, browse and delete festival reviews so that I can demonstrate my ability to implement C.R.U.D. functionality and pass this part of the course.
 2. As the developer, I want the site to function exactly as intended so that only positive emotional responses are produced when interacting with the site.
 3. As a bonus goal, I would like to grow the user base of the site so that the content can improve as more data is added by more and more users.
 
@@ -156,8 +156,8 @@ Based on the functional specifications and content requirements outlined during 
 
 1. **Homepage, containing:**
 * Hero image of a festival crowd, with the title and tagline appearing as an overlay.
-* CTA button to browse all festivals. This is a feature which can be accessed by both users who have and have not signed up for a personal account. 
-* CTA button to create an account, which will not be visible if the user is logged in already.
+* *CTA* button to browse all festivals. This is a feature which can be accessed by both users who have and have not signed up for a personal account. 
+* *CTA* button to create an account, which will not be visible if the user is logged in already.
 
 2. **Sign up and sign in pages, containing:**
 * Login or registration form, depending on which one the user needs.
@@ -202,17 +202,16 @@ Based on the functional specifications and content requirements outlined during 
 * A consistent footer across all pages can display the logo and copyright information.
 * User feedback required on all interactable content, such as: 
     * Hovered links. 
-    * Underlining of current page on the navigation bar. 
     * Feedback message when a festival gets favourited and when a review gets posted, edited or deleted.
 * The same colour scheme and design choices are needed across all pages to maintain consistency.
-* Where applicable, content shoudl be viewable just beyond the fold so users know they can continue to scroll.
+* Where applicable, content should be viewable just beyond the fold so users know they can continue to scroll.
 
 #### Information Architecture
 
 * Tree structure can be implemented with use of the burger icon on mobile devices.
 * Priority of links on the navigation bar should go from left to right.
 * Priority reads as follows: logo on the far left, search bar directly in the centre, then far right navigation links are to browse all festivals, sign in/register/log out, favourites, and finally FAQ
-* The most important CTAs are present on the home landing page - browse all for any user who reaches the site, and create account for anyone who is not logged in.
+* The most important *CTAs* are present on the home landing page - browse all for any user who reaches the site, and create account for anyone who is not logged in.
 * Where applicable the user should not be clicking more than three times to reach the end of their user journey.
 
 ### Skeleton Plane
@@ -282,7 +281,7 @@ The finalised way my collections work would together on the backend is best illu
 
 #### Physical Design Phase
 
-I used the non-relational database MongoDB as my database management system as per the above schema. This worked with Python and Flask to ensure that all CRUD functionality was working correctly as per what was designed at the conceptual and logical stages.
+I used the non-relational database MongoDB as my database management system as per the above schema. This worked with Python and Flask to ensure that all CRUD functionality was working correctly according to what was designed at the conceptual and logical stages.
 
 ## Features
 
@@ -309,7 +308,7 @@ I used the non-relational database MongoDB as my database management system as p
 
 #### index.html
 
-* The main homepage contains a striking hero image of a man crowd surfing during a festival performance, leaving no illusions as to what the website is focussed on.
+* The main homepage contains a striking hero image of a man crowd surfing during a festival performance, leaving no illusions as to what the subject matter of the website is.
 
 * The title and tagline appear via a CSS animation, followed shortly by two call to action buttons: 'Browse Festivals' and 'Create Account'. If the user is already logged in, the create account button is removed from the page.
 
@@ -326,7 +325,7 @@ I used the non-relational database MongoDB as my database management system as p
 
 * The favourites page acts as a pseudo profile page for the user, as this is the first place they are directed after creating an account or signing in. The greeting is taken from the username to add a personal touch
 
-* If no favourites have been added, a large message saying 'You haven't added any favourites yet' appears, followed instantly by a CTA button that directs the user to browse.html so that favourites can be added.
+* If no favourites have been added, a large message saying 'You haven't added any favourites yet' appears, followed directly by a *CTA* button that directs the user to browse.html so that favourites can be added.
 
 ![No favourites screenshot](static/images/no-favourites.png)
 
@@ -402,7 +401,7 @@ I used the non-relational database MongoDB as my database management system as p
 
 * All fields ending with a star contain the *required* attribute in the HTML, which stops the user from being to submit the form without filling them in.
 
-* When editing the review or festival, the information previously inputed appears as already selected or filled in. Late in development, a but regarding this was spotted for safari users - for more information please head to **notable bugs** on the testing document.
+* When editing the review or festival, the information previously inputed appears as already selected or filled in. Late in development, a bug regarding this was spotted for safari users - for more information please head to **notable bugs** on the testing document.
 
 #### faq.html
 
@@ -412,11 +411,11 @@ I used the non-relational database MongoDB as my database management system as p
 
 ### Defensive design features
 
-This being my first project to include a functioning backend, and the fact that I very much wanted users to be only able to perform certain restricted actions on my site meant that I had to implement a variety of defensive design features.
+As this was my first project to include a functioning backend (and as I wanted users to be only able to perform certain actions), I had to implement a variety of defensive design features.
 
 #### On the frontend
 
-Using a mixture of jinja templating logic and application of Bootrap's modal component, I was able to ensure that add, edit and delete buttons only appeared when applicable - and that the user was given warning when deleting:
+Using a mixture of jinja templating logic and the application of Bootrap's modal component, I was able to ensure that add, edit and delete buttons only appeared when applicable - and that the user was given warning when deleting:
 
 * The 'favourites' link in the main navigation bar only appears as a clickable option when the user is logged in.
 
@@ -432,7 +431,7 @@ Using a mixture of jinja templating logic and application of Bootrap's modal com
 
 ![Delete festival modal](static/images/delete-festival.png)
 
-* On the forms themselves, the required attribute is present on every input or select element that is needed for submission, meaning that the form cannot be submitted without including these fields. Maxlength is also used on the text field for reviews to ensure users do not go overboard on their reviews.
+* On the forms themselves, the required attribute is present on every input or select element that is needed for submission, meaning that the form cannot be submitted without including these fields. *Maxlength* is also used on the text field for reviews to ensure users do not go overboard on their reviews.
 
 #### On the backend
 
@@ -440,7 +439,7 @@ To help combat and users seeking to force their way onto parts of the site, defe
 
 * Favourites page: I only want users who are logged in to be able to access their specific favourites page, so the python function checks whether the user is logged in before rendering the favourites template - if they are not logged in then they are redirected to the login page
 
-* Adding, editing and deleting of festivals: the functions to render the template containing the form to add, edit or delete festivals all check that the user is both logged in *and* that the logged in user is the administrator. Any non-admin user attempting to access these pages or functionality by using the correct url will be redirected to the homepage with a flash message explaining that they are no authorised to access those pages.
+* Adding, editing and deleting of festivals: the functions to render the template containing the form to add, edit or delete festivals all check that the user is both logged in *and* that the logged in user is the administrator. Any non-admin user attempting to access these pages or functionality by using the correct url will be redirected to the homepage with a flash message explaining that they are not authorised to access those pages.
 
 * Adding, editing and deleting of user reviews: to add a review, the function simply checks that the user is logged in first before rendering the template that contains the form and redirects to the login page if not. To edit or delete a review, the functions add the extra condition that the user must be the same as the user who added the review in order to render the template or delete - if not a redirect to the homepage takes place, alongside a flash message explaining that you can only edit or delete your own review.
 
@@ -450,7 +449,7 @@ To help combat and users seeking to force their way onto parts of the site, defe
 
 This current version of the site is very much version one, and I would like to build on top of what has already been started in the future with some of the following features:
 
-* I would really like to develop the festival hubs further so that they are even more tailored to the specific festival in question, including unique fonts, colour scheme and embedded YouTube videos of the previous iteration of the event to set them apart from the others.
+* I would really like to develop the festival hubs further so that they are even more tailored to the specific festival in question, including unique fonts, colour scheme and embedded YouTube videos of the previous iteration of the event to set them apart from the other hubs on the site.
 
 * A future, more advanced version of the site would likely do away with the reviews aspect and have a user powered forum take its place. I envisage this as being a place to have discussions about the specific fesivals in question, buy or sell surplus tickets, and ask any questions of the users that are not answered anywhere else on the page.
 
@@ -488,7 +487,7 @@ This current version of the site is very much version one, and I would like to b
 * [InVision:](https://www.invisionapp.com/) Used to create all of my wireframes at the beginning of the development process.
 * [JSHint:](https://jshint.com/) Checked my javascript code was valid and error free.
 * [PEP8Online:](http://pep8online.com/) Confirmed that my Python code complied to PEP8 standards.
-* [TinyJPG:](https://tinyjpg.com/) Service used to compress hero images and help with site performance
+* [TinyJPG:](https://tinyjpg.com/) Service used to compress background images and help with site performance
 * [Trello:](https://trello.com/) Used to split all tasks into several sprints, to help bring the development process in line with agile principles.
 * [W3C CSS Validation Service:](https://jigsaw.w3.org/css-validator/) Confirmed that my CSS is legal.
 * [W3C Markup Validation Service:](https://validator.w3.org/) Confirmed that my HTML code is legal.
@@ -501,7 +500,9 @@ For the commits on this project, I continued to follow the basic rules I had set
 * Always use the imperative tense so that readers would read as *the purpose of this commit is to* - etc.
 * Commit often, and keep messages as short as possible.
 * Start comments where possible with a prefix that summarises what the commit is for, such as fix (for bugs), add, remove, amend, style, or docs (for anything added to README.md).
-* Include the file name or function in question.
+* Include the file name or function in question where possible.
+* Use the prefix 'logic:' in any commits aimed at amending or adding in something that was specifically related to backend logic.
+* Use the prefix 'test:' for any commits that were being pushed specifically to test bug fixes onto the live site.
 
 At the time of writing, these are among my recent commit messages and illustrate the format I applied for this project:
 
@@ -555,17 +556,19 @@ To clone this project, follow these steps:
 
 7. At this stage you should be able to launch the preview by running 'python3 app.py' in the terminal.
 
+*Note - make sure to include your env.py file in the .gitignore file so that no sensitive information is pushed to GitHub.
+
 ## Credits
 
 ### Media
 
-* The background image found on the homepage, registration and login pages was taken by [Thibault Trillet](https://www.pexels.com/@thibault-trillet-44912) and found on [Pexels](https://www.pexels.com/)
+* The background image present on the homepage, registration and login pages was taken by [Thibault Trillet](https://www.pexels.com/@thibault-trillet-44912) and found on [Pexels](https://www.pexels.com/)
 
-* The background image found on the browse page was taken by [Nqobile Vundla](https://unsplash.com/@nqoe) and found on [Unsplash](https://unsplash.com/)
+* The background image present on the browse page was taken by [Nqobile Vundla](https://unsplash.com/@nqoe) and found on [Unsplash](https://unsplash.com/)
 
-* The background image found on the favourites and FAQ pages was taken by [Tony Pham](https://unsplash.com/s/photos/tonyphamvn) and found on [Unsplash](https://unsplash.com/)
+* The background image present on the favourites and FAQ pages was taken by [Tony Pham](https://unsplash.com/s/photos/tonyphamvn) and found on [Unsplash](https://unsplash.com/)
 
-* All festival hub hero images are via direct link from google images.
+* All festival hub hero images are via direct URL link from Google Images.
 
 ### Acknowledgements
 

@@ -180,7 +180,7 @@ The search bar and icon appear in the middle of the navigation bar no matter whe
 
 ## Manual Stakeholder Testing
 
-### ***1. I want to produce a site where users can post, edit and browse festival reviews so that I can demonstrate my ability to implement C.R.U.D. functionality and pass this part of the course.***
+### ***1. I want to produce a site where users can post, edit, browse and delete festival reviews so that I can demonstrate my ability to implement C.R.U.D. functionality and pass this part of the course.***
 
 * Please see user stories 3,4,5,7,8 and 9
 
