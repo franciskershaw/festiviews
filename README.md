@@ -21,7 +21,21 @@ You can view the live website [here](https://festiviews.herokuapp.com/), and a l
     * [Surface Plane](#surface-plane)
         * [Colour Scheme](#colour-scheme)
         * [Typography](#typography)
-    * [Data Model](#data-model)  
+    * [Data Model](#data-model)
+* [Features](#features)
+* [Existing Features](#existing-features)
+* [Defensive design features](#defensive-design-features)
+* [Features left to implement](#features-left-to-implement)
+* [Technologies used](#technologies-used)
+    * [Languages and frameworks](#languages-and-frameworks)
+    * [Additional tools](#additional-tools)
+* [Git commit messages](#git-commit-messages)
+* [Testing](#testing)
+* [Deployment](#deployment)
+* [Cloning](#cloning)
+* [Credits](#credits)
+    * [Media](#media)
+    * [Acknowledgements](#acknowledgements)  
 
   
 ## UX
@@ -234,31 +248,37 @@ Once the long process of wireframing was complete, I was able to concentrate ful
 
 I combined the key associative words with the colour pallette generator found on [Coolors](https://coolors.co/) to find the following codes for consideration during the development of the project:
 
-* Greens: rgba(114, 156, 95, 0.9)
+* Greens: usually one of #729C5F or #7FB069.
 * General background: rgb(243, 242, 236) - this is mostly covered by background images, but is visible on the festival hubs by the reviews section.
-* Darker writing to colour: #392d34
-* Text colour: #fbf9ef;
-* Logo and several headings: #c11e47c9
+* Darker writing to colour: #392D34
+* Text colour: #FBF9EF;
+* Logo and several headings: #C11E47
+
+![Coolors screenshot](static/images/coolors.png)
 
 #### Typography
 
-After deliberating between upwards of fifteen different fonts that fit the professional aesthetic planned for the site, I eventually settled on 'Nunito' from Google Fonts as this font style worked as equally well for headings and general text alike and ensured everything felt very consistent. To ensure headings stood out despite being the same font as the rest of the site's content, I tended to include a subtle text shadow.
+After deliberating between upwards of fifteen different fonts that fit the professional aesthetic planned for the site, I eventually settled on 'Nunito' from Google Fonts as this font style worked as equally well for headings and general text alike and ensured everything felt very consistent. 
+
+To make sure headings stood out despite being the same font as the rest of the site's content, I tended to include a subtle text shadow on certain pages.
 
 ### Data Model
 
 #### Conceptual Design Phase
 
+A basic map of how I could get my various entities to interact with each other on a conceptual level was created as the below flowchart:
+
 ![Conceptual design model](static/images/conceptual_design.png)
 
 #### Logical Design Phase
 
-The way my collections work together on the backend is best illustrated by the below entity relationship diagram:
+The finalised way my collections work would together on the backend is best illustrated by the below entity relationship diagram:
 
 ![Logical design model](static/images/logical_design.png)
 
 #### Physical Design Phase
 
-I used the non-relational database MongoDB as my database management system as per the above schema.
+I used the non-relational database MongoDB as my database management system as per the above schema. This worked with Python and Flask to ensure that all CRUD functionality was working correctly as per what was designed at the conceptual and logical stages.
 
 ## Features
 
