@@ -6,7 +6,7 @@
 
 FestiViews is an information and reviews hub created for enthusiasts of the world's greatest pastime - music festivals. Users of the site can browse, search for, and 'favourite' the music festivals of their choice in order to learn key information, such as event dates and ticket cost, as well as discovering subjective opinions displayed by other users through the uploading of a festival review (or a 'festivew' if you will). As a frequent attendee of music festivals myself, I have always felt like festival goers have been missing a convenient and modern looking place to find all the relevant information and links for several events at once, and the closest versions of this vision that currently exist are in my opinion outdated and sometimes unpleasant to use. With that in mind, my aim with this project is to lay the basic groundwork for a site that will eventually end up being a vast improvement for user experience compared to what already exists.
 
-This project is the third of four 'milestone' projects which are required to complete the Code Institute's diploma in full stack web development. Assessment criteria for this milestone project focuses on the ability to produce a full-stack site using HTML, CSS, JavaScript, Python, Flask and MongoDB that allows users to manage a common dataset about a particular domain. As such, part of this task involves implementing CRUD (create, read, update, and delete) capabilities to the users 
+This project is the third of four 'milestone' projects which are required to complete the Code Institute's diploma in full stack web development. Assessment criteria for this milestone project focuses on the ability to produce a full-stack site using HTML, CSS, JavaScript, Python, Flask and MongoDB that allows users to manage a common dataset about a particular domain. As such, part of this task involves implementing CRUD (create, read, update, and delete) capabilities for the users and administrators of the site.
 
 You can view the live website [here](https://festiviews.herokuapp.com/), and a link to the github repository can be found [here](https://github.com/franciskershaw/festiviews).
 
@@ -258,9 +258,13 @@ I combined the key associative words with the colour pallette generator found on
 
 #### Typography
 
-After deliberating between upwards of fifteen different fonts that fit the professional aesthetic planned for the site, I eventually settled on 'Nunito' from Google Fonts as this font style worked as equally well for headings and general text alike and ensured everything felt very consistent. 
+After deliberating between upwards of fifteen different fonts that fit the professional aesthetic planned for the site, I eventually settled on 'Nunito' from Google Fonts as this font style worked as equally well for headings and general text alike and ensured everything felt very consistent.
+
+![Nunito screenshot](static/images/nunito.png)
 
 To make sure headings stood out despite being the same font as the rest of the site's content, I tended to include a subtle text shadow on certain pages.
+
+![Text shadow](static/images/heading.png)
 
 ### Data Model
 
@@ -288,11 +292,20 @@ I used the non-relational database MongoDB as my database management system as p
 
 * A fixed navigation bar appears on every page with the logo on the far left, a search bar in the middle (which directs to the 'browse' page, filtering results to only include what was searched for) and links to the other pages on the right: Browse all, Sign in, FAQ. The link to sign in changes to 'Sign out' if the user is logged in, and an extra link to the 'favourites' page appears.
 
+![Navbar](static/images/navbar.png)
+
 * On smaller screen sizes, the navigation bar collapses and is replaced by a standard burger icon, and the name of the site (FestiViews) is hidden, leaving the logo as the main means of returning to the home page.
+
+![Mobile navbar](static/images/mobile-nav.png)
 
 * The footer remains consistent on all pages and contains the logo, site name, and copyright information.
 
+![Footer](static/images/footer.png)
+
 * All buttons and interactable content contain hover properties that indicate the user can click on them, and feedback from user actions (such as adding, editing or deleting reviews and favouriting or unfavouriting festivals) is present through an animated flash message from Flask.
+
+![Hover](static/images/hover.png)
+![Flash](static/images/flash.png)
 
 #### index.html
 
@@ -300,9 +313,14 @@ I used the non-relational database MongoDB as my database management system as p
 
 * The title and tagline appear via a CSS animation, followed shortly by two call to action buttons: 'Browse Festivals' and 'Create Account'. If the user is already logged in, the create account button is removed from the page.
 
+![Homepage screenshot](static/images/homepage.png)
+
 #### sign_up.html, login.html
 
 * Both the registration and login pages contain a simple form to input a username and password, and a handy link to the other page for users who are either new and need an account, or existing users who need to be directed to the login page.
+
+![Register screenshot](static/images/register.png)
+![Login screenshot](static/images/login.png)
 
 #### favourites.html
 
@@ -310,19 +328,34 @@ I used the non-relational database MongoDB as my database management system as p
 
 * If no favourites have been added, a large message saying 'You haven't added any favourites yet' appears, followed instantly by a CTA button that directs the user to browse.html so that favourites can be added.
 
+![No favourites screenshot](static/images/no-favourites.png)
+
 * If there are favourites on the user's account, they appear as a list in alphabetical order, containing a link to the specific festival 'hub', the location of the festival, the date, the average user rating (if any ratings have been added) and the heart icon that can be clicked to remove that festival from the favourites.
+
+![Favourites screenshot](static/images/favourites.png)
 
 #### browse.html
 
 * This page is the list of all available festivals to browse, all of which are uploaded by admin users (myself in this case). Similar to the layout of the user's personal favourites page, the festivals appear one after the other in their own separate rows.
 
+![Browse screenshot](static/images/browse.png)
+
 * Only the first 10 festivals appear to begin with, but the user can show 10 more by clicking on the 'view more' button at the bottom of the page.
+
+![View more screenshot](static/images/view-more.png)
 
 * Users can elect to arrange the festivals alphabetically (a-z) or by user rating (high to low).
 
+![Sort A-Z](static/images/name-sort.png)
+![Sort rating](static/images/rating-sort.png)
+
 * The heart appears as an empty clickable icon to add a festival to the favourites page. If the festival has already been added to the favourites, it appears already filled in.
 
+![Heart browse](static/images/heart-browse.png)
+
 * If the administrator is logged in, an 'Add' button appears in the top right of the page, which directs the admin user to the add_festival page.
+
+![Add festival](static/images/admin-browse.png)
 
 #### view_festival.html
 
@@ -330,11 +363,19 @@ I used the non-relational database MongoDB as my database management system as p
 
 * The first section of the hub contains a festival specific hero image, the festival name as an *h1*, and a very short description of the festival itself. If the user is logged in, a large heart icon also appears directly beneath the *h1* which can be clicked on to either add the festival to the favourites page or remove it if it has already been favourited.
 
+![Hub hero screenshot](static/images/hub-hero-section.png)
+
 * If any reviews have been posted for the festival in question, then the calculated average rating appears as stars beneath the heart icon.
 
-* If the logged in user is the administrator, two 
+![Average rating](static/images/average-rating.png)
 
-* The key information for the festival appears just beneath the hero section. This is all pulled from the admin only form when adding a new festival and is responsive to the screen size in use. JavaScript is on 2 fields of information, by changing the colour of the Covid 2021 status to green or red depending on whether the festival is going ahead or not, and by changing an empty Notable Acts field to 'No announcement yet' if the administrator has left those fields empty.
+* If the logged in user is the administrator, two buttons appear which allow for the editing or deleting of the festival hubs. These are not visible to normal users.
+
+![Edit/delete festival](static/images/edit-festival.png)
+
+* The key information for the festival appears just beneath the hero section. This is all pulled from the admin only form when adding a new festival and is responsive to the screen size in use. JavaScript is used on two fields of information, by changing the colour of the Covid 2021 status to green or red depending on whether the festival is going ahead or not, and by changing an empty Notable Acts field to 'No announcement yet' if the administrator has left those fields empty.
+
+![Hub information screenshot](static/images/hub-information.png)
 
 * The final section of the page is the reviews section, starting with a heading and an 'Add Review' button. The add review button appears for all users, but if a user is not logged in this link will actually direct the user to the registration page.
 
@@ -342,13 +383,22 @@ I used the non-relational database MongoDB as my database management system as p
 
 * A 'Read More' button is available to reveal the rest of the review, which contains supplementary ratings out of five for everything from location to food.
 
+![Add reviews section](static/images/add-reviews-section.png)
+
 * Much like on browse.html, if there are more than ten reviews for the festival, pagination is present to allow the user the opportunity to see older reviews.
 
+![See older](static/images/see-older.png)
+
 * If there are no reviews available for the festival yet, a message reads 'No reviews added yet, be the first to add one!'
+
+![No reviews](static/images/no-reviews.png)
 
 #### add/edit_review.html, add/edit_fesival.html
 
 * The forms to add and edit both reviews and festivals (for admin users only) are very similar in layout and style, with the same background image and see through background colour.
+
+![Add festival form](static/images/add-festival.png)
+![Edit review form](static/images/edit-review.png)
 
 * All fields ending with a star contain the *required* attribute in the HTML, which stops the user from being to submit the form without filling them in.
 
@@ -357,6 +407,8 @@ I used the non-relational database MongoDB as my database management system as p
 #### faq.html
 
 * The frequently asked questions page is a simple static page containing a Bootstrap accordion, on which each expandable and collapsable card contains a commonly asked question about the site, and the answer to that question.
+
+![FAQ](static/images/faq-screenshot.png)
 
 ### Defensive design features
 
@@ -374,7 +426,11 @@ Using a mixture of jinja templating logic and application of Bootrap's modal com
 
 * Buttons used to edit or delete user submitted reviews will only appear if the user who submitted the review is logged in. If the delete button is clicked, instead of deleting the review a modal is launched which offers the user the choice to either proceed with deleting the review or cancel and return to the page.
 
+![Delete review modal](static/images/delete-review.png)
+
 * The button to add a new festival (on browse.html) is only visible if the administrator is logged in, as are the edit and delete festival buttons in the top right of view_festival.html. The same defensive measure regarding the delete button is present, giving the administrator the chance to change their mind if needs be.
+
+![Delete festival modal](static/images/delete-festival.png)
 
 * On the forms themselves, the required attribute is present on every input or select element that is needed for submission, meaning that the form cannot be submitted without including these fields. Maxlength is also used on the text field for reviews to ensure users do not go overboard on their reviews.
 
