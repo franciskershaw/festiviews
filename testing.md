@@ -150,59 +150,94 @@ Testing my own user stories was carried out using the following criteria:
 
 The search bar and icon appear in the middle of the navigation bar no matter where you are on the site, and can be used to direct the user to a filtered version of the browse page that shows their results - or no results if the festival doesn't exist on the site. **1 click.**
 
-### ***6.***
+### ***6. As a user with a profile, I would like to ‘favourite’ certain festival pages so that I can view all of my favourite festivals in a convenient location.***
 
-6. As a user with a profile, I would like to ‘favourite’ certain festival pages so that I can view all of my favourite festivals in a convenient location.
-7. As a user with a profile, I would like to be able to add reviews of the festivals I have been to before so that I can help potential future festival goers make their mind up about where to go.
-8. As a user who has uploaded a festival review already, I would like to be able to edit that review so that I can add any retrospective comments or change certain of my scores if needs be.
-9. As a user who has uploaded a review, I want to have the option to delete my review so that I can remove my presence on the site if I want to.
-10. As a user with a profile, I would like to upvote or downvote reviews that I agree or disagree with.
-11. As a user who can’t find a particular festival on the site, I would like to have a means of requesting that the festival be added.
-12. As a user who might not understand intuitively how to use the site, I would like some FAQs that might explain the site’s purpose and intended use so that I can learn how to use the site.
+* Creating an account or logging in directs the user to the favourites page, to highlight in no uncertain terms that this is an accessible feature for those who are logged in.
+
+* The buttons to favourite are found in 3 different places on the site, on browse.html where it appears for all users (calling the add_favourites function if the user is logged in or redirect to the registration page if not), on the festival hubs themselves by the *h1* for users who are logged in, and finally on the user's favourites page where they can unfavourite a festival if they wish. **2 clicks from the homepage for logged in users.**
+
+### ***7. As a user with a profile, I would like to be able to add reviews of the festivals I have been to before so that I can help potential future festival goers make their mind up about where to go.***
+
+* Adding a review is a key reason for the site's existance, and is available as a feature for anyone who is logged into an account. The button for adding a review is found in the reviews section of each festival hub. If the user is logged in, it takes them to the form that needs to be filled in to add a review, if not it redirects to the registration page.
+
+* While the reviews form is mostly made up of dropdown menus, there is a text box to allow free form opinion writing where a user can give personal thoughts on the festival in question.
+
+### ***8. As a user who has uploaded a festival review already, I would like to be able to edit that review so that I can add any retrospective comments or change certain of my scores if needs be.***
+
+* All users who are logged in can edit their reviews if they require: by navigating to the review in question, clicking 'Read More', and clicking the edit icon. Once clicked, the user finds themselves back at the same form as before, where they can edit anything they like. **3 clicks from the homepage**
+
+### ***9. As a user who has uploaded a review, I want to have the option to delete my review so that I can remove my presence on the site if I want to.***
+
+* As per user story 8, the delete icon for a review can be located by the review's author right next to the edit button. **2 clicks from the festival hub.**
+
+### ***11. As a user who can’t find a particular festival on the site, I would like to have a means of requesting that the festival be added.***
+
+* At the bottom of the browsing page, there is a whole *call to action* row with a button directing users to where they can get in touch to ask for a new festival to be added. **2 clicks.**
+
+### ***12. As a user who might not understand intuitively how to use the site, I would like some FAQs that might explain the site’s purpose and intended use so that I can learn how to use the site.***
+
+* At all stages of the users journey, the FAQ page can be accessed via the fixed navbar. **1 click.**
 
 ## Manual Stakeholder Testing
 
-###
+### ***1. I want to produce a site where users can post, edit and browse festival reviews so that I can demonstrate my ability to implement C.R.U.D. functionality and pass this part of the course.***
+
+* Please see user stories 3,4,5,7,8 and 9
+
+### ***2. As the developer, I want the site to function exactly as intended so that only positive emotional responses are produced when interacting with the site.***
+
+* As always I am well aware the the meaning of positive emotional responses can be subective, however I am confident that through the extensive testing already highlighted that the primary functions needed for this site to be of any use to those who might need it work exactly as I had intended.
+
+### ***3. As a bonus goal, I would like to grow the user base of the site so that the content can improve as more data is added by more and more users.***
+
+* *N/A, this user story is more applicable to version 2 of the site when I can make active efforts to grow a user base.*
 
 ## HTML Validator
 
+The initial run of testing on the W3C html validator displayed a few errors and warning that warranted my attention:
+
+* I had not realised that special characters (the asterix on my forms) needed to be signed off with a semicolon, as missing them renders the HTML invalid. I added these in to remove this error from the validator.
+
+* I had left a space on the mailto: attribute for 'contact us', which was invalid and through an error. This was amended to remove the error from the validator.
+
+* There was an error on edit review and festival forms as the 'select' options didn't have placeholders as the first child with no 'value' attribute. I hadn't realised this was necessary for the HTML to be valid, but I swiftly added the placeholders in as per the 'add review' and 'add festival' forms.
+
+* I had initially put the heart icon/form to favourite a festival as a direct child of the *h1* element on view_festival.html which was deemed invalid by the validator. I removed it from the *h1* and placed it beneath, which I actually ended up preferring aesthetically in any case.
+
 ## CSS Validator
+
+No errors were found when running style.css through the W3C CSS validator.
 
 ## JS Validator
 
+Using JSHint, I found that there were no critical errors in my written code. There were a few warnings displayed to do with a few missing or unnecessary semicolons, which were promptly rectified. I had also forgotten the keyword *let* for some of my *for of* statements, which I attribute to my recent introduction to Python and its lack of keywords in for loops.
+
 ## PEP8 Compliance
+
+No errors were found when running my Python code through the PEP8 online service. There remained one warning on the GitPod linter about over indention which was only brought about by shortening the line. The function worked exactly as intended and as no errors were thrown by PEP8 online, I deemed this ok to leave.
 
 ## Accessibility Testing
 
+Using the WAVE Accessibility Evaluation Tool, I found the following errors and warnings worthy of attention:
+
+* An error was highlighted by the lack of a form *label* element on my search bar, which I subsequently added as with a screen reader only class.
+
+*Contrast errors*
+* There was a supposed contrast error for the green CTA button on my home page and in various other locations when directing users towards the Browse page. I darkened the green to white ratio as much as I could without greatly impacting on the intended aesthetic, but unfortunately was still being thrown the error. I have decided to leave the contrast in the current state, with genuine intention to rethink the design on future iterations to ensure it be as accessible as possible. 
+
+* There was also a contrast error from the 'contact us' *call to action* on browse all between the blue and white, which I again darkened as much as possible. As with the previous contrast error, it still appeared despite my efforts, and I will be rethinking the styling of this button on V2 of the site.
+
+* There were three contrast errors on the festival hubs information section, from the external ticket links and the covid 2021 status for when a festival is 'cancelled' or 'going ahead'. The external links were amended in a way that kept the intended aesthetic and cleared the error, however I decided to disregard the contrast issue for the covid 2021 status as it presented the same issues found when amended the previous two bullet points.
+
+* I was presented a warning of redundant about a potential redundant link as my footer and main navivagtion contained the same logo and redirect to the homepage. I decided to disregard this warning as I deem the footer as being as appropriate a place as the navigation bar to contain a logo and a link back to the homepage.
+
 ## Google Lighthouse
+
+Using Google's lighthouse feature, I was able to assess the performance of the site. All pages were working to a good standard, however issues with image size were highlighted. I compressed these using TinyJPG to help improve speed a bit. This was not possible for the images being rendered by URL link, but on future iterations of the site I'd like to use direct upload for these images which will help significantly.
+
+The overall performance of the site (especially on mobile) has plenty of room for improvement on future iterations of the site, as dependancy on Boostrap among other things won't have helped with the speed.
 
 [Back to the top](#testing)
 
 [Back to main document](README.md)
 
-
-
-### HTML validator: 
-* error thrown for not using semicolons to finish of special characters on my forms (required *), 
-* space on the mailto: attribute for 'contact us', 
-* warning for section lacking a header on favourites.html (ignored because 'your favourites' acts as the header), 
-* heading warnings on view_festival.html (ignored because they're not needed), 
-* form error on view_festival (can't have a form as child of h1) which was moved outside of the h1.
-* Error on edit review and festival forms as the 'select' options didn't have placeholders as the first child with no 'value' attribute. Added the placeholders in as per the 'add review' and 'add festival' forms.
-
-### CSS validator:
-* all good
-
-### JS linter:
-* missing semicolons and unnecessary semicolons
-* undefined variables (missing let)
-
-### PEP8 online
-* All good, one remaining error on gitpod linter about indentation which I deem incorrect.
-
-### WAVE accessibility
-* missing form label for search bar
-* contrast error for green CTA button
-* warning of redundant link from footer and main nav logo
-* contrast error from 'contact us' cta on browse all
-* 3 contrast errors on the festival hubs info section (external ticket links and covid 'going ahead'), 2 errors for missing header content

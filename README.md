@@ -52,9 +52,8 @@ As the owner and developer of the site:
 7. As a user with a profile, I would like to be able to add reviews of the festivals I have been to before so that I can help potential future festival goers make their mind up about where to go.
 8. As a user who has uploaded a festival review already, I would like to be able to edit that review so that I can add any retrospective comments or change certain of my scores if needs be.
 9. As a user who has uploaded a review, I want to have the option to delete my review so that I can remove my presence on the site if I want to.
-10. As a user with a profile, I would like to upvote or downvote reviews that I agree or disagree with.
-11. As a user who can’t find a particular festival on the site, I would like to have a means of requesting that the festival be added.
-12. As a user who might not understand intuitively how to use the site, I would like some FAQs that might explain the site’s purpose and intended use so that I can learn how to use the site.
+10. As a user who can’t find a particular festival on the site, I would like to have a means of requesting that the festival be added.
+11. As a user who might not understand intuitively how to use the site, I would like some FAQs that might explain the site’s purpose and intended use so that I can learn how to use the site.
 
 ## Planning and Design
 
@@ -382,6 +381,8 @@ This current version of the site is very much version one, and I would like to b
 * At the moment the search functionality is quite basic, with users being able to search for a specific festival by name and find their result (if it exists). On version 2 of the site, I would like this to be more advanced, with users having the choice to search for a festival by a variety of advanced parameters such as price, location and ticket availability to name a few. I did not have enough time to seriously consider applying this to version 1, but it is something I will certainly be coming back to.
 
 * On the browse page, the sort functions currently only go from A-Z (not Z-A) and highest rated to lowest (not the other way around). This was fed back as a potential UX concern during testing, and I would like to implement the functionality at some point to include this method of filtering (as well as potentially more advanced filtering features). However, much like with the advanced search functionality, I was unfortunately not left with enough time on this occasion to develop this further.
+
+* I would someday like the means of contacting to request a new festival hub to be presented as a user-friendly form, instead of simply a link to an email address. It was unnecessary for the marking criteria of the project and unfortuantely would have taken up valuable time, but this will be something I come back to in the future.
 
 ## Technologies used
 
