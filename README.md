@@ -67,7 +67,7 @@ As the owner and developer of the site:
 8. As a user who has uploaded a festival review already, I would like to be able to edit that review so that I can add any retrospective comments or change certain of my scores if needs be.
 9. As a user who has uploaded a review, I want to have the option to delete my review so that I can remove my presence on the site if I want to.
 10. As a user who can’t find a particular festival on the site, I would like to have a means of requesting that the festival be added.
-11. As a user who might not understand intuitively how to use the site, I would like some FAQs that might explain the site’s purpose and intended use so that I can learn how to use the site.
+11. As a user who might not intuitively understand how to use the site, I would like some FAQs that might explain the site’s purpose and intended use so that I can learn how to use the site.
 
 ## Planning and Design
 
@@ -85,9 +85,9 @@ The **business goals** of the stakeholder are:
 
 *Therefore, a bespoke website using both frontend and backend technologies is required to meet the focus and business goals as it is the only way to produce a hub that is both aesthetically pleasing and contains the data manipulation features necessary to allow users to contribute and edit content themselves.*
 
-At this stage of planning during my previous projects I would usually scour the internet for inspiration from sites that fit a similar niche to what I was trying to achive in order to get a better understanding of what features and design choices would be familiar to my userbase. However, as I've stated already, I am of the belief that the current options are not all that user friendly and as such were used more as a guide to only what I interpreted as the most important and necessary featuers for my own site.
+At this stage of planning during my previous projects I would usually scour the internet for inspiration from sites that fit a similar niche to what I was trying to achieve in order to get a better understanding of what features and design choices would be familiar to my user base. However, as I've stated already, I am of the belief that the current options are not all that user friendly and as such were used more as a guide to only what I interpreted as the most important and necessary features for my own site.
 
-* [eFestivals](https://www.efestivals.co.uk/) - *this site is the current leader for collated festival information, and the objectively outdated visuals on their site as well as the cognitive overload found from several unnecessary features was actually the main reason I went down this route for my project in the first place.*
+* [eFestivals](https://www.efestivals.co.uk/) - *This site is the current leader for collated festival information, and the objectively outdated visuals on their site as well as the cognitive overload found from several unnecessary features was actually the main reason I went down this route for my project in the first place.*
 * [UK Festival Guides](https://www.ukfestivalguides.com/reviews/)
 * [Travel Magazine Festival Reviews](https://www.thetravelmagazine.net/festivals/festival-reviews)
 
@@ -110,7 +110,7 @@ Using the below importance vs viability metric, I listed out all of the opportun
 | Forum                      | 2          | 1
 | **Total**                  | **37**     | **44**
 
-From this helpful bit of research, I concluded that overall the opportunities on offer were mostly viable when cosidered against their relative importance to the success of the project. However, it was clear at this stage that the following opportunities should not be pursued for this iteration of the project, as a result of the combination of their poor viablity when considered against their importance to my user stories:
+From this helpful bit of research, I concluded that overall the opportunities on offer were mostly viable when considered against their relative importance to the success of the project. However, it was clear at this stage that the following opportunities should not be pursued for this iteration of the project, as a result of the combination of their poor viability when considered against their importance to my user stories:
 
 * Implementation of a regular blog post.
 * Customised shopping list for an upcoming festival.
@@ -133,7 +133,7 @@ Based on research and planning achieved during the strategy plane, and consideri
 
 #### Content requirements
 
-* Sign up needs to be easy and feedback required if incorrect details entered.
+* Sign up needs to be easy and feedback required if incorrect details are entered.
 * Festival hubs must contain all the information a user would be looking for regarding a festival.
 * Feedback must be given when a hub has been favourited or a review has been uploaded/edited/deleted.
 * Appropriate defensive measures in place when a user is editing or deleting content.
@@ -146,7 +146,7 @@ Based on research and planning achieved during the strategy plane, and consideri
 
 I felt that the scope of this project was relatively ambitious, and as a result it was hard to know exactly how long I would need to implement all the key features. With that in mind, I decided to keep a list of things that I would like to implement if possible, but that were not absolutely necessary to the completion of the project:
 
-* Average rating of each festival based from all user reviews.
+* Average rating of each festival calculated from all user reviews.
 * Advanced search function which can filter out certain results based on more detailed parameters.
 * Extensive bio section of each music festival appearing on each festival hub.
 
@@ -211,12 +211,12 @@ Based on the functional specifications and content requirements outlined during 
 * Tree structure can be implemented with use of the burger icon on mobile devices.
 * Priority of links on the navigation bar should go from left to right.
 * Priority reads as follows: logo on the far left, search bar directly in the centre, then far right navigation links are to browse all festivals, sign in/register/log out, favourites, and finally FAQ
-* The most important *CTAs* are present on the home landing page - browse all for any user who reaches the site, and create account for anyone who is not logged in.
+* The most important *CTAs* are present on the home landing page - 'browse all' for any user who reaches the site, and 'create account' for anyone who is not logged in.
 * Where applicable the user should not be clicking more than three times to reach the end of their user journey.
 
 ### Skeleton Plane
 
-Low fidelity wireframes were my next step during planning of this project, and as with my previous projects I used [inVision](https://www.invisionapp.com/) to produce these. I took a conscious decision this time around to go into serious detail with these wireframes as the scope of the website is so large. This would help iron out most of the design and layout issues before coding began, and also in general would make my life a lot easier by providing a clear vision in my head of how the site should be presented.
+Low fidelity wireframes were my next step during planning of this project, and as with my previous projects I used [inVision](https://www.invisionapp.com/) to produce these. I made a conscious decision this time around to go into serious detail with these wireframes as the scope of the website is so large. This would help iron out most of the design and layout issues before coding began, and also in general would make my life a lot easier by providing a clear vision in my head of how the site should be presented.
 
 ![All wireframes](static/images/festiviews_all_wireframes.png)
 ![Landing wireframe](static/images/homepage_wireframe.png)
@@ -257,7 +257,7 @@ I combined the key associative words with the colour pallette generator found on
 
 #### Typography
 
-After deliberating between upwards of fifteen different fonts that fit the professional aesthetic planned for the site, I eventually settled on 'Nunito' from Google Fonts as this font style worked as equally well for headings and general text alike and ensured everything felt very consistent.
+After deliberating between upwards of fifteen different fonts that fit the professional aesthetic planned for the site, I eventually settled on 'Nunito' from Google Fonts as this font style worked equally well for headings and general text alike and ensured everything felt very consistent.
 
 ![Nunito screenshot](static/images/nunito.png)
 
@@ -301,7 +301,7 @@ I used the non-relational database MongoDB as my database management system as p
 
 ![Footer](static/images/footer.png)
 
-* All buttons and interactable content contain hover properties that indicate the user can click on them, and feedback from user actions (such as adding, editing or deleting reviews and favouriting or unfavouriting festivals) is present through an animated flash message from Flask.
+* All buttons and interactable content contain hover properties that indicate the user can click on them, and feedback from user actions (such as adding, editing or deleting reviews and favouriting or un-favouriting festivals) is present through an animated flash message from Flask.
 
 ![Hover](static/images/hover.png)
 ![Flash](static/images/flash.png)
@@ -401,11 +401,11 @@ I used the non-relational database MongoDB as my database management system as p
 
 * All fields ending with a star contain the *required* attribute in the HTML, which stops the user from being to submit the form without filling them in.
 
-* When editing the review or festival, the information previously inputed appears as already selected or filled in. Late in development, a bug regarding this was spotted for safari users - for more information please head to **notable bugs** on the testing document.
+* When editing the review or festival, the information previously inputted appears as already selected or filled in. Late in development, a bug regarding this was spotted for safari users - for more information please head to **notable bugs** on the testing document.
 
 #### faq.html
 
-* The frequently asked questions page is a simple static page containing a Bootstrap accordion, on which each expandable and collapsable card contains a commonly asked question about the site, and the answer to that question.
+* The frequently asked questions page is a simple static page containing a Bootstrap accordion, on which each expandable and collapsible card contains a commonly asked question about the site, and the answer to that question.
 
 ![FAQ](static/images/faq-screenshot.png)
 
@@ -415,13 +415,13 @@ As this was my first project to include a functioning backend (and as I wanted u
 
 #### On the frontend
 
-Using a mixture of jinja templating logic and the application of Bootrap's modal component, I was able to ensure that add, edit and delete buttons only appeared when applicable - and that the user was given warning when deleting:
+Using a mixture of jinja templating logic and the application of Boostrap's modal component, I was able to ensure that add, edit and delete buttons only appeared when applicable - and that the user was given warning when deleting:
 
 * The 'favourites' link in the main navigation bar only appears as a clickable option when the user is logged in.
 
 * The heart icon which allows users to add a festival to their favourites appears on the browse page but directs to the registration page if the user is not logged in.
 
-* The 'Add Review' buttons appears for all users, but will again direct the user to the registration page if they are not logged in already.
+* The 'Add Review' button appears for all users, but will again direct the user to the registration page if they are not logged in already.
 
 * Buttons used to edit or delete user submitted reviews will only appear if the user who submitted the review is logged in. If the delete button is clicked, instead of deleting the review a modal is launched which offers the user the choice to either proceed with deleting the review or cancel and return to the page.
 
@@ -443,7 +443,7 @@ To help combat and users seeking to force their way onto parts of the site, defe
 
 * Adding, editing and deleting of user reviews: to add a review, the function simply checks that the user is logged in first before rendering the template that contains the form and redirects to the login page if not. To edit or delete a review, the functions add the extra condition that the user must be the same as the user who added the review in order to render the template or delete - if not a redirect to the homepage takes place, alongside a flash message explaining that you can only edit or delete your own review.
 
-*Custom 404, 403 and 500 pages were created as well to make sure that any unforseen issues that users come across are appropriately handled, allowing a safe redirect back to the home page*
+*Custom 404, 403 and 500 pages were created as well to make sure that any unforeseen issues that users come across are appropriately handled, allowing a safe redirect back to the home page*
 
 ### Features left to implement
 
@@ -451,13 +451,13 @@ This current version of the site is very much version one, and I would like to b
 
 * I would really like to develop the festival hubs further so that they are even more tailored to the specific festival in question, including unique fonts, colour scheme and embedded YouTube videos of the previous iteration of the event to set them apart from the other hubs on the site.
 
-* A future, more advanced version of the site would likely do away with the reviews aspect and have a user powered forum take its place. I envisage this as being a place to have discussions about the specific fesivals in question, buy or sell surplus tickets, and ask any questions of the users that are not answered anywhere else on the page.
+* A future, more advanced version of the site would likely do away with the reviews aspect and have a user powered forum take its place. I envisage this as being a place to have discussions about the specific festivals in question, buy or sell surplus tickets, and ask any questions of the users that are not answered anywhere else on the page.
 
 * At the moment the search functionality is quite basic, with users being able to search for a specific festival by name and find their result (if it exists). On version 2 of the site, I would like this to be more advanced, with users having the choice to search for a festival by a variety of advanced parameters such as price, location and ticket availability to name a few. I did not have enough time to seriously consider applying this to version 1, but it is something I will certainly be coming back to.
 
 * On the browse page, the sort functions currently only go from A-Z (not Z-A) and highest rated to lowest (not the other way around). This was fed back as a potential UX concern during testing, and I would like to implement the functionality at some point to include this method of filtering (as well as potentially more advanced filtering features). However, much like with the advanced search functionality, I was unfortunately not left with enough time on this occasion to develop this further.
 
-* I would someday like the means of contacting to request a new festival hub to be presented as a user-friendly form, instead of simply a link to an email address. It was unnecessary for the marking criteria of the project and unfortuantely would have taken up valuable time, but this will be something I come back to in the future.
+* I would someday like the means of contacting to request a new festival hub to be presented as a user-friendly form, instead of simply a link to an email address. It was unnecessary for the marking criteria of the project and unfortunately would have taken up valuable time, but this will be something I come back to in the future.
 
 ## Technologies used
 
@@ -532,7 +532,7 @@ Deployment was carried out as follows:
 | PORT         | 5000
 | SECRET_KEY   | *your_secret_key*
 
-6. Return to the 'Deploy' tab and select 'Enable Autmoatic Deploys', ensuring that the master branch is selected.
+6. Return to the 'Deploy' tab and select 'Enable Automatic Deploys', ensuring that the master branch is selected.
 7. Click 'Deploy Branch' and wait for Heroku to build the app. You can monitor the progress in the 'Latest Activity' of the overview.
 8. Once the build has been completed, click 'Open app' to check that the live site is working.
 
