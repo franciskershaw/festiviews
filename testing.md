@@ -101,6 +101,10 @@ Very late in development I came across a tricky bug regarding the combination of
 
 My first attempt to fix involved directing the user to their favourites page once they favourited the festival from the search function, as this was the logical route. While this worked for logged in users, those who had not logged in would find a different 500 error coming their way because of the the lack of a session user variable. **In the end, to avoid this being an issue for any user, I redirected any *False* query back to the browse all page.**
 
+*500 error when attempting to access favourites page without being logged in*
+
+During user testing, it was noted that trying to access the favourites page when not logged in (via direct URL) was throwing a 500 error, despite my code suggesting that it would redirect users to the login page. This was not a bad result, as at least they could not force themselves into others accounts via direct link, but I still wanted a more elegant redirect. After trial and error, I realised that the lack of user variable was causing the issue - **so I implemented a further *if* statement to check whether there was a user in session before carrying on with the code.**
+
 #### Outstanding bugs
 
 There were a few bugs and general UX comments that time constraints did not allow me to work on before submission. However, I am very much keen to return to this project later with a version 2 that will put all of these as top priority and will be fixed before any new features are worked on.
