@@ -35,16 +35,16 @@ As per my previous project, I attempted to stick to agile principles by using Tr
 
 Visuals/Responsiveness
 
-* Testing of the front-end visuals was carried out using Gitpod's browser preview in order to make sure that elements and styles were displaying as intended.
+* Testing of the front end visuals was carried out using Gitpod's browser preview in order to make sure that elements and styles were being displayed as intended.
 * While on the temporary browser previews, Google Chrome's developer tools were always in use to check the responsiveness of my pages across a number of screen sizes.
 
 Logic
 
 Following on from my previous project, where the application of JavaScript was the main focus, I made sure I kept the same process in place when developing both the JavaScript functions and the Python back end logic for my site - that is to say start small and build up, making sure to check the console and print statements at all stages to ensure that the right results are being reached. Environment variables were also used and included in my .gitignore file to ensure that none of the sensitive secret keys were ever pushed to GitHub.
 
-I started by building the most basic version of the fron tend, with forms containing only a few fields so that I wasn't wasting time filling out required information for submission each time I needed to test my python functions. After taking great care and plenty of time to ensure that all of my CRUD logic was working on the backend, with the adding, editing, deleting of both the festival hubs and the reviews all doing what I was expecting to the relevant MongoDB collections, did I feel more comfortable moving onto the next stage of development.
+I started by building the most basic version of the front end, with forms containing only a few fields so that I wasn't wasting time filling out required information for submission each time I needed to test my python functions. After taking great care and plenty of time to ensure that all of my CRUD logic was working on the backend, with the adding, editing, deleting of both the festival hubs and the reviews all doing what I was expecting to the relevant MongoDB collections, did I feel more comfortable moving onto the next stage of development.
 
-For my JavaScript, I wanted a way to make sure that only certain functions were being applied to certain pages as this would greatly help with the code formatting as would negate the need for me to create several specific JavaScript functions. To achieve this, I wrote a function that checked which page the user was on, and an *if/else* statement then applied only the relevant functions to the relevant pages.
+For my JavaScript, I wanted a way to make sure that only certain functions were being applied to certain pages as this would greatly help with the code formatting as it would negate the need for me to create several specific JavaScript functions. To achieve this, I wrote a function that checked which page the user was on, and an *if/else* statement then applied only the relevant functions to the relevant pages.
 
 There were inevitably several interesting bugs that needed attention, for more information please see the 'notable' bugs section below.
 
@@ -79,7 +79,7 @@ This being my very first full stack website, there were inevitably plenty of bug
 
 *Commented out jinja templating code*
 
-My browse page was throwing an exception error without me having the faintest idea why, as I didn't see the problem being highlighted appearing anywhere on my code. It was only after a great deal of time that I was reminded that jinja templating does not ignore commented out code, and some code I'd commented out earlier to bring back later was actually causing everything to break. A frustratingly simple fix that I am now very unlikely to forget about!
+My browse page was throwing an exception error without me having the faintest idea why, as I didn't see the problem being highlighted appearing anywhere on my code. It was only after a great deal of time that I was reminded that jinja templating does not ignore commented out code, and some code I had commented out earlier to bring back later was actually causing everything to break. A frustratingly simple fix that I am now very unlikely to forget about!
 
 *Updating festivals*
 
@@ -93,7 +93,7 @@ As mentioned above, I wrote a function that would assign 'true' to whichever pag
 
 *Appear animation on festival hubs blocking defensive design features*
 
-It was clear from testing that there were occasionally quite noticeable loading times for the hero images on the festival hubs. These images were pulled straight from google images via their URL, so I was unable to optimise them properly as I would do via direct upload - but I figured using the same kind of delayed entry animation as on my previous projects would help mask this. However once this was applied to the template, the bootstrap modals for deleting of reviews suddenly was not working properly as it trapped users in place on a modal that wouldn't let you quit or even proceed with deleting. This was obviously not acceptable, and I never quite worked out why this was happening within the timeframe I had available before project submission, however the fix was made **by opting to allow the minor UX issue in liew of including the appear animation on the hubs.**
+It was clear from testing that there were occasionally quite noticeable loading times for the hero images on the festival hubs. These images were pulled straight from google images via their URL, so I was unable to optimise them properly as I would do via direct upload - but I figured using the same kind of delayed entry animation as on my previous projects would help mask this. However once this was applied to the template, the bootstrap modals for deleting of reviews suddenly was not working properly as it trapped users in place on a modal that wouldn't let you quit or even proceed with deleting. This was obviously not acceptable, and I never quite worked out why this was happening within the timeframe I had available before project submission, however the fix was made **by opting to allow the minor UX issue in lieu of including the appear animation on the hubs.**
 
 #### Outstanding bugs
 
@@ -103,7 +103,7 @@ There were a few bugs and general UX comments that time constraints did not allo
 
 This bug came out of user testing, as several of my testers are IOS users while I was primarily using Chrome and Android during development. Editing reviews, the form of which is composed mostly of dropdown menus, was not remembering the information for any dropdown information. It turns out this was because of a fix made after the HTML validator flagged an error regarding my lack of use of a default *option* element on these forms. Once I included this default option, Safari automatically would just choose this default option instead of selecting the previously submitted information - even when hiding the option using CSS. Research online showed me this was a common issue with the way Safari is set up, and the issue was not appearing on Chrome and Safari.
 
-To ensure full cross browser compatibility on V2, this will be a high priority task in the future. I imagine my solution will involve refocussing my currend method to Jinja templating logic as opposed to JavaScript to select the right option.
+To ensure full cross browser compatibility on V2, this will be a high priority task in the future. I imagine my solution will involve refocusing my current method to Jinja templating logic as opposed to JavaScript to select the right option.
 
 *Sort function only going from A-Z and highest-lowest on browse page*
 
@@ -145,7 +145,7 @@ Testing my own user stories was carried out using the following criteria:
 
 ![Navbar signed out](static/images/nav-signed-out.png)
 
-* Once a user is signed in, the navigation bar updates from 'Sign In' to 'Sign Out', and therefore the user is able to sign out from any page they are browsing ont he site. **1 click.**
+* Once a user is signed in, the navigation bar updates from 'Sign In' to 'Sign Out', and therefore the user is able to sign out from any page they are browsing on the site. **1 click.**
 
 ![Navbar](static/images/navbar.png)
 
@@ -183,7 +183,7 @@ The search bar and icon appear in the middle of the navigation bar no matter whe
 
 ### ***7. As a user with a profile, I would like to be able to add reviews of the festivals I have been to before so that I can help potential future festival goers make their mind up about where to go.***
 
-* Adding a review is a key reason for the site's existance, and is available as a feature for anyone who is logged into an account. The button for adding a review is found in the reviews section of each festival hub. If the user is logged in, it takes them to the form that needs to be filled in to add a review, if not it redirects to the registration page.
+* Adding a review is a key reason for the site's existence, and is available as a feature for anyone who is logged into an account. The button for adding a review is found in the reviews section of each festival hub. If the user is logged in, it takes them to the form that needs to be filled in to add a review, if not it redirects to the registration page.
 
 ![Add reviews](static/images/add-reviews-section.png)
 
@@ -210,9 +210,9 @@ The search bar and icon appear in the middle of the navigation bar no matter whe
 
 ![Contact us](static/images/contact-us.png)
 
-### ***12. As a user who might not understand intuitively how to use the site, I would like some FAQs that might explain the site’s purpose and intended use so that I can learn how to use the site.***
+### ***12. As a user who might not intuitively understand how to use the site, I would like some FAQs that might explain the site’s purpose and intended use so that I can learn how to use the site.***
 
-* At all stages of the users journey, the FAQ page can be accessed via the fixed navbar. **1 click.**
+* At all stages of the user's journey, the FAQ page can be accessed via the fixed navbar. **1 click.**
 
 ![Faq screenshot](static/images/faq-screenshot.png)
 
@@ -224,7 +224,7 @@ The search bar and icon appear in the middle of the navigation bar no matter whe
 
 ### ***2. As the developer, I want the site to function exactly as intended so that only positive emotional responses are produced when interacting with the site.***
 
-* As always I am well aware the the meaning of positive emotional responses can be subective, however I am confident that through the extensive testing already highlighted that the primary functions needed for this site to be of any use to those who might need it work exactly as I had intended.
+* As always I am well aware the the meaning of positive emotional responses can be subjective, however I am confident that through the extensive testing already highlighted that the primary functions needed for this site to be of any use to those who might need it work exactly as I had intended.
 
 ### ***3. As the administrator, I would like to be able to add, edit, and delete festival hubs that users can interact with by browsing or adding reviews to.***
 
@@ -275,13 +275,13 @@ Using the WAVE Accessibility Evaluation Tool, I found the following errors and w
 
 * There were three contrast errors on the festival hubs information section, from the external ticket links and the covid 2021 status for when a festival is 'cancelled' or 'going ahead'. The external links were amended in a way that kept the intended aesthetic and cleared the error, however I decided to disregard the contrast issue for the covid 2021 status as it presented the same issues found when amended the previous two bullet points.
 
-* I was presented a warning of redundant about a potential redundant link as my footer and main navivagtion contained the same logo and redirect to the homepage. I decided to disregard this warning as I deem the footer as being as appropriate a place as the navigation bar to contain a logo and a link back to the homepage.
+* I was presented with a warning about a redundant about a potential redundant link as my footer and main navigation contained the same logo and *anchor* tag to the homepage. I decided to disregard this warning as I deem the footer as being as appropriate a place as the navigation bar to contain a logo and a link back to the homepage.
 
 ## Google Lighthouse
 
 Using Google's lighthouse feature, I was able to assess the performance of the site. All pages were working to a good standard, however issues with image size were highlighted. I compressed these using TinyJPG to help improve speed a bit. This was not possible for the images being rendered by URL link, but on future iterations of the site I'd like to use direct upload for these images which will help significantly.
 
-The overall performance of the site (especially on mobile) has plenty of room for improvement on future iterations of the site, as dependancy on Boostrap among other things won't have helped with the speed.
+The overall performance of the site (especially on mobile) has plenty of room for improvement on future iterations of the site, as dependency on Bootstrap among other things won't have helped with the speed.
 
 [Back to the top](#testing)
 
