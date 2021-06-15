@@ -191,10 +191,12 @@ def search():
     page.
     """
     query = request.form.get('search_bar')
-    festivals = list(db_festivals.find(
-        {"$text": {"$search": query}}).sort('name', 1))
+    if query:
+        festivals = list(db_festivals.find(
+            {"$text": {"$search": query}}).sort('name', 1))
+        return render_template('browse.html', festivals=festivals)
 
-    return render_template('browse.html', festivals=festivals)
+    return redirect(url_for('browse'))
 
 
 @app.route('/browse')
