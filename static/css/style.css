@@ -661,7 +661,7 @@ button.btn.read-more-less-btn:hover {
 }
 
 h3.review-author {
-	font-size: 115%;
+	font-size: 90%;
 }
 
 h3.review-rating {
@@ -939,6 +939,10 @@ section.landing-container.error {
 	.add-review-btn {
 		font-size: 115%;
 	}
+	h3.review-author {
+		font-size: 115%;
+	}
+	
 	i.fas.fa-star,
 	i.far.fa-star,
 	i.fas.fa-star-half {
@@ -1186,6 +1190,25 @@ section.landing-container.error {
 @media (max-height: 600px) and (max-width: 326px) {
 	.login-heading {
 		font-size: 135%;
+	}
+}
+
+/* Very small screen sizes */
+@media screen and (max-width: 315px) {
+	.add-review-btn {
+		font-size: 80%;
+	}
+	.reviews-heading {
+		font-size: 125%;
+	}
+	.read-more-less-btn {
+		font-size: 64%;
+	}
+	h3.review-rating {
+		font-size: 40%;
+	}
+	i.fas.fa-star, i.far.fa-star, i.fas.fa-star-half {
+		font-size: 60%;
 	}
 }
 
