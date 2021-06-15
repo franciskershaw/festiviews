@@ -60,7 +60,7 @@ As the owner and developer of the site:
 1. As a user who wants to contribute to the site’s content, I want to be able to create a profile quickly and intuitively so that I can get started using the website.
 2. As a returning user with a profile, I want to be able to sign in quickly so that I can resume my previous activities and have the option to sign out at the end of a session once I am finished.
 3. As a user I want to be able to browse various festival pages so that I can find relevant information/links/reviews and help inform my decision on which festivals to attend.
-4. As a user who is browsing the site, I would like to be able to sort the festivals by various relevant attributes such as alphabetical, or popularity.
+4. As a user who is browsing the site, I would like to be able to sort festivals by various relevant attributes such as A-Z, or highest rated to lowest.
 5. As a user I want to search for a specific festival page (perhaps because I am already going to be attending) so that I can consume the same information as above.
 6. As a user with a profile, I would like to ‘favourite’ certain festival pages so that I can view all of my favourite festivals in a convenient location.
 7. As a user with a profile, I would like to be able to add reviews of the festivals I have been to before so that I can help potential future festival goers make their mind up about where to go.

@@ -40,9 +40,9 @@ Visuals/Responsiveness
 
 Logic
 
-Following on from my previous project, where the application of JavaScript was the main focus, I made sure I kept the same process in place when developing both the JavaScript functions and the backend logic for my site - that is to say start small and build up, making sure to check the console and print statements at all stages to ensure that the right results are being reached. Environment variables were also used and included in my .gitignore file to ensure that none of the sensitive secret keys were ever pushed to GitHub.
+Following on from my previous project, where the application of JavaScript was the main focus, I made sure I kept the same process in place when developing both the JavaScript functions and the Python back end logic for my site - that is to say start small and build up, making sure to check the console and print statements at all stages to ensure that the right results are being reached. Environment variables were also used and included in my .gitignore file to ensure that none of the sensitive secret keys were ever pushed to GitHub.
 
-I started by building the most basic version of the front end, with forms containing only a few fields so that I wasn't wasting time filling out required information for submission each time I needed to test my python functions. After taking great care and plenty of time to ensure that all of my CRUD logic was working on the backend, with the adding, editing, deleting of both the festival hubs and the reviews all doing what I was expecting to the relevant MongoDB collections, did I feel more comfortable moving onto the next stage of development.
+I started by building the most basic version of the fron tend, with forms containing only a few fields so that I wasn't wasting time filling out required information for submission each time I needed to test my python functions. After taking great care and plenty of time to ensure that all of my CRUD logic was working on the backend, with the adding, editing, deleting of both the festival hubs and the reviews all doing what I was expecting to the relevant MongoDB collections, did I feel more comfortable moving onto the next stage of development.
 
 For my JavaScript, I wanted a way to make sure that only certain functions were being applied to certain pages as this would greatly help with the code formatting as would negate the need for me to create several specific JavaScript functions. To achieve this, I wrote a function that checked which page the user was on, and an *if/else* statement then applied only the relevant functions to the relevant pages.
 
@@ -73,7 +73,7 @@ There were however a few bugs and general UX issues brought to my attention, whi
 
 ### Notable bugs
 
-This being my very first full stack website, there were inevitably plenty of bugs to sink my teeth into throughout development of this project, from creating the site to user testing:
+This being my very first full stack website, there were inevitably plenty of bugs to sink my teeth into throughout development of this project, found during the building of the site and from user testing:
 
 #### Fixed
 
@@ -91,7 +91,7 @@ Later on, I also found issues when updating the name of the festival as the upda
 
 As mentioned above, I wrote a function that would assign 'true' to whichever page the user was currently browsing. This appeared to be working fine, but then all of a sudden was not working as intended. After checking the developer tools, I realised that my method of assigning 'true' by locating the first section of the page (which included the name of the page as a class) was being broken by the appearance of flash messages when certain user actions were taking place. **This was fixed quite easily by changing the flash messages *section* element to a *div*.**
 
-*Appear animation on festival hubs blocking defensive programming*
+*Appear animation on festival hubs blocking defensive design features*
 
 It was clear from testing that there were occasionally quite noticeable loading times for the hero images on the festival hubs. These images were pulled straight from google images via their URL, so I was unable to optimise them properly as I would do via direct upload - but I figured using the same kind of delayed entry animation as on my previous projects would help mask this. However once this was applied to the template, the bootstrap modals for deleting of reviews suddenly was not working properly as it trapped users in place on a modal that wouldn't let you quit or even proceed with deleting. This was obviously not acceptable, and I never quite worked out why this was happening within the timeframe I had available before project submission, however the fix was made **by opting to allow the minor UX issue in liew of including the appear animation on the hubs.**
 
@@ -103,7 +103,7 @@ There were a few bugs and general UX comments that time constraints did not allo
 
 This bug came out of user testing, as several of my testers are IOS users while I was primarily using Chrome and Android during development. Editing reviews, the form of which is composed mostly of dropdown menus, was not remembering the information for any dropdown information. It turns out this was because of a fix made after the HTML validator flagged an error regarding my lack of use of a default *option* element on these forms. Once I included this default option, Safari automatically would just choose this default option instead of selecting the previously submitted information - even when hiding the option using CSS. Research online showed me this was a common issue with the way Safari is set up, and the issue was not appearing on Chrome and Safari.
 
-To ensure full cross browser compatibility on V2, this will be a high priority task in the future.
+To ensure full cross browser compatibility on V2, this will be a high priority task in the future. I imagine my solution will involve refocussing my currend method to Jinja templating logic as opposed to JavaScript to select the right option.
 
 *Sort function only going from A-Z and highest-lowest on browse page*
 
@@ -115,7 +115,7 @@ Due to time constraints, and the relative lack of importance of this issue to th
 
 Late in development, I amended my favouriting function (called when clicking on the heart icon on various pages) to refresh the page it was on. This was because for much of the development process, this function was just directing users to their favourites page. While the function is definitely more user friendly in this state, there is one minor inconvenience caused by it when regarding the browse page, as the pagination included to only show 10 festivals at a time is lost when refreshing the page.
 
-This bug was inconvenient but by no means site breaking, so I elected to leave it unfixed due to the time constraints imposed by submission. As with the other minor issues, its resolution will be prioritised on V2.
+This bug was inconvenient but by no means site breaking, so I elected to leave it unfixed due to the time constraints imposed by submission. As with the other minor issues, its resolution will be prioritised on V2. I already feel that my solution will be to find a way to have the page not refresh at all when calling the function.
 
 *Squashed footer on android mobile (chrome) when creating an account or logging in*
 
@@ -156,7 +156,7 @@ Testing my own user stories was carried out using the following criteria:
 ![Browse button](static/images/hover.png)
 ![Browse page](static/images/browse.png)
 
-### ***4. I would like to be able to sort festivals by various relevant attributes such as alphabetical, or pupularity.***
+### ***4. I would like to be able to sort festivals by various relevant attributes such as A-Z, or highest rated to lowest.***
 
 * When on the browse page, the user can click on the sort icons next to the name or the rating to sort as required. **2 clicks, 1 to get to the browse page from anywhere on the site, 1 to sort.**
 
@@ -244,7 +244,7 @@ The initial run of testing on the W3C html validator displayed a few errors and 
 
 * I had not realised that special characters (the asterix on my forms) needed to be signed off with a semicolon, as missing them renders the HTML invalid. I added these in to remove this error from the validator.
 
-* I had left a space on the mailto: attribute for 'contact us', which was invalid and through an error. This was amended to remove the error from the validator.
+* I had left a space on the mailto: attribute for 'contact us', which was invalid and threw an error. This was amended to remove the error from the validator.
 
 * There was an error on edit review and festival forms as the 'select' options didn't have placeholders as the first child with no 'value' attribute. I hadn't realised this was necessary for the HTML to be valid, but I swiftly added the placeholders in as per the 'add review' and 'add festival' forms.
 
