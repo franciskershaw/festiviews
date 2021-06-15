@@ -95,6 +95,12 @@ As mentioned above, I wrote a function that would assign 'true' to whichever pag
 
 It was clear from testing that there were occasionally quite noticeable loading times for the hero images on the festival hubs. These images were pulled straight from google images via their URL, so I was unable to optimise them properly as I would do via direct upload - but I figured using the same kind of delayed entry animation as on my previous projects would help mask this. However once this was applied to the template, the bootstrap modals for deleting of reviews suddenly was not working properly as it trapped users in place on a modal that wouldn't let you quit or even proceed with deleting. This was obviously not acceptable, and I never quite worked out why this was happening within the timeframe I had available before project submission, however the fix was made **by opting to allow the minor UX issue in lieu of including the appear animation on the hubs.**
 
+*500 error when favouriting a search result*
+
+Very late in development I came across a tricky bug regarding the combination of searching and favouriting festival hubs. I noticed that if a user tried to favourite a festival directly after using the search bar, a 500 error was initiated. This was because my favouriting function was attempting to reload the page, which had since lost the initial query.
+
+My first attempt to fix involved directing the user to their favourites page once they favourited the festival from the search function, as this was the logical route. While this worked for logged in users, those who had not logged in would find a different 500 error coming their way because of the the lack of a session user variable. **In the end, to avoid this being an issue for any user, I redirected any *False* query back to the browse all page.**
+
 #### Outstanding bugs
 
 There were a few bugs and general UX comments that time constraints did not allow me to work on before submission. However, I am very much keen to return to this project later with a version 2 that will put all of these as top priority and will be fixed before any new features are worked on.
