@@ -158,28 +158,30 @@ def favourites(username):
     """
 
     # grab the session user's username from db
-    user = mongo.db.users.find_one(
-        {"username": session["user"]})
-    username = user['username']
-    # sort favourites alphabetically
-    favourites = db_festivals.find(
-        {"favourited_by": username}).sort([('name', 1)])
+    if 'user' in session:
+        user = mongo.db.users.find_one(
+            {"username": session["user"]})
+        username = user['username']
+        # sort favourites alphabetically
+        favourites = db_festivals.find(
+            {"favourited_by": username}).sort([('name', 1)])
 
-    favourites_arr = []
+        favourites_arr = []
 
-    # loop over favourites and append them to array
-    for favourite in favourites:
-        favourites_arr.append(favourite)
+        # loop over favourites and append them to array
+        for favourite in favourites:
+            favourites_arr.append(favourite)
 
-    # check user is logged in
-    if session['user']:
-        print(session['user'])
-        return render_template("favourites.html",
-                               username=username,
-                               favourites=favourites,
-                               favourites_arr=favourites_arr)
+        # check user is logged in
+        if session['user']:
+            print(session['user'])
+            return render_template("favourites.html",
+                                   username=username,
+                                   favourites=favourites,
+                                   favourites_arr=favourites_arr)
 
     # if not logged in, redirect to login page
+    flash('Please log in to view favourites')
     return redirect(url_for('login'))
 
 
