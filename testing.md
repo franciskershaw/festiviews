@@ -105,6 +105,10 @@ My first attempt to fix involved directing the user to their favourites page onc
 
 During user testing, it was noted that trying to access the favourites page when not logged in (via direct URL) was throwing a 500 error, despite my code suggesting that it would redirect users to the login page. This was not a bad result, as at least they could not force themselves into others accounts via direct link, but I still wanted a more elegant redirect. After trial and error, I realised that the lack of user variable was causing the issue - **so I implemented a further *if* statement to check whether there was a user in session before carrying on with the code.**
 
+*Squashed footer on android mobile (chrome) when creating an account or logging in*
+
+It was brought to my attention that the appearance of a mobile keyboard on Chrome when using certain Android devices was pushing the footer up and squashing the content in a visually displeasing way. I believe this is due to my use of minimum *vh* as a property, with the keyboard decreasing the viewport height when it appeared. **To fix this, I used a media query that hid the footer entirely when between two small screen height sizes.**
+
 #### Outstanding bugs
 
 There were a few bugs and general UX comments that time constraints did not allow me to work on before submission. However, I am very much keen to return to this project later with a version 2 that will put all of these as top priority and will be fixed before any new features are worked on.
@@ -126,10 +130,6 @@ Due to time constraints, and the relative lack of importance of this issue to th
 Late in development, I amended my favouriting function (called when clicking on the heart icon on various pages) to refresh the page it was on. This was because for much of the development process, this function was just directing users to their favourites page. While the function is definitely more user friendly in this state, there is one minor inconvenience caused by it when regarding the browse page, as the pagination included to only show 10 festivals at a time is lost when refreshing the page.
 
 This bug was inconvenient but by no means site breaking, so I elected to leave it unfixed due to the time constraints imposed by submission. As with the other minor issues, its resolution will be prioritised on V2. I already feel that my solution will be to find a way to have the page not refresh at all when calling the function.
-
-*Squashed footer on android mobile (chrome) when creating an account or logging in*
-
-It was brought to my attention that the appearance of a mobile keyboard on Chrome when using certain Android devices was pushing the footer up and squashing the content in a visually displeasing way. I believe this is due to my use of minimum *vh* as a property, with the keyboard decreasing the viewport height when it appeared. A minor issue for sure, but certainly something that would like to sort out on version 2.
 
 ## Manual User Story Testing
 
