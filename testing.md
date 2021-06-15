@@ -8,11 +8,11 @@ Testing of this project was carried out through the following methods:
 * User testing of the deployed site when close to completion.
 * Manual user story testing during and after the writing of the code.
 * Automated testing of the HTML and CSS files using the WC3 validators.
-* Automated testing of the JavaScript and Python files using JSHINT and PEP8 using PEP8 Online.
+* Automated testing of the JavaScript and Python files using JSHINT and PEP8 Online respectively.
 * Automated testing of the site's accessibility using the WAVE accessibility tool.
 * Automated testing of the site's general performance through Google's lighthouse feature.
 
-As per my previous project, I attempted to stick to agile principles by using Trello to make sure that the project was first built to its most simple iteration - breaking large sections of the code to be written into sprints, with those sprints further broken up into individual tasks to be completed. Each completed task would then usually be assigned to its own git commit so that I had the option to revert to working versions of the code if my game was to break for an unknown reason.
+As per my previous project, I attempted to stick to agile principles by using Trello to make sure that the project was first built to its most simple iteration - breaking large sections of the code to be written into sprints, with those sprints further broken up into individual tasks to be completed. Each completed task would then usually be assigned to its own git commit so that I had the option to revert to working versions of the code if my site was to break for an unknown reason.
 
 ## Table of Contents
 
@@ -58,7 +58,7 @@ As this project depended almost entirely on the ability of external users being 
 4. Add a few reviews to different festival hubs, edit one of them, and delete one.
 5. Provide me with general feedback and let me know what device and browser was being used.
 
-This very defined structure for user testing helped me focus my testers to test the integral parts of the site and answer the following questions:
+This defined structure for user testing helped me focus my testers to test the integral parts of the site and answer the following questions:
 
 1. Is my site intuitive enough to use very quickly?
 2. Do all of my backend functions work outside of my own development environment and tools?
@@ -83,9 +83,9 @@ My browse page was throwing an exception error without me having the faintest id
 
 *Updating festivals*
 
-Initially when updating updating anything to do with the festival hubs, all of the reviews were being removed. This was because my edit functioning was inputting an empty array (the same as when adding a festival to begin with) instead of just leaving the reviews as they were. **This was fixed easily by removing the empty array from the edit_festival function.**
+Initially when updating anything to do with the festival hubs, all of the reviews were being removed. This was because my edit function was inputting an empty array (the same as when adding a festival to begin with) instead of just leaving the reviews as they were. **This was fixed easily by removing the empty array from the edit_festival function.**
 
-Later on, I also found issues when updating the name of the festival as it wasn't updating the URL to be that of the new festival. Initially my fix was to simply have the edit function not change the URL, but eventually I worked out that a more satisfactory fix was to **create a new_url variable at the beginning of the function, which would then be inputted to MongoDB and then used to reload the page.**
+Later on, I also found issues when updating the name of the festival as the updating of the URL was causing a 500 error. Initially my fix was to simply have the edit function not change the URL, but eventually I worked out that a more satisfactory fix was to **create a new_url variable at the beginning of the function, which would then be inputted to MongoDB and then used to reload the page.**
 
 *JS function to assign certain pages as 'true' not working at various points*
 
@@ -97,11 +97,11 @@ It was clear from testing that there were occasionally quite noticeable loading 
 
 #### Outstanding bugs
 
-There were a few bugs and general UX comments that time constraints did not allow me to work on before submission. However, I am very much keen to return to this project later with a version 2 that will put all of these as top priority and will be fixed before any further features are worked on.
+There were a few bugs and general UX comments that time constraints did not allow me to work on before submission. However, I am very much keen to return to this project later with a version 2 that will put all of these as top priority and will be fixed before any new features are worked on.
 
 *Form dropdown information not being fetched when editing reviews or festivals on Safari*
 
-This bug came out of user testing, as several of my testers are IOS users while I was primarily using Chrome and Android during development. Editing reviews, the form of which is composed mostly of dropdown menus, was not remembering the information for any dropdown information. It turns out this was because of a fix made after the HTML validator flagged an error regarding my lack of use of a default *option* element on these forms. Once I included this default option, Safari automatically would just choose this default option instead of selecting the previously submitted information. Research online showed me this was a common issue with the way Safari is set up, and the issue was not appearing on Chrome and Safari.
+This bug came out of user testing, as several of my testers are IOS users while I was primarily using Chrome and Android during development. Editing reviews, the form of which is composed mostly of dropdown menus, was not remembering the information for any dropdown information. It turns out this was because of a fix made after the HTML validator flagged an error regarding my lack of use of a default *option* element on these forms. Once I included this default option, Safari automatically would just choose this default option instead of selecting the previously submitted information - even when hiding the option using CSS. Research online showed me this was a common issue with the way Safari is set up, and the issue was not appearing on Chrome and Safari.
 
 To ensure full cross browser compatibility on V2, this will be a high priority task in the future.
 
@@ -113,7 +113,7 @@ Due to time constraints, and the relative lack of importance of this issue to th
 
 *Favouriting festivals on browse.html refreshes the page and loses pagination*
 
-Late in development, I amended my favouriting function (called when clicking on the heart icon on various pages) to refresh the page it was on. This was because for much of the development process, this function was just direction users to their favourites page. While the function is definitely more user friendly in this stage, there is one minor inconvenience caused by it when regarding the browse page, as the pagination included to only show 10 festivals at a time is lost when refreshing the page.
+Late in development, I amended my favouriting function (called when clicking on the heart icon on various pages) to refresh the page it was on. This was because for much of the development process, this function was just directing users to their favourites page. While the function is definitely more user friendly in this state, there is one minor inconvenience caused by it when regarding the browse page, as the pagination included to only show 10 festivals at a time is lost when refreshing the page.
 
 This bug was inconvenient but by no means site breaking, so I elected to leave it unfixed due to the time constraints imposed by submission. As with the other minor issues, its resolution will be prioritised on V2.
 
@@ -130,53 +130,91 @@ Testing my own user stories was carried out using the following criteria:
 
 ### ***1. I want to be able to create a profile quickly and intuitively so that I can get started using the website.***
 
-* The moment you arrive on the homepage, a *call to action* button appears in red to draw the user's attention straight away which says 'create account'. **1 click**
+* The moment you arrive on the homepage, a *call to action* button appears in red to draw the user's attention straight away which says 'create account'. **2 clicks.**
+
+![Create account](static/images/create-account.png)
+
+* If the user misses this *call to action* and instead navigates to the 'sign in' button on the main navbar, they are directed to the sign in page, which also has a handy link to the registration page for those who do not have an account yet. **3 clicks.**
+
+![Login](static/images/login.png)
+
 
 ### ***2. As a returning user with a profile, I want to be able to sign in quickly so that I can resume my previous activities and have the option to sign out at the end of a session once I am finished.***
 
-* In terms of returning to the site, if the cache has not been cleared and the user never signed out to begin with then the user remains signed in automatically. Navigation to the homepage will remove the 'create account' button entirely. If the user is not signed in, then simply navigating to the 'sign in' page via the link in the fixed navigation bar will direct them to the sign in form. **0 clicks if cache uncleared and never signed out, 1 click if returning having signed out already.**
+* In terms of returning to the site, if the cache has not been cleared and the user never signed out to begin with then the user remains signed in automatically. Navigation to the homepage will remove the 'create account' button entirely. If the user is not signed in, then simply navigating to the 'sign in' page via the link in the fixed navigation bar will direct them to the sign in form. **0 clicks if cache uncleared and never signed out, 2 clicks if returning for a new session.**
+
+![Navbar signed out](static/images/nav-signed-out.png)
 
 * Once a user is signed in, the navigation bar updates from 'Sign In' to 'Sign Out', and therefore the user is able to sign out from any page they are browsing ont he site. **1 click.**
+
+![Navbar](static/images/navbar.png)
 
 ### ***3. I want to be able to browse various festival pages so that I can find relevant information/links/reviews and help inform my decision on which festivals to attend.***
 
 * Regardless of whether the user has an account or is a casual browser, the ability to navigate to the all festivals page is available to anyone who ends up on the site. The browse all page is presented via a *call to action* button on the homepage, and is present from the navigation bar at all stages on the user's journey. Once on the browsing page, scrolling and pagination allows the user to browse as little or as many of the festival hubs as possible. **2 clicks when navigating from anywhere on the site to a festival hub, 3-4 if the user decides to 'view more' several times.**
 
+![Browse button](static/images/hover.png)
+![Browse page](static/images/browse.png)
+
 ### ***4. I would like to be able to sort festivals by various relevant attributes such as alphabetical, or pupularity.***
 
 * When on the browse page, the user can click on the sort icons next to the name or the rating to sort as required. **2 clicks, 1 to get to the browse page from anywhere on the site, 1 to sort.**
+
+![name sort](static/images/name-sort.png)
+![rating sort](static/images/rating-sort.png)
 
 ### ***5. I want to search for a specific festival page (perhaps because I am already going to be attending) so that I can consume the same information as above.
 
 The search bar and icon appear in the middle of the navigation bar no matter where you are on the site, and can be used to direct the user to a filtered version of the browse page that shows their results - or no results if the festival doesn't exist on the site. **1 click.**
 
+![search bar](static/images/mobile-nav.png)
+
 ### ***6. As a user with a profile, I would like to ‘favourite’ certain festival pages so that I can view all of my favourite festivals in a convenient location.***
 
 * Creating an account or logging in directs the user to the favourites page, to highlight in no uncertain terms that this is an accessible feature for those who are logged in.
 
+![Favourites](static/images/no-favourites.png)
+
 * The buttons to favourite are found in 3 different places on the site, on browse.html where it appears for all users (calling the add_favourites function if the user is logged in or redirect to the registration page if not), on the festival hubs themselves by the *h1* for users who are logged in, and finally on the user's favourites page where they can unfavourite a festival if they wish. **2 clicks from the homepage for logged in users.**
+
+![Browse heart](static/images/heart-browse.png)
+![Hub h1](static/images/average-rating.png)
+![Favourites heart](static/images/favourites-heart.png)
 
 ### ***7. As a user with a profile, I would like to be able to add reviews of the festivals I have been to before so that I can help potential future festival goers make their mind up about where to go.***
 
 * Adding a review is a key reason for the site's existance, and is available as a feature for anyone who is logged into an account. The button for adding a review is found in the reviews section of each festival hub. If the user is logged in, it takes them to the form that needs to be filled in to add a review, if not it redirects to the registration page.
 
+![Add reviews](static/images/add-reviews-section.png)
+
 * While the reviews form is mostly made up of dropdown menus, there is a text box to allow free form opinion writing where a user can give personal thoughts on the festival in question.
+
+![Review text](static/images/review-text.png)
 
 ### ***8. As a user who has uploaded a festival review already, I would like to be able to edit that review so that I can add any retrospective comments or change certain of my scores if needs be.***
 
 * All users who are logged in can edit their reviews if they require: by navigating to the review in question, clicking 'Read More', and clicking the edit icon. Once clicked, the user finds themselves back at the same form as before, where they can edit anything they like. **3 clicks from the homepage**
 
+![Edit reviews](static/images/edit-review.png)
+
 ### ***9. As a user who has uploaded a review, I want to have the option to delete my review so that I can remove my presence on the site if I want to.***
 
 * As per user story 8, the delete icon for a review can be located by the review's author right next to the edit button. **2 clicks from the festival hub.**
+
+![Collapsed review](static/images/edit-delete-review.png)
+![Delete review](static/images/delete-review.png)
 
 ### ***11. As a user who can’t find a particular festival on the site, I would like to have a means of requesting that the festival be added.***
 
 * At the bottom of the browsing page, there is a whole *call to action* row with a button directing users to where they can get in touch to ask for a new festival to be added. **2 clicks.**
 
+![Contact us](static/images/contact-us.png)
+
 ### ***12. As a user who might not understand intuitively how to use the site, I would like some FAQs that might explain the site’s purpose and intended use so that I can learn how to use the site.***
 
 * At all stages of the users journey, the FAQ page can be accessed via the fixed navbar. **1 click.**
+
+![Faq screenshot](static/images/faq-screenshot.png)
 
 ## Manual Stakeholder Testing
 
@@ -188,7 +226,15 @@ The search bar and icon appear in the middle of the navigation bar no matter whe
 
 * As always I am well aware the the meaning of positive emotional responses can be subective, however I am confident that through the extensive testing already highlighted that the primary functions needed for this site to be of any use to those who might need it work exactly as I had intended.
 
-### ***3. As a bonus goal, I would like to grow the user base of the site so that the content can improve as more data is added by more and more users.***
+### ***3. As the administrator, I would like to be able to add, edit, and delete festival hubs that users can interact with by browsing or adding reviews to.***
+
+* As highlighted in the features and defensive measures section of the [README document](README.md), admin access is available for myself only to add, edit and delete festivals from the site. I can do this by ensuring I'm signed in with the administrator login details, navigating to the browse page, and clicking the 'Add' button. As of the time of writing, there are 27 unique festival hubs for users to interact with and add reviews to, and I intend on inputting more as missing ones are brought to my attention. **3 clicks from homepage.**
+
+![Admin browse](static/images/admin-browse.png)
+![Add festival](static/images/add-festival.png)
+![Hub hero](static/images/hub-hero-section.png)
+
+### ***4. As a bonus goal, I would like to grow the user base of the site so that the content can improve as more data is added by more and more users.***
 
 * *N/A, this user story is more applicable to version 2 of the site when I can make active efforts to grow a user base.*
 
