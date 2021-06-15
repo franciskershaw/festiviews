@@ -1193,6 +1193,12 @@ section.landing-container.error {
 	}
 }
 
+@media (min-height: 350px) and (max-height:604px) {
+	footer {
+		display: none;
+	}
+}
+
 /* Very small screen sizes */
 @media screen and (max-width: 315px) {
 	.add-review-btn {
