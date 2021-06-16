@@ -443,7 +443,9 @@ To help combat and users seeking to force their way onto parts of the site, defe
 
 * Adding, editing and deleting of user reviews: to add a review, the function simply checks that the user is logged in first before rendering the template that contains the form and redirects to the login page if not. To edit or delete a review, the functions add the extra condition that the user must be the same as the user who added the review in order to render the template or delete - if not a redirect to the homepage takes place, alongside a flash message explaining that you can only edit or delete your own review.
 
-*Custom 404, 403 and 500 pages were created as well to make sure that any unforeseen issues that users come across are appropriately handled, allowing a safe redirect back to the home page*
+*Custom 404 and 500 pages were created as well to make sure that any unforeseen issues that users come across are appropriately handled, allowing a safe redirect back to the home page. Inititally the 500 error page was named as such, but before submission was amended to look like a 404 error as it is more likely the user will recognise that code should a 500 error occur.*
+
+![404 screenshot](static/images/404-screenshot.png)
 
 ### Features left to implement
 
@@ -527,10 +529,10 @@ Deployment was carried out as follows:
 | Key         | Value
 | -----------  | ---------- 
 | IP           | 0.0.0.0
-| MONGO_DBNAME | *your_mongodb_name*
+| MONGO_DBNAME | *my_mongodb_name*
 | MONGO_URI	   | mongodb+srv://root:<*password*>@cluster0.sgi7e.mongodb.net/<*database_name*>?retryWrites=true&w=majority
 | PORT         | 5000
-| SECRET_KEY   | *your_secret_key*
+| SECRET_KEY   | *my_secret_key*
 
 6. Return to the 'Deploy' tab and select 'Enable Automatic Deploys', ensuring that the master branch is selected.
 7. Click 'Deploy Branch' and wait for Heroku to build the app. You can monitor the progress in the 'Latest Activity' of the overview.

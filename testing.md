@@ -173,7 +173,7 @@ Testing my own user stories was carried out using the following criteria:
 ![name sort](static/images/name-sort.png)
 ![rating sort](static/images/rating-sort.png)
 
-### ***5. I want to search for a specific festival page (perhaps because I am already going to be attending) so that I can consume the same information as above.
+### ***5. I want to search for a specific festival page (perhaps because I am already going to be attending) so that I can consume the same information as above.***
 
 The search bar and icon appear in the middle of the navigation bar no matter where you are on the site, and can be used to direct the user to a filtered version of the browse page that shows their results - or no results if the festival doesn't exist on the site. **1 click.**
 
